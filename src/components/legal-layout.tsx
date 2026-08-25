@@ -57,7 +57,7 @@ export function LegalLayout({
           </p>
         </div>
 
-        <div className="flex flex-col lg:flex-row gap-12 lg:gap-16 lg:items-start relative">
+        <div className="flex flex-col lg:flex-row gap-12 lg:gap-16 relative">
           
           {/* SIDEBAR NAVIGATION */}
           <aside className="lg:w-70 shrink-0">
@@ -103,17 +103,16 @@ export function LegalLayout({
           </aside>
 
           {/* LEGAL CONTENT */}
-          <article className="lg:w-[calc(100%-280px-64px)] prose prose-slate max-w-none 
-            prose-headings:text-[var(--traveco-navy)] prose-headings:font-medium prose-headings:tracking-tight
-            prose-h2:text-[24px] prose-h2:md:text-[28px] prose-h2:mt-16 prose-h2:mb-6 prose-h2:pb-4 prose-h2:border-b prose-h2:border-[var(--traveco-navy)]/5
-            prose-h3:text-[18px] prose-h3:md:text-[20px] prose-h3:mt-8 prose-h3:mb-4
-            prose-p:text-[var(--traveco-navy)]/80 prose-p:text-[15px] prose-p:md:text-[16px] prose-p:leading-[1.75] prose-p:mb-6
-            prose-li:text-[var(--traveco-navy)]/80 prose-li:text-[15px] prose-li:md:text-[16px] prose-li:leading-[1.75]
-            prose-ul:my-6 prose-ol:my-6
-            prose-strong:text-[var(--traveco-navy)] prose-strong:font-semibold
-            prose-a:text-[var(--traveco-gold)] prose-a:font-medium prose-a:no-underline hover:prose-a:underline
-            marker:text-(--traveco-navy)/40
-            [&>section]:scroll-mt-32"
+          <article className="lg:w-[calc(100%-280px-64px)] w-full max-w-none
+            [&_h2]:text-traveco-navy [&_h2]:font-bold [&_h2]:text-[24px] md:[&_h2]:text-[28px] [&_h2]:mt-16 [&_h2]:mb-6 [&_h2]:pb-4 [&_h2]:border-b [&_h2]:border-traveco-navy/5
+            [&_h3]:text-traveco-navy [&_h3]:font-medium [&_h3]:text-[18px] md:[&_h3]:text-[20px] [&_h3]:mt-8 [&_h3]:mb-4
+            [&_p]:text-traveco-navy/80 [&_p]:text-[15px] md:[&_p]:text-[16px] [&_p]:leading-[1.75] [&_p]:mb-6
+            [&_li]:text-traveco-navy/80 [&_li]:text-[15px] md:[&_li]:text-[16px] [&_li]:leading-[1.75] [&_li]:mb-1.5
+            [&_ul]:my-6 [&_ul]:list-disc [&_ul]:pl-6
+            [&_ol]:my-6 [&_ol]:list-decimal [&_ol]:pl-6
+            [&_strong]:text-traveco-navy [&_strong]:font-bold
+            [&_a]:text-traveco-gold [&_a]:font-medium [&_a]:underline hover:[&_a]:no-underline
+            [&_section]:scroll-mt-32"
           >
             {children}
           </article>
