@@ -4,7 +4,12 @@ import { MessageCircle } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 import { MotionReveal } from "@/components/ui/motion-reveal";
-import { buildWhatsAppLink, finalCtaContent } from "@/data/visa-mate";
+const buildWhatsAppLink = () => "https://wa.me/918850201321";
+const finalCtaContent = {
+  heading: "Ready to simplify your visa application?",
+  primaryButton: "Chat on WhatsApp",
+  secondaryButton: "Back to Top",
+};
 import { fadeUp } from "@/lib/motion-variants";
 
 export function FinalCtaSection() {
