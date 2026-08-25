@@ -44,10 +44,35 @@ export function LocomotiveScrollProvider({ children }: { children: React.ReactNo
     };
   }, []);
 
-  // Handle route changes
+  // Handle route changes and CSS Reveals
   useEffect(() => {
     // Reset scroll to top on route change
     window.scrollTo(0, 0);
+
+    // CSS Reveal Observer
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-inview");
+            observer.unobserve(entry.target); // Reveal only once
+          }
+        });
+      },
+      { threshold: 0, rootMargin: "0px 0px -10% 0px" }
+    );
+
+    // Wait a tick for DOM to update after route change
+    const timeout = setTimeout(() => {
+      document.querySelectorAll("[data-scroll]").forEach((el) => {
+        observer.observe(el);
+      });
+    }, 100);
+
+    return () => {
+      clearTimeout(timeout);
+      observer.disconnect();
+    };
   }, [pathname]);
 
   return <>{children}</>;
