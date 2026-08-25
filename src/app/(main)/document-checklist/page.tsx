@@ -80,7 +80,7 @@ export default function DocumentChecklistPage() {
           <p className="text-accent font-bold tracking-widest text-[11px] uppercase mb-4">
             Global Visa Checklist
           </p>
-          <h1 className="text-[clamp(36px,5vw,60px)] text-white tracking-tight font-medium mb-10 leading-[1.06] max-w-3xl">
+          <h1 className="text-[clamp(36px,5vw,60px)] text-white tracking-tight font-medium mb-10 leading-[1.06] max-w-3xl" data-scroll="fade-up">
             Find the visa checklist
             <br className="hidden md:block" /> for your destination.
           </h1>

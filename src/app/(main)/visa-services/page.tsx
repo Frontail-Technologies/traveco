@@ -71,10 +71,10 @@ export default function VisaServicesHub() {
               <p className="text-(--traveco-navy,#0B1F3A)/50 text-[11px] font-bold tracking-widest uppercase mb-4">
                 VISA SERVICES
               </p>
-              <h1 className="text-[40px] md:text-[50px] lg:text-[60px] font-medium text-traveco-navy leading-[1.05] tracking-tight mb-6">
+              <h1 className="text-[40px] md:text-[50px] lg:text-[60px] font-medium text-traveco-navy leading-[1.05] tracking-tight mb-6" data-scroll="fade-up">
                 Visa assistance for every kind of journey.
               </h1>
-              <p className="text-(--traveco-navy)/70 text-[16px] md:text-[18px] leading-[1.7] max-w-xl">
+              <p className="text-(--traveco-navy)/70 text-[16px] md:text-[18px] leading-[1.7] max-w-xl" data-scroll="fade-up">
                 TRAVECO provides documentation and application assistance across common tourist, business, student, work, transit and Schengen visa requirements.
               </p>
             </div>

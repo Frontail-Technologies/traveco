@@ -26,10 +26,10 @@ export default function ContactPage() {
           <p className="text-(--traveco-gold,#C5A253) text-[11px] font-bold tracking-widest uppercase mb-4">
             GET IN TOUCH
           </p>
-          <h1 className="text-[40px] md:text-[50px] font-medium text-traveco-navy leading-[1.1] tracking-tight mb-6">
+          <h1 className="text-[40px] md:text-[50px] font-medium text-traveco-navy leading-[1.1] tracking-tight mb-6" data-scroll="fade-up">
             Let's plan your next journey.
           </h1>
-          <p className="text-(--traveco-navy)/70 text-[16px] md:text-[18px] leading-[1.7]">
+          <p className="text-(--traveco-navy)/70 text-[16px] md:text-[18px] leading-[1.7]" data-scroll="fade-up">
             Whether you have a quick question or need comprehensive visa assistance, our team is ready to help you navigate the process.
           </p>
         </div>
@@ -42,7 +42,7 @@ export default function ContactPage() {
             
             {/* LEFT: ENQUIRY FORM */}
             <div className="lg:col-span-7 bg-white rounded-[20px] p-8 md:p-12 shadow-sm border border-(--traveco-navy)/5">
-              <h2 className="text-[24px] font-bold text-traveco-navy mb-8">
+              <h2 className="text-[24px] font-bold text-traveco-navy mb-8" data-scroll="fade-up">
                 Send us a message
               </h2>
               
