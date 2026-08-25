@@ -44,7 +44,7 @@ export function PreFooterCTA({ countryName, eyebrow, title, description }: PreFo
           {/* Right Actions */}
           <div className="lg:w-[35%] flex flex-col items-start lg:items-end gap-5 relative z-10 w-full">
             <Link 
-              href="/#contact" 
+              href="/contact" 
               className="w-full sm:w-auto inline-flex justify-center items-center gap-2 bg-(--traveco-gold,#C5A253) text-[#0B1F3A] font-bold px-8 h-13 rounded-control hover:bg-[#D4B365] transition-colors"
             >
               Get Visa Assistance

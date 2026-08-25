@@ -75,7 +75,7 @@ export function HeroSection() {
           className="mt-10 flex flex-col justify-center gap-4 sm:flex-row sm:items-center"
         >
           <Button asChild variant="secondary" className="h-12 w-full sm:w-auto rounded-control px-8 text-[15px]">
-            <Link href="/#contact">
+            <Link href="/contact">
               Get Visa Assistance
             </Link>
           </Button>

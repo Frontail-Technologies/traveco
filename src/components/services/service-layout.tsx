@@ -159,7 +159,7 @@ export function ServiceLayout({
                     ))}
                   </ul>
                   <div className="mt-8 pt-6 border-t border-(--traveco-navy)/10">
-                    <Link href="/#contact" className="flex items-center justify-center w-full h-12 bg-traveco-navy text-white rounded-[10px] font-bold text-[14px] hover:bg-(--traveco-navy)/90 transition-colors">
+                    <Link href="/contact" className="flex items-center justify-center w-full h-12 bg-traveco-navy text-white rounded-[10px] font-bold text-[14px] hover:bg-(--traveco-navy)/90 transition-colors">
                       Get Assistance
                     </Link>
                   </div>

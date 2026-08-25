@@ -13,42 +13,42 @@ const visaServices = [
     title: "Tourist & Visitor Visa",
     description:
       "Personalized documentation and application assistance for leisure and family travel.",
-    href: "/#visa-services",
+    href: "/visa-services/tourist-visitor",
   },
   {
     id: "02",
     title: "Business Visa",
     description:
       "Support for business travellers attending meetings, conferences and commercial activities.",
-    href: "/#visa-services",
+    href: "/visa-services/business",
   },
   {
     id: "03",
     title: "Student Visa",
     description:
       "Documentation guidance for students pursuing education overseas.",
-    href: "/#visa-services",
+    href: "/visa-services/student",
   },
   {
     id: "04",
     title: "Work & Employment Visa",
     description:
       "Assistance with documentation and visa application requirements for overseas employment.",
-    href: "/#visa-services",
+    href: "/visa-services/work-employment",
   },
   {
     id: "05",
     title: "Transit Visa",
     description:
       "Guidance for travellers transiting through countries that require transit authorization.",
-    href: "/#visa-services",
+    href: "/visa-services/transit",
   },
   {
     id: "06",
     title: "Schengen Visa",
     description:
       "Application assistance for travel across Schengen countries.",
-    href: "/#visa-services",
+    href: "/visa-services/schengen",
   },
 ];
 
@@ -90,7 +90,7 @@ export function VisaServicesSection() {
             
             <motion.div variants={fadeUp} className="shrink-0 lg:pb-2">
               <Link
-                href="/#visa-services"
+                href="/visa-services"
                 className="group inline-flex items-center gap-2 text-[15px] font-semibold text-primary transition-colors hover:text-accent"
               >
                 Explore All Visa Services

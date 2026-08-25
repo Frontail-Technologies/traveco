@@ -154,7 +154,7 @@ export function SiteNavbar() {
 
         <motion.div variants={fadeUp} className="hidden lg:flex">
           <Button asChild variant="default" className="h-10 rounded-control px-5 text-[14.5px]">
-            <Link href="/#contact">
+            <Link href="/contact">
               Get Visa Assistance
             </Link>
           </Button>
@@ -245,7 +245,7 @@ export function SiteNavbar() {
             onClick={() => setOpen(false)}
             className="mt-6 h-11 w-full rounded-control text-[15px]"
           >
-            <Link href="/#contact">
+            <Link href="/contact">
               Get Visa Assistance
             </Link>
           </Button>

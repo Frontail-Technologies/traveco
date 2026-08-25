@@ -92,7 +92,7 @@ export function DocumentAssistanceSection() {
 
               <div className="mt-8">
                 <Link
-                  href="/#document-checklist"
+                  href="/document-checklist"
                   className="group inline-flex items-center gap-2 text-[15px] font-semibold text-primary transition-colors hover:text-gold-cta"
                 >
                   View Document Checklist
