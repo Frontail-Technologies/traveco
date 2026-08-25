@@ -90,20 +90,6 @@ export function HeroSection() {
           </Button>
         </motion.div>
 
-        <motion.div
-          variants={fadeUp}
-          className="mt-12 flex flex-wrap items-center justify-center gap-x-3 gap-y-2 text-[13px] font-medium text-[rgba(255,255,255,0.88)] sm:text-[14px]"
-        >
-          <span>Tourist Visa</span>
-          <span className="text-gold-on-dark/70">•</span>
-          <span>Business Visa</span>
-          <span className="text-gold-on-dark/70">•</span>
-          <span>Student Visa</span>
-          <span className="text-gold-on-dark/70">•</span>
-          <span>Work Visa</span>
-          <span className="text-gold-on-dark/70">•</span>
-          <span>Schengen</span>
-        </motion.div>
       </motion.div>
     </section>
   );
