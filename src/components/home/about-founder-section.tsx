@@ -60,20 +60,6 @@ export function AboutFounderSection() {
               className="object-cover object-[center_20%] transition-transform duration-700 hover:scale-[1.02]"
             />
 
-            {/* Subtle Wall-Mounted Signage (CSS overlaid to look physical) */}
-            <div
-              className="absolute left-6 top-8 sm:left-10 sm:top-12 lg:left-12 lg:top-16 opacity-[0.55] mix-blend-multiply pointer-events-none"
-              style={{ transform: 'perspective(500px) rotateY(5deg) rotateZ(-1deg)' }}
-            >
-              <Image
-                src="/images/logo.png"
-                alt="TRAVECO Signage"
-                width={140}
-                height={50}
-                className="object-contain grayscale contrast-125"
-                style={{ height: 'auto', width: 'auto' }}
-              />
-            </div>
 
             {/* Subtle Brand Decoration - Gold Flight Curve over Image */}
             <div className="absolute -bottom-6 -left-6 pointer-events-none opacity-40">
