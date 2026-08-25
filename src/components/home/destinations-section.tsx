@@ -83,7 +83,7 @@ export function DestinationsSection() {
                 variants={fadeUp}
                 className="mt-4 text-[38px] font-bold leading-[1.1] tracking-tight text-primary sm:text-[44px] lg:text-[50px] lg:leading-[1.05]"
               >
-                Where will your journey take you?
+                Where will your <span className="text-accent">journey</span> take you?
               </motion.h2>
               <motion.p
                 variants={fadeUp}

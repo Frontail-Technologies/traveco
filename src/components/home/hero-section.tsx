@@ -60,7 +60,7 @@ export function HeroSection() {
           variants={fadeUp}
           className="mx-auto text-[clamp(36px,6vw,62px)] font-[750] leading-[1.05] tracking-[-0.035em] text-white"
         >
-          Travel Beyond Borders.<br className="hidden sm:block" /> We Make Visas Simpler.
+          Travel Beyond Borders.<br className="hidden sm:block" /> We Make <span className="text-gold-cta">Visas Simpler.</span>
         </motion.h1>
 
         <motion.p

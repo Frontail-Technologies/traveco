@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button";
 import { MotionReveal } from "@/components/ui/motion-reveal";
 const buildWhatsAppLink = () => "https://wa.me/918850201321";
 const finalCtaContent = {
-  heading: "Ready to simplify your visa application?",
+  heading: <>Ready to simplify your <span className="text-gold-cta">visa application</span>?</>,
   primaryButton: "Chat on WhatsApp",
   secondaryButton: "Back to Top",
 };

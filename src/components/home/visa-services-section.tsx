@@ -76,7 +76,7 @@ export function VisaServicesSection() {
                 variants={fadeUp}
                 className="mt-4 text-[38px] font-bold leading-[1.1] tracking-tight text-primary sm:text-[44px] lg:text-[48px] lg:leading-[1.05]"
               >
-                Visa support for every kind of journey.
+                Visa support for <span className="text-accent">every kind of journey.</span>
               </motion.h2>
               <motion.p
                 variants={fadeUp}
