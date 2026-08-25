@@ -10,7 +10,7 @@ import { fadeUp, lineDraw, viewportOnce } from "@/lib/motion-variants";
 
 export function PricingStatementSection() {
   return (
-    <section className="relative overflow-hidden bg-white py-24 sm:py-28 lg:py-32">
+    <section className="relative overflow-hidden bg-white py-16 sm:py-28 lg:py-32">
       <AmbientBackground variant="light" />
 
       <div className="relative mx-auto max-w-340 px-4 text-center sm:px-6 lg:px-8">

@@ -8,7 +8,8 @@ import { motion } from "framer-motion";
 import { SuccessDialog } from "@/components/success-dialog";
 import { fadeUp, staggerContainer } from "@/lib/motion-variants";
 import { cn } from "@/lib/utils";
-import { contactEmail, phoneDisplayNumber } from "@/data/visa-mate";
+const contactEmail = "info@traveco.in";
+const phoneDisplayNumber = "88502 01321";
 import {
   Select,
   SelectContent,
@@ -18,10 +19,10 @@ import {
 } from "@/components/ui/select";
 
 const fieldClasses =
-  "h-[52px] w-full rounded-[12px] border border-primary/10 bg-[#FAF9F6] px-4 font-medium text-[15px] text-primary outline-none transition-all placeholder:text-primary/35 focus:border-gold-cta focus:ring-1 focus:ring-gold-cta/50 [&::-webkit-calendar-picker-indicator]:opacity-40 [&::-webkit-calendar-picker-indicator]:hover:opacity-80 [&::-webkit-calendar-picker-indicator]:cursor-pointer";
+  "h-[52px] w-full rounded-control border border-primary/10 bg-[#FAF9F6] px-4 font-medium text-[16px] text-primary outline-none transition-all placeholder:text-primary/35 focus-visible:border-transparent focus-visible:ring-2 focus-visible:ring-[var(--traveco-gold)] focus-visible:ring-offset-2 [&::-webkit-calendar-picker-indicator]:opacity-40 [&::-webkit-calendar-picker-indicator]:hover:opacity-80 [&::-webkit-calendar-picker-indicator]:cursor-pointer";
 
 const textareaClasses =
-  "min-h-[120px] w-full resize-none rounded-[12px] border border-primary/10 bg-[#FAF9F6] px-4 py-3.5 font-medium text-[15px] text-primary outline-none transition-all placeholder:text-primary/35 focus:border-gold-cta focus:ring-1 focus:ring-gold-cta/50";
+  "min-h-[120px] w-full resize-none rounded-control border border-primary/10 bg-[#FAF9F6] px-4 py-3.5 font-medium text-[16px] text-primary outline-none transition-all placeholder:text-primary/35 focus-visible:border-transparent focus-visible:ring-2 focus-visible:ring-[var(--traveco-gold)] focus-visible:ring-offset-2";
 
 const labelClasses = "mb-1.5 block text-[13px] font-[650] text-primary";
 
@@ -50,7 +51,7 @@ export function EnquirySection() {
   }
 
   return (
-    <section id="contact" className="relative bg-[#F8F6F0] py-25 lg:py-30 z-0">
+    <section id="contact" className="relative bg-[#F8F6F0] py-16 lg:py-30 z-0">
       <div className="mx-auto w-full max-w-340 px-4 sm:px-6 lg:px-8">
         
         <motion.div
@@ -58,7 +59,7 @@ export function EnquirySection() {
           whileInView="visible"
           viewport={{ once: true, margin: "-5%" }}
           variants={staggerContainer}
-          className="flex flex-col lg:flex-row overflow-hidden rounded-[24px] bg-white shadow-sm ring-1 ring-primary/5"
+          className="flex flex-col lg:flex-row overflow-hidden rounded-panel bg-white shadow-sm ring-1 ring-primary/5"
         >
           {/* Left Panel (Deep Navy with Image Background - 42%) */}
           <div className="relative flex w-full flex-col overflow-hidden p-8 sm:p-12 lg:w-[42%] lg:p-14">
@@ -216,14 +217,14 @@ export function EnquirySection() {
                     <SelectTrigger id="visaType" className={cn(fieldClasses, "shadow-none data-[state=open]:border-gold-cta data-[state=open]:ring-1 data-[state=open]:ring-gold-cta/50")}>
                       <SelectValue placeholder="Select a category" />
                     </SelectTrigger>
-                    <SelectContent className="rounded-[12px] border-primary/10 bg-white font-medium text-primary shadow-lg">
-                      <SelectItem value="Tourist / Visitor" className="cursor-pointer rounded-[8px] py-2.5 hover:bg-primary/5 focus:bg-primary/5">Tourist / Visitor</SelectItem>
-                      <SelectItem value="Business" className="cursor-pointer rounded-[8px] py-2.5 hover:bg-primary/5 focus:bg-primary/5">Business</SelectItem>
-                      <SelectItem value="Student" className="cursor-pointer rounded-[8px] py-2.5 hover:bg-primary/5 focus:bg-primary/5">Student</SelectItem>
-                      <SelectItem value="Work / Employment" className="cursor-pointer rounded-[8px] py-2.5 hover:bg-primary/5 focus:bg-primary/5">Work / Employment</SelectItem>
-                      <SelectItem value="Transit" className="cursor-pointer rounded-[8px] py-2.5 hover:bg-primary/5 focus:bg-primary/5">Transit</SelectItem>
-                      <SelectItem value="Schengen" className="cursor-pointer rounded-[8px] py-2.5 hover:bg-primary/5 focus:bg-primary/5">Schengen</SelectItem>
-                      <SelectItem value="Other" className="cursor-pointer rounded-[8px] py-2.5 hover:bg-primary/5 focus:bg-primary/5">Other</SelectItem>
+                    <SelectContent className="rounded-control border-primary/10 bg-white font-medium text-primary shadow-lg">
+                      <SelectItem value="Tourist / Visitor" className="cursor-pointer rounded-sm py-2.5 hover:bg-[#FBF7EE] hover:text-primary focus:bg-[#FBF7EE] focus:text-primary">Tourist / Visitor</SelectItem>
+                      <SelectItem value="Business" className="cursor-pointer rounded-sm py-2.5 hover:bg-[#FBF7EE] hover:text-primary focus:bg-[#FBF7EE] focus:text-primary">Business</SelectItem>
+                      <SelectItem value="Student" className="cursor-pointer rounded-sm py-2.5 hover:bg-[#FBF7EE] hover:text-primary focus:bg-[#FBF7EE] focus:text-primary">Student</SelectItem>
+                      <SelectItem value="Work / Employment" className="cursor-pointer rounded-sm py-2.5 hover:bg-[#FBF7EE] hover:text-primary focus:bg-[#FBF7EE] focus:text-primary">Work / Employment</SelectItem>
+                      <SelectItem value="Transit" className="cursor-pointer rounded-sm py-2.5 hover:bg-[#FBF7EE] hover:text-primary focus:bg-[#FBF7EE] focus:text-primary">Transit</SelectItem>
+                      <SelectItem value="Dependent / Family" className="cursor-pointer rounded-sm py-2.5 hover:bg-[#FBF7EE] hover:text-primary focus:bg-[#FBF7EE] focus:text-primary">Dependent / Family</SelectItem>
+                      <SelectItem value="Other" className="cursor-pointer rounded-sm py-2.5 hover:bg-[#FBF7EE] hover:text-primary focus:bg-[#FBF7EE] focus:text-primary">Other</SelectItem>
                     </SelectContent>
                   </Select>
                 </div>
@@ -263,7 +264,7 @@ export function EnquirySection() {
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="group flex h-[52px] w-full items-center justify-center gap-2 rounded-[12px] bg-primary px-8 text-[15px] font-[650] text-white transition-colors hover:bg-primary/90 disabled:opacity-70 sm:w-auto"
+                  className="group flex h-[52px] w-full items-center justify-center gap-2 rounded-control bg-[var(--traveco-navy)] px-8 text-[15px] font-[650] text-white transition-all duration-200 hover:bg-[#122A4A] outline-none focus-visible:ring-2 focus-visible:ring-[var(--traveco-gold)] focus-visible:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none sm:w-auto"
                 >
                   {isSubmitting ? "Submitting..." : "Request Visa Assistance"}
                   {!isSubmitting && <ArrowRight className="size-4 text-gold-cta transition-transform group-hover:translate-x-1" />}

@@ -42,7 +42,7 @@ export function ChecklistSidebar() {
   return (
     <aside className="hidden lg:block w-[220px] shrink-0">
       <div className="sticky top-28">
-        <p className="text-[10px] font-bold tracking-widest text-()/50 uppercase mb-5">
+        <p className="text-[10px] font-bold tracking-widest text-[var(--traveco-navy)]/50 uppercase mb-5">
           On This Page
         </p>
         <nav className="flex flex-col gap-1">
@@ -54,13 +54,13 @@ export function ChecklistSidebar() {
                 href={`#${link.id}`}
                 className={cn(
                   'flex items-center gap-2.5 py-2 px-3 text-[13.5px] font-medium rounded-[6px] transition-colors',
-                  isActive ? 'bg-white text-()' : 'hover:bg-white/60 text-()/60 hover:text-()',
+                  isActive ? 'bg-white text-[var(--traveco-navy)]' : 'hover:bg-white/60 text-[var(--traveco-navy)]/60 hover:text-[var(--traveco-navy)]',
                 )}
               >
                 <span
                   className={cn(
                     'text-[11px] font-bold w-4 shrink-0 transition-colors',
-                    isActive ? 'text-()' : 'text-()/30',
+                    isActive ? 'text-[var(--traveco-navy)]' : 'text-[var(--traveco-navy)]/30',
                   )}
                 >
                   {i + 1}.

@@ -54,7 +54,7 @@ const visaServices = [
 
 export function VisaServicesSection() {
   return (
-    <section className="bg-background relative overflow-hidden py-25 lg:py-30">
+    <section className="bg-background relative overflow-hidden py-16 lg:py-30">
       <div className="mx-auto w-full max-w-340 px-4 sm:px-6 lg:px-8">
         <motion.div
           initial="hidden"
@@ -105,7 +105,7 @@ export function VisaServicesSection() {
             {/* Left — 40% (Premium Image) */}
             <motion.div 
               variants={fadeUp} 
-              className="relative aspect-4/3 w-full shrink-0 overflow-hidden rounded-[20px] lg:aspect-3/4 lg:w-[42%]"
+              className="relative aspect-4/3 w-full shrink-0 overflow-hidden rounded-surface lg:aspect-3/4 lg:w-[42%]"
             >
               <Image
                 src="/images/generated/premium_travel_documents.jpg"

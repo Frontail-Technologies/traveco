@@ -41,7 +41,7 @@ const trustPoints = [
 
 export function WhyChooseSection() {
   return (
-    <section className="relative overflow-hidden bg-[#FDFCFB] py-25 lg:py-30 z-0">
+    <section className="relative overflow-hidden bg-[#FDFCFB] py-16 lg:py-30 z-0">
       
       {/* Faint Global Watermark (Desktop only) */}
       <div className="absolute -bottom-[20%] -right-[10%] hidden h-[800px] w-[800px] pointer-events-none lg:block opacity-[0.025] -z-10">
@@ -107,7 +107,7 @@ export function WhyChooseSection() {
             {/* Main Consultation Image */}
             <motion.div
               variants={fadeUp}
-              className="order-2 relative z-0 h-[400px] w-full overflow-hidden rounded-[20px] lg:order-1 lg:col-span-7 lg:col-start-1 lg:h-[540px]"
+              className="order-2 relative z-0 h-[400px] w-full overflow-hidden rounded-surface lg:order-1 lg:col-span-7 lg:col-start-1 lg:h-[540px]"
             >
               <Image
                 src="/images/generated/consultation.jpg"

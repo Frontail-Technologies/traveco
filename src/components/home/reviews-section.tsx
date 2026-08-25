@@ -19,7 +19,7 @@ function getInitials(name: string) {
 
 export function ReviewsSection() {
   return (
-    <section className="relative overflow-hidden bg-white py-20 sm:py-24 lg:py-32">
+    <section className="relative overflow-hidden bg-white py-16 sm:py-24 lg:py-32">
       <div className="mx-auto max-w-340 px-4 sm:px-6 lg:px-8">
         <div className="max-w-2xl">
           <MotionReveal variants={fadeUp}>

@@ -9,7 +9,7 @@ import { FaqSection } from "@/components/home/faq-section";
 import { EnquirySection } from "@/components/home/enquiry-section";
 import { PreFooterCTA } from "@/components/pre-footer-cta";
 import { JsonLd } from "@/components/json-ld";
-import { faqItems } from "@/data/visa-mate";
+import { faqData } from "@/data/faq";
 
 export default function Home() {
   return (
@@ -18,7 +18,7 @@ export default function Home() {
         data={{
           "@context": "https://schema.org",
           "@type": "FAQPage",
-          mainEntity: faqItems.map((item) => ({
+          mainEntity: faqData.map((item) => ({
             "@type": "Question",
             name: item.question,
             acceptedAnswer: {

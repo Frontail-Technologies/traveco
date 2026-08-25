@@ -1,27 +1,53 @@
 "use client";
 
+import { useState, useEffect } from "react";
 import Link from "next/link";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 
 import { fadeUp, staggerContainer } from "@/lib/motion-variants";
 import { Button } from "@/components/ui/button";
 
+const backgroundImages = [
+  "/images/hero/hero_city_skyline.jpg",
+  "/images/hero/hero_airport_terminal.jpg",
+  "/images/hero/hero_travel_documents.jpg"
+];
+
 export function HeroSection() {
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImageIndex((prev) => (prev + 1) % backgroundImages.length);
+    }, 5000);
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <section
       id="top"
-      className="relative isolate flex min-h-[calc(100svh-88px)] mt-[88px] items-center overflow-hidden text-white"
-      style={{
-        backgroundImage: 'linear-gradient(rgba(5, 20, 40, 0.60), rgba(5, 20, 40, 0.60)), url("/images/hero/airport-terminal-dusk.png")',
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-      }}
+      className="relative isolate flex min-h-[calc(100svh-88px)] mt-[88px] items-center overflow-hidden text-white bg-[var(--traveco-navy)]"
     >
+      <AnimatePresence>
+        <motion.div
+          key={currentImageIndex}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 1.5, ease: "easeInOut" }}
+          className="absolute inset-0 z-0"
+          style={{
+            backgroundImage: `linear-gradient(rgba(5, 20, 40, 0.60), rgba(5, 20, 40, 0.60)), url("${backgroundImages[currentImageIndex]}")`,
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+          }}
+        />
+      </AnimatePresence>
       <motion.div
         initial="hidden"
         animate="visible"
         variants={staggerContainer}
-        className="relative z-10 mx-auto w-full max-w-[760px] px-4 py-16 text-center sm:px-6 lg:px-8"
+        className="relative z-10 mx-auto w-full max-w-[760px] px-5 py-16 text-center sm:px-6 lg:px-8"
       >
         <motion.p
           variants={fadeUp}
@@ -32,7 +58,7 @@ export function HeroSection() {
 
         <motion.h1 
           variants={fadeUp}
-          className="mx-auto text-[38px] font-[750] leading-[1.05] tracking-[-0.035em] text-white sm:text-[44px] lg:text-[62px] lg:leading-[1.05]"
+          className="mx-auto text-[clamp(36px,6vw,62px)] font-[750] leading-[1.05] tracking-[-0.035em] text-white"
         >
           Travel Beyond Borders.<br className="hidden sm:block" /> We Make Visas Simpler.
         </motion.h1>
@@ -48,7 +74,7 @@ export function HeroSection() {
           variants={fadeUp}
           className="mt-10 flex flex-col justify-center gap-4 sm:flex-row sm:items-center"
         >
-          <Button asChild className="h-12 rounded-md bg-gold-cta px-8 text-[15px] font-[600] text-[#071A33] transition-colors hover:brightness-95">
+          <Button asChild variant="secondary" className="h-12 w-full sm:w-auto rounded-control px-8 text-[15px]">
             <Link href="/#contact">
               Get Visa Assistance
             </Link>
@@ -56,9 +82,9 @@ export function HeroSection() {
           <Button
             asChild
             variant="outline"
-            className="h-12 rounded-md border-white/40 bg-white/5 px-8 text-[15px] font-medium text-white backdrop-blur-sm transition-colors hover:bg-white/15 hover:text-white"
+            className="h-12 w-full sm:w-auto rounded-control border-white/40 bg-white/5 px-8 text-[15px] font-medium text-white backdrop-blur-sm transition-all duration-200 hover:bg-white/10 hover:text-white"
           >
-            <Link href="/#destinations">
+            <Link href="/document-checklist">
               Explore Destinations
             </Link>
           </Button>

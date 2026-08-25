@@ -7,7 +7,7 @@ import { ArrowRight, ChevronDown } from "lucide-react";
 import { DestinationSearch } from "@/components/destinations/destination-search";
 import { CountryFlag } from "@/components/destinations/country-flag";
 import { destinations } from "@/data/destinations";
-import { PreFooterCTA } from "@/components/pre-footer-cta";
+import { cn } from "@/lib/utils";
 
 const QUICK_LINKS = [
   {
@@ -76,11 +76,11 @@ export default function DocumentChecklistPage() {
         <div className="absolute inset-0 bg-[#0B1F3A]/85 z-10" />
 
         {/* CENTER CONTENT */}
-        <div className="relative z-20 mx-auto w-full max-w-340 px-4 sm:px-6 lg:px-8 flex flex-col items-center text-center py-12">
-          <p className="text-() font-bold tracking-widest text-[11px] uppercase mb-4">
+        <div className="relative z-20 mx-auto w-full max-w-340 px-5 sm:px-6 lg:px-8 flex flex-col items-center text-center py-12">
+          <p className="text-accent font-bold tracking-widest text-[11px] uppercase mb-4">
             Global Visa Checklist
           </p>
-          <h1 className="text-[42px] md:text-[50px] lg:text-[60px] text-white tracking-tight font-medium mb-10 leading-[1.06] max-w-3xl">
+          <h1 className="text-[clamp(36px,5vw,60px)] text-white tracking-tight font-medium mb-10 leading-[1.06] max-w-3xl">
             Find the visa checklist
             <br className="hidden md:block" /> for your destination.
           </h1>
@@ -122,17 +122,21 @@ export default function DocumentChecklistPage() {
           <button
             type="button"
             onClick={() => {
-              setBrowsing(true);
-              setTimeout(() => {
-                document
-                  .getElementById("directory")
-                  ?.scrollIntoView({ behavior: "smooth", block: "start" });
-              }, 100);
+              if (browsing) {
+                setBrowsing(false);
+              } else {
+                setBrowsing(true);
+                setTimeout(() => {
+                  document
+                    .getElementById("directory")
+                    ?.scrollIntoView({ behavior: "smooth", block: "start" });
+                }, 100);
+              }
             }}
             className="group flex flex-col items-center gap-2 text-[11px] font-bold tracking-widest text-white/60 uppercase hover:text-white transition-colors"
           >
-            <ChevronDown className="w-5 h-5 animate-bounce mb-1" />
-            Browse all {destinations.length} destinations
+            <ChevronDown className={cn("w-5 h-5 transition-transform duration-300 mb-1", browsing ? "rotate-180" : "animate-bounce")} />
+            {browsing ? "Hide destinations" : `Browse all ${destinations.length} destinations`}
           </button>
         </div>
       </div>
@@ -140,14 +144,14 @@ export default function DocumentChecklistPage() {
       {browsing && (
         <div
           id="directory"
-          className="mx-auto w-full max-w-340 px-4 sm:px-6 lg:px-8 pt-16 pb-12"
+          className="mx-auto w-full max-w-340 px-5 sm:px-6 lg:px-8 pt-16 pb-12"
         >
           {/* ── BROWSE ALL DESTINATIONS ──────────────────────────────── */}
           <div>
             <div className="mt-2">
               {/* Region tabs */}
               <div
-                className="flex flex-nowrap items-center border-b border-()/10 mb-8 overflow-x-auto"
+                className="flex flex-nowrap items-center border-b border-[var(--traveco-navy)]/10 mb-8 overflow-x-auto"
                 style={{ scrollbarWidth: "none" }}
               >
                 {REGIONS.map((region) => {
@@ -157,11 +161,10 @@ export default function DocumentChecklistPage() {
                       key={region}
                       type="button"
                       onClick={() => setSelectedRegion(region)}
-                      className={`px-4 py-3 text-[14px] transition-all whitespace-nowrap border-b-2 -mb-px flex-shrink-0 ${
-                        isActive
-                          ? "text-() border-() font-semibold"
-                          : "text-()/60 border-transparent hover:text-() hover:border-()/20 font-medium"
-                      }`}
+                      className={`px-4 py-3 text-[14px] transition-all whitespace-nowrap border-b-2 -mb-px flex-shrink-0 ${isActive
+                        ? "text-[var(--traveco-navy)] border-[var(--traveco-navy)] font-semibold"
+                        : "text-[var(--traveco-navy)]/60 border-transparent hover:text-[var(--traveco-navy)] hover:border-[var(--traveco-navy)]/20 font-medium"
+                        }`}
                     >
                       {region}
                     </button>
@@ -169,8 +172,8 @@ export default function DocumentChecklistPage() {
                 })}
               </div>
               Count
-              <p className="text-[13px] text-()/60 mb-6">
-                <span className="font-semibold text-()">
+              <p className="text-[13px] text-[var(--traveco-navy)]/60 mb-6">
+                <span className="font-semibold text-[var(--traveco-navy)]">
                   {filteredDestinations.length}
                 </span>{" "}
                 destinations
@@ -181,7 +184,7 @@ export default function DocumentChecklistPage() {
                   <Link
                     key={dest.slug}
                     href={`/document-checklist/${dest.slug}`}
-                    className="group flex items-center justify-between py-3.5 border-b border-()/10 hover:border-()/40 transition-colors"
+                    className="group flex items-center justify-between min-h-[52px] py-3 border-b border-[var(--traveco-navy)]/10 hover:border-[var(--traveco-navy)]/40 transition-colors"
                   >
                     <div className="flex items-center gap-3 min-w-0">
                       <div className="shrink-0">
@@ -192,20 +195,20 @@ export default function DocumentChecklistPage() {
                         />
                       </div>
                       <div className="flex flex-col min-w-0">
-                        <span className="text-[15px] font-medium text-() leading-snug wrap-break-word">
+                        <span className="text-[15px] font-medium text-[var(--traveco-navy)] leading-snug wrap-break-word">
                           {dest.country}
                         </span>
-                        <span className="text-[12px] text-()/60 mt-0.5 leading-snug truncate">
+                        <span className="text-[12px] text-[var(--traveco-navy)]/60 mt-0.5 leading-snug truncate">
                           {dest.touristRoute}
                         </span>
                       </div>
                     </div>
-                    <ArrowRight className="w-3.5 h-3.5 text-()/20 group-hover:text-() transform group-hover:translate-x-0.5 transition-all shrink-0 ml-3" />
+                    <ArrowRight className="w-3.5 h-3.5 text-[var(--traveco-navy)]/20 group-hover:text-[var(--traveco-navy)] transform group-hover:translate-x-0.5 transition-all shrink-0 ml-3" />
                   </Link>
                 ))}
               </div>
               {filteredDestinations.length === 0 && (
-                <p className="text-()/60 text-[15px] py-12 text-center">
+                <p className="text-[var(--traveco-navy)]/60 text-[15px] py-12 text-center">
                   No destinations found for this region.
                 </p>
               )}
@@ -214,8 +217,7 @@ export default function DocumentChecklistPage() {
         </div>
       )}
 
-      {/* Pre-Footer CTA */}
-      <PreFooterCTA />
+
     </div>
   );
 }

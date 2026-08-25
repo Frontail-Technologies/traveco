@@ -1,6 +1,6 @@
 "use client";
 
-import { buildWhatsAppLink } from "@/data/visa-mate";
+const buildWhatsAppLink = () => "https://wa.me/918850201321";
 
 export function FloatingWhatsApp() {
   return (

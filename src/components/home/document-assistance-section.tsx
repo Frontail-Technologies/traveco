@@ -21,7 +21,7 @@ const checklistItems = [
 
 export function DocumentAssistanceSection() {
   return (
-    <section className="bg-background relative overflow-hidden py-25 lg:py-30">
+    <section className="bg-background relative overflow-hidden py-16 lg:py-30">
       <div className="mx-auto w-full max-w-340 px-4 sm:px-6 lg:px-8">
         <motion.div
           initial="hidden"
@@ -55,7 +55,7 @@ export function DocumentAssistanceSection() {
           {/* Image - Order 2 on mobile, Right col spanning 2 rows on desktop */}
           <motion.div
             variants={fadeUp}
-            className="order-2 relative z-0 h-[400px] w-full overflow-hidden rounded-[20px] lg:order-none lg:col-span-7 lg:col-start-6 lg:row-span-2 lg:row-start-1 lg:h-[650px]"
+            className="order-2 relative z-0 h-[400px] w-full overflow-hidden rounded-surface lg:order-none lg:col-span-7 lg:col-start-6 lg:row-span-2 lg:row-start-1 lg:h-[650px]"
           >
             <Image
               src="/images/generated/travel_documents_desk.jpg"
@@ -70,7 +70,7 @@ export function DocumentAssistanceSection() {
           <div className="order-3 lg:order-none lg:relative lg:z-10 lg:-mr-[15px] lg:col-span-5 lg:col-start-1 lg:row-start-2 lg:self-start lg:w-[105%]">
             <motion.div 
               variants={fadeUp} 
-              className="rounded-[20px] border border-border/60 bg-white p-6 shadow-sm sm:p-8 lg:p-9"
+              className="rounded-surface border border-border/60 bg-white p-6 shadow-sm sm:p-8 lg:p-9"
             >
               <h3 className="mb-6 text-[13px] font-[800] uppercase tracking-[0.08em] text-primary/85">
                 Visa Document Checklist

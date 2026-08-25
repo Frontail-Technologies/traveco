@@ -15,7 +15,7 @@ const destinations = [
     categories: "Visitor · Business · Student",
     image: "/images/destinations/uk.jpg",
     className: "lg:col-span-2 lg:row-span-2 min-h-[300px] lg:min-h-[500px]",
-    href: "/#destinations",
+    href: "/document-checklist/united-kingdom",
   },
   {
     id: "usa",
@@ -23,7 +23,7 @@ const destinations = [
     categories: "Visitor · Business · Student",
     image: "/images/destinations/usa.jpg",
     className: "min-h-[240px] lg:min-h-[240px]",
-    href: "/#destinations",
+    href: "/document-checklist/united-states",
   },
   {
     id: "canada",
@@ -31,7 +31,7 @@ const destinations = [
     categories: "Visitor · Student · Business",
     image: "/images/destinations/canada.jpg",
     className: "min-h-[240px] lg:min-h-[240px]",
-    href: "/#destinations",
+    href: "/document-checklist/canada",
   },
   {
     id: "australia",
@@ -39,7 +39,7 @@ const destinations = [
     categories: "Visitor · Student · Business",
     image: "/images/destinations/australia.jpg",
     className: "min-h-[240px] lg:min-h-[320px]",
-    href: "/#destinations",
+    href: "/document-checklist/australia",
   },
   {
     id: "new-zealand",
@@ -47,7 +47,7 @@ const destinations = [
     categories: "Visitor · Business · Student",
     image: "/images/destinations/new_zealand.jpg",
     className: "min-h-[240px] lg:min-h-[320px]",
-    href: "/#destinations",
+    href: "/document-checklist/new-zealand",
   },
   {
     id: "europe",
@@ -55,13 +55,13 @@ const destinations = [
     categories: "Schengen Visa Assistance",
     image: "/images/destinations/europe.jpg",
     className: "min-h-[240px] lg:min-h-[320px]",
-    href: "/#destinations",
+    href: "/document-checklist",
   },
 ];
 
 export function DestinationsSection() {
   return (
-    <section className="relative overflow-hidden bg-[#FDFBF9] py-25 lg:py-30">
+    <section className="relative overflow-hidden bg-[#FDFBF9] py-16 lg:py-30">
       <div className="mx-auto w-full max-w-340 px-4 sm:px-6 lg:px-8">
         <motion.div
           initial="hidden"
@@ -95,7 +95,7 @@ export function DestinationsSection() {
             
             <motion.div variants={fadeUp} className="shrink-0 lg:pb-2">
               <Link
-                href="/#destinations"
+                href="/document-checklist"
                 className="group inline-flex items-center gap-2 text-[15px] font-[600] text-primary transition-colors hover:text-accent"
               >
                 Explore All Destinations
@@ -107,7 +107,7 @@ export function DestinationsSection() {
           {/* Destination Grid */}
           <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3 lg:gap-6">
             {destinations.map((dest) => (
-              <motion.div key={dest.id} variants={fadeUp} className={cn("group relative block overflow-hidden rounded-[20px]", dest.className)}>
+              <motion.div key={dest.id} variants={fadeUp} className={cn("group relative block overflow-hidden rounded-surface", dest.className)}>
                 <Link href={dest.href} className="absolute inset-0 z-20">
                   <span className="sr-only">Explore {dest.name}</span>
                 </Link>
@@ -139,7 +139,7 @@ export function DestinationsSection() {
                     </p>
                   </div>
                   
-                  <div className="flex size-9 items-center justify-center rounded-full bg-white/10 backdrop-blur-sm transition-colors group-hover:bg-white/20">
+                  <div className="flex size-9 items-center justify-center rounded-[8px] bg-white/10 backdrop-blur-sm transition-colors group-hover:bg-white/20">
                     <ArrowRight className="size-4 text-white transition-transform duration-300 group-hover:translate-x-0.5" />
                   </div>
                 </div>

@@ -9,7 +9,7 @@ import { fadeUp, staggerContainer } from "@/lib/motion-variants";
 
 export function AboutFounderSection() {
   return (
-    <section className="relative overflow-hidden bg-[#F8F6F0] py-25 lg:py-30 z-0">
+    <section className="relative overflow-hidden bg-[#F8F6F0] py-16 lg:py-30 z-0">
       <div className="mx-auto w-full max-w-340 px-4 sm:px-6 lg:px-8">
         <motion.div
           initial="hidden"
@@ -50,7 +50,7 @@ export function AboutFounderSection() {
           {/* Founder Image (Order 2 on mobile, Left col spanning both rows on desktop) */}
           <motion.div
             variants={fadeUp}
-            className="order-2 relative z-0 h-[450px] w-full overflow-hidden rounded-[24px] lg:order-none lg:col-span-6 lg:col-start-1 lg:row-span-2 lg:row-start-1 lg:h-[650px]"
+            className="order-2 relative z-0 h-[450px] w-full overflow-hidden rounded-surface lg:order-none lg:col-span-6 lg:col-start-1 lg:row-span-2 lg:row-start-1 lg:h-[650px]"
           >
             <Image
               src="/images/founder.png"

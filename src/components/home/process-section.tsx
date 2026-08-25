@@ -35,7 +35,7 @@ const steps = [
 
 export function ProcessSection() {
   return (
-    <section className="relative overflow-hidden bg-[#071A33] py-25 lg:py-30">
+    <section className="relative overflow-hidden bg-[#071A33] py-16 lg:py-30">
       {/* Subtle Background Detail */}
       <div 
         className="pointer-events-none absolute inset-0 z-0"

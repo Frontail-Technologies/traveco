@@ -7,53 +7,30 @@ import { ArrowRight, Plus, Minus } from "lucide-react";
 
 import { fadeUp, staggerContainer } from "@/lib/motion-variants";
 import { cn } from "@/lib/utils";
-
-const faqData = [
-  {
-    question: "Do you guarantee visa approval?",
-    answer: "No. Visa decisions are made solely by the relevant embassy, consulate or immigration authority. TRAVECO Mobility provides documentation and application assistance.",
-  },
-  {
-    question: "How long does a visa take?",
-    answer: "Processing time varies by destination, visa category and applicant circumstances.",
-  },
-  {
-    question: "Do you provide document checking?",
-    answer: "Yes. Documentation review and application assistance are available depending on the service selected.",
-  },
-  {
-    question: "Can I apply if I have a previous visa refusal?",
-    answer: "Yes, depending on the destination and circumstances. Previous refusal details should always be disclosed accurately.",
-  },
-  {
-    question: "Do you provide flight and hotel assistance?",
-    answer: "Travel-related services can be provided as applicable.",
-  },
-];
+import { faqData } from "@/data/faq";
 
 function FAQItem({
   item,
   index,
   isOpen,
   onClick,
+  isLast,
 }: {
   item: typeof faqData[0];
   index: number;
   isOpen: boolean;
   onClick: () => void;
+  isLast?: boolean;
 }) {
   return (
-    <div className="group border-b border-primary/10 transition-colors duration-300 hover:border-gold-cta/30">
+    <div className="group bg-white rounded-surface px-6 sm:px-8 mb-4 shadow-sm border border-primary/5 transition-colors duration-300 hover:border-gold-cta/30">
       <button
         type="button"
         onClick={onClick}
         aria-expanded={isOpen}
         className="flex w-full items-end justify-between gap-6 pb-7 pt-8 text-left transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold-cta"
       >
-        <div className="flex flex-col items-start gap-3">
-          <span className="text-[13.5px] font-[700] tracking-wider text-gold-cta">
-            {String(index + 1).padStart(2, "0")}
-          </span>
+        <div className="flex items-center">
           <span className="text-[18.5px] font-[650] leading-tight text-primary lg:text-[20px]">
             {item.question}
           </span>
@@ -88,7 +65,7 @@ export function FaqSection() {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   return (
-    <section className="relative overflow-hidden bg-[#F7F5EF] py-25 lg:py-28.75 z-0">
+    <section className="relative overflow-hidden bg-[#F7F5EF] py-16 lg:py-28.75 z-0">
       
       {/* Decorative Detail: Subtle gold arc near heading */}
       <div className="absolute left-[3%] top-[12%] pointer-events-none opacity-[0.05] z-0 hidden lg:block">
@@ -144,13 +121,14 @@ export function FaqSection() {
 
           {/* Right Content - Editorial Accordion (60-65%) */}
           <div className="lg:col-span-8 flex flex-col lg:pl-10">
-            <div className="border-t border-primary/10">
+            <div className="flex flex-col">
               {faqData.map((item, index) => (
                 <motion.div key={index} variants={fadeUp}>
                   <FAQItem
                     item={item}
                     index={index}
                     isOpen={openIndex === index}
+                    isLast={index === faqData.length - 1}
                     onClick={() => setOpenIndex(openIndex === index ? null : index)}
                   />
                 </motion.div>

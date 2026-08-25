@@ -11,7 +11,7 @@ export function FinalCtaSection() {
   return (
     <section
       id="get-started"
-      className="relative overflow-hidden bg-primary-blue py-20 text-white sm:py-24 lg:py-32"
+      className="relative overflow-hidden bg-primary-blue py-16 text-white sm:py-24 lg:py-32"
     >
       <div className="relative z-10 mx-auto max-w-340 px-4 text-center sm:px-6 lg:px-8">
         <MotionReveal variants={fadeUp}>

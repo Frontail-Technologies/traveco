@@ -1,6 +1,5 @@
 import type { MetadataRoute } from "next";
 
-import { whyChooseSection } from "@/data/visa-mate";
 
 const siteUrl = "https://traveco.in";
 
@@ -30,13 +29,5 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     },
   ];
 
-  const whyVisaMateRoutes: MetadataRoute.Sitemap = whyChooseSection.points.map(
-    (point) => ({
-      url: `${siteUrl}/why-visa-mate/${point.slug}`,
-      changeFrequency: "monthly",
-      priority: 0.5,
-    }),
-  );
-
-  return [...staticRoutes, ...whyVisaMateRoutes];
+  return [...staticRoutes];
 }
