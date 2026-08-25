@@ -21,12 +21,12 @@ import { destinations } from "@/data/destinations";
 import { CountryFlag } from "@/components/destinations/country-flag";
 
 const fieldClasses =
-  "h-[52px] w-full rounded-control border border-primary/10 bg-[#FAF9F6] px-4 font-medium text-[16px] text-primary outline-none transition-all placeholder:text-primary/35 focus-visible:border-transparent focus-visible:ring-2 focus-visible:ring-[var(--traveco-gold)] focus-visible:ring-offset-2 [&::-webkit-calendar-picker-indicator]:opacity-40 [&::-webkit-calendar-picker-indicator]:hover:opacity-80 [&::-webkit-calendar-picker-indicator]:cursor-pointer";
+  "h-12 w-full rounded-control border border-primary/10 bg-[#FAF9F6] px-4 font-medium text-base text-primary outline-none transition-all placeholder:text-primary/35 focus-visible:border-transparent focus-visible:ring-2 focus-visible:ring-[var(--traveco-gold)] focus-visible:ring-offset-2 [&::-webkit-calendar-picker-indicator]:opacity-40 [&::-webkit-calendar-picker-indicator]:hover:opacity-80 [&::-webkit-calendar-picker-indicator]:cursor-pointer";
 
 const textareaClasses =
-  "min-h-[120px] w-full resize-none rounded-control border border-primary/10 bg-[#FAF9F6] px-4 py-3.5 font-medium text-[16px] text-primary outline-none transition-all placeholder:text-primary/35 focus-visible:border-transparent focus-visible:ring-2 focus-visible:ring-[var(--traveco-gold)] focus-visible:ring-offset-2";
+  "min-h-[120px] w-full resize-none rounded-control border border-primary/10 bg-[#FAF9F6] px-4 py-3.5 font-medium text-base text-primary outline-none transition-all placeholder:text-primary/35 focus-visible:border-transparent focus-visible:ring-2 focus-visible:ring-[var(--traveco-gold)] focus-visible:ring-offset-2";
 
-const labelClasses = "mb-1.5 block text-[13px] font-[650] text-primary";
+const labelClasses = "mb-1.5 block text-sm font-bold text-primary";
 
 export function EnquirySection() {
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -53,8 +53,8 @@ export function EnquirySection() {
   }
 
   return (
-    <section id="contact" className="relative bg-[#F8F6F0] py-16 lg:py-30 z-0">
-      <div className="mx-auto w-full max-w-340 px-4 sm:px-6 lg:px-8">
+    <section id="contact" className="relative bg-white py-20 md:py-24 lg:py-28 z-0">
+      <div className="mx-auto w-full max-w-7xl px-5 md:px-6 lg:px-8">
         
         <motion.div
           initial="hidden"
@@ -82,14 +82,11 @@ export function EnquirySection() {
             <div className="absolute inset-0 bg-primary/75" />
 
             <motion.div variants={fadeUp} className="relative z-10 flex-1">
-              <p className="text-[12px] font-bold uppercase tracking-[0.12em] text-gold-cta">
-                Ready to travel?
-              </p>
-              <h2 className="mt-4 text-[38px] font-bold leading-[1.05] tracking-tight text-white sm:text-[44px] lg:text-[46px]">
-                Your next journey starts with the right guidance.
+              <h2 className="text-4xl font-bold leading-[1.05] tracking-tight text-white md:text-5xl">
+                Plan Your Journey
               </h2>
-              <p className="mt-6 text-[15.5px] leading-[1.6] text-white/80 lg:text-[16px]">
-                Tell us where you're planning to travel and our team will help you understand the next steps for your visa application.
+              <p className="mt-6 text-base leading-relaxed text-white/80">
+                Share your travel details and our team will help you understand the next steps.
               </p>
             </motion.div>
 
@@ -99,8 +96,8 @@ export function EnquirySection() {
                   <Mail className="size-4 opacity-90" strokeWidth={2} />
                 </div>
                 <div className="flex flex-col">
-                  <span className="text-[12px] font-semibold uppercase tracking-wider text-white/50">Official Email</span>
-                  <a href="mailto:info@traveco.in" className="mt-0.5 text-[14.5px] font-medium text-white transition-colors hover:text-gold-cta">info@traveco.in</a>
+                  <span className="text-xs font-semibold uppercase tracking-wider text-white/50">Official Email</span>
+                  <a href="mailto:info@traveco.in" className="mt-0.5 text-sm font-medium text-white transition-colors hover:text-gold-cta md:text-base">info@traveco.in</a>
                 </div>
               </div>
               
@@ -109,8 +106,8 @@ export function EnquirySection() {
                   <Mail className="size-4 opacity-90" strokeWidth={2} />
                 </div>
                 <div className="flex flex-col">
-                  <span className="text-[12px] font-semibold uppercase tracking-wider text-white/50">Enquiries</span>
-                  <a href={`mailto:${contactEmail}`} className="mt-0.5 text-[14.5px] font-medium text-white transition-colors hover:text-gold-cta">{contactEmail}</a>
+                  <span className="text-xs font-semibold uppercase tracking-wider text-white/50">Enquiries</span>
+                  <a href={`mailto:${contactEmail}`} className="mt-0.5 text-sm font-medium text-white transition-colors hover:text-gold-cta md:text-base">{contactEmail}</a>
                 </div>
               </div>
 
@@ -119,8 +116,8 @@ export function EnquirySection() {
                   <MapPin className="size-4 opacity-90" strokeWidth={2} />
                 </div>
                 <div className="flex flex-col">
-                  <span className="text-[12px] font-semibold uppercase tracking-wider text-white/50">Location</span>
-                  <span className="mt-0.5 text-[14.5px] font-medium text-white">Mumbai, Maharashtra, India</span>
+                  <span className="text-xs font-semibold uppercase tracking-wider text-white/50">Location</span>
+                  <span className="mt-0.5 text-sm font-medium text-white md:text-base">Mumbai, Maharashtra, India</span>
                 </div>
               </div>
 
@@ -130,8 +127,8 @@ export function EnquirySection() {
                     <Phone className="size-4 opacity-90" strokeWidth={2} />
                   </div>
                   <div className="flex flex-col">
-                    <span className="text-[12px] font-semibold uppercase tracking-wider text-white/50">Phone</span>
-                    <a href={`tel:+91${phoneDisplayNumber}`} className="mt-0.5 text-[14.5px] font-medium text-white transition-colors hover:text-gold-cta">{phoneDisplayNumber}</a>
+                    <span className="text-xs font-semibold uppercase tracking-wider text-white/50">Phone</span>
+                    <a href={`tel:+91${phoneDisplayNumber}`} className="mt-0.5 text-sm font-medium text-white transition-colors hover:text-gold-cta md:text-base">{phoneDisplayNumber}</a>
                   </div>
                 </div>
               )}
@@ -141,10 +138,10 @@ export function EnquirySection() {
           {/* Right Panel (White/Off-white - 58%) */}
           <div className="flex w-full flex-col p-8 sm:p-12 lg:w-[58%] lg:p-14">
             <motion.div variants={fadeUp}>
-              <h3 className="text-[30px] font-bold tracking-tight text-primary sm:text-[34px]">
+              <h3 className="text-3xl font-bold tracking-tight text-primary md:text-4xl">
                 Plan Your Journey
               </h3>
-              <p className="mt-2 text-[15.5px] text-primary/70 lg:text-[16px]">
+              <p className="mt-3 text-base leading-relaxed text-primary/80">
                 Share a few details and we'll get back to you regarding your visa assistance requirements.
               </p>
             </motion.div>
@@ -274,7 +271,7 @@ export function EnquirySection() {
               </div>
 
               {hasError && (
-                <p className="text-[14px] font-semibold text-red-600">
+                <p className="text-sm font-semibold text-red-600">
                   We couldn't submit your enquiry. Please try again or contact TRAVECO directly.
                 </p>
               )}
@@ -283,12 +280,12 @@ export function EnquirySection() {
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="group flex h-13 w-full items-center justify-center gap-2 rounded-control bg-traveco-navy px-8 text-[15px] font-[650] text-white transition-all duration-200 hover:bg-[#122A4A] outline-none focus-visible:ring-2 focus-visible:ring-traveco-gold focus-visible:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none sm:w-auto"
+                  className="group flex h-12 w-full items-center justify-center gap-2 rounded-control bg-traveco-navy px-8 text-sm font-bold text-white transition-all duration-200 hover:bg-[#122A4A] outline-none focus-visible:ring-2 focus-visible:ring-traveco-gold focus-visible:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none sm:w-auto"
                 >
                   {isSubmitting ? "Submitting..." : "Request Visa Assistance"}
                   {!isSubmitting && <ArrowRight className="size-4 text-gold-cta transition-transform group-hover:translate-x-1" />}
                 </button>
-                <p className="text-[13px] font-medium text-primary/30">
+                <p className="text-xs font-medium text-primary/30">
                   Form is in demo mode.
                 </p>
               </div>

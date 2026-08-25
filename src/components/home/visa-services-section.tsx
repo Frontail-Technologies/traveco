@@ -54,44 +54,37 @@ const visaServices = [
 
 export function VisaServicesSection() {
   return (
-    <section className="bg-background relative overflow-hidden py-16 lg:py-30">
-      <div className="mx-auto w-full max-w-340 px-4 sm:px-6 lg:px-8">
+    <section className="bg-background relative overflow-hidden py-20 md:py-24 lg:py-28">
+      <div className="mx-auto w-full max-w-7xl px-5 md:px-6 lg:px-8">
         <motion.div
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-10%" }}
           variants={staggerContainer}
-          className="flex flex-col gap-16"
+          className="flex flex-col gap-8 lg:gap-12"
         >
           {/* Top Header Area */}
-          <div className="flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
+          <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
             <div className="max-w-2xl">
               <motion.p
                 variants={fadeUp}
-                className="text-gold-cta text-xs font-bold uppercase tracking-[0.12em]"
+                className="text-gold-cta text-xs font-bold uppercase tracking-widest"
               >
-                Visa Services
+                Our Services
               </motion.p>
               <motion.h2
                 variants={fadeUp}
-                className="text-[38px] sm:text-[44px] lg:text-[52px] font-medium leading-[1.05] tracking-tight text-traveco-navy"
+                className="mt-4 text-4xl font-bold leading-[1.05] tracking-tight text-traveco-navy md:text-5xl"
                 data-scroll="fade-up"
               >
-                Visa <span className="font-bold">Services</span>
+                Visa support for every kind of journey.
               </motion.h2>
-              <motion.p
-                variants={fadeUp}
-                className="mt-6 text-[16px] sm:text-[18px] leading-[1.6] text-(--traveco-navy)/70 max-w-xl"
-                data-scroll="fade-up"
-              >
-                Expert guidance for <strong className="text-traveco-gold font-bold">every kind of journey</strong>. We simplify complex immigration processes into clear, actionable steps.
-              </motion.p>
             </div>
             
             <motion.div variants={fadeUp} className="shrink-0 lg:pb-2">
               <Link
                 href="/visa-services"
-                className="group inline-flex items-center gap-2 text-[15px] font-semibold text-primary transition-colors hover:text-accent"
+                className="group inline-flex items-center gap-2 text-sm font-semibold text-primary transition-colors hover:text-accent"
               >
                 Explore All Visa Services
                 <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" />
@@ -99,56 +92,55 @@ export function VisaServicesSection() {
             </motion.div>
           </div>
 
-          {/* Main Content Area (40/60 Split) */}
+          {/* Main Content Area (45/55 Split) */}
           <div className="flex flex-col gap-12 lg:flex-row lg:gap-16">
             
-            {/* Left — 40% (Premium Image) */}
+            {/* Left — 45% (Premium Image) */}
             <motion.div 
               variants={fadeUp} 
-              className="relative aspect-4/3 w-full shrink-0 overflow-hidden rounded-surface lg:aspect-3/4 lg:w-[42%]"
+              className="relative aspect-4/3 w-full shrink-0 overflow-hidden rounded-2xl lg:aspect-3/4 lg:w-[45%]"
             >
               <Image
                 src="/images/generated/premium_travel_documents.jpg"
                 alt="Premium passport and travel documents in an international airport lounge"
                 fill
-                sizes="(max-width: 1024px) 100vw, 40vw"
+                sizes="(max-width: 1024px) 100vw, 45vw"
                 className="object-cover object-center"
               />
             </motion.div>
 
-            {/* Right — 60% (Editorial List) */}
+            {/* Right — 55% (Editorial List) */}
             <div className="flex-1">
               <div className="grid grid-cols-1 gap-x-12 sm:grid-cols-2">
                 {visaServices.map((service) => (
                   <motion.div
                     key={service.id}
                     variants={fadeUp}
-                    className="group flex flex-col border-b border-border/80 pb-6 mb-8 transition-colors hover:border-accent/40"
+                    className="group flex flex-col border-b border-border/50 pb-8 mb-10 transition-colors hover:border-accent/40"
                   >
-                    <div className="mb-3 text-[13px] font-bold text-gold-cta">
+                    <div className="mb-4 text-xs font-bold text-gold-cta">
                       {service.id}
                     </div>
                     
-                    <h3 className="mb-2 text-[20px] font-bold leading-tight text-primary transition-colors group-hover:text-accent">
+                    <h3 className="mb-3 text-lg font-bold leading-tight text-primary transition-colors group-hover:text-accent">
                       {service.title}
                     </h3>
                     
-                    <p className="mb-5 flex-1 text-[15px] leading-relaxed text-primary/75">
+                    <p className="mb-6 flex-1 text-base leading-relaxed text-primary/75">
                       {service.description}
                     </p>
                     
                     <Link
                       href={service.href}
-                      className="mt-auto inline-flex items-center gap-1.5 text-[14px] font-semibold text-primary/60 transition-colors group-hover:text-primary"
+                      className="mt-auto inline-flex items-center gap-1.5 text-sm font-semibold text-primary/60 transition-colors group-hover:text-primary"
                     >
                       Learn more
-                      <ArrowRight className="size-3.5 transition-transform group-hover:translate-x-1" />
+                      <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" />
                     </Link>
                   </motion.div>
                 ))}
               </div>
             </div>
-
           </div>
         </motion.div>
       </div>

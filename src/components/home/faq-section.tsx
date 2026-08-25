@@ -23,7 +23,7 @@ function FAQItem({
   isLast?: boolean;
 }) {
   return (
-    <div className="group bg-white rounded-surface px-6 sm:px-8 mb-4 shadow-sm border border-primary/5 transition-colors duration-300 hover:border-gold-cta/30">
+    <div className="group bg-white rounded-2xl px-6 sm:px-8 mb-4 shadow-sm border border-primary/5 transition-colors duration-300 hover:border-gold-cta/30">
       <button
         type="button"
         onClick={onClick}
@@ -31,7 +31,7 @@ function FAQItem({
         className="flex w-full items-end justify-between gap-6 pb-7 pt-8 text-left transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold-cta"
       >
         <div className="flex items-center">
-          <span className="text-[18.5px] font-[650] leading-tight text-primary lg:text-[20px]">
+          <span className="text-lg font-bold leading-tight text-primary lg:text-xl">
             {item.question}
           </span>
         </div>
@@ -51,7 +51,7 @@ function FAQItem({
             exit={{ height: 0, opacity: 0 }}
             transition={{ duration: 0.25, ease: "easeInOut" }}
           >
-            <div className="pb-8 pr-6 text-[15px] leading-[1.6] text-primary/80">
+            <div className="pb-8 pr-6 text-base leading-relaxed text-primary/80">
               {item.answer}
             </div>
           </motion.div>
@@ -65,53 +65,37 @@ export function FaqSection() {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   return (
-    <section className="relative overflow-hidden bg-[#F7F5EF] py-16 lg:py-28.75 z-0">
-      
-      {/* Decorative Detail: Subtle gold arc near heading */}
-      <div className="absolute left-[3%] top-[12%] pointer-events-none opacity-[0.05] z-0 hidden lg:block">
-        <svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg" className="text-gold-cta">
-          <path d="M10 70C10 36.8629 36.8629 10 70 10" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
-        </svg>
-      </div>
-
-      <div className="mx-auto w-full max-w-340 px-4 sm:px-6 lg:px-8 relative z-10">
+    <section className="relative overflow-hidden bg-background py-20 md:py-24 lg:py-28 z-0">
+      <div className="mx-auto w-full max-w-7xl px-5 md:px-6 lg:px-8 relative z-10">
         <motion.div
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-10%" }}
           variants={staggerContainer}
-          className="grid grid-cols-1 gap-12 lg:grid-cols-12 lg:gap-16"
+          className="grid grid-cols-1 gap-12 lg:grid-cols-12 lg:gap-12"
         >
           {/* Left Content (35-40%) */}
           <div className="lg:col-span-4 xl:col-span-4 flex flex-col pt-2 relative z-10">
             <motion.p
               variants={fadeUp}
-              className="text-gold-cta text-xs font-bold uppercase tracking-[0.12em]"
+              className="text-gold-cta text-xs font-bold uppercase tracking-widest"
             >
               Frequently Asked Questions
             </motion.p>
-            
             <motion.h2
               variants={fadeUp}
-              className="mt-4 text-[38px] font-bold leading-[1.1] tracking-tight text-primary sm:text-[44px] lg:text-[48px] lg:leading-[1.05]"
+              className="mt-4 text-4xl font-bold leading-[1.05] tracking-tight text-primary md:text-5xl"
             >
               Questions before your <br className="hidden lg:block" /> next journey?
             </motion.h2>
-            
-            <motion.p
-              variants={fadeUp}
-              className="mt-6 text-[15.5px] leading-[1.6] text-primary/80 lg:text-[16px]"
-            >
-              Find quick answers to common questions about visa documentation, application assistance and the TRAVECO process.
-            </motion.p>
 
-            <motion.div variants={fadeUp} className="mt-12 border-t border-primary/10 pt-6 lg:mt-12">
-              <p className="mb-2 text-[15px] font-bold text-primary">
+            <motion.div variants={fadeUp} className="mt-8 lg:mt-12 rounded-2xl bg-traveco-navy p-6 lg:p-8">
+              <p className="mb-3 text-base font-bold text-white">
                 Still have a question?
               </p>
               <Link
                 href="/contact"
-                className="group inline-flex items-center gap-2 text-[14.5px] font-[650] text-primary transition-colors hover:text-gold-cta"
+                className="group inline-flex items-center gap-2 text-sm font-bold text-white transition-colors hover:text-gold-cta"
               >
                 Contact TRAVECO
                 <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" />

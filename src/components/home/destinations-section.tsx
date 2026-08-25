@@ -61,39 +61,36 @@ const destinations = [
 
 export function DestinationsSection() {
   return (
-    <section className="relative overflow-hidden bg-[#FDFBF9] py-16 lg:py-30">
-      <div className="mx-auto w-full max-w-340 px-4 sm:px-6 lg:px-8">
+    <section className="relative overflow-hidden bg-white py-20 md:py-24 lg:py-28">
+      <div className="mx-auto w-full max-w-7xl px-5 md:px-6 lg:px-8">
         <motion.div
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-10%" }}
           variants={staggerContainer}
-          className="flex flex-col gap-12 lg:gap-16"
+          className="flex flex-col gap-8 lg:gap-12"
         >
           {/* Header Row */}
-          <div className="flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
+          <div className="flex flex-col md:flex-row md:items-end md:justify-between lg:col-span-12 relative z-10 gap-6">
             <div className="max-w-2xl">
-              <motion.h2
-                variants={fadeUp}
-                className="text-[38px] font-medium leading-[1.05] tracking-tight text-traveco-navy sm:text-[44px] lg:text-[52px]"
-                data-scroll="fade-up"
-              >
-                Popular <br className="hidden sm:block" />
-                <span className="font-bold text-traveco-gold">Destinations</span>
-              </motion.h2>
               <motion.p
                 variants={fadeUp}
-                className="mt-6 text-[16px] leading-[1.6] text-(--traveco-navy)/70 sm:text-[18px]"
-                data-scroll="fade-up"
+                className="text-gold-cta text-xs font-bold uppercase tracking-widest"
               >
-                Explore visa requirements for our most frequently requested countries. We provide tailored assistance for every kind of <strong className="font-bold text-traveco-gold">journey</strong>.
+                Popular Destinations
               </motion.p>
+              <motion.h2
+                variants={fadeUp}
+                className="mt-4 text-4xl font-bold leading-[1.05] tracking-tight text-primary md:text-5xl"
+              >
+                Where will your journey take you?
+              </motion.h2>
             </div>
             
             <motion.div variants={fadeUp} className="shrink-0 lg:pb-2">
               <Link
                 href="/document-checklist"
-                className="group inline-flex items-center gap-2 text-[15px] font-semibold text-primary transition-colors hover:text-accent"
+                className="group inline-flex items-center gap-2 text-sm font-semibold text-primary transition-colors hover:text-accent"
               >
                 Explore All Destinations
                 <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" />
@@ -104,7 +101,7 @@ export function DestinationsSection() {
           {/* Destination Grid */}
           <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3 lg:gap-6">
             {destinations.map((dest) => (
-              <motion.div key={dest.id} variants={fadeUp} className={cn("group relative block overflow-hidden rounded-surface", dest.className)}>
+              <motion.div key={dest.id} variants={fadeUp} className={cn("group relative block overflow-hidden rounded-2xl", dest.className)}>
                 <Link href={dest.href} className="absolute inset-0 z-30 block" aria-label={`Explore ${dest.name}`} />
                 
                 <Image
@@ -126,15 +123,15 @@ export function DestinationsSection() {
                 {/* Content */}
                 <div className="absolute inset-x-0 bottom-0 z-20 flex items-end justify-between p-6 lg:p-8">
                   <div>
-                    <h3 className="mb-2 text-[22px] font-bold text-white lg:text-[26px]">
+                    <h3 className="mb-2 text-2xl font-bold text-white lg:text-3xl">
                       {dest.name}
                     </h3>
-                    <p className="text-[14px] font-medium text-white/95">
+                    <p className="text-sm font-medium text-white/95">
                       {dest.categories}
                     </p>
                   </div>
                   
-                  <div className="flex size-9 items-center justify-center rounded-[8px] bg-white/10 backdrop-blur-sm transition-colors group-hover:bg-white/20">
+                  <div className="flex size-9 items-center justify-center rounded-lg bg-white/10 backdrop-blur-sm transition-colors group-hover:bg-white/20">
                     <ArrowRight className="size-4 text-white transition-transform duration-300 group-hover:translate-x-0.5" />
                   </div>
                 </div>

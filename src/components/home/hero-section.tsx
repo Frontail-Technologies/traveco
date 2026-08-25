@@ -49,25 +49,25 @@ export function HeroSection() {
         initial="hidden"
         animate="visible"
         variants={staggerContainer}
-        className="relative z-10 mx-auto w-full max-w-190 px-5 py-16 text-center sm:px-6 lg:px-8"
+        className="relative z-10 mx-auto w-full max-w-7xl px-5 py-20 text-center md:px-6 lg:px-8 md:py-28 lg:py-32"
       >
-        <motion.p
+        <motion.div
           variants={fadeUp}
-          className="text-gold-on-dark mx-auto mb-4 text-xs font-bold tracking-[0.12em] uppercase sm:text-sm"
+          className="mx-auto mb-6 inline-flex items-center justify-center rounded-full bg-white px-4 py-1.5 text-xs font-bold uppercase tracking-widest text-traveco-navy shadow-sm"
         >
           Global Visa & Travel Support
-        </motion.p>
+        </motion.div>
 
         <motion.h1 
           variants={fadeUp}
-          className="mx-auto text-[clamp(36px,6vw,62px)] font-[750] leading-[1.05] tracking-[-0.035em] text-white"
+          className="mx-auto max-w-4xl text-5xl font-[750] leading-[1.05] tracking-tight text-white md:text-6xl lg:text-7xl"
         >
           Travel Beyond Borders.<br className="hidden sm:block" /> We Make <span className="text-gold-cta">Visas Simpler.</span>
         </motion.h1>
 
         <motion.p
           variants={fadeUp}
-          className="mx-auto mt-6 max-w-140 text-[16px] leading-[1.7] text-[rgba(255,255,255,0.88)] sm:text-[18px]"
+          className="mx-auto mt-8 max-w-2xl text-base leading-relaxed text-white/90 sm:text-lg"
         >
           Professional visa documentation, application assistance and international travel support for individuals, families, students and business travellers.
         </motion.p>
