@@ -100,7 +100,7 @@ export function SiteNavbar() {
                     href={link.href}
                     className={cn(
                       "flex items-center gap-1.5 text-[14.5px] font-medium transition-colors hover:text-accent relative py-6",
-                      isActive ? "text-accent after:absolute after:-bottom-1.5 after:left-0 after:w-full after:h-0.5 after:bg-accent after:rounded-full" : "text-primary"
+                      isActive ? "text-accent after:absolute after:bottom-4.5 after:left-0 after:w-full after:h-0.5 after:bg-accent after:rounded-full" : "text-primary"
                     )}
                   >
                     {link.label}
