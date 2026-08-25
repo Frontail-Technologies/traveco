@@ -108,7 +108,7 @@ export function DestinationsSection() {
           <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3 lg:gap-6">
             {destinations.map((dest) => (
               <motion.div key={dest.id} variants={fadeUp} className={cn("group relative block overflow-hidden rounded-surface", dest.className)}>
-                <Link href={dest.href} className="absolute inset-0 z-20 block" aria-label={`Explore ${dest.name}`} />
+                <Link href={dest.href} className="absolute inset-0 z-30 block" aria-label={`Explore ${dest.name}`} />
                 
                 <Image
                   src={dest.image}
