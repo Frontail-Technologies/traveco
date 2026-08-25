@@ -16,6 +16,7 @@ const SERVICES = [
     slug: "tourist-visitor",
     description: "Documentation and application support for individuals and families traveling for tourism, visiting relatives, or short-term medical treatment.",
     icon: Plane,
+    image: "/images/services/tourist.jpg",
   },
   {
     id: "business",
@@ -23,6 +24,7 @@ const SERVICES = [
     slug: "business",
     description: "Structured assistance for professionals attending conferences, meetings, trade fairs, or engaging in short-term commercial activities abroad.",
     icon: Briefcase,
+    image: "/images/services/business.jpg",
   },
   {
     id: "student",
@@ -30,6 +32,7 @@ const SERVICES = [
     slug: "student",
     description: "Comprehensive visa application support for students pursuing academic degrees, language courses, or exchange programs internationally.",
     icon: GraduationCap,
+    image: "/images/services/student.jpg",
   },
   {
     id: "work-employment",
@@ -37,6 +40,7 @@ const SERVICES = [
     slug: "work-employment",
     description: "Guidance on documentation requirements for skilled workers, intracompany transferees, and professionals with secured overseas employment.",
     icon: Building2,
+    image: "/images/services/work.jpg",
   },
   {
     id: "transit",
@@ -44,6 +48,7 @@ const SERVICES = [
     slug: "transit",
     description: "Assistance with short-duration transit visas required for passing through foreign airports en route to your final destination.",
     icon: Map,
+    image: "/images/services/transit.jpg",
   },
   {
     id: "schengen",
@@ -51,6 +56,7 @@ const SERVICES = [
     slug: "schengen",
     description: "Unified application preparation for the Schengen Area, covering tourist, business, and visiting family/friends categories across 27 European countries.",
     icon: FileText,
+    image: "/images/services/schengen.jpg",
   },
 ];
 
@@ -97,6 +103,15 @@ export default function VisaServicesHub() {
               const Icon = service.icon;
               return (
                 <div key={service.id} className="flex flex-col group">
+                  <Link href={`/visa-services/${service.slug}`} className="relative aspect-[16/10] w-full mb-8 overflow-hidden rounded-surface block bg-white/50 border border-border group-hover:border-accent/20 transition-colors">
+                    <Image
+                      src={service.image}
+                      alt={service.title}
+                      fill
+                      className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]"
+                      sizes="(max-width: 768px) 100vw, 50vw"
+                    />
+                  </Link>
                   <div className="flex items-center gap-4 mb-6">
                     <span className="text-(--traveco-navy)/30 font-medium text-[14px]">
                       0{index + 1}
