@@ -66,7 +66,7 @@ export function SiteNavbar() {
         <motion.div variants={fadeUp}>
           <Link
             href="/#top"
-            className="flex shrink-0 items-center"
+            className="flex shrink-0 items-center w-28 sm:w-32"
             aria-label="TRAVECO Mobility home"
           >
             <Image
@@ -75,8 +75,7 @@ export function SiteNavbar() {
               width={220}
               height={75}
               priority
-              className="h-auto w-27.5 sm:w-31.25"
-              style={{ height: 'auto', width: 'auto' }}
+              className="w-full h-auto"
             />
           </Link>
         </motion.div>

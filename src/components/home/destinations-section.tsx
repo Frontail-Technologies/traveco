@@ -73,23 +73,20 @@ export function DestinationsSection() {
           {/* Header Row */}
           <div className="flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
             <div className="max-w-2xl">
-              <motion.p
-                variants={fadeUp}
-                className="text-gold-cta text-xs font-bold uppercase tracking-[0.12em]"
-              >
-                Popular Destinations
-              </motion.p>
               <motion.h2
                 variants={fadeUp}
-                className="mt-4 text-[38px] font-bold leading-[1.1] tracking-tight text-primary sm:text-[44px] lg:text-[50px] lg:leading-[1.05]"
+                className="text-[38px] font-medium leading-[1.05] tracking-tight text-traveco-navy sm:text-[44px] lg:text-[52px]"
+                data-scroll="fade-up"
               >
-                Where will your <span className="text-accent">journey</span> take you?
+                Popular <br className="hidden sm:block" />
+                <span className="font-bold text-traveco-gold">Destinations</span>
               </motion.h2>
               <motion.p
                 variants={fadeUp}
-                className="mt-6 text-[15px] leading-[1.65] text-primary/75 sm:text-[16px]"
+                className="mt-6 text-[16px] leading-[1.6] text-(--traveco-navy)/70 sm:text-[18px]"
+                data-scroll="fade-up"
               >
-                Explore popular international destinations and get structured visa documentation and application assistance for your travel plans.
+                Explore visa requirements for our most frequently requested countries. We provide tailored assistance for every kind of <strong className="font-bold text-traveco-gold">journey</strong>.
               </motion.p>
             </div>
             

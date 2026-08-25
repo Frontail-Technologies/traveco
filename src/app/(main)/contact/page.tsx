@@ -89,14 +89,14 @@ export default function ContactPage() {
                       </SelectTrigger>
                       <SelectContent className="rounded-[8px] border-(--traveco-navy)/10 bg-white font-medium text-traveco-navy shadow-lg max-h-[300px]">
                         {destinations.map(dest => (
-                          <SelectItem key={dest.countryCode} value={dest.country} className="cursor-pointer rounded-sm py-2.5 hover:bg-[#FBF7EE] focus:bg-[#FBF7EE]">
+                          <SelectItem key={dest.countryCode} value={dest.country} className="cursor-pointer rounded-sm py-2.5 text-primary hover:bg-[#FBF7EE] hover:text-primary focus:bg-[#FBF7EE] focus:text-primary data-[highlighted]:bg-[#FBF7EE] data-[highlighted]:text-primary">
                             <div className="flex items-center gap-3">
                               <CountryFlag countryCode={dest.countryCode} country={dest.country} size="sm" />
                               <span>{dest.country}</span>
                             </div>
                           </SelectItem>
                         ))}
-                        <SelectItem value="Other" className="cursor-pointer rounded-sm py-2.5 hover:bg-[#FBF7EE] focus:bg-[#FBF7EE]">
+                        <SelectItem value="Other" className="cursor-pointer rounded-sm py-2.5 text-primary hover:bg-[#FBF7EE] hover:text-primary focus:bg-[#FBF7EE] focus:text-primary data-[highlighted]:bg-[#FBF7EE] data-[highlighted]:text-primary">
                            <div className="flex items-center gap-3">
                               <div className="w-[24px] h-[16px] bg-slate-100 border border-black/5 rounded-[2px]" />
                               <span>Other</span>

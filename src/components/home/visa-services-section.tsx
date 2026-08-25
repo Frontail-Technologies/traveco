@@ -74,17 +74,17 @@ export function VisaServicesSection() {
               </motion.p>
               <motion.h2
                 variants={fadeUp}
-                className="mt-4 text-[38px] font-bold leading-[1.1] tracking-tight text-primary sm:text-[44px] lg:text-[48px] lg:leading-[1.05]"
+                className="text-[38px] sm:text-[44px] lg:text-[52px] font-medium leading-[1.05] tracking-tight text-traveco-navy"
+                data-scroll="fade-up"
               >
-                Visa support for <span className="text-accent">every kind of journey.</span>
+                Visa <span className="font-bold">Services</span>
               </motion.h2>
               <motion.p
                 variants={fadeUp}
-                className="mt-6 text-[15px] leading-[1.65] text-primary/75 sm:text-[16px]"
+                className="mt-6 text-[16px] sm:text-[18px] leading-[1.6] text-(--traveco-navy)/70 max-w-xl"
+                data-scroll="fade-up"
               >
-                From holidays and business travel to overseas study and employment,
-                TRAVECO provides structured visa documentation and application
-                assistance for international travellers.
+                Expert guidance for <strong className="text-traveco-gold font-bold">every kind of journey</strong>. We simplify complex immigration processes into clear, actionable steps.
               </motion.p>
             </div>
             

@@ -40,15 +40,18 @@ export function DocumentAssistanceSection() {
             </motion.p>
             <motion.h2
               variants={fadeUp}
-              className="mt-4 text-[38px] font-bold leading-[1.1] tracking-tight text-primary sm:text-[44px] lg:text-[48px] lg:leading-[1.05]"
+              className="text-[34px] font-bold leading-[1.05] tracking-tight text-primary sm:text-[42px] lg:text-[48px]"
+              data-scroll="fade-up"
             >
-              Prepare the <span className="text-accent">right documents</span><br className="hidden lg:block" /> with confidence.
+              The <strong className="text-gold-cta">right documents</strong>, <br className="hidden sm:block" />
+              the first time.
             </motion.h2>
             <motion.p
               variants={fadeUp}
-              className="mt-6 text-[15px] leading-[1.65] text-primary/75 sm:text-[16px]"
+              className="mt-6 text-[15.5px] leading-[1.6] text-primary/80 lg:text-[16px] max-w-xl"
+              data-scroll="fade-up"
             >
-              TRAVECO helps you organize and review your visa documentation according to the requirements applicable to your travel plans.
+              Every country has specific requirements. We ensure your application package is perfectly assembled before submission, saving you time and avoiding rejections.
             </motion.p>
           </div>
 
