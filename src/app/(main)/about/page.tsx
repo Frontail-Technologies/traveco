@@ -20,10 +20,10 @@ export default function AboutPage() {
             <p className="text-(--traveco-gold,#C5A253) text-[11px] md:text-[12px] font-bold tracking-widest uppercase mb-4">
               ABOUT TRAVECO
             </p>
-            <h1 className="text-white text-[clamp(40px,5vw,56px)] font-medium leading-[1.05] tracking-tight mb-6">
+            <h1 className="text-white text-[clamp(40px,5vw,56px)] font-medium leading-[1.05] tracking-tight mb-6" data-scroll="fade-up">
               Built around clarity, guidance and better travel preparation.
             </h1>
-            <div className="text-white/80 text-[16px] md:text-[18px] leading-[1.6] max-w-xl flex flex-col gap-5">
+            <div className="text-white/80 text-[16px] md:text-[18px] leading-[1.6] max-w-xl flex flex-col gap-5" data-scroll="fade-up">
               <p>
                 TRAVECO Mobility provides visa documentation, application assistance and international travel support for individuals, families, students and business travellers.
               </p>
@@ -57,10 +57,10 @@ export default function AboutPage() {
               <p className="text-(--traveco-navy,#0B1F3A)/50 text-[11px] font-bold tracking-widest uppercase mb-4">
                 OUR APPROACH
               </p>
-              <h2 className="text-(--traveco-navy,#0B1F3A) text-[32px] md:text-[42px] font-medium leading-[1.1] tracking-tight mb-8">
+              <h2 className="text-(--traveco-navy,#0B1F3A) text-[32px] md:text-[42px] font-medium leading-[1.1] tracking-tight mb-8" data-scroll="fade-up">
                 Visa assistance should feel clear, not complicated.
               </h2>
-              <div className="text-(--traveco-navy,#0B1F3A)/75 text-[16px] md:text-[17px] leading-[1.7] flex flex-col gap-5">
+              <div className="text-(--traveco-navy,#0B1F3A)/75 text-[16px] md:text-[17px] leading-[1.7] flex flex-col gap-5" data-scroll="fade-up">
                 <p>
                   TRAVECO exists to help travellers understand exactly what is required before they submit an application to the authorities.
                 </p>

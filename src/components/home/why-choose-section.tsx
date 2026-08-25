@@ -84,24 +84,24 @@ export function WhyChooseSection() {
                 </svg>
               </div>
 
-              <motion.p
-                variants={fadeUp}
+              <p
                 className="text-gold-cta text-xs font-bold uppercase tracking-[0.12em]"
+                data-scroll="fade-up"
               >
                 Why Traveco
-              </motion.p>
-              <motion.h2
-                variants={fadeUp}
+              </p>
+              <h2
                 className="mt-4 text-[38px] font-bold leading-[1.1] tracking-tight text-primary sm:text-[44px] lg:text-[48px] lg:leading-[1.05]"
+                data-scroll="fade-up"
               >
                 Guidance you can rely on, from start to finish.
-              </motion.h2>
-              <motion.p
-                variants={fadeUp}
+              </h2>
+              <p
                 className="mt-6 text-[15px] leading-[1.65] text-primary/75 sm:text-[16px]"
+                data-scroll="fade-up"
               >
-                Clear communication, careful documentation and personalized assistance throughout your visa preparation journey.
-              </motion.p>
+                Preparing a visa application involves strict compliance and attention to detail. We ensure you're fully informed and confident before submission.
+              </p>
             </div>
 
             {/* Main Consultation Image */}

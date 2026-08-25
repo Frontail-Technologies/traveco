@@ -55,24 +55,24 @@ export function ProcessSection() {
         >
           {/* Section Header */}
           <div className="mx-auto flex max-w-3xl flex-col items-center text-center">
-            <motion.p
-              variants={fadeUp}
+            <p
               className="text-gold-on-dark text-xs font-bold uppercase tracking-[0.12em]"
+              data-scroll="fade-up"
             >
               How It Works
-            </motion.p>
-            <motion.h2
-              variants={fadeUp}
+            </p>
+            <h2
               className="mt-4 text-[38px] font-bold leading-[1.1] tracking-tight text-white sm:text-[44px] lg:text-[50px] lg:leading-[1.05]"
+              data-scroll="fade-up"
             >
               Your visa journey, simplified.
-            </motion.h2>
-            <motion.p
-              variants={fadeUp}
+            </h2>
+            <p
               className="mt-6 text-[15px] leading-[1.65] text-[rgba(255,255,255,0.78)] sm:text-[16px]"
+              data-scroll="fade-up"
             >
               From understanding your travel requirements to application updates, TRAVECO guides you through every important step of the visa preparation process.
-            </motion.p>
+            </p>
           </div>
 
           {/* Timeline */}
