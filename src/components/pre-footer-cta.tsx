@@ -26,7 +26,7 @@ export function PreFooterCTA({ countryName, eyebrow, title, description }: PreFo
 
           {/* Left Content */}
           <div className="lg:w-[65%] max-w-2xl relative z-10">
-            <p className="text-[var(--traveco-gold,#C5A253)] text-[11px] md:text-[12px] font-bold tracking-widest uppercase mb-4">
+            <p className="text-(--traveco-gold,#C5A253) text-[11px] md:text-[12px] font-bold tracking-widest uppercase mb-4">
               {eyebrow || "Ready to start?"}
             </p>
             <h2 className="text-white text-[32px] md:text-[40px] font-medium leading-[1.1] mb-5 whitespace-pre-line">
@@ -45,10 +45,10 @@ export function PreFooterCTA({ countryName, eyebrow, title, description }: PreFo
           <div className="lg:w-[35%] flex flex-col items-start lg:items-end gap-5 relative z-10 w-full">
             <Link 
               href="/#contact" 
-              className="w-full sm:w-auto inline-flex justify-center items-center gap-2 bg-[var(--traveco-gold,#C5A253)] text-[#0B1F3A] font-bold px-8 h-[52px] rounded-control hover:bg-[#D4B365] transition-colors"
+              className="w-full sm:w-auto inline-flex justify-center items-center gap-2 bg-(--traveco-gold,#C5A253) text-[#0B1F3A] font-bold px-8 h-13 rounded-control hover:bg-[#D4B365] transition-colors"
             >
               Get Visa Assistance
-              <ArrowRight className="w-[18px] h-[18px]" />
+              <ArrowRight className="w-4.5 h-4.5" />
             </Link>
             
             <a 

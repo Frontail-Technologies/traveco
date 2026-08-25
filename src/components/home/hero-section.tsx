@@ -26,7 +26,7 @@ export function HeroSection() {
   return (
     <section
       id="top"
-      className="relative isolate flex min-h-[calc(100svh-88px)] mt-[88px] items-center overflow-hidden text-white bg-[var(--traveco-navy)]"
+      className="relative isolate flex min-h-[calc(100svh-88px)] mt-22 items-center overflow-hidden text-white bg-traveco-navy"
     >
       <AnimatePresence>
         <motion.div
@@ -47,11 +47,11 @@ export function HeroSection() {
         initial="hidden"
         animate="visible"
         variants={staggerContainer}
-        className="relative z-10 mx-auto w-full max-w-[760px] px-5 py-16 text-center sm:px-6 lg:px-8"
+        className="relative z-10 mx-auto w-full max-w-190 px-5 py-16 text-center sm:px-6 lg:px-8"
       >
         <motion.p
           variants={fadeUp}
-          className="text-gold-on-dark mx-auto mb-4 text-xs font-[700] tracking-[0.12em] uppercase sm:text-sm"
+          className="text-gold-on-dark mx-auto mb-4 text-xs font-bold tracking-[0.12em] uppercase sm:text-sm"
         >
           Global Visa & Travel Support
         </motion.p>
@@ -65,7 +65,7 @@ export function HeroSection() {
 
         <motion.p
           variants={fadeUp}
-          className="mx-auto mt-6 max-w-[560px] text-[16px] leading-[1.7] text-[rgba(255,255,255,0.88)] sm:text-[18px]"
+          className="mx-auto mt-6 max-w-140 text-[16px] leading-[1.7] text-[rgba(255,255,255,0.88)] sm:text-[18px]"
         >
           Professional visa documentation, application assistance and international travel support for individuals, families, students and business travellers.
         </motion.p>
@@ -92,7 +92,7 @@ export function HeroSection() {
 
         <motion.div
           variants={fadeUp}
-          className="mt-12 flex flex-wrap items-center justify-center gap-x-3 gap-y-2 text-[13px] font-[500] text-[rgba(255,255,255,0.88)] sm:text-[14px]"
+          className="mt-12 flex flex-wrap items-center justify-center gap-x-3 gap-y-2 text-[13px] font-medium text-[rgba(255,255,255,0.88)] sm:text-[14px]"
         >
           <span>Tourist Visa</span>
           <span className="text-gold-on-dark/70">•</span>

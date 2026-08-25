@@ -86,14 +86,14 @@ export function FaqSection() {
           <div className="lg:col-span-4 xl:col-span-4 flex flex-col pt-2 relative z-10">
             <motion.p
               variants={fadeUp}
-              className="text-gold-cta text-xs font-[700] uppercase tracking-[0.12em]"
+              className="text-gold-cta text-xs font-bold uppercase tracking-[0.12em]"
             >
               Frequently Asked Questions
             </motion.p>
             
             <motion.h2
               variants={fadeUp}
-              className="mt-4 text-[38px] font-[700] leading-[1.1] tracking-tight text-primary sm:text-[44px] lg:text-[48px] lg:leading-[1.05]"
+              className="mt-4 text-[38px] font-bold leading-[1.1] tracking-tight text-primary sm:text-[44px] lg:text-[48px] lg:leading-[1.05]"
             >
               Questions before your <br className="hidden lg:block" /> next journey?
             </motion.h2>
@@ -106,7 +106,7 @@ export function FaqSection() {
             </motion.p>
 
             <motion.div variants={fadeUp} className="mt-12 border-t border-primary/10 pt-6 lg:mt-12">
-              <p className="mb-2 text-[15px] font-[700] text-primary">
+              <p className="mb-2 text-[15px] font-bold text-primary">
                 Still have a question?
               </p>
               <Link

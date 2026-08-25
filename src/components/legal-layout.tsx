@@ -44,15 +44,15 @@ export function LegalLayout({
   }, [sections]);
 
   return (
-    <div className="bg-[#F7F5EF] pt-[88px] min-h-screen">
+    <div className="bg-[#F7F5EF] pt-22 min-h-screen">
       <div className="mx-auto w-full max-w-340 px-5 sm:px-6 lg:px-8 py-16 md:py-24">
         
         {/* HEADER */}
-        <div className="mb-12 md:mb-16 border-b border-[var(--traveco-navy)]/10 pb-10">
-          <h1 className="text-[36px] md:text-[44px] font-medium text-[var(--traveco-navy)] leading-[1.1] tracking-tight mb-4">
+        <div className="mb-12 md:mb-16 border-b border-(--traveco-navy)/10 pb-10">
+          <h1 className="text-[36px] md:text-[44px] font-medium text-traveco-navy leading-[1.1] tracking-tight mb-4">
             {title}
           </h1>
-          <p className="text-[var(--traveco-navy)]/50 text-[14px] font-medium">
+          <p className="text-(--traveco-navy)/50 text-[14px] font-medium">
             Last Updated: {lastUpdated}
           </p>
         </div>
@@ -60,9 +60,9 @@ export function LegalLayout({
         <div className="flex flex-col lg:flex-row gap-12 lg:gap-16 lg:items-start relative">
           
           {/* SIDEBAR NAVIGATION */}
-          <aside className="lg:w-[280px] shrink-0">
+          <aside className="lg:w-70 shrink-0">
             <div className="lg:sticky lg:top-32">
-              <p className="text-[11px] font-bold tracking-widest text-[var(--traveco-navy)]/50 uppercase mb-5">
+              <p className="text-[11px] font-bold tracking-widest text-(--traveco-navy)/50 uppercase mb-5">
                 On This Page
               </p>
               <nav className="flex flex-col gap-1.5">
@@ -84,13 +84,13 @@ export function LegalLayout({
                       className={cn(
                         "flex items-center gap-3 py-2 px-3 text-[14px] font-medium rounded-[8px] transition-colors",
                         isActive
-                          ? "bg-white text-[var(--traveco-navy)] shadow-sm border border-[var(--traveco-navy)]/5"
-                          : "hover:bg-white/60 text-[var(--traveco-navy)]/60 hover:text-[var(--traveco-navy)] border border-transparent"
+                          ? "bg-white text-traveco-navy shadow-sm border border-(--traveco-navy)/5"
+                          : "hover:bg-white/60 text-(--traveco-navy)/60 hover:text-traveco-navy border border-transparent"
                       )}
                     >
                       <span className={cn(
                         "text-[12px] font-bold w-4 shrink-0 transition-colors",
-                        isActive ? "text-[var(--traveco-gold)]" : "text-[var(--traveco-navy)]/30"
+                        isActive ? "text-traveco-gold" : "text-(--traveco-navy)/30"
                       )}>
                         {idx + 1}.
                       </span>
@@ -112,7 +112,7 @@ export function LegalLayout({
             prose-ul:my-6 prose-ol:my-6
             prose-strong:text-[var(--traveco-navy)] prose-strong:font-semibold
             prose-a:text-[var(--traveco-gold)] prose-a:font-medium prose-a:no-underline hover:prose-a:underline
-            marker:text-[var(--traveco-navy)]/40
+            marker:text-(--traveco-navy)/40
             [&>section]:scroll-mt-32"
           >
             {children}

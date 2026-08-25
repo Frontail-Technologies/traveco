@@ -19,17 +19,17 @@ export function AboutFounderSection() {
           className="grid grid-cols-1 gap-10 lg:grid-cols-12 lg:items-center lg:gap-16"
         >
           {/* Header & Company Intro (Order 1 on mobile, Right col top on desktop) */}
-          <div className="order-1 lg:order-none lg:col-span-6 lg:col-start-7 lg:row-start-1 lg:self-end lg:pb-6 relative z-10">
+          <div className="order-1 lg:order-0 lg:col-span-6 lg:col-start-7 lg:row-start-1 lg:self-end lg:pb-6 relative z-10">
             <motion.p
               variants={fadeUp}
-              className="text-gold-cta text-xs font-[700] uppercase tracking-[0.12em]"
+              className="text-gold-cta text-xs font-bold uppercase tracking-[0.12em]"
             >
               About Traveco
             </motion.p>
 
             <motion.h2
               variants={fadeUp}
-              className="mt-4 text-[38px] font-[700] leading-[1.1] tracking-tight text-primary sm:text-[44px] lg:text-[48px] lg:leading-[1.05]"
+              className="mt-4 text-[38px] font-bold leading-[1.1] tracking-tight text-primary sm:text-[44px] lg:text-[48px] lg:leading-[1.05]"
             >
               Built around clarity, guidance and better travel preparation.
             </motion.h2>
@@ -50,7 +50,7 @@ export function AboutFounderSection() {
           {/* Founder Image (Order 2 on mobile, Left col spanning both rows on desktop) */}
           <motion.div
             variants={fadeUp}
-            className="order-2 relative z-0 h-[450px] w-full overflow-hidden rounded-surface lg:order-none lg:col-span-6 lg:col-start-1 lg:row-span-2 lg:row-start-1 lg:h-[650px]"
+            className="order-2 relative z-0 h-112.5 w-full overflow-hidden rounded-surface lg:order-0 lg:col-span-6 lg:col-start-1 lg:row-span-2 lg:row-start-1 lg:h-162.5"
           >
             <Image
               src="/images/founder.png"
@@ -84,15 +84,15 @@ export function AboutFounderSection() {
           </motion.div>
 
           {/* Founder Block & CTA (Order 3 on mobile, Right col bottom on desktop) */}
-          <div className="order-3 lg:order-none lg:col-span-6 lg:col-start-7 lg:row-start-2 lg:self-start lg:pt-0">
+          <div className="order-3 lg:order-0 lg:col-span-6 lg:col-start-7 lg:row-start-2 lg:self-start lg:pt-0">
             <motion.div variants={fadeUp} className="border-t border-border/70 pt-6 mt-0">
-              <p className="mb-3 text-[11px] font-[800] uppercase tracking-[0.15em] text-gold-cta">
+              <p className="mb-3 text-[11px] font-extrabold uppercase tracking-[0.15em] text-gold-cta">
                 Leadership
               </p>
-              <h3 className="mb-1 text-[24px] font-[700] text-primary lg:text-[28px]">
+              <h3 className="mb-1 text-[24px] font-bold text-primary lg:text-[28px]">
                 Sandeep Kamlesh Jaiswar
               </h3>
-              <p className="mb-5 text-[15px] font-[600] text-primary/60">
+              <p className="mb-5 text-[15px] font-semibold text-primary/60">
                 Founder | Visa & Travel Consultant
               </p>
               <p className="text-[15px] leading-[1.65] text-primary/80 lg:text-[15.5px]">
@@ -103,7 +103,7 @@ export function AboutFounderSection() {
             <motion.div variants={fadeUp} className="mt-10">
               <Link
                 href="/about"
-                className="group inline-flex items-center gap-2 text-[15px] font-[600] text-primary transition-colors hover:text-gold-cta"
+                className="group inline-flex items-center gap-2 text-[15px] font-semibold text-primary transition-colors hover:text-gold-cta"
               >
                 Learn More About TRAVECO
                 <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" />

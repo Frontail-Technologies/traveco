@@ -51,7 +51,7 @@ export function SiteNavbar() {
   return (
     <header
       className={cn(
-        "fixed inset-x-0 top-0 z-50 bg-white/[0.96] backdrop-blur-xl transition-all duration-300",
+        "fixed inset-x-0 top-0 z-50 bg-white/96 backdrop-blur-xl transition-all duration-300",
         scrolled
           ? "border-b border-border"
           : "border-b border-transparent",
@@ -61,7 +61,7 @@ export function SiteNavbar() {
         initial="hidden"
         animate="visible"
         variants={staggerContainer}
-        className="mx-auto flex h-[88px] max-w-340 items-center justify-between gap-4 px-4 sm:px-6 lg:px-8"
+        className="mx-auto flex h-22 max-w-340 items-center justify-between gap-4 px-4 sm:px-6 lg:px-8"
       >
         <motion.div variants={fadeUp}>
           <Link
@@ -75,7 +75,7 @@ export function SiteNavbar() {
               width={220}
               height={75}
               priority
-              className="h-auto w-[110px] sm:w-[125px]"
+              className="h-auto w-27.5 sm:w-31.25"
               style={{ height: 'auto' }}
             />
           </Link>
@@ -100,7 +100,7 @@ export function SiteNavbar() {
                     href={link.href}
                     className={cn(
                       "flex items-center gap-1.5 text-[14.5px] font-medium transition-colors hover:text-accent relative py-6",
-                      isActive ? "text-accent after:absolute after:-bottom-1.5 after:left-0 after:w-full after:h-[2px] after:bg-accent after:rounded-full" : "text-primary"
+                      isActive ? "text-accent after:absolute after:-bottom-1.5 after:left-0 after:w-full after:h-0.5 after:bg-accent after:rounded-full" : "text-primary"
                     )}
                   >
                     {link.label}
@@ -113,7 +113,7 @@ export function SiteNavbar() {
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0, y: 10, transition: { duration: 0.1 } }}
                         transition={{ duration: 0.2 }}
-                        className="absolute top-[80%] left-0 w-[240px] bg-white rounded-[12px] shadow-[0_10px_40px_-10px_rgba(0,0,0,0.1)] border border-border overflow-hidden py-2 z-50"
+                        className="absolute top-[80%] left-0 w-60 bg-white rounded-[12px] shadow-[0_10px_40px_-10px_rgba(0,0,0,0.1)] border border-border overflow-hidden py-2 z-50"
                       >
                         {link.subItems.map((sub) => {
                           const isSubActive = pathname === sub.href;
@@ -123,7 +123,7 @@ export function SiteNavbar() {
                               href={sub.href}
                               className={cn(
                                 "block px-5 py-2.5 text-[14px] transition-colors",
-                                isSubActive ? "text-accent font-medium bg-black/[0.02]" : "text-primary/80 hover:text-accent hover:bg-black/[0.02]"
+                                isSubActive ? "text-accent font-medium bg-black/2" : "text-primary/80 hover:text-accent hover:bg-black/2"
                               )}
                             >
                               {sub.label}
@@ -143,7 +143,7 @@ export function SiteNavbar() {
                 href={link.href}
                 className={cn(
                   "text-[14.5px] font-medium transition-colors hover:text-accent relative",
-                  isActive ? "text-accent after:absolute after:-bottom-1.5 after:left-0 after:w-full after:h-[2px] after:bg-accent after:rounded-full" : "text-primary"
+                  isActive ? "text-accent after:absolute after:-bottom-1.5 after:left-0 after:w-full after:h-0.5 after:bg-accent after:rounded-full" : "text-primary"
                 )}
               >
                 {link.label}

@@ -68,13 +68,13 @@ export function VisaServicesSection() {
             <div className="max-w-2xl">
               <motion.p
                 variants={fadeUp}
-                className="text-gold-cta text-xs font-[700] uppercase tracking-[0.12em]"
+                className="text-gold-cta text-xs font-bold uppercase tracking-[0.12em]"
               >
                 Visa Services
               </motion.p>
               <motion.h2
                 variants={fadeUp}
-                className="mt-4 text-[38px] font-[700] leading-[1.1] tracking-tight text-primary sm:text-[44px] lg:text-[48px] lg:leading-[1.05]"
+                className="mt-4 text-[38px] font-bold leading-[1.1] tracking-tight text-primary sm:text-[44px] lg:text-[48px] lg:leading-[1.05]"
               >
                 Visa support for every kind of journey.
               </motion.h2>
@@ -91,7 +91,7 @@ export function VisaServicesSection() {
             <motion.div variants={fadeUp} className="shrink-0 lg:pb-2">
               <Link
                 href="/#visa-services"
-                className="group inline-flex items-center gap-2 text-[15px] font-[600] text-primary transition-colors hover:text-accent"
+                className="group inline-flex items-center gap-2 text-[15px] font-semibold text-primary transition-colors hover:text-accent"
               >
                 Explore All Visa Services
                 <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" />
@@ -125,11 +125,11 @@ export function VisaServicesSection() {
                     variants={fadeUp}
                     className="group flex flex-col border-b border-border/80 pb-6 mb-8 transition-colors hover:border-accent/40"
                   >
-                    <div className="mb-3 text-[13px] font-[700] text-gold-cta">
+                    <div className="mb-3 text-[13px] font-bold text-gold-cta">
                       {service.id}
                     </div>
                     
-                    <h3 className="mb-2 text-[20px] font-[700] leading-tight text-primary transition-colors group-hover:text-accent">
+                    <h3 className="mb-2 text-[20px] font-bold leading-tight text-primary transition-colors group-hover:text-accent">
                       {service.title}
                     </h3>
                     
@@ -139,7 +139,7 @@ export function VisaServicesSection() {
                     
                     <Link
                       href={service.href}
-                      className="mt-auto inline-flex items-center gap-1.5 text-[14px] font-[600] text-primary/60 transition-colors group-hover:text-primary"
+                      className="mt-auto inline-flex items-center gap-1.5 text-[14px] font-semibold text-primary/60 transition-colors group-hover:text-primary"
                     >
                       Learn more
                       <ArrowRight className="size-3.5 transition-transform group-hover:translate-x-1" />

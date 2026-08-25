@@ -112,14 +112,14 @@ export default async function DocumentChecklistSlugPage({ params }: Props) {
             {/* 1 — DOCUMENTS */}
             <section id="documents" className="mb-14 scroll-mt-28">
               <div className="flex items-center gap-4 mb-6">
-                <h2 className="text-[22px] font-semibold text-[var(--traveco-navy)]">
-                  <span className="mr-2 font-bold text-[var(--traveco-navy)]">1.</span>
+                <h2 className="text-[22px] font-semibold text-traveco-navy">
+                  <span className="mr-2 font-bold text-traveco-navy">1.</span>
                   Documents Required
                 </h2>
-                <div className="h-px flex-1 bg-[var(--traveco-navy)]/10" />
+                <div className="h-px flex-1 bg-(--traveco-navy)/10" />
               </div>
 
-              <p className="text-[15px] text-[var(--traveco-navy)]/70 leading-relaxed mb-6">
+              <p className="text-[15px] text-(--traveco-navy)/70 leading-relaxed mb-6">
                 Prepare the following documents for your {dest.country} {dest.touristRoute} application.
               </p>
 
@@ -127,13 +127,13 @@ export default async function DocumentChecklistSlugPage({ params }: Props) {
                 {dest.coreChecklist.map((item, idx) => (
                   <div
                     key={idx}
-                    className="flex items-start gap-3 bg-white border border-[var(--traveco-navy)]/10 rounded-surface px-4 py-3 min-h-12"
+                    className="flex items-start gap-3 bg-white border border-(--traveco-navy)/10 rounded-surface px-4 py-3 min-h-12"
                   >
                     <Check
-                      className="w-4 h-4 shrink-0 mt-0.5 text-[var(--traveco-navy)]"
+                      className="w-4 h-4 shrink-0 mt-0.5 text-traveco-navy"
                       strokeWidth={2.5}
                     />
-                    <span className="text-[14px] font-medium leading-snug text-[var(--traveco-navy)]">
+                    <span className="text-[14px] font-medium leading-snug text-traveco-navy">
                       {fmt(item)}
                     </span>
                   </div>
@@ -144,19 +144,19 @@ export default async function DocumentChecklistSlugPage({ params }: Props) {
             {/* 2 — PROCESSING */}
             <section id="processing" className="mb-14 scroll-mt-28">
               <div className="flex items-center gap-4 mb-6">
-                <h2 className="text-[22px] font-semibold text-[var(--traveco-navy)]">
-                  <span className="mr-2 font-bold text-[var(--traveco-navy)]">2.</span>
+                <h2 className="text-[22px] font-semibold text-traveco-navy">
+                  <span className="mr-2 font-bold text-traveco-navy">2.</span>
                   Indicative Processing
                 </h2>
-                <div className="h-px flex-1 bg-[var(--traveco-navy)]/10" />
+                <div className="h-px flex-1 bg-(--traveco-navy)/10" />
               </div>
 
-              <div className="bg-white border border-[var(--traveco-navy)]/10 rounded-surface px-6 py-5">
-                <p className="text-[15px] font-medium leading-relaxed text-[var(--traveco-navy)]">
+              <div className="bg-white border border-(--traveco-navy)/10 rounded-surface px-6 py-5">
+                <p className="text-[15px] font-medium leading-relaxed text-traveco-navy">
                   {dest.indicativeProcessing}
                 </p>
               </div>
-              <p className="text-[13px] text-[var(--traveco-navy)]/60 mt-3 leading-relaxed">
+              <p className="text-[13px] text-(--traveco-navy)/60 mt-3 leading-relaxed">
                 Processing times vary based on appointment availability, destination requirements and individual circumstances.
               </p>
             </section>
@@ -164,28 +164,28 @@ export default async function DocumentChecklistSlugPage({ params }: Props) {
             {/* 3 — FEES */}
             <section id="fees" className="mb-14 scroll-mt-28">
               <div className="flex items-center gap-4 mb-6">
-                <h2 className="text-[22px] font-semibold text-[var(--traveco-navy)]">
-                  <span className="mr-2 font-bold text-[var(--traveco-navy)]">3.</span>
+                <h2 className="text-[22px] font-semibold text-traveco-navy">
+                  <span className="mr-2 font-bold text-traveco-navy">3.</span>
                   Fees &amp; Charges
                 </h2>
-                <div className="h-px flex-1 bg-[var(--traveco-navy)]/10" />
+                <div className="h-px flex-1 bg-(--traveco-navy)/10" />
               </div>
 
               {liveFee ? (
-                <div className="bg-white border border-[var(--traveco-navy)]/10 rounded-surface px-5 py-4">
-                  <p className="text-[10px] font-bold tracking-widest uppercase mb-2 text-[var(--traveco-navy)]">
+                <div className="bg-white border border-(--traveco-navy)/10 rounded-surface px-5 py-4">
+                  <p className="text-[10px] font-bold tracking-widest uppercase mb-2 text-traveco-navy">
                     Live Fee Verification Required
                   </p>
-                  <p className="text-[14.5px] font-medium leading-relaxed mb-2 text-[var(--traveco-navy)]">
+                  <p className="text-[14.5px] font-medium leading-relaxed mb-2 text-traveco-navy">
                     {feeText}
                   </p>
-                  <p className="text-[13px] text-[var(--traveco-navy)]/60 leading-relaxed">
+                  <p className="text-[13px] text-(--traveco-navy)/60 leading-relaxed">
                     Current government, biometric, visa-centre and other applicable charges should be verified before application.
                   </p>
                 </div>
               ) : (
-                <div className="bg-white border border-[var(--traveco-navy)]/10 rounded-surface px-6 py-5">
-                  <p className="text-[15px] font-medium leading-relaxed text-[var(--traveco-navy)]">
+                <div className="bg-white border border-(--traveco-navy)/10 rounded-surface px-6 py-5">
+                  <p className="text-[15px] font-medium leading-relaxed text-traveco-navy">
                     {feeText}
                   </p>
                 </div>
@@ -195,16 +195,16 @@ export default async function DocumentChecklistSlugPage({ params }: Props) {
             {/* 4 — NOTE */}
             <section id="note" className="mb-14 scroll-mt-28">
               <div className="flex items-center gap-4 mb-6">
-                <h2 className="text-[22px] font-semibold text-[var(--traveco-navy)]">
-                  <span className="mr-2 font-bold text-[var(--traveco-navy)]">4.</span>
+                <h2 className="text-[22px] font-semibold text-traveco-navy">
+                  <span className="mr-2 font-bold text-traveco-navy">4.</span>
                   Before You Apply
                 </h2>
-                <div className="h-px flex-1 bg-[var(--traveco-navy)]/10" />
+                <div className="h-px flex-1 bg-(--traveco-navy)/10" />
               </div>
 
-              <div className="bg-white border border-[var(--traveco-navy)]/10 rounded-surface px-6 py-5">
-                <p className="text-[10px] font-bold tracking-widest text-[var(--traveco-navy)]/50 uppercase mb-3">Note</p>
-                <p className="text-[14.5px] text-[var(--traveco-navy)]/80 leading-relaxed">
+              <div className="bg-white border border-(--traveco-navy)/10 rounded-surface px-6 py-5">
+                <p className="text-[10px] font-bold tracking-widest text-(--traveco-navy)/50 uppercase mb-3">Note</p>
+                <p className="text-[14.5px] text-(--traveco-navy)/80 leading-relaxed">
                   Visa requirements, fees, appointment availability and processing information may change. Always verify current requirements with the relevant embassy, consulate or official immigration authority before submitting an application.
                 </p>
               </div>

@@ -71,7 +71,7 @@ export function DestinationSearch() {
         <div 
           className={cn(
             "flex items-center w-full h-14 bg-white border rounded-control px-5 shadow-sm transition-all relative z-10",
-            open ? "border-[var(--traveco-gold)] ring-1 ring-[var(--traveco-gold)]" : "border-slate-200 hover:border-slate-300"
+            open ? "border-traveco-gold ring-1 ring-traveco-gold" : "border-slate-200 hover:border-slate-300"
           )}
         >
           <CommandPrimitive.Input
@@ -82,7 +82,7 @@ export function DestinationSearch() {
             }}
             onFocus={() => setOpen(true)}
             placeholder="Search country or destination..."
-            className="flex-1 min-w-0 text-[16px] border-0 outline-none bg-transparent placeholder:text-slate-400 text-[var(--traveco-navy)] focus:ring-0"
+            className="flex-1 min-w-0 text-[16px] border-0 outline-none bg-transparent placeholder:text-slate-400 text-traveco-navy focus:ring-0"
           />
           <Search className="h-5 w-5 shrink-0 text-slate-400 ml-3" strokeWidth={2} />
         </div>
@@ -92,7 +92,7 @@ export function DestinationSearch() {
           <div
             className="absolute left-0 right-0 top-[calc(100%+8px)] z-50 bg-white border border-slate-200 rounded-surface shadow-md overflow-hidden"
           >
-            <CommandPrimitive.List className="overflow-y-auto max-h-[340px] py-2" style={{ scrollbarWidth: 'thin' }}>
+            <CommandPrimitive.List className="overflow-y-auto max-h-85 py-2" style={{ scrollbarWidth: 'thin' }}>
               <CommandPrimitive.Empty className="py-8 text-center text-[14px] text-slate-400">
                 No destination found.
               </CommandPrimitive.Empty>
@@ -132,10 +132,10 @@ export function DestinationSearch() {
                       <CountryFlag countryCode={dest.countryCode} country={dest.country} size="sm" />
                     </div>
                     <div className="flex flex-col min-w-0">
-                      <span className="text-[14.5px] font-medium text-[var(--traveco-navy)] truncate">
+                      <span className="text-[14.5px] font-medium text-traveco-navy truncate">
                         <HighlightMatch text={dest.country} query={query} />
                       </span>
-                      <span className="text-[12px] text-[var(--traveco-navy)]/60 truncate max-w-[320px]">
+                      <span className="text-[12px] text-(--traveco-navy)/60 truncate max-w-[320px]">
                         <HighlightMatch text={dest.touristRoute} query={query} />
                       </span>
                     </div>

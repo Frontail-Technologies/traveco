@@ -57,13 +57,13 @@ export function ProcessSection() {
           <div className="mx-auto flex max-w-3xl flex-col items-center text-center">
             <motion.p
               variants={fadeUp}
-              className="text-gold-on-dark text-xs font-[700] uppercase tracking-[0.12em]"
+              className="text-gold-on-dark text-xs font-bold uppercase tracking-[0.12em]"
             >
               How It Works
             </motion.p>
             <motion.h2
               variants={fadeUp}
-              className="mt-4 text-[38px] font-[700] leading-[1.1] tracking-tight text-white sm:text-[44px] lg:text-[50px] lg:leading-[1.05]"
+              className="mt-4 text-[38px] font-bold leading-[1.1] tracking-tight text-white sm:text-[44px] lg:text-[50px] lg:leading-[1.05]"
             >
               Your visa journey, simplified.
             </motion.h2>
@@ -88,25 +88,25 @@ export function ProcessSection() {
                 >
                   {/* Mobile/Tablet Vertical Line */}
                   {!isLast && (
-                    <div className="absolute left-[19px] top-[48px] h-[calc(100%+16px)] w-[1px] bg-white/10 lg:hidden" />
+                    <div className="absolute left-4.75 top-12 h-[calc(100%+16px)] w-px bg-white/10 lg:hidden" />
                   )}
 
                   {/* Node & Number */}
                   <div className="relative z-10 mr-6 shrink-0 lg:mr-0 lg:w-full">
-                    <span className="text-[34px] font-[700] text-gold-on-dark lg:text-[38px]">
+                    <span className="text-[34px] font-bold text-gold-on-dark lg:text-[38px]">
                       {step.id}
                     </span>
                     
                     {/* Desktop Node & Line */}
-                    <div className="relative mt-3 hidden h-[20px] w-full items-center lg:flex">
+                    <div className="relative mt-3 hidden h-5 w-full items-center lg:flex">
                       <div className="size-1.5 shrink-0 rounded-full bg-gold-on-dark/50" />
-                      {!isLast && <div className="h-[1px] w-full bg-white/10" />}
+                      {!isLast && <div className="h-px w-full bg-white/10" />}
                     </div>
                   </div>
 
                   {/* Content */}
                   <div className="pt-2 lg:pr-6 lg:pt-5">
-                    <h3 className="mb-2 text-[19px] font-[700] leading-tight text-white lg:text-[20px]">
+                    <h3 className="mb-2 text-[19px] font-bold leading-tight text-white lg:text-[20px]">
                       {step.title}
                     </h3>
                     <p className="text-[14px] leading-[1.65] text-[rgba(255,255,255,0.76)]">

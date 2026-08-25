@@ -75,13 +75,13 @@ export function DestinationsSection() {
             <div className="max-w-2xl">
               <motion.p
                 variants={fadeUp}
-                className="text-gold-cta text-xs font-[700] uppercase tracking-[0.12em]"
+                className="text-gold-cta text-xs font-bold uppercase tracking-[0.12em]"
               >
                 Popular Destinations
               </motion.p>
               <motion.h2
                 variants={fadeUp}
-                className="mt-4 text-[38px] font-[700] leading-[1.1] tracking-tight text-primary sm:text-[44px] lg:text-[50px] lg:leading-[1.05]"
+                className="mt-4 text-[38px] font-bold leading-[1.1] tracking-tight text-primary sm:text-[44px] lg:text-[50px] lg:leading-[1.05]"
               >
                 Where will your journey take you?
               </motion.h2>
@@ -96,7 +96,7 @@ export function DestinationsSection() {
             <motion.div variants={fadeUp} className="shrink-0 lg:pb-2">
               <Link
                 href="/document-checklist"
-                className="group inline-flex items-center gap-2 text-[15px] font-[600] text-primary transition-colors hover:text-accent"
+                className="group inline-flex items-center gap-2 text-[15px] font-semibold text-primary transition-colors hover:text-accent"
               >
                 Explore All Destinations
                 <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" />
@@ -131,10 +131,10 @@ export function DestinationsSection() {
                 {/* Content */}
                 <div className="absolute inset-x-0 bottom-0 z-20 flex items-end justify-between p-6 lg:p-8">
                   <div>
-                    <h3 className="mb-2 text-[22px] font-[700] text-white lg:text-[26px]">
+                    <h3 className="mb-2 text-[22px] font-bold text-white lg:text-[26px]">
                       {dest.name}
                     </h3>
-                    <p className="text-[14px] font-[500] text-white/95">
+                    <p className="text-[14px] font-medium text-white/95">
                       {dest.categories}
                     </p>
                   </div>

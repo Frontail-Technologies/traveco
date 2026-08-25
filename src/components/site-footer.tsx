@@ -30,7 +30,7 @@ export function SiteFooter() {
             <p className="mt-6 text-[14.5px] leading-[1.7] text-white/70 pr-4">
               TRAVECO Mobility provides visa documentation, application assistance and international travel support for individuals, families, students and business travellers.
             </p>
-            <Link href="/contact" className="mt-6 inline-flex items-center text-[14px] font-medium text-[var(--traveco-gold,#C5A253)] hover:text-white transition-colors group">
+            <Link href="/contact" className="mt-6 inline-flex items-center text-[14px] font-medium text-(--traveco-gold,#C5A253) hover:text-white transition-colors group">
               Get Visa Assistance 
               <span className="ml-1.5 transition-transform group-hover:translate-x-1">→</span>
             </Link>
@@ -38,7 +38,7 @@ export function SiteFooter() {
 
           {/* 2. VISA SERVICES */}
           <div className="flex flex-col">
-            <h3 className="text-[12px] font-bold uppercase tracking-widest text-[var(--traveco-gold,#C5A253)] mb-6">
+            <h3 className="text-[12px] font-bold uppercase tracking-widest text-(--traveco-gold,#C5A253) mb-6">
               Visa Services
             </h3>
             <ul className="space-y-4">
@@ -64,7 +64,7 @@ export function SiteFooter() {
 
           {/* 3. EXPLORE */}
           <div className="flex flex-col">
-            <h3 className="text-[12px] font-bold uppercase tracking-widest text-[var(--traveco-gold,#C5A253)] mb-6">
+            <h3 className="text-[12px] font-bold uppercase tracking-widest text-(--traveco-gold,#C5A253) mb-6">
               Explore
             </h3>
             <ul className="space-y-4">
@@ -77,7 +77,7 @@ export function SiteFooter() {
                 <li key={link.label}>
                   <Link
                     href={link.href}
-                    className="text-[14.5px] text-white/80 hover:text-(--traveco-gold) transition-colors inline-block"
+                    className="text-[14.5px] text-white/80 hover:text-traveco-gold transition-colors inline-block"
                   >
                     {link.label}
                   </Link>
@@ -88,19 +88,19 @@ export function SiteFooter() {
 
           {/* 4. CONTACT */}
           <div className="flex flex-col">
-            <h3 className="text-[12px] font-bold uppercase tracking-widest text-[var(--traveco-gold,#C5A253)] mb-6">
+            <h3 className="text-[12px] font-bold uppercase tracking-widest text-(--traveco-gold,#C5A253) mb-6">
               Contact
             </h3>
             <ul className="space-y-4">
               <li>
                 <a href="tel:+918850201321" className="group flex items-start gap-3 text-[14px] text-white/70 hover:text-white transition-colors">
-                  <Phone className="w-4 h-4 mt-0.5 text-white/30 group-hover:text-[var(--traveco-gold)] transition-colors shrink-0" />
+                  <Phone className="w-4 h-4 mt-0.5 text-white/30 group-hover:text-traveco-gold transition-colors shrink-0" />
                   +91 88502 01321
                 </a>
               </li>
               <li>
                 <a href="mailto:info@traveco.in" className="group flex items-start gap-3 text-[14px] text-white/70 hover:text-white transition-colors">
-                  <Mail className="w-4 h-4 mt-0.5 text-white/30 group-hover:text-[var(--traveco-gold)] transition-colors shrink-0" />
+                  <Mail className="w-4 h-4 mt-0.5 text-white/30 group-hover:text-traveco-gold transition-colors shrink-0" />
                   info@traveco.in
                 </a>
               </li>
@@ -111,7 +111,7 @@ export function SiteFooter() {
                 </div>
               </li>
               <li className="pt-2">
-                <a href="https://wa.me/918850201321" target="_blank" rel="noopener noreferrer" className="inline-flex items-center text-[14px] font-medium text-[var(--traveco-gold)] hover:text-white transition-colors group">
+                <a href="https://wa.me/918850201321" target="_blank" rel="noopener noreferrer" className="inline-flex items-center text-[14px] font-medium text-traveco-gold hover:text-white transition-colors group">
                   Chat on WhatsApp
                   <span className="ml-1.5 transition-transform group-hover:translate-x-1">→</span>
                 </a>
@@ -123,8 +123,8 @@ export function SiteFooter() {
       </div>
 
       {/* Legal & Bottom Bar */}
-      <div className="border-t border-white/[0.06]">
-        <div className="mx-auto max-w-340 px-5 py-[26px] sm:px-6 lg:px-8">
+      <div className="border-t border-white/6">
+        <div className="mx-auto max-w-340 px-5 py-6.5 sm:px-6 lg:px-8">
           <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6 lg:gap-12">
             
             {/* Disclaimer */}
@@ -150,7 +150,7 @@ export function SiteFooter() {
 
           </div>
 
-          <div className="mt-8 pt-6 border-t border-white/[0.04] text-[11.5px] text-white/30 font-medium tracking-wide">
+          <div className="mt-8 pt-6 border-t border-white/4 text-[11.5px] text-white/30 font-medium tracking-wide">
             © {year} TRAVECO Mobility. All rights reserved.
           </div>
         </div>

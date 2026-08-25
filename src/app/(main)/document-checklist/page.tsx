@@ -118,7 +118,7 @@ export default function DocumentChecklistPage() {
         </div>
 
         {/* BOTTOM CUE (Absolutely positioned) */}
-        <div className="absolute bottom-[36px] left-0 right-0 z-20 flex justify-center">
+        <div className="absolute bottom-9 left-0 right-0 z-20 flex justify-center">
           <button
             type="button"
             onClick={() => {
@@ -151,7 +151,7 @@ export default function DocumentChecklistPage() {
             <div className="mt-2">
               {/* Region tabs */}
               <div
-                className="flex flex-nowrap items-center border-b border-[var(--traveco-navy)]/10 mb-8 overflow-x-auto"
+                className="flex flex-nowrap items-center border-b border-(--traveco-navy)/10 mb-8 overflow-x-auto"
                 style={{ scrollbarWidth: "none" }}
               >
                 {REGIONS.map((region) => {
@@ -161,9 +161,9 @@ export default function DocumentChecklistPage() {
                       key={region}
                       type="button"
                       onClick={() => setSelectedRegion(region)}
-                      className={`px-4 py-3 text-[14px] transition-all whitespace-nowrap border-b-2 -mb-px flex-shrink-0 ${isActive
-                        ? "text-[var(--traveco-navy)] border-[var(--traveco-navy)] font-semibold"
-                        : "text-[var(--traveco-navy)]/60 border-transparent hover:text-[var(--traveco-navy)] hover:border-[var(--traveco-navy)]/20 font-medium"
+                      className={`px-4 py-3 text-[14px] transition-all whitespace-nowrap border-b-2 -mb-px shrink-0 ${isActive
+                        ? "text-traveco-navy border-traveco-navy font-semibold"
+                        : "text-(--traveco-navy)/60 border-transparent hover:text-traveco-navy hover:border-(--traveco-navy)/20 font-medium"
                         }`}
                     >
                       {region}
@@ -172,8 +172,8 @@ export default function DocumentChecklistPage() {
                 })}
               </div>
               Count
-              <p className="text-[13px] text-[var(--traveco-navy)]/60 mb-6">
-                <span className="font-semibold text-[var(--traveco-navy)]">
+              <p className="text-[13px] text-(--traveco-navy)/60 mb-6">
+                <span className="font-semibold text-traveco-navy">
                   {filteredDestinations.length}
                 </span>{" "}
                 destinations
@@ -184,7 +184,7 @@ export default function DocumentChecklistPage() {
                   <Link
                     key={dest.slug}
                     href={`/document-checklist/${dest.slug}`}
-                    className="group flex items-center justify-between min-h-[52px] py-3 border-b border-[var(--traveco-navy)]/10 hover:border-[var(--traveco-navy)]/40 transition-colors"
+                    className="group flex items-center justify-between min-h-13 py-3 border-b border-(--traveco-navy)/10 hover:border-(--traveco-navy)/40 transition-colors"
                   >
                     <div className="flex items-center gap-3 min-w-0">
                       <div className="shrink-0">
@@ -195,20 +195,20 @@ export default function DocumentChecklistPage() {
                         />
                       </div>
                       <div className="flex flex-col min-w-0">
-                        <span className="text-[15px] font-medium text-[var(--traveco-navy)] leading-snug wrap-break-word">
+                        <span className="text-[15px] font-medium text-traveco-navy leading-snug wrap-break-word">
                           {dest.country}
                         </span>
-                        <span className="text-[12px] text-[var(--traveco-navy)]/60 mt-0.5 leading-snug truncate">
+                        <span className="text-[12px] text-(--traveco-navy)/60 mt-0.5 leading-snug truncate">
                           {dest.touristRoute}
                         </span>
                       </div>
                     </div>
-                    <ArrowRight className="w-3.5 h-3.5 text-[var(--traveco-navy)]/20 group-hover:text-[var(--traveco-navy)] transform group-hover:translate-x-0.5 transition-all shrink-0 ml-3" />
+                    <ArrowRight className="w-3.5 h-3.5 text-(--traveco-navy)/20 group-hover:text-traveco-navy transform group-hover:translate-x-0.5 transition-all shrink-0 ml-3" />
                   </Link>
                 ))}
               </div>
               {filteredDestinations.length === 0 && (
-                <p className="text-[var(--traveco-navy)]/60 text-[15px] py-12 text-center">
+                <p className="text-(--traveco-navy)/60 text-[15px] py-12 text-center">
                   No destinations found for this region.
                 </p>
               )}

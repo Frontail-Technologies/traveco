@@ -44,7 +44,7 @@ export function WhyChooseSection() {
     <section className="relative overflow-hidden bg-[#FDFCFB] py-16 lg:py-30 z-0">
       
       {/* Faint Global Watermark (Desktop only) */}
-      <div className="absolute -bottom-[20%] -right-[10%] hidden h-[800px] w-[800px] pointer-events-none lg:block opacity-[0.025] -z-10">
+      <div className="absolute bottom-[-20%] right-[-10%] hidden h-200 w-200 pointer-events-none lg:block opacity-[0.025] -z-10">
         <svg viewBox="0 0 800 800" fill="none" xmlns="http://www.w3.org/2000/svg" className="h-full w-full text-primary">
           <circle cx="400" cy="400" r="380" stroke="currentColor" strokeWidth="2" />
           <ellipse cx="400" cy="400" rx="160" ry="380" stroke="currentColor" strokeWidth="2" />
@@ -66,7 +66,7 @@ export function WhyChooseSection() {
           <div className="relative grid grid-cols-1 gap-10 lg:grid-cols-12 lg:items-center lg:gap-16 z-10">
             
             {/* Subtle Flight Route Decoration (Desktop only) */}
-            <div className="absolute left-[-10%] top-[20%] hidden h-[600px] w-[120%] pointer-events-none lg:block opacity-[0.06] -z-10">
+            <div className="absolute left-[-10%] top-[20%] hidden h-150 w-[120%] pointer-events-none lg:block opacity-[0.06] -z-10">
               <svg viewBox="0 0 1000 600" fill="none" xmlns="http://www.w3.org/2000/svg" className="h-full w-full text-gold-cta">
                 <path d="M-100,500 Q400,50 1100,400" stroke="currentColor" strokeWidth="2" strokeDasharray="8 12" strokeLinecap="round" />
                 <circle cx="450" cy="250" r="4.5" fill="currentColor" />
@@ -86,13 +86,13 @@ export function WhyChooseSection() {
 
               <motion.p
                 variants={fadeUp}
-                className="text-gold-cta text-xs font-[700] uppercase tracking-[0.12em]"
+                className="text-gold-cta text-xs font-bold uppercase tracking-[0.12em]"
               >
                 Why Traveco
               </motion.p>
               <motion.h2
                 variants={fadeUp}
-                className="mt-4 text-[38px] font-[700] leading-[1.1] tracking-tight text-primary sm:text-[44px] lg:text-[48px] lg:leading-[1.05]"
+                className="mt-4 text-[38px] font-bold leading-[1.1] tracking-tight text-primary sm:text-[44px] lg:text-[48px] lg:leading-[1.05]"
               >
                 Guidance you can rely on, from start to finish.
               </motion.h2>
@@ -107,7 +107,7 @@ export function WhyChooseSection() {
             {/* Main Consultation Image */}
             <motion.div
               variants={fadeUp}
-              className="order-2 relative z-0 h-[400px] w-full overflow-hidden rounded-surface lg:order-1 lg:col-span-7 lg:col-start-1 lg:h-[540px]"
+              className="order-2 relative z-0 h-100 w-full overflow-hidden rounded-surface lg:order-1 lg:col-span-7 lg:col-start-1 lg:h-135"
             >
               <Image
                 src="/images/generated/consultation.jpg"
@@ -129,12 +129,12 @@ export function WhyChooseSection() {
                 className="group flex flex-col border-t border-border/70 pt-6 transition-colors duration-500 hover:border-gold-cta/60"
               >
                 <div className="mb-4">
-                  <span className="text-[13.5px] font-[800] tracking-wider text-gold-cta transition-colors duration-500 group-hover:text-gold-cta/80">
+                  <span className="text-[13.5px] font-extrabold tracking-wider text-gold-cta transition-colors duration-500 group-hover:text-gold-cta/80">
                     {point.id}
                   </span>
                 </div>
                 
-                <h3 className="mb-2.5 text-[18px] font-[700] leading-tight text-primary transition-colors duration-500 group-hover:text-accent lg:text-[20px]">
+                <h3 className="mb-2.5 text-[18px] font-bold leading-tight text-primary transition-colors duration-500 group-hover:text-accent lg:text-[20px]">
                   {point.title}
                 </h3>
                 
