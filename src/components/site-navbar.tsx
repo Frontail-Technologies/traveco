@@ -180,7 +180,7 @@ export function SiteNavbar() {
         id="mobile-nav-drawer"
         className={cn(
           "overflow-hidden border-t border-border bg-white transition-[max-height] duration-300 ease-in-out lg:hidden",
-          open ? "max-h-128" : "max-h-0 border-transparent",
+          open ? "max-h-[calc(100dvh-88px)] overflow-y-auto" : "max-h-0 border-transparent",
         )}
       >
         <div className="mx-auto flex max-w-340 flex-col px-4 py-4 sm:px-6">
