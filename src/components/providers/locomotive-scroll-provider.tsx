@@ -26,8 +26,6 @@ export function LocomotiveScrollProvider({ children }: { children: React.ReactNo
             lerp: 0.08,
             duration: 1.2,
             smoothWheel: true,
-            // Disable touch smooth scrolling to maintain native feel on mobile
-            smoothTouch: false,
           }
         });
       }
