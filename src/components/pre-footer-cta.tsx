@@ -12,7 +12,7 @@ export function PreFooterCTA({ countryName, eyebrow, title, description }: PreFo
   const isDynamic = !!countryName;
   
   return (
-    <section className="bg-[#F7F5EF] py-16 md:py-24 sm:px-6 lg:px-8">
+    <section className="bg-[#F7F5EF] pt-16 pb-8 md:pt-24 md:pb-8 sm:px-6 lg:px-8">
       <div className="mx-auto max-w-7xl">
         <div className="bg-[#0B1F3A] rounded-none sm:rounded-panel p-6 sm:p-8 md:p-14 lg:p-18 flex flex-col lg:flex-row items-start lg:items-center justify-between gap-10 overflow-hidden relative">
           
