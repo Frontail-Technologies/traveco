@@ -9,14 +9,14 @@
   --traveco-surface: #FFFFFF;
   --traveco-primary: #0B1F3A;
   --traveco-primary-dark: #07172D;
-  --traveco-accent: #C5A253;
-  --traveco-accent-hover: #B28D3F;
+  --traveco-accent: #E0C068;
+  --traveco-accent-hover: #CBA853;
   --traveco-text-primary: #102033;
   --traveco-text-secondary: #667085;
   --traveco-border: #E7E2D8;
   --traveco-muted-background: #F2EFE8;
   --traveco-gold-on-dark: #F2C75C;
-  --traveco-gold-cta: #D8AF4F;
+  --traveco-gold-cta: #E0C068;
 
   --background: var(--traveco-background);
   --foreground: var(--traveco-text-primary);
@@ -40,7 +40,7 @@
   --navy-foreground: #FFFFFF;
   /* Convenience aliases used across checklist and destination components */
   --traveco-navy: #0B1F3A;
-  --traveco-gold: #C5A253;
+  --traveco-gold: #E0C068;
 
   /* Standard Radius System */
   --radius-control: 10px;
