@@ -48,7 +48,7 @@ export default async function DocumentChecklistSlugPage({ params }: Props) {
       
       {/* ── HERO ──────────────────────────────────────── */}
       <div 
-        className="relative flex items-center w-full pt-32 pb-16 sm:pt-40 sm:pb-20"
+        className="relative flex items-center w-full pt-32 pb-10 sm:pt-40 sm:pb-20"
         style={{ 
           backgroundImage: 'url("https://images.unsplash.com/photo-1436491865332-7a61a109cc05?q=80&w=2074&auto=format&fit=crop")',
           backgroundSize: 'cover',
@@ -97,7 +97,7 @@ export default async function DocumentChecklistSlugPage({ params }: Props) {
         </div>
       </div>
 
-      <div className="mx-auto w-full max-w-340 px-5 sm:px-6 lg:px-8 pt-16 sm:pt-20">
+      <div className="mx-auto w-full max-w-340 px-5 sm:px-6 lg:px-8 pt-10 sm:pt-20">
 
 
 
