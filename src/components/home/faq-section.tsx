@@ -62,7 +62,7 @@ function FAQItem({
 }
 
 export function FaqSection() {
-  const [openIndex, setOpenIndex] = useState<number | null>(0);
+  const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   return (
     <section className="relative overflow-hidden bg-[#F7F5EF] py-16 lg:py-28.75 z-0">

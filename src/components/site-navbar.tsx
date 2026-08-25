@@ -76,7 +76,7 @@ export function SiteNavbar() {
               height={75}
               priority
               className="h-auto w-27.5 sm:w-31.25"
-              style={{ height: 'auto' }}
+              style={{ height: 'auto', width: 'auto' }}
             />
           </Link>
         </motion.div>

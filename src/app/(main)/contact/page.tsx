@@ -8,6 +8,8 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { cn } from "@/lib/utils";
+import { destinations } from "@/data/destinations";
+import { CountryFlag } from "@/components/destinations/country-flag";
 
 export const metadata: Metadata = {
   title: "Contact Us | TRAVECO Mobility",
@@ -81,12 +83,27 @@ export default function ContactPage() {
                   </div>
                   <div className="space-y-1.5">
                     <label htmlFor="destination" className="text-[13px] font-bold text-traveco-navy uppercase tracking-wider">Destination</label>
-                    <input 
-                      type="text" 
-                      id="destination"
-                      className="w-full h-13 px-4 rounded-[8px] border border-(--traveco-navy)/10 bg-[#FDFDFD] focus:border-traveco-gold focus:ring-1 focus:ring-traveco-gold outline-none transition-all text-[15px]"
-                      placeholder="e.g. United Kingdom"
-                    />
+                    <Select name="destination">
+                      <SelectTrigger id="destination" className="w-full h-13 px-4 rounded-[8px] border border-(--traveco-navy)/10 bg-[#FDFDFD] focus:border-traveco-gold focus:ring-1 focus:ring-traveco-gold outline-none transition-all text-[15px] shadow-none data-[state=open]:border-traveco-gold data-[state=open]:ring-1 data-[state=open]:ring-(--traveco-gold)/50">
+                        <SelectValue placeholder="Select a destination" />
+                      </SelectTrigger>
+                      <SelectContent className="rounded-[8px] border-(--traveco-navy)/10 bg-white font-medium text-traveco-navy shadow-lg max-h-[300px]">
+                        {destinations.map(dest => (
+                          <SelectItem key={dest.countryCode} value={dest.country} className="cursor-pointer rounded-sm py-2.5 hover:bg-[#FBF7EE] focus:bg-[#FBF7EE]">
+                            <div className="flex items-center gap-3">
+                              <CountryFlag countryCode={dest.countryCode} country={dest.country} size="sm" />
+                              <span>{dest.country}</span>
+                            </div>
+                          </SelectItem>
+                        ))}
+                        <SelectItem value="Other" className="cursor-pointer rounded-sm py-2.5 hover:bg-[#FBF7EE] focus:bg-[#FBF7EE]">
+                           <div className="flex items-center gap-3">
+                              <div className="w-[24px] h-[16px] bg-slate-100 border border-black/5 rounded-[2px]" />
+                              <span>Other</span>
+                            </div>
+                        </SelectItem>
+                      </SelectContent>
+                    </Select>
                   </div>
                 </div>
 

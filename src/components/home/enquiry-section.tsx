@@ -17,6 +17,8 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import { destinations } from "@/data/destinations";
+import { CountryFlag } from "@/components/destinations/country-flag";
 
 const fieldClasses =
   "h-[52px] w-full rounded-control border border-primary/10 bg-[#FAF9F6] px-4 font-medium text-[16px] text-primary outline-none transition-all placeholder:text-primary/35 focus-visible:border-transparent focus-visible:ring-2 focus-visible:ring-[var(--traveco-gold)] focus-visible:ring-offset-2 [&::-webkit-calendar-picker-indicator]:opacity-40 [&::-webkit-calendar-picker-indicator]:hover:opacity-80 [&::-webkit-calendar-picker-indicator]:cursor-pointer";
@@ -71,6 +73,8 @@ export function EnquirySection() {
               fill 
               sizes="(max-width: 1024px) 100vw, 42vw" 
               className="object-cover object-[center_30%]"
+              data-scroll
+              data-scroll-speed="0.05"
             />
             
             {/* Deep Navy Overlays */}
@@ -198,12 +202,27 @@ export function EnquirySection() {
                   <label htmlFor="destination" className={labelClasses}>
                     Destination
                   </label>
-                  <input
-                    id="destination"
-                    name="destination"
-                    placeholder="e.g. USA, UK, Canada"
-                    className={fieldClasses}
-                  />
+                  <Select name="destination">
+                    <SelectTrigger id="destination" className={cn(fieldClasses, "shadow-none data-[state=open]:border-gold-cta data-[state=open]:ring-1 data-[state=open]:ring-gold-cta/50")}>
+                      <SelectValue placeholder="Select a destination" />
+                    </SelectTrigger>
+                    <SelectContent className="rounded-control border-primary/10 bg-white font-medium text-primary shadow-lg max-h-[300px]">
+                      {destinations.map(dest => (
+                        <SelectItem key={dest.countryCode} value={dest.country} className="cursor-pointer rounded-sm py-2.5 hover:bg-[#FBF7EE] hover:text-primary focus:bg-[#FBF7EE] focus:text-primary">
+                          <div className="flex items-center gap-3">
+                            <CountryFlag countryCode={dest.countryCode} country={dest.country} size="sm" />
+                            <span>{dest.country}</span>
+                          </div>
+                        </SelectItem>
+                      ))}
+                      <SelectItem value="Other" className="cursor-pointer rounded-sm py-2.5 hover:bg-[#FBF7EE] hover:text-primary focus:bg-[#FBF7EE] focus:text-primary">
+                          <div className="flex items-center gap-3">
+                            <div className="w-[24px] h-[16px] bg-slate-100 border border-black/5 rounded-[2px]" />
+                            <span>Other</span>
+                          </div>
+                      </SelectItem>
+                    </SelectContent>
+                  </Select>
                 </div>
               </div>
 

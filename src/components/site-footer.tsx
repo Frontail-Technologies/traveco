@@ -24,7 +24,7 @@ export function SiteFooter() {
                 width={200}
                 height={68}
                 className="h-auto w-32 brightness-0 invert"
-                style={{ height: 'auto' }}
+                style={{ height: 'auto', width: 'auto' }}
               />
             </Link>
             <p className="mt-6 text-[14.5px] leading-[1.7] text-white/70 pr-4">
