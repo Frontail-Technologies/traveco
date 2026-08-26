@@ -4,7 +4,7 @@ import * as React from 'react';
 import { useRouter } from 'next/navigation';
 import { Search } from 'lucide-react';
 import { CountryFlag } from './country-flag';
-import { destinations } from '@/data/destinations';
+import { serviceDestinations } from '@/data/traveco-service-countries';
 import { cn } from '@/lib/utils';
 import { Command as CommandPrimitive } from 'cmdk';
 
@@ -33,7 +33,7 @@ export function DestinationSearch() {
   const wrapperRef = React.useRef<HTMLDivElement>(null);
 
   const sortedDestinations = React.useMemo(
-    () => [...destinations].sort((a, b) => a.country.localeCompare(b.country)),
+    () => [...serviceDestinations].sort((a, b) => a.name.localeCompare(b.name)),
     [],
   );
 
@@ -71,7 +71,7 @@ export function DestinationSearch() {
         <div 
           className={cn(
             "flex items-center w-full h-14 bg-white border rounded-control px-5 shadow-sm transition-all relative z-10",
-            open ? "border-traveco-gold ring-1 ring-traveco-gold" : "border-slate-200 hover:border-slate-300"
+            open ? "border-accent ring-1 ring-accent" : "border-slate-200 hover:border-slate-300"
           )}
         >
           <CommandPrimitive.Input
@@ -101,7 +101,7 @@ export function DestinationSearch() {
                 .filter(
                   (d) =>
                     !query ||
-                    d.country.toLowerCase().includes(query.toLowerCase()) ||
+                    d.name.toLowerCase().includes(query.toLowerCase()) ||
                     d.slug.includes(query.toLowerCase()) ||
                     (d.countryCode === 'GB' && 'uk'.includes(query.toLowerCase())) ||
                     (d.countryCode === 'US' && 'usa'.includes(query.toLowerCase())) ||
@@ -111,36 +111,48 @@ export function DestinationSearch() {
                 .sort((a, b) => {
                   if (!query) return 0;
                   const q = query.toLowerCase();
-                  const aStarts = a.country.toLowerCase().startsWith(q) || (a.countryCode === 'US' && 'usa'.startsWith(q)) || (a.countryCode === 'GB' && 'uk'.startsWith(q)) || (a.countryCode === 'AE' && 'uae'.startsWith(q));
-                  const bStarts = b.country.toLowerCase().startsWith(q) || (b.countryCode === 'US' && 'usa'.startsWith(q)) || (b.countryCode === 'GB' && 'uk'.startsWith(q)) || (b.countryCode === 'AE' && 'uae'.startsWith(q));
+                  const aStarts = a.name.toLowerCase().startsWith(q) || (a.countryCode === 'US' && 'usa'.startsWith(q)) || (a.countryCode === 'GB' && 'uk'.startsWith(q)) || (a.countryCode === 'AE' && 'uae'.startsWith(q));
+                  const bStarts = b.name.toLowerCase().startsWith(q) || (b.countryCode === 'US' && 'usa'.startsWith(q)) || (b.countryCode === 'GB' && 'uk'.startsWith(q)) || (b.countryCode === 'AE' && 'uae'.startsWith(q));
                   
                   if (aStarts && !bStarts) return -1;
                   if (!aStarts && bStarts) return 1;
                   return 0;
                 })
-                .map((dest) => (
-                  <CommandPrimitive.Item
-                    key={dest.slug}
-                    value={`${dest.country} ${dest.slug}`}
-                    onSelect={() => handleSelect(dest.slug)}
-                    className={cn(
-                      'flex items-center gap-3 px-4 py-3 cursor-pointer transition-colors select-none outline-none',
-                      'hover:bg-[#FBF7EE] aria-selected:bg-[#FBF7EE] data-[selected=true]:bg-[#FBF7EE]',
-                    )}
-                  >
-                    <div className="shrink-0">
-                      <CountryFlag countryCode={dest.countryCode} country={dest.country} size="sm" />
-                    </div>
-                    <div className="flex flex-col min-w-0">
-                      <span className="text-[14.5px] font-medium text-traveco-navy truncate">
-                        <HighlightMatch text={dest.country} query={query} />
-                      </span>
-                      <span className="text-[12px] text-(--traveco-navy)/60 truncate max-w-[320px]">
-                        <HighlightMatch text={dest.touristRoute} query={query} />
-                      </span>
-                    </div>
-                  </CommandPrimitive.Item>
-                ))}
+                .map((dest) => {
+                  const routesDisplay = dest.visaOptions.length > 1 
+                    ? `${dest.visaOptions.length} Visa Options`
+                    : dest.visaOptions[0].mode;
+
+                  return (
+                    <CommandPrimitive.Item
+                      key={dest.slug}
+                      value={`${dest.name} ${dest.slug}`}
+                      onSelect={() => handleSelect(dest.slug)}
+                      className={cn(
+                        'flex items-center gap-3 px-4 py-3 cursor-pointer transition-colors select-none outline-none',
+                        'hover:bg-[#FBF7EE] aria-selected:bg-[#FBF7EE] data-[selected=true]:bg-[#FBF7EE]',
+                      )}
+                    >
+                      <div className="shrink-0">
+                        {dest.kind === "group" ? (
+                          <div className="flex size-6 items-center justify-center rounded-full bg-traveco-navy/5 text-traveco-navy/40">
+                            <span className="text-[10px] font-bold">EU</span>
+                          </div>
+                        ) : (
+                          <CountryFlag countryCode={dest.countryCode || ""} country={dest.name} size="sm" />
+                        )}
+                      </div>
+                      <div className="flex flex-col min-w-0">
+                        <span className="text-[14.5px] font-medium text-traveco-navy truncate">
+                          <HighlightMatch text={dest.name} query={query} />
+                        </span>
+                        <span className="text-[12px] text-(--traveco-navy)/60 truncate max-w-[320px]">
+                          {routesDisplay}
+                        </span>
+                      </div>
+                    </CommandPrimitive.Item>
+                  );
+                })}
             </CommandPrimitive.List>
           </div>
         )}

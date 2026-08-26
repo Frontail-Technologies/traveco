@@ -14,11 +14,11 @@ const buttonVariants = cva(
         destructive:
           "bg-destructive text-white shadow-xs hover:bg-destructive/90 focus-visible:ring-destructive/20",
         outline:
-          "border border-input bg-transparent shadow-xs hover:bg-[var(--traveco-gold)]/10",
+          "border border-input bg-transparent shadow-xs hover:bg-[var(--traveco-accent)]/10",
         secondary:
-          "bg-[var(--traveco-gold)] text-[var(--traveco-navy)] shadow-xs hover:bg-[#D4B365]",
-        ghost: "hover:bg-[var(--traveco-gold)]/10 text-[var(--traveco-navy)]",
-        link: "text-[var(--traveco-navy)] underline-offset-4 hover:text-[var(--traveco-gold)]",
+          "bg-[var(--traveco-accent)] text-white shadow-xs hover:bg-[var(--traveco-accent-hover)]",
+        ghost: "hover:bg-[var(--traveco-accent)]/10 text-[var(--traveco-navy)]",
+        link: "text-[var(--traveco-navy)] underline-offset-4 hover:text-[var(--traveco-accent)]",
       },
       size: {
         default: "h-10 px-4 py-2",

@@ -90,7 +90,7 @@ export function LegalLayout({
                     >
                       <span className={cn(
                         "text-[12px] font-bold w-4 shrink-0 transition-colors",
-                        isActive ? "text-traveco-gold" : "text-(--traveco-navy)/30"
+                        isActive ? "text-accent" : "text-(--traveco-navy)/30"
                       )}>
                         {idx + 1}.
                       </span>
@@ -111,7 +111,7 @@ export function LegalLayout({
             [&_ul]:my-6 [&_ul]:list-disc [&_ul]:pl-6
             [&_ol]:my-6 [&_ol]:list-decimal [&_ol]:pl-6
             [&_strong]:text-traveco-navy [&_strong]:font-bold
-            [&_a]:text-traveco-gold [&_a]:font-medium [&_a]:underline hover:[&_a]:no-underline
+            [&_a]:text-accent [&_a]:font-medium [&_a]:underline hover:[&_a]:no-underline
             [&_section]:scroll-mt-32"
           >
             {children}

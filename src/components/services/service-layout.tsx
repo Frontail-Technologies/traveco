@@ -90,13 +90,13 @@ export function ServiceLayout({
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   {documentCategories.map((doc, idx) => (
                     <div key={idx} className="flex items-start gap-3 bg-white p-4 rounded-[12px] shadow-sm border border-(--traveco-navy)/5">
-                      <div className="w-1.5 h-1.5 rounded-full bg-traveco-gold mt-2 shrink-0" />
+                      <div className="w-1.5 h-1.5 rounded-full bg-accent mt-2 shrink-0" />
                       <span className="text-[15px] text-(--traveco-navy)/80 font-medium">{doc}</span>
                     </div>
                   ))}
                 </div>
                 <div className="mt-8">
-                  <Link href="/document-checklist" className="inline-flex items-center text-[15px] font-bold text-traveco-navy hover:text-traveco-gold transition-colors">
+                  <Link href="/document-checklist" className="inline-flex items-center text-[15px] font-bold text-traveco-navy hover:text-accent transition-colors">
                     Check requirements by destination <ArrowRight className="ml-1.5 w-4 h-4" />
                   </Link>
                 </div>
@@ -127,7 +127,7 @@ export function ServiceLayout({
               {/* 6. IMPORTANT CONSIDERATIONS */}
               <div className="bg-[#0B1F3A] rounded-[16px] p-8 md:p-10 text-white">
                 <div className="flex items-center gap-3 mb-6">
-                  <AlertCircle className="w-6 h-6 text-traveco-gold" />
+                  <AlertCircle className="w-6 h-6 text-accent" />
                   <h3 className="text-[20px] font-bold">Important Considerations</h3>
                 </div>
                 <ul className="space-y-4">
@@ -153,7 +153,7 @@ export function ServiceLayout({
                   <ul className="space-y-4">
                     {howWeAssist.map((item, idx) => (
                       <li key={idx} className="flex items-start gap-3">
-                        <CheckCircle2 className="w-5 h-5 text-traveco-gold shrink-0 mt-0.5" />
+                        <CheckCircle2 className="w-5 h-5 text-accent shrink-0 mt-0.5" />
                         <span className="text-[14.5px] text-(--traveco-navy)/80 leading-[1.6]">{item}</span>
                       </li>
                     ))}

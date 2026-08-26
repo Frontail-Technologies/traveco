@@ -32,7 +32,7 @@ export function PreFooterCTA({ countryName, eyebrow, title, description }: PreFo
           <div className="relative z-10 flex w-full flex-col items-start gap-5 lg:w-[35%] lg:items-end">
             <Link 
               href="/contact" 
-              className="inline-flex h-12 w-full items-center justify-center gap-2 rounded-control bg-traveco-gold px-8 font-bold text-traveco-navy transition-colors hover:bg-gold-cta sm:w-auto"
+              className="inline-flex h-12 w-full items-center justify-center gap-2 rounded-control bg-accent px-8 font-bold text-white transition-colors hover:bg-accent/90 sm:w-auto"
             >
               Get Visa Assistance
               <ArrowRight className="size-4" />

@@ -23,7 +23,7 @@ const destinations = [
     categories: "Visitor · Business · Student",
     image: "/images/destinations/usa.jpg",
     className: "min-h-[240px] lg:min-h-[240px]",
-    href: "/document-checklist/united-states",
+    href: "/document-checklist/united-states-of-america",
   },
   {
     id: "canada",
@@ -55,7 +55,7 @@ const destinations = [
     categories: "Schengen Visa Assistance",
     image: "/images/destinations/europe.jpg",
     className: "min-h-[240px] lg:min-h-[320px]",
-    href: "/document-checklist",
+    href: "/document-checklist/schengen-countries",
   },
 ];
 

@@ -136,7 +136,7 @@ export function ProcessSection() {
                 </p>
                 <Link
                   href="/contact"
-                  className="inline-flex h-12 items-center justify-center rounded-full bg-gold-cta px-8 text-sm font-bold uppercase tracking-wide text-traveco-navy transition-all hover:scale-105 hover:bg-white"
+                  className="inline-flex h-12 items-center justify-center rounded-full bg-gold-cta px-8 text-sm font-bold uppercase tracking-wide text-white transition-all hover:scale-105 hover:bg-white hover:text-traveco-navy"
                 >
                   Contact Us
                 </Link>

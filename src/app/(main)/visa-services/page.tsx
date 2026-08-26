@@ -120,7 +120,7 @@ export default function VisaServicesHub() {
                   </div>
                   
                   <div className="flex items-start gap-5">
-                    <div className="w-12 h-12 rounded-[12px] bg-white border border-(--traveco-navy)/10 flex items-center justify-center shrink-0 shadow-sm group-hover:border-traveco-gold transition-colors">
+                    <div className="w-12 h-12 rounded-[12px] bg-white border border-(--traveco-navy)/10 flex items-center justify-center shrink-0 shadow-sm group-hover:border-accent transition-colors">
                       <Icon className="w-5 h-5 text-traveco-navy" />
                     </div>
                     <div>
@@ -132,7 +132,7 @@ export default function VisaServicesHub() {
                       </p>
                       <Link 
                         href={`/visa-services/${service.slug}`}
-                        className="inline-flex items-center text-[14px] font-bold text-traveco-navy hover:text-traveco-gold transition-colors"
+                        className="inline-flex items-center text-[14px] font-bold text-traveco-navy hover:text-accent transition-colors"
                       >
                         Learn More <ArrowRight className="ml-1.5 w-4 h-4" />
                       </Link>

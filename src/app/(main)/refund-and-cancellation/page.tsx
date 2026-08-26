@@ -21,7 +21,7 @@ export default function RefundPolicyPage() {
       lastUpdated="January 15, 2026"
       sections={SECTIONS}
     >
-      <div className="bg-(--traveco-gold)/10 border-l-4 border-traveco-gold p-4 mb-8 rounded-r-[8px]">
+      <div className="bg-accent/10 border-l-4 border-accent p-4 mb-8 rounded-r-[8px]">
         <p className="text-[14px] font-medium text-traveco-navy m-0">
           <strong>Client Confirmation Required:</strong> The specific percentages and timeframes for refunding TRAVECO's professional fees below are placeholders. Please confirm the exact commercial terms of your business model.
         </p>

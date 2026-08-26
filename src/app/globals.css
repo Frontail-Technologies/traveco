@@ -5,18 +5,18 @@
   --radius: 1rem;
 
   /* TRAVECO Mobility brand palette */
-  --traveco-background: #F8F6F0;
+  --traveco-background: #F8F5EE;
   --traveco-surface: #FFFFFF;
-  --traveco-primary: #0B1F3A;
-  --traveco-primary-dark: #07172D;
-  --traveco-accent: #E0C068;
-  --traveco-accent-hover: #CBA853;
-  --traveco-text-primary: #102033;
-  --traveco-text-secondary: #667085;
-  --traveco-border: #E7E2D8;
-  --traveco-muted-background: #F2EFE8;
-  --traveco-gold-on-dark: #F2C75C;
-  --traveco-gold-cta: #E0C068;
+  --traveco-primary: #0E1F3A;
+  --traveco-primary-dark: #09162A;
+  --traveco-accent: #C94A36;
+  --traveco-accent-hover: #B93F2D;
+  --traveco-text-primary: #172033;
+  --traveco-text-secondary: #5C6472;
+  --traveco-border: #E7DED0;
+  --traveco-muted-background: #EBE6D8;
+  --traveco-gold-on-dark: #B88A2E;
+  --traveco-gold-cta: #C94A36;
 
   --background: var(--traveco-background);
   --foreground: var(--traveco-text-primary);
@@ -39,8 +39,8 @@
   --navy: var(--traveco-primary);
   --navy-foreground: #FFFFFF;
   /* Convenience aliases used across checklist and destination components */
-  --traveco-navy: #0B1F3A;
-  --traveco-gold: #E0C068;
+  --traveco-navy: #0E1F3A;
+  --traveco-gold: #B88A2E;
 
   /* Standard Radius System */
   --radius-control: 10px;
@@ -113,31 +113,31 @@
   --card-foreground: #F8F6F0;
   --popover: #0B1F3A;
   --popover-foreground: #F8F6F0;
-  --primary: #C5A253;
+  --primary: var(--traveco-primary);
   --primary-foreground: #0B1F3A;
   --secondary: #102033;
   --secondary-foreground: #F2EFE8;
   --muted: #102033;
   --muted-foreground: #667085;
-  --accent: #B28D3F;
+  --accent: var(--traveco-accent);
   --accent-foreground: #FFFFFF;
   --destructive: #ff6b5f;
   --border: #102033;
   --input: #102033;
-  --ring: #C5A253;
-  --chart-1: #C5A253;
-  --chart-2: #C5A253;
+  --ring: var(--traveco-accent);
+  --chart-1: var(--traveco-accent);
+  --chart-2: var(--traveco-accent);
   --chart-3: #F2EFE8;
   --chart-4: #F8F6F0;
-  --chart-5: #B28D3F;
+  --chart-5: var(--traveco-accent-hover);
   --sidebar: #0B1F3A;
   --sidebar-foreground: #F8F6F0;
-  --sidebar-primary: #C5A253;
+  --sidebar-primary: var(--traveco-accent);
   --sidebar-primary-foreground: #FFFFFF;
   --sidebar-accent: #102033;
   --sidebar-accent-foreground: #F2EFE8;
   --sidebar-border: #102033;
-  --sidebar-ring: #C5A253;
+  --sidebar-ring: var(--traveco-accent);
 }
 
 @layer base {

@@ -8,7 +8,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { cn } from "@/lib/utils";
-import { destinations } from "@/data/destinations";
+import { serviceDestinations } from "@/data/traveco-service-countries";
 import { CountryFlag } from "@/components/destinations/country-flag";
 
 export const metadata: Metadata = {
@@ -23,7 +23,7 @@ export default function ContactPage() {
       {/* HEADER SECTION */}
       <section className="bg-white py-16 md:py-24 lg:py-28 border-b border-(--traveco-navy)/5">
         <div className="mx-auto max-w-340 px-5 sm:px-6 lg:px-8 text-center max-w-3xl">
-          <p className="text-(--traveco-gold,#C5A253) text-[11px] font-bold tracking-widest uppercase mb-4">
+          <p className="text-accent text-[11px] font-bold tracking-widest uppercase mb-4">
             GET IN TOUCH
           </p>
           <h1 className="text-[40px] md:text-[50px] font-medium text-traveco-navy leading-[1.1] tracking-tight mb-6" data-scroll="fade-up">
@@ -64,7 +64,7 @@ export default function ContactPage() {
                       type="tel" 
                       id="phone"
                       required
-                      className="w-full h-13 px-4 rounded-[8px] border border-(--traveco-navy)/10 bg-[#FDFDFD] focus:border-traveco-gold focus:ring-1 focus:ring-traveco-gold outline-none transition-all text-[15px]"
+                      className="w-full h-13 px-4 rounded-[8px] border border-(--traveco-navy)/10 bg-[#FDFDFD] focus:border-accent focus:ring-1 focus:ring-accent outline-none transition-all text-[15px]"
                       placeholder="Enter your mobile number"
                     />
                   </div>
@@ -77,22 +77,28 @@ export default function ContactPage() {
                       type="email" 
                       id="email"
                       required
-                      className="w-full h-13 px-4 rounded-[8px] border border-(--traveco-navy)/10 bg-[#FDFDFD] focus:border-traveco-gold focus:ring-1 focus:ring-traveco-gold outline-none transition-all text-[15px]"
+                      className="w-full h-13 px-4 rounded-[8px] border border-(--traveco-navy)/10 bg-[#FDFDFD] focus:border-accent focus:ring-1 focus:ring-accent outline-none transition-all text-[15px]"
                       placeholder="you@example.com"
                     />
                   </div>
                   <div className="space-y-1.5">
                     <label htmlFor="destination" className="text-[13px] font-bold text-traveco-navy uppercase tracking-wider">Destination</label>
                     <Select name="destination">
-                      <SelectTrigger id="destination" className="w-full h-13 px-4 rounded-[8px] border border-(--traveco-navy)/10 bg-[#FDFDFD] focus:border-traveco-gold focus:ring-1 focus:ring-traveco-gold outline-none transition-all text-[15px] shadow-none data-[state=open]:border-traveco-gold data-[state=open]:ring-1 data-[state=open]:ring-(--traveco-gold)/50">
+                      <SelectTrigger id="destination" className="w-full h-13 px-4 rounded-[8px] border border-(--traveco-navy)/10 bg-[#FDFDFD] focus:border-accent focus:ring-1 focus:ring-accent outline-none transition-all text-[15px] shadow-none data-[state=open]:border-accent data-[state=open]:ring-1 data-[state=open]:ring-accent/50">
                         <SelectValue placeholder="Select a destination" />
                       </SelectTrigger>
                       <SelectContent className="rounded-[8px] border-(--traveco-navy)/10 bg-white font-medium text-traveco-navy shadow-lg max-h-[300px]">
-                        {destinations.map(dest => (
-                          <SelectItem key={dest.countryCode} value={dest.country} className="cursor-pointer rounded-sm py-2.5 text-primary hover:bg-[#FBF7EE] hover:text-primary focus:bg-[#FBF7EE] focus:text-primary data-[highlighted]:bg-[#FBF7EE] data-[highlighted]:text-primary">
+                        {serviceDestinations.map(dest => (
+                          <SelectItem key={dest.slug} value={dest.name} className="cursor-pointer rounded-sm py-2.5 text-primary hover:bg-[#FBF7EE] hover:text-primary focus:bg-[#FBF7EE] focus:text-primary data-[highlighted]:bg-[#FBF7EE] data-[highlighted]:text-primary">
                             <div className="flex items-center gap-3">
-                              <CountryFlag countryCode={dest.countryCode} country={dest.country} size="sm" />
-                              <span>{dest.country}</span>
+                              {dest.kind === 'group' ? (
+                                <div className="flex size-6 items-center justify-center rounded-full bg-traveco-navy/5 text-traveco-navy/40">
+                                  <span className="text-[10px] font-bold">EU</span>
+                                </div>
+                              ) : (
+                                <CountryFlag countryCode={dest.countryCode || ""} country={dest.name} size="sm" />
+                              )}
+                              <span>{dest.name}</span>
                             </div>
                           </SelectItem>
                         ))}
@@ -111,7 +117,7 @@ export default function ContactPage() {
                   <div className="space-y-1.5">
                     <label htmlFor="visaType" className="text-[13px] font-bold text-traveco-navy uppercase tracking-wider">Visa Type</label>
                     <Select name="visaType">
-                      <SelectTrigger id="visaType" className="w-full h-13 px-4 rounded-[8px] border border-(--traveco-navy)/10 bg-[#FDFDFD] focus:border-traveco-gold focus:ring-1 focus:ring-traveco-gold outline-none transition-all text-[15px] shadow-none data-[state=open]:border-traveco-gold data-[state=open]:ring-1 data-[state=open]:ring-(--traveco-gold)/50">
+                      <SelectTrigger id="visaType" className="w-full h-13 px-4 rounded-[8px] border border-(--traveco-navy)/10 bg-[#FDFDFD] focus:border-accent focus:ring-1 focus:ring-accent outline-none transition-all text-[15px] shadow-none data-[state=open]:border-accent data-[state=open]:ring-1 data-[state=open]:ring-accent/50">
                         <SelectValue placeholder="Select a category" />
                       </SelectTrigger>
                       <SelectContent className="rounded-[8px] border-(--traveco-navy)/10 bg-white font-medium text-traveco-navy shadow-lg">
@@ -130,7 +136,7 @@ export default function ContactPage() {
                     <input 
                       type="date" 
                       id="travelDate"
-                      className="w-full h-13 px-4 rounded-[8px] border border-(--traveco-navy)/10 bg-[#FDFDFD] focus:border-traveco-gold focus:ring-1 focus:ring-traveco-gold outline-none transition-all text-[15px]"
+                      className="w-full h-13 px-4 rounded-[8px] border border-(--traveco-navy)/10 bg-[#FDFDFD] focus:border-accent focus:ring-1 focus:ring-accent outline-none transition-all text-[15px]"
                     />
                   </div>
                 </div>
@@ -140,14 +146,14 @@ export default function ContactPage() {
                   <textarea 
                     id="message"
                     rows={4}
-                    className="w-full p-4 rounded-[8px] border border-(--traveco-navy)/10 bg-[#FDFDFD] focus:border-traveco-gold focus:ring-1 focus:ring-traveco-gold outline-none transition-all text-[15px] resize-none"
+                    className="w-full p-4 rounded-[8px] border border-(--traveco-navy)/10 bg-[#FDFDFD] focus:border-accent focus:ring-1 focus:ring-accent outline-none transition-all text-[15px] resize-none"
                     placeholder="Brief details regarding your application..."
                   />
                 </div>
 
                 <button 
                   type="button"
-                  className="w-full h-13 bg-traveco-navy hover:bg-[#122A4A] text-white font-bold rounded-[8px] transition-colors"
+                  className="w-full h-13 bg-accent hover:bg-accent/90 text-white font-bold rounded-[8px] transition-colors"
                 >
                   Request Visa Assistance
                 </button>
@@ -162,35 +168,35 @@ export default function ContactPage() {
                 
                 <div className="flex flex-col gap-8">
                   <div className="flex items-start gap-4">
-                    <div className="w-10 h-10 rounded-full bg-(--traveco-gold)/20 flex items-center justify-center shrink-0">
-                      <Phone className="w-5 h-5 text-traveco-gold" />
+                    <div className="w-10 h-10 rounded-full bg-accent/20 flex items-center justify-center shrink-0">
+                      <Phone className="w-5 h-5 text-accent" />
                     </div>
                     <div>
                       <p className="text-[12px] font-bold text-white/50 uppercase tracking-widest mb-1">Phone / WhatsApp</p>
-                      <a href="tel:+918850201321" className="text-[16px] font-medium text-white hover:text-traveco-gold transition-colors">
+                      <a href="tel:+918850201321" className="text-[16px] font-medium text-white hover:text-accent transition-colors">
                         +91 88502 01321
                       </a>
                     </div>
                   </div>
 
                   <div className="flex items-start gap-4">
-                    <div className="w-10 h-10 rounded-full bg-(--traveco-gold)/20 flex items-center justify-center shrink-0">
-                      <Mail className="w-5 h-5 text-traveco-gold" />
+                    <div className="w-10 h-10 rounded-full bg-accent/20 flex items-center justify-center shrink-0">
+                      <Mail className="w-5 h-5 text-accent" />
                     </div>
                     <div>
                       <p className="text-[12px] font-bold text-white/50 uppercase tracking-widest mb-1">Email</p>
-                      <a href="mailto:info@traveco.in" className="text-[16px] font-medium text-white hover:text-traveco-gold transition-colors block mb-1">
+                      <a href="mailto:info@traveco.in" className="text-[16px] font-medium text-white hover:text-accent transition-colors block mb-1">
                         info@traveco.in
                       </a>
-                      <a href="mailto:travecomobility@gmail.com" className="text-[16px] font-medium text-white hover:text-traveco-gold transition-colors block">
+                      <a href="mailto:travecomobility@gmail.com" className="text-[16px] font-medium text-white hover:text-accent transition-colors block">
                         travecomobility@gmail.com
                       </a>
                     </div>
                   </div>
 
                   <div className="flex items-start gap-4">
-                    <div className="w-10 h-10 rounded-full bg-(--traveco-gold)/20 flex items-center justify-center shrink-0">
-                      <MapPin className="w-5 h-5 text-traveco-gold" />
+                    <div className="w-10 h-10 rounded-full bg-accent/20 flex items-center justify-center shrink-0">
+                      <MapPin className="w-5 h-5 text-accent" />
                     </div>
                     <div>
                       <p className="text-[12px] font-bold text-white/50 uppercase tracking-widest mb-1">Office</p>

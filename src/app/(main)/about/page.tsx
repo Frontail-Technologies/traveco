@@ -17,7 +17,7 @@ export default function AboutPage() {
       <section className="relative w-full overflow-hidden bg-[#0B1F3A] py-16 md:py-24 lg:py-32">
         <div className="mx-auto flex max-w-340 flex-col lg:flex-row items-center gap-12 lg:gap-16 px-5 sm:px-6 lg:px-8">
           <div className="lg:w-[55%] xl:w-[60%] order-2 lg:order-1 relative z-10">
-            <p className="text-(--traveco-gold,#C5A253) text-[11px] md:text-[12px] font-bold tracking-widest uppercase mb-4">
+            <p className="text-accent text-[11px] md:text-[12px] font-bold tracking-widest uppercase mb-4">
               ABOUT TRAVECO
             </p>
             <h1 className="text-white text-[clamp(40px,5vw,56px)] font-medium leading-[1.05] tracking-tight mb-6" data-scroll="fade-up">
@@ -105,18 +105,19 @@ export default function AboutPage() {
                     className="object-cover object-[center_top]"
                   />
                 </div>
-                <div className="mt-6">
-                  <h3 className="text-[28px] font-bold text-(--traveco-navy,#0B1F3A) mb-1">
-                    Sandeep Kamlesh Jaiswar
-                  </h3>
-                  <p className="text-[15px] font-semibold text-(--traveco-navy,#0B1F3A)/60">
-                    Founder & Global Visa Consultant
-                  </p>
-                </div>
               </div>
             </div>
 
             <div className="lg:w-[55%] xl:w-[60%]">
+              <div className="mb-8">
+                <h3 className="text-[28px] md:text-[36px] font-bold text-(--traveco-navy,#0B1F3A) mb-2 tracking-tight">
+                  Sandeep Kamlesh Jaiswar
+                </h3>
+                <p className="text-[15px] font-bold text-accent uppercase tracking-widest">
+                  Founder & Global Visa Consultant
+                </p>
+              </div>
+
               {/* 7. FOUNDER COPY */}
               <div className="text-(--traveco-navy,#0B1F3A)/80 text-[16px] md:text-[18px] leading-[1.7] flex flex-col gap-6 mb-12">
                 <p>
@@ -132,80 +133,23 @@ export default function AboutPage() {
 
               {/* 8. CREDIBILITY STRIP */}
               <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-4 py-8 border-y border-(--traveco-navy)/10 mb-16">
-                <div className="flex flex-col border-l border-(--traveco-gold,#C5A253)/40 pl-4">
+                <div className="flex flex-col border-l border-accent/40 pl-4">
                   <span className="text-[32px] font-bold text-(--traveco-navy,#0B1F3A) leading-none mb-1">7+ YEARS</span>
-                  <span className="text-[11px] font-bold tracking-widest uppercase text-(--traveco-gold,#C5A253) mb-1">Experience</span>
+                  <span className="text-[11px] font-bold tracking-widest uppercase text-accent mb-1">Experience</span>
                   <span className="text-[13px] text-(--traveco-navy)/60 font-medium">Visa Operations</span>
                 </div>
-                <div className="flex flex-col border-l border-(--traveco-gold,#C5A253)/40 pl-4">
+                <div className="flex flex-col border-l border-accent/40 pl-4">
                   <span className="text-[32px] font-bold text-(--traveco-navy,#0B1F3A) leading-none mb-1">100+</span>
-                  <span className="text-[11px] font-bold tracking-widest uppercase text-(--traveco-gold,#C5A253) mb-1">Countries</span>
+                  <span className="text-[11px] font-bold tracking-widest uppercase text-accent mb-1">Countries</span>
                   <span className="text-[13px] text-(--traveco-navy)/60 font-medium">Global Exposure</span>
                 </div>
-                <div className="flex flex-col border-l border-(--traveco-gold,#C5A253)/40 pl-4 sm:col-span-2 md:col-span-1">
+                <div className="flex flex-col border-l border-accent/40 pl-4 sm:col-span-2 md:col-span-1">
                   <span className="text-[32px] font-bold text-(--traveco-navy,#0B1F3A) leading-none mb-1">2,000+</span>
-                  <span className="text-[11px] font-bold tracking-widest uppercase text-(--traveco-gold,#C5A253) mb-1">Applications</span>
+                  <span className="text-[11px] font-bold tracking-widest uppercase text-accent mb-1">Applications</span>
                   <span className="text-[13px] text-(--traveco-navy)/60 font-medium">UAE Operations (2023-24)</span>
                 </div>
               </div>
 
-              {/* 9. PROFESSIONAL JOURNEY */}
-              <div>
-                <p className="text-(--traveco-navy,#0B1F3A)/50 text-[11px] font-bold tracking-widest uppercase mb-4">
-                  EXPERIENCE
-                </p>
-                <h3 className="text-[28px] font-medium text-(--traveco-navy,#0B1F3A) mb-10 tracking-tight">
-                  Built through years of hands-on visa operations.
-                </h3>
-
-                <div className="flex flex-col gap-10">
-                  <div className="relative pl-6 sm:pl-8 border-l-2 border-(--traveco-navy)/10 pb-2">
-                    <div className="absolute w-3 h-3 bg-traveco-navy rounded-full -left-1.75 top-1.5" />
-                    <span className="inline-block px-3 py-1 bg-(--traveco-navy)/5 text-traveco-navy font-semibold text-[13px] rounded-full mb-3">2024 — Present</span>
-                    <h4 className="text-[18px] font-bold text-traveco-navy mb-1">Global Visa Consultant</h4>
-                    <p className="text-[15px] font-medium text-(--traveco-navy)/60 mb-3">TRAVECO Mobility</p>
-                    <ul className="flex flex-col gap-2">
-                      {["Independent end-to-end visa operations", "Documentation review & application preparation", "Appointments & biometrics guidance", "Agent & travel-partner coordination", "Refusal & re-application guidance"].map((pt, i) => (
-                        <li key={i} className="flex items-start gap-2 text-[15px] text-(--traveco-navy)/75">
-                          <Check className="w-4 h-4 mt-0.5 shrink-0 text-traveco-gold" />
-                          <span>{pt}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-
-                  <div className="relative pl-6 sm:pl-8 border-l-2 border-(--traveco-navy)/10 pb-2">
-                    <div className="absolute w-3 h-3 bg-white border-2 border-(--traveco-navy)/30 rounded-full -left-1.75 top-1.5" />
-                    <span className="inline-block px-3 py-1 bg-(--traveco-navy)/5 text-traveco-navy font-semibold text-[13px] rounded-full mb-3">2022 — 2024</span>
-                    <h4 className="text-[18px] font-bold text-traveco-navy mb-1">Visa Executive</h4>
-                    <p className="text-[15px] font-medium text-(--traveco-navy)/60 mb-3">Musafir.com</p>
-                    <ul className="flex flex-col gap-2">
-                      {["High-volume tourist and business visa processing", "Schengen, UK, USA, Canada, Australia & GCC exposure", "Financial & employment-document verification", "Visa-centre coordination", "Urgent & priority cases", "Client support"].map((pt, i) => (
-                        <li key={i} className="flex items-start gap-2 text-[15px] text-(--traveco-navy)/75">
-                          <Check className="w-4 h-4 mt-0.5 shrink-0 text-(--traveco-navy)/30" />
-                          <span>{pt}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-
-                  <div className="relative pl-6 sm:pl-8 border-l-2 border-transparent">
-                    <div className="absolute w-3 h-3 bg-white border-2 border-(--traveco-navy)/30 rounded-full -left-1.75 top-1.5" />
-                    <span className="inline-block px-3 py-1 bg-(--traveco-navy)/5 text-traveco-navy font-semibold text-[13px] rounded-full mb-3">2018 — 2022</span>
-                    <h4 className="text-[18px] font-bold text-traveco-navy mb-1">Visa Executive</h4>
-                    <p className="text-[15px] font-medium text-(--traveco-navy)/60 mb-3">Explorer Travels</p>
-                    <ul className="flex flex-col gap-2">
-                      {["Singapore visa processing", "Documentation verification", "Online submissions & daily tracking", "Client communication", "Passport & document handling processes"].map((pt, i) => (
-                        <li key={i} className="flex items-start gap-2 text-[15px] text-(--traveco-navy)/75">
-                          <Check className="w-4 h-4 mt-0.5 shrink-0 text-(--traveco-navy)/30" />
-                          <span>{pt}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                </div>
-
-              </div>
             </div>
           </div>
         </div>
@@ -226,7 +170,7 @@ export default function AboutPage() {
               <ul className="flex flex-col gap-3">
                 {["UAE & GCC", "Schengen Area", "United Kingdom", "United States", "Canada", "Australia"].map((item, i) => (
                   <li key={i} className="text-[16px] text-(--traveco-navy)/80 font-medium flex items-center gap-3">
-                    <div className="w-1.5 h-1.5 bg-traveco-gold rounded-full" />
+                    <div className="w-1.5 h-1.5 bg-accent rounded-full" />
                     {item}
                   </li>
                 ))}
@@ -238,7 +182,7 @@ export default function AboutPage() {
               <ul className="flex flex-col gap-3">
                 {["Asia-Pacific", "Africa", "International tourist routes", "Business visitor routes", "Transit visa handling"].map((item, i) => (
                   <li key={i} className="text-[16px] text-(--traveco-navy)/80 font-medium flex items-center gap-3">
-                    <div className="w-1.5 h-1.5 bg-traveco-gold rounded-full" />
+                    <div className="w-1.5 h-1.5 bg-accent rounded-full" />
                     {item}
                   </li>
                 ))}
@@ -250,7 +194,7 @@ export default function AboutPage() {
               <ul className="flex flex-col gap-3">
                 {["VFS Global workflows", "BLS International systems", "TLScontact processes", "Online embassy portals", "Document review", "Application preparation", "Appointment coordination"].map((item, i) => (
                   <li key={i} className="text-[16px] text-(--traveco-navy)/80 font-medium flex items-center gap-3">
-                    <div className="w-1.5 h-1.5 bg-traveco-gold rounded-full" />
+                    <div className="w-1.5 h-1.5 bg-accent rounded-full" />
                     {item}
                   </li>
                 ))}
@@ -285,28 +229,28 @@ export default function AboutPage() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             <div className="border-t-2 border-(--traveco-navy)/10 pt-6">
-              <span className="text-traveco-gold font-bold text-[18px] block mb-4">01</span>
+              <span className="text-accent font-bold text-[18px] block mb-4">01</span>
               <h4 className="text-[18px] font-bold text-traveco-navy mb-3">Understand the Requirement</h4>
               <p className="text-[15px] leading-relaxed text-(--traveco-navy)/70">
                 Start with destination, travel purpose and applicant circumstances.
               </p>
             </div>
             <div className="border-t-2 border-(--traveco-navy)/10 pt-6">
-              <span className="text-traveco-gold font-bold text-[18px] block mb-4">02</span>
+              <span className="text-accent font-bold text-[18px] block mb-4">02</span>
               <h4 className="text-[18px] font-bold text-traveco-navy mb-3">Prepare Carefully</h4>
               <p className="text-[15px] leading-relaxed text-(--traveco-navy)/70">
                 Review and organize documentation before submission.
               </p>
             </div>
             <div className="border-t-2 border-(--traveco-navy)/10 pt-6">
-              <span className="text-traveco-gold font-bold text-[18px] block mb-4">03</span>
+              <span className="text-accent font-bold text-[18px] block mb-4">03</span>
               <h4 className="text-[18px] font-bold text-traveco-navy mb-3">Communicate Clearly</h4>
               <p className="text-[15px] leading-relaxed text-(--traveco-navy)/70">
                 Explain requirements, next steps and relevant process information.
               </p>
             </div>
             <div className="border-t-2 border-(--traveco-navy)/10 pt-6">
-              <span className="text-traveco-gold font-bold text-[18px] block mb-4">04</span>
+              <span className="text-accent font-bold text-[18px] block mb-4">04</span>
               <h4 className="text-[18px] font-bold text-traveco-navy mb-3">Support the Journey</h4>
               <p className="text-[15px] leading-relaxed text-(--traveco-navy)/70">
                 Provide practical assistance throughout the applicable visa process.
@@ -320,7 +264,7 @@ export default function AboutPage() {
       <section className="bg-white pb-16 md:pb-20 lg:pb-24 px-5 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-340 bg-[#0B1F3A] rounded-[20px] p-8 md:p-12 lg:p-16 text-white flex flex-col lg:flex-row lg:items-center justify-between gap-10 shadow-sm">
           <div className="lg:w-[60%]">
-            <p className="text-(--traveco-gold,#C5A253) text-[11px] font-bold tracking-widest uppercase mb-4">
+            <p className="text-accent text-[11px] font-bold tracking-widest uppercase mb-4">
               PLAN YOUR JOURNEY
             </p>
             <h2 className="text-[32px] md:text-[40px] font-medium leading-[1.1] mb-5 tracking-tight">
@@ -343,7 +287,7 @@ export default function AboutPage() {
           <div className="lg:w-[40%] flex flex-col sm:flex-row lg:flex-col xl:flex-row gap-4 lg:justify-end shrink-0">
             <Link
               href="/#contact"
-              className="inline-flex items-center justify-center bg-traveco-gold text-traveco-navy hover:bg-white transition-colors rounded-[10px] h-13 px-8 font-bold text-[15px] whitespace-nowrap"
+              className="inline-flex items-center justify-center bg-accent text-white hover:bg-accent/90 transition-colors rounded-[10px] h-13 px-8 font-bold text-[15px] whitespace-nowrap"
             >
               Get Visa Assistance
             </Link>

@@ -17,14 +17,14 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { destinations } from "@/data/destinations";
+import { serviceDestinations } from "@/data/traveco-service-countries";
 import { CountryFlag } from "@/components/destinations/country-flag";
 
 const fieldClasses =
-  "h-12 w-full rounded-control border border-primary/10 bg-[#FAF9F6] px-4 font-medium text-base text-primary outline-none transition-all placeholder:text-primary/35 focus-visible:border-transparent focus-visible:ring-2 focus-visible:ring-[var(--traveco-gold)] focus-visible:ring-offset-2 [&::-webkit-calendar-picker-indicator]:opacity-40 [&::-webkit-calendar-picker-indicator]:hover:opacity-80 [&::-webkit-calendar-picker-indicator]:cursor-pointer";
+  "h-12 w-full rounded-control border border-primary/10 bg-[#FAF9F6] px-4 font-medium text-base text-primary outline-none transition-all placeholder:text-primary/35 focus-visible:border-transparent focus-visible:ring-2 focus-visible:ring-[var(--traveco-accent)] focus-visible:ring-offset-2 [&::-webkit-calendar-picker-indicator]:opacity-40 [&::-webkit-calendar-picker-indicator]:hover:opacity-80 [&::-webkit-calendar-picker-indicator]:cursor-pointer";
 
 const textareaClasses =
-  "min-h-[120px] w-full resize-none rounded-control border border-primary/10 bg-[#FAF9F6] px-4 py-3.5 font-medium text-base text-primary outline-none transition-all placeholder:text-primary/35 focus-visible:border-transparent focus-visible:ring-2 focus-visible:ring-[var(--traveco-gold)] focus-visible:ring-offset-2";
+  "min-h-[120px] w-full resize-none rounded-control border border-primary/10 bg-[#FAF9F6] px-4 py-3.5 font-medium text-base text-primary outline-none transition-all placeholder:text-primary/35 focus-visible:border-transparent focus-visible:ring-2 focus-visible:ring-[var(--traveco-accent)] focus-visible:ring-offset-2";
 
 const labelClasses = "mb-1.5 block text-sm font-bold text-primary";
 
@@ -204,11 +204,17 @@ export function EnquirySection() {
                       <SelectValue placeholder="Select a destination" />
                     </SelectTrigger>
                     <SelectContent className="rounded-control border-primary/10 bg-white font-medium text-primary shadow-lg max-h-[300px]">
-                      {destinations.map(dest => (
-                        <SelectItem key={dest.countryCode} value={dest.country} className="cursor-pointer rounded-sm py-2.5 text-primary hover:bg-[#FBF7EE] hover:text-primary focus:bg-[#FBF7EE] focus:text-primary data-[highlighted]:bg-[#FBF7EE] data-[highlighted]:text-primary">
+                      {serviceDestinations.map(dest => (
+                        <SelectItem key={dest.slug} value={dest.name} className="cursor-pointer rounded-sm py-2.5 text-primary hover:bg-[#FBF7EE] hover:text-primary focus:bg-[#FBF7EE] focus:text-primary data-[highlighted]:bg-[#FBF7EE] data-[highlighted]:text-primary">
                           <div className="flex items-center gap-3">
-                            <CountryFlag countryCode={dest.countryCode} country={dest.country} size="sm" />
-                            <span>{dest.country}</span>
+                            {dest.kind === 'group' ? (
+                              <div className="flex size-6 items-center justify-center rounded-full bg-traveco-navy/5 text-traveco-navy/40">
+                                <span className="text-[10px] font-bold">EU</span>
+                              </div>
+                            ) : (
+                              <CountryFlag countryCode={dest.countryCode || ""} country={dest.name} size="sm" />
+                            )}
+                            <span>{dest.name}</span>
                           </div>
                         </SelectItem>
                       ))}
@@ -280,10 +286,10 @@ export function EnquirySection() {
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="group flex h-12 w-full items-center justify-center gap-2 rounded-control bg-traveco-navy px-8 text-sm font-bold text-white transition-all duration-200 hover:bg-[#122A4A] outline-none focus-visible:ring-2 focus-visible:ring-traveco-gold focus-visible:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none sm:w-auto"
+                  className="group relative flex h-14 w-full items-center justify-center gap-2 overflow-hidden rounded-control bg-accent px-8 font-bold text-white transition-all duration-300 hover:shadow-lg hover:bg-accent/90 disabled:opacity-70 sm:w-auto"
                 >
-                  {isSubmitting ? "Submitting..." : "Request Visa Assistance"}
-                  {!isSubmitting && <ArrowRight className="size-4 text-gold-cta transition-transform group-hover:translate-x-1" />}
+                  <span className="relative z-10">{isSubmitting ? "Sending..." : "Submit Enquiry"}</span>
+                  {!isSubmitting && <ArrowRight className="size-4 text-white transition-transform group-hover:translate-x-1" />}
                 </button>
                 <p className="text-xs font-medium text-primary/30">
                   Form is in demo mode.
