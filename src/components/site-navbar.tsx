@@ -67,7 +67,7 @@ export function SiteNavbar() {
       >
         <motion.div variants={fadeUp}>
           <Link
-            href="/#top"
+            href="/"
             className="flex shrink-0 items-center w-28 sm:w-32"
             aria-label="TRAVECO Mobility home"
           >

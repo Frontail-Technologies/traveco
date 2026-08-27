@@ -14,7 +14,7 @@ export function SiteFooter() {
           {/* 1. BRAND */}
           <div className="flex flex-col">
             <Link
-              href="/#top"
+              href="/"
               className="inline-block w-32"
               aria-label="TRAVECO Mobility home"
             >

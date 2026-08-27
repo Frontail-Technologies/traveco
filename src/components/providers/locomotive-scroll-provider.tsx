@@ -43,7 +43,19 @@ export function LocomotiveScrollProvider({ children }: { children: React.ReactNo
   }, []);
 
   useEffect(() => {
-    window.scrollTo(0, 0);
+    if (!window.location.hash) {
+      window.scrollTo(0, 0);
+    } else {
+      setTimeout(() => {
+        try {
+          const id = window.location.hash.substring(1);
+          const element = document.getElementById(id);
+          if (element) {
+            element.scrollIntoView({ behavior: "smooth" });
+          }
+        } catch (e) {}
+      }, 100);
+    }
 
     const observer = new IntersectionObserver(
       (entries) => {
