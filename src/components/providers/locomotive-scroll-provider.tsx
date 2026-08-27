@@ -10,7 +10,7 @@ export function LocomotiveScrollProvider({ children }: { children: React.ReactNo
 
   useEffect(() => {
     const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    
+
     if (prefersReducedMotion) {
       return;
     }
@@ -19,7 +19,7 @@ export function LocomotiveScrollProvider({ children }: { children: React.ReactNo
 
     const initScroll = async () => {
       const LocomotiveScroll = (await import("locomotive-scroll")).default;
-      
+
       if (isMounted) {
         scrollRef.current = new LocomotiveScroll({
           lenisOptions: {
@@ -42,12 +42,9 @@ export function LocomotiveScrollProvider({ children }: { children: React.ReactNo
     };
   }, []);
 
-  // Handle route changes and CSS Reveals
   useEffect(() => {
-    // Reset scroll to top on route change
     window.scrollTo(0, 0);
 
-    // CSS Reveal Observer
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {

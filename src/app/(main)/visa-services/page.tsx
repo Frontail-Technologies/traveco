@@ -78,7 +78,7 @@ export default function VisaServicesHub() {
                 TRAVECO provides documentation and application assistance across common tourist, business, student, work, transit and Schengen visa requirements.
               </p>
             </div>
-            
+
             <div className="lg:w-[50%] w-full">
               <div className="relative aspect-4/3 w-full overflow-hidden rounded-[16px] bg-[#F7F5EF]">
                 <Image
@@ -118,7 +118,7 @@ export default function VisaServicesHub() {
                     </span>
                     <div className="w-10 h-px bg-(--traveco-navy)/10" />
                   </div>
-                  
+
                   <div className="flex items-start gap-5">
                     <div className="w-12 h-12 rounded-[12px] bg-white border border-(--traveco-navy)/10 flex items-center justify-center shrink-0 shadow-sm group-hover:border-accent transition-colors">
                       <Icon className="w-5 h-5 text-traveco-navy" />
@@ -130,7 +130,7 @@ export default function VisaServicesHub() {
                       <p className="text-(--traveco-navy)/70 text-[15px] leading-[1.65] mb-6">
                         {service.description}
                       </p>
-                      <Link 
+                      <Link
                         href={`/visa-services/${service.slug}`}
                         className="inline-flex items-center text-[14px] font-bold text-traveco-navy hover:text-accent transition-colors"
                       >
@@ -146,7 +146,7 @@ export default function VisaServicesHub() {
       </section>
 
       <div className="pb-16 md:pb-24 pt-8 bg-[#F7F5EF]">
-        <PreFooterCTA 
+        <PreFooterCTA
           eyebrow="READY TO APPLY?"
           title="Start your visa application process today."
           description="Let us handle the documentation complexity while you focus on your travel plans."

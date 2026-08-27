@@ -49,32 +49,32 @@ export function HeroSection() {
         initial="hidden"
         animate="visible"
         variants={staggerContainer}
-        className="relative z-10 mx-auto w-full max-w-7xl px-5 py-20 text-center md:px-6 lg:px-8 md:py-28 lg:py-32"
+        className="relative z-10 w-full max-w-7xl px-5 py-20 md:px-6 lg:px-8 md:py-28 lg:py-32 mx-auto"
       >
         <motion.div
           variants={fadeUp}
-          className="mx-auto mb-6 inline-flex items-center justify-center rounded-full bg-white px-4 py-1.5 text-xs font-bold uppercase tracking-widest text-traveco-navy shadow-sm"
+          className="mb-6 inline-flex items-center rounded-full bg-white px-4 py-1.5 text-xs font-bold uppercase tracking-widest text-traveco-navy shadow-sm"
         >
           Global Visa & Travel Support
         </motion.div>
 
-        <motion.h1 
+        <motion.h1
           variants={fadeUp}
-          className="mx-auto max-w-4xl text-5xl font-[750] leading-[1.05] tracking-tight text-white md:text-6xl lg:text-7xl"
+          className="max-w-4xl text-4xl font-[750] leading-[1.05] tracking-tight text-white md:text-5xl lg:text-6xl"
         >
-          Travel Beyond Borders.<br className="hidden sm:block" /> We Make <span className="text-gold-cta">Visas Simpler.</span>
+          Travel Beyond Borders.<br className="hidden sm:block" /> We Make <span className="text-[#FF6247] drop-shadow-md">Visas Simpler.</span>
         </motion.h1>
 
         <motion.p
           variants={fadeUp}
-          className="mx-auto mt-8 max-w-2xl text-base leading-relaxed text-white/90 sm:text-lg"
+          className="mt-8 max-w-3xl text-base leading-relaxed text-white/90 sm:text-lg"
         >
-          Professional visa documentation, application assistance and international travel support for individuals, families, students and business travellers.
+          Professional visa documentation, application assistance and international travel<br className="hidden lg:block" /> support for individuals, families, students and business travellers.
         </motion.p>
 
         <motion.div
           variants={fadeUp}
-          className="mt-10 flex flex-col justify-center gap-4 sm:flex-row sm:items-center"
+          className="mt-10 flex flex-col gap-4 sm:flex-row sm:items-center justify-start"
         >
           <Button asChild variant="secondary" className="h-12 w-full sm:w-auto rounded-control px-8 text-[15px]">
             <Link href="/contact">
