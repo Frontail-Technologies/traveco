@@ -20,7 +20,7 @@ const COMMON_DOCUMENTS = [
   "Previous Travel / Visa History, where applicable"
 ];
 
-export function CountryDetailClient({ dest }: { dest: ServiceDestination }) {
+export function CountryDetailClient({ dest, checklistData }: { dest: ServiceDestination, checklistData: any | null }) {
   const [activeRouteIdx, setActiveRouteIdx] = React.useState(0);
   const activeRoute = dest.visaOptions[activeRouteIdx];
 
@@ -72,34 +72,67 @@ export function CountryDetailClient({ dest }: { dest: ServiceDestination }) {
             <div className="flex items-center gap-4 mb-6">
               <h2 className="text-[22px] font-semibold text-traveco-navy">
                 <span className="mr-2 font-bold text-traveco-navy">{hasMultipleRoutes ? '2.' : '1.'}</span>
-                Documents Required
+                {checklistData && hasMultipleRoutes ? `Documents required for ${dest.name} ${activeRoute.mode}` : `Documents required for ${dest.name}`}
               </h2>
               <div className="h-px flex-1 bg-traveco-navy/10" />
             </div>
 
-            <p className="text-[15px] text-traveco-navy/70 leading-relaxed mb-6">
-              Prepare the following documents for your {dest.name} {activeRoute.mode} application.
-            </p>
+            {checklistData ? (
+              <>
+                <p className="text-[15px] text-traveco-navy/70 leading-relaxed mb-6">
+                  {hasMultipleRoutes 
+                    ? `The checklist below represents general country-level requirements. Route-specific requirements for ${activeRoute.mode} should be confirmed with our team.`
+                    : `Prepare the following documents for your ${dest.name} application.`
+                  }
+                </p>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 mb-4">
-              {COMMON_DOCUMENTS.map((item, idx) => (
-                <div
-                  key={idx}
-                  className="flex items-start gap-3 bg-white border border-traveco-navy/10 rounded-surface px-4 py-3 min-h-12"
-                >
-                  <Check
-                    className="w-4 h-4 shrink-0 mt-0.5 text-traveco-navy"
-                    strokeWidth={2.5}
-                  />
-                  <span className="text-[14px] font-medium leading-snug text-traveco-navy">
-                    {item}
-                  </span>
+                <div className="grid grid-cols-1 gap-2 mb-4">
+                  {checklistData.coreChecklist.map((item: string, idx: number) => (
+                    <div
+                      key={idx}
+                      className="flex items-start gap-3 bg-white border border-traveco-navy/10 rounded-surface px-4 py-3 min-h-12"
+                    >
+                      <Check
+                        className="w-4 h-4 shrink-0 mt-0.5 text-accent"
+                        strokeWidth={2.5}
+                      />
+                      <span className="text-[14px] font-medium leading-snug text-traveco-navy">
+                        {item}
+                      </span>
+                    </div>
+                  ))}
                 </div>
-              ))}
-            </div>
+              </>
+            ) : (
+              <>
+                <div className="bg-traveco-navy/5 border border-traveco-navy/10 rounded-surface p-5 mb-6">
+                  <p className="text-[15px] font-medium text-traveco-navy">Checklist not available in the provided source.</p>
+                </div>
+                
+                <div className="mt-8">
+                  <h3 className="text-[13px] font-bold uppercase tracking-widest text-traveco-navy/60 mb-4">Common document guidance</h3>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 mb-4">
+                    {COMMON_DOCUMENTS.map((item, idx) => (
+                      <div
+                        key={idx}
+                        className="flex items-start gap-3 bg-white border border-traveco-navy/10 rounded-surface px-4 py-3 min-h-12 opacity-70"
+                      >
+                        <Check
+                          className="w-4 h-4 shrink-0 mt-0.5 text-traveco-navy/50"
+                          strokeWidth={2.5}
+                        />
+                        <span className="text-[14px] font-medium leading-snug text-traveco-navy/80">
+                          {item}
+                        </span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </>
+            )}
             
-            <p className="text-[13px] text-traveco-navy/60 leading-relaxed">
-              * Exact requirements vary by country, visa category and applicant circumstances.
+            <p className="text-[13px] text-traveco-navy/60 leading-relaxed mt-6">
+              * Exact requirements vary by destination, visa category and applicant circumstances.
             </p>
           </section>
 

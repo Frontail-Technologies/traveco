@@ -4,6 +4,7 @@ import { Metadata } from 'next';
 import { serviceDestinations } from '@/data/traveco-service-countries';
 import { CountryFlag } from '@/components/destinations/country-flag';
 import { CountryDetailClient } from '@/components/destinations/country-detail-client';
+import { destinations as globalChecklists } from '@/data/global-visa-reference';
 
 type Props = {
   params: Promise<{ slug: string }>;
@@ -30,6 +31,15 @@ export default async function DocumentChecklistSlugPage({ params }: Props) {
   const { slug } = await params;
   const dest = serviceDestinations.find((d) => d.slug === slug);
   if (!dest) notFound();
+
+  let checklistData = globalChecklists.find(
+    (c) => c.slug === slug || c.country.toLowerCase() === dest.name.toLowerCase()
+  );
+  if (!checklistData) {
+    if (slug === 'turkiye') {
+      checklistData = globalChecklists.find((c) => c.slug === 'turkey');
+    }
+  }
 
   return (
     <div className="min-h-screen bg-[#F7F5EF]">
@@ -73,7 +83,7 @@ export default async function DocumentChecklistSlugPage({ params }: Props) {
         </div>
       </div>
 
-      <CountryDetailClient dest={dest} />
+      <CountryDetailClient dest={dest} checklistData={checklistData || null} />
     </div>
   );
 }
