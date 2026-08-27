@@ -26,7 +26,9 @@ const navbarNavigationItems = [
     ]
   },
   { label: "Document Checklist", href: "/document-checklist" },
+  { label: "How it Works", href: "/#process" },
   { label: "About Us", href: "/about" },
+  { label: "FAQs", href: "/#faq" },
   { label: "Contact", href: "/contact" },
 ];
 

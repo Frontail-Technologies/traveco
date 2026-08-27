@@ -65,7 +65,7 @@ export function FaqSection() {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   return (
-    <section className="relative overflow-hidden bg-background py-20 md:py-24 lg:py-28 z-0">
+    <section id="faq" className="relative overflow-hidden bg-background py-20 md:py-24 lg:py-28 z-0">
       <div className="mx-auto w-full max-w-7xl px-5 md:px-6 lg:px-8 relative z-10">
         <motion.div
           initial="hidden"

@@ -47,7 +47,7 @@ const steps = [
 
 export function ProcessSection() {
   return (
-    <section className="relative overflow-hidden bg-[#F9F9F8] py-20 md:py-24 lg:py-28">
+    <section id="process" className="relative overflow-hidden bg-[#F9F9F8] py-20 md:py-24 lg:py-28">
       <div className="relative z-10 mx-auto w-full max-w-7xl px-5 md:px-6 lg:px-8">
         <motion.div
           initial="hidden"
