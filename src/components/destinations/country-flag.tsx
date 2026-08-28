@@ -37,7 +37,7 @@ export function CountryFlag({ countryCode, country, size = 'md', className }: Co
         title={country}
         aria-label={`Flag of ${country}`}
       >
-        <Globe className="w-1/2 h-1/2 text-slate-300" strokeWidth={1.5} />
+        <Globe className="w-1/2 h-1/2 text-muted-foreground" strokeWidth={1.5} />
       </span>
     );
   }

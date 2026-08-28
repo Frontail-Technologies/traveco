@@ -5,16 +5,16 @@
   --radius: 1rem;
 
   /* TRAVECO Mobility brand palette */
-  --traveco-background: #F8F5EE;
+  --traveco-background: #FFFFFF;
   --traveco-surface: #FFFFFF;
   --traveco-primary: #0E1F3A;
   --traveco-primary-dark: #09162A;
   --traveco-accent: #C94A36;
   --traveco-accent-hover: #B93F2D;
-  --traveco-text-primary: #172033;
-  --traveco-text-secondary: #5C6472;
-  --traveco-border: #E7DED0;
-  --traveco-muted-background: #EBE6D8;
+  --traveco-text-primary: #0E1F3A;
+  --traveco-text-secondary: #475569;
+  --traveco-border: #E2E8F0;
+  --traveco-muted-background: #F7F8FA;
   --traveco-gold-on-dark: #B88A2E;
   --traveco-gold-cta: #C94A36;
 

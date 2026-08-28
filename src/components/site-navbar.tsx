@@ -123,8 +123,8 @@ export function SiteNavbar() {
                               key={sub.href}
                               href={sub.href}
                               className={cn(
-                                "block px-5 py-2.5 text-[14px] transition-colors",
-                                isSubActive ? "text-accent font-medium bg-black/2" : "text-primary/80 hover:text-accent hover:bg-black/2"
+                                "block px-5 py-2.5 text-sm transition-colors",
+                                isSubActive ? "text-accent font-medium bg-black/2" : "font-medium text-muted-foreground hover:text-accent hover:bg-black/2"
                               )}
                             >
                               {sub.label}
@@ -212,8 +212,8 @@ export function SiteNavbar() {
                           href={sub.href}
                           onClick={() => setOpen(false)}
                           className={cn(
-                            "py-2.5 text-[14px] transition-colors",
-                            isSubActive ? "text-accent font-medium" : "text-primary/70 hover:text-accent"
+                            "py-2.5 text-sm transition-colors",
+                            isSubActive ? "text-accent font-medium" : "font-medium text-muted-foreground hover:text-accent"
                           )}
                         >
                           {sub.label}

@@ -62,7 +62,7 @@ export function DestinationSearch() {
   }, []);
 
   return (
-    <div ref={wrapperRef} className="relative w-full max-w-150">
+    <div ref={wrapperRef} className="relative w-full mx-auto">
       <CommandPrimitive
         shouldFilter={false}
         className="relative flex flex-col overflow-visible bg-transparent"
@@ -70,8 +70,8 @@ export function DestinationSearch() {
         {/* Main Search Input */}
         <div 
           className={cn(
-            "flex items-center w-full h-14 bg-white border rounded-control px-5 shadow-sm transition-all relative z-10",
-            open ? "border-accent ring-1 ring-accent" : "border-slate-200 hover:border-slate-300"
+            "flex items-center w-full h-16 md:h-20 bg-white border rounded-[16px] px-6 md:px-8 shadow-md transition-all relative z-10",
+            open ? "border-accent ring-2 ring-accent" : "border-border hover:border-border"
           )}
         >
           <CommandPrimitive.Input
@@ -82,18 +82,18 @@ export function DestinationSearch() {
             }}
             onFocus={() => setOpen(true)}
             placeholder="Search country or destination..."
-            className="flex-1 min-w-0 text-[16px] border-0 outline-none bg-transparent placeholder:text-slate-400 text-traveco-navy focus:ring-0"
+            className="flex-1 min-w-0 text-[18px] md:text-[22px] font-medium border-0 outline-none bg-transparent placeholder:text-muted-foreground text-navy focus:ring-0"
           />
-          <Search className="h-5 w-5 shrink-0 text-slate-400 ml-3" strokeWidth={2} />
+          <Search className="h-6 w-6 md:h-7 md:w-7 shrink-0 text-accent ml-3 md:ml-4" strokeWidth={2.5} />
         </div>
 
         {/* Dropdown */}
         {open && (
           <div
-            className="absolute left-0 right-0 top-[calc(100%+8px)] z-50 bg-white border border-slate-200 rounded-surface shadow-md overflow-hidden"
+            className="absolute left-0 right-0 top-[calc(100%+8px)] z-50 bg-white border border-border rounded-surface shadow-md overflow-hidden"
           >
             <CommandPrimitive.List className="overflow-y-auto max-h-85 py-2" style={{ scrollbarWidth: 'thin' }}>
-              <CommandPrimitive.Empty className="py-8 text-center text-[14px] text-slate-400">
+              <CommandPrimitive.Empty className="py-8 text-center text-[14px] text-muted-foreground">
                 No destination found.
               </CommandPrimitive.Empty>
 
@@ -130,12 +130,12 @@ export function DestinationSearch() {
                       onSelect={() => handleSelect(dest.slug)}
                       className={cn(
                         'flex items-center gap-3 px-4 py-3 cursor-pointer transition-colors select-none outline-none',
-                        'hover:bg-[#FBF7EE] aria-selected:bg-[#FBF7EE] data-[selected=true]:bg-[#FBF7EE]',
+                        'hover:bg-muted aria-selected:bg-muted data-[selected=true]:bg-muted',
                       )}
                     >
                       <div className="shrink-0">
                         {dest.kind === "group" ? (
-                          <div className="flex size-6 items-center justify-center rounded-full bg-traveco-navy/5 text-traveco-navy/40">
+                          <div className="flex size-6 items-center justify-center rounded-full bg-navy/5 text-navy/40">
                             <span className="text-[10px] font-bold">EU</span>
                           </div>
                         ) : (
@@ -143,10 +143,10 @@ export function DestinationSearch() {
                         )}
                       </div>
                       <div className="flex flex-col min-w-0">
-                        <span className="text-[14.5px] font-medium text-traveco-navy truncate">
+                        <span className="text-[14.5px] font-medium text-navy truncate">
                           <HighlightMatch text={dest.name} query={query} />
                         </span>
-                        <span className="text-[12px] text-(--traveco-navy)/60 truncate max-w-[320px]">
+                        <span className="text-[12px] text-(--traveco-primary)/60 truncate max-w-[320px]">
                           {routesDisplay}
                         </span>
                       </div>

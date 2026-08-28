@@ -23,12 +23,12 @@ function FAQItem({
   isLast?: boolean;
 }) {
   return (
-    <div className="group bg-white rounded-2xl px-6 sm:px-8 mb-4 shadow-sm border border-primary/5 transition-colors duration-300 hover:border-gold-cta/30">
+    <div className="group bg-white rounded-2xl px-6 sm:px-8 mb-4 shadow-sm border border-primary/5 transition-colors duration-300 hover:border-accent/30">
       <button
         type="button"
         onClick={onClick}
         aria-expanded={isOpen}
-        className="flex w-full items-end justify-between gap-6 pb-7 pt-8 text-left transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold-cta"
+        className="flex w-full items-end justify-between gap-6 pb-7 pt-8 text-left transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
       >
         <div className="flex items-center">
           <span className="text-lg font-bold leading-tight text-primary lg:text-xl">
@@ -78,7 +78,7 @@ export function FaqSection() {
           <div className="lg:col-span-4 xl:col-span-4 flex flex-col pt-2 relative z-10">
             <motion.p
               variants={fadeUp}
-              className="text-gold-cta text-xs font-bold uppercase tracking-widest"
+              className="text-accent text-xs font-bold uppercase tracking-widest"
             >
               Frequently Asked Questions
             </motion.p>
@@ -89,13 +89,13 @@ export function FaqSection() {
               Questions before your <br className="hidden lg:block" /> next journey?
             </motion.h2>
 
-            <motion.div variants={fadeUp} className="mt-8 lg:mt-12 rounded-2xl bg-traveco-navy p-6 lg:p-8">
+            <motion.div variants={fadeUp} className="mt-8 lg:mt-12 rounded-2xl bg-navy p-6 lg:p-8">
               <p className="mb-3 text-base font-bold text-white">
                 Still have a question?
               </p>
               <Link
                 href="/contact"
-                className="group inline-flex items-center gap-2 text-sm font-bold text-white transition-colors hover:text-gold-cta"
+                className="group inline-flex items-center gap-2 text-sm font-bold text-white transition-colors hover:text-accent"
               >
                 Contact TRAVECO
                 <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" />

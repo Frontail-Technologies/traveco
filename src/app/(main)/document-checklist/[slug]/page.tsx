@@ -42,7 +42,7 @@ export default async function DocumentChecklistSlugPage({ params }: Props) {
   }
 
   return (
-    <div className="min-h-screen bg-[#F7F5EF]">
+    <div className="min-h-screen bg-background">
       
       {/* ── HERO ──────────────────────────────────────── */}
       <div 
@@ -53,7 +53,7 @@ export default async function DocumentChecklistSlugPage({ params }: Props) {
           backgroundPosition: 'center',
         }}
       >
-        <div className="absolute inset-0 bg-[#0B1F3A]/80 z-10" />
+        <div className="absolute inset-0 bg-navy/80 z-10" />
         
         <div className="relative z-20 mx-auto w-full max-w-340 px-5 sm:px-6 lg:px-8 flex flex-col items-start md:items-center lg:items-start">
           {/* ── BACK ──────────────────────────────────────────── */}

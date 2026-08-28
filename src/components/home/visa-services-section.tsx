@@ -68,13 +68,13 @@ export function VisaServicesSection() {
             <div className="max-w-2xl">
               <motion.p
                 variants={fadeUp}
-                className="text-gold-cta text-xs font-bold uppercase tracking-widest"
+                className="text-accent text-xs font-bold uppercase tracking-widest"
               >
                 Our Services
               </motion.p>
               <motion.h2
                 variants={fadeUp}
-                className="mt-4 text-4xl font-bold leading-[1.05] tracking-tight text-traveco-navy md:text-5xl"
+                className="mt-4 text-4xl font-bold leading-[1.05] tracking-tight text-navy md:text-5xl"
                 data-scroll="fade-up"
               >
                 Visa support for every kind of journey.
@@ -118,7 +118,7 @@ export function VisaServicesSection() {
                     variants={fadeUp}
                     className="group flex flex-col border-b border-border/50 pb-8 mb-10 transition-colors hover:border-accent/40"
                   >
-                    <div className="mb-4 text-xs font-bold text-gold-cta">
+                    <div className="mb-4 text-xs font-bold text-accent">
                       {service.id}
                     </div>
                     

@@ -56,7 +56,7 @@ export function WhyChooseSection() {
             {/* Header */}
             <div className="order-1 lg:order-2 lg:col-span-5 lg:col-start-8 lg:py-4 relative z-10">
               <p
-                className="text-gold-cta text-xs font-bold uppercase tracking-widest"
+                className="text-accent text-xs font-bold uppercase tracking-widest"
                 data-scroll="fade-up"
               >
                 Why Traveco
@@ -91,10 +91,10 @@ export function WhyChooseSection() {
               <motion.div
                 key={point.id}
                 variants={fadeUp}
-                className="group flex flex-col border-t border-border/70 pt-6 transition-colors duration-500 hover:border-gold-cta/60"
+                className="group flex flex-col border-t border-border/70 pt-6 transition-colors duration-500 hover:border-accent/60"
               >
                 <div className="mb-4">
-                  <span className="text-sm font-extrabold tracking-widest text-gold-cta transition-colors duration-500 group-hover:text-gold-cta/80">
+                  <span className="text-sm font-extrabold tracking-widest text-accent transition-colors duration-500 group-hover:text-accent/80">
                     {point.id}
                   </span>
                 </div>

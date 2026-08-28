@@ -47,7 +47,7 @@ const steps = [
 
 export function ProcessSection() {
   return (
-    <section id="process" className="relative overflow-hidden bg-[#F9F9F8] py-20 md:py-24 lg:py-28">
+    <section id="process" className="relative overflow-hidden bg-muted py-20 md:py-24 lg:py-28">
       <div className="relative z-10 mx-auto w-full max-w-7xl px-5 md:px-6 lg:px-8">
         <motion.div
           initial="hidden"
@@ -61,13 +61,13 @@ export function ProcessSection() {
             <div className="max-w-2xl">
               <motion.p
                 variants={fadeUp}
-                className="text-gold-cta text-xs font-bold uppercase tracking-widest"
+                className="text-accent text-xs font-bold uppercase tracking-widest"
               >
                 How It Works
               </motion.p>
               <motion.h2
                 variants={fadeUp}
-                className="mt-4 text-4xl font-bold leading-[1.05] tracking-tight text-traveco-navy md:text-5xl"
+                className="mt-4 text-4xl font-bold leading-[1.05] tracking-tight text-navy md:text-5xl"
               >
                 Your visa journey, <br className="hidden sm:block" /> simplified.
               </motion.h2>
@@ -75,7 +75,7 @@ export function ProcessSection() {
 
             <motion.p
               variants={fadeUp}
-              className="max-w-xs text-sm leading-relaxed text-traveco-navy/70 md:text-right"
+              className="max-w-xs text-sm leading-relaxed text-navy/70 md:text-right"
             >
               A clear, milestone-based path from first contact to your final visa decision.
             </motion.p>
@@ -88,10 +88,10 @@ export function ProcessSection() {
                 <motion.div
                   key={step.id}
                   variants={fadeUp}
-                  className="group relative flex flex-col overflow-hidden rounded-[2rem] border border-traveco-navy/5 bg-white shadow-[0_2px_10px_-4px_rgba(0,0,0,0.05)] transition-shadow duration-300 hover:shadow-lg"
+                  className="group relative flex flex-col overflow-hidden rounded-[2rem] border border-navy/5 bg-white shadow-[0_2px_10px_-4px_rgba(0,0,0,0.05)] transition-shadow duration-300 hover:shadow-lg"
                 >
                   {/* Image Container */}
-                  <div className="relative aspect-[4/3] w-full shrink-0 overflow-hidden bg-traveco-navy/5">
+                  <div className="relative aspect-[4/3] w-full shrink-0 overflow-hidden bg-navy/5">
                     <Image
                       src={step.image}
                       alt={step.alt}
@@ -103,7 +103,7 @@ export function ProcessSection() {
 
                     {/* Floating Step Number */}
                     <div className="absolute left-6 top-6 flex size-10 items-center justify-center rounded-full bg-white shadow-md">
-                      <span className="text-sm font-bold text-traveco-navy">
+                      <span className="text-sm font-bold text-navy">
                         {step.id}
                       </span>
                     </div>
@@ -111,10 +111,10 @@ export function ProcessSection() {
 
                   {/* Content Container */}
                   <div className="flex flex-1 flex-col p-6 sm:p-8 lg:p-10">
-                    <h3 className="mb-3 text-xl font-bold leading-tight text-traveco-navy md:text-2xl">
+                    <h3 className="mb-3 text-xl font-bold leading-tight text-navy md:text-2xl">
                       {step.title}
                     </h3>
-                    <p className="text-base leading-relaxed text-traveco-navy/70">
+                    <p className="text-base leading-relaxed text-navy/70">
                       {step.description}
                     </p>
                   </div>
@@ -125,7 +125,7 @@ export function ProcessSection() {
             {/* 6th Card: CTA */}
             <motion.div
               variants={fadeUp}
-              className="group relative flex flex-col items-center justify-center overflow-hidden rounded-[2rem] bg-traveco-navy p-8 text-center shadow-[0_2px_10px_-4px_rgba(0,0,0,0.05)] transition-shadow duration-300 hover:shadow-lg lg:p-10"
+              className="group relative flex flex-col items-center justify-center overflow-hidden rounded-[2rem] bg-navy p-8 text-center shadow-[0_2px_10px_-4px_rgba(0,0,0,0.05)] transition-shadow duration-300 hover:shadow-lg lg:p-10"
             >
               <div className="flex flex-1 flex-col items-center justify-center">
                 <h3 className="mb-4 text-3xl font-bold leading-[1.1] text-white">
@@ -136,7 +136,7 @@ export function ProcessSection() {
                 </p>
                 <Link
                   href="/contact"
-                  className="inline-flex h-12 items-center justify-center rounded-full bg-gold-cta px-8 text-sm font-bold uppercase tracking-wide text-white transition-all hover:scale-105 hover:bg-white hover:text-traveco-navy"
+                  className="inline-flex h-12 items-center justify-center rounded-full bg-accent px-8 text-sm font-bold uppercase tracking-wide text-white transition-all hover:scale-105 hover:bg-white hover:text-navy"
                 >
                   Contact Us
                 </Link>

@@ -8,7 +8,7 @@ import { motion } from "framer-motion";
 import { SuccessDialog } from "@/components/success-dialog";
 import { fadeUp, staggerContainer } from "@/lib/motion-variants";
 import { cn } from "@/lib/utils";
-const contactEmail = "info@traveco.in";
+const contactEmail = "travecomobility@gmail.com";
 const phoneDisplayNumber = "88502 01321";
 import {
   Select,
@@ -21,10 +21,10 @@ import { serviceDestinations } from "@/data/traveco-service-countries";
 import { CountryFlag } from "@/components/destinations/country-flag";
 
 const fieldClasses =
-  "h-12 w-full rounded-control border border-primary/10 bg-[#FAF9F6] px-4 font-medium text-base text-primary outline-none transition-all placeholder:text-primary/35 focus-visible:border-transparent focus-visible:ring-2 focus-visible:ring-[var(--traveco-accent)] focus-visible:ring-offset-2 [&::-webkit-calendar-picker-indicator]:opacity-40 [&::-webkit-calendar-picker-indicator]:hover:opacity-80 [&::-webkit-calendar-picker-indicator]:cursor-pointer";
+  "h-12 w-full rounded-control border border-primary/10 bg-white px-4 font-medium text-base text-primary outline-none transition-all placeholder:text-primary/35 focus-visible:border-transparent focus-visible:ring-2 focus-visible:ring-[var(--traveco-accent)] focus-visible:ring-offset-2 [&::-webkit-calendar-picker-indicator]:opacity-40 [&::-webkit-calendar-picker-indicator]:hover:opacity-80 [&::-webkit-calendar-picker-indicator]:cursor-pointer";
 
 const textareaClasses =
-  "min-h-[120px] w-full resize-none rounded-control border border-primary/10 bg-[#FAF9F6] px-4 py-3.5 font-medium text-base text-primary outline-none transition-all placeholder:text-primary/35 focus-visible:border-transparent focus-visible:ring-2 focus-visible:ring-[var(--traveco-accent)] focus-visible:ring-offset-2";
+  "min-h-[120px] w-full resize-none rounded-control border border-primary/10 bg-white px-4 py-3.5 font-medium text-base text-primary outline-none transition-all placeholder:text-primary/35 focus-visible:border-transparent focus-visible:ring-2 focus-visible:ring-[var(--traveco-accent)] focus-visible:ring-offset-2";
 
 const labelClasses = "mb-1.5 block text-sm font-bold text-primary";
 
@@ -61,10 +61,10 @@ export function EnquirySection() {
           whileInView="visible"
           viewport={{ once: true, margin: "-5%" }}
           variants={staggerContainer}
-          className="flex flex-col lg:flex-row overflow-hidden rounded-panel bg-white shadow-sm ring-1 ring-primary/5"
+          className="flex flex-col-reverse lg:flex-row overflow-hidden rounded-panel bg-white shadow-sm ring-1 ring-primary/5"
         >
           {/* Left Panel (Deep Navy with Image Background - 42%) */}
-          <div className="relative flex w-full flex-col overflow-hidden p-8 sm:p-12 lg:w-[42%] lg:p-14">
+          <div className="relative flex w-full flex-col overflow-hidden p-8 sm:p-12 lg:w-[42%] lg:p-14 min-h-[500px] lg:min-h-0">
             
             {/* Premium Atmospheric Image Background */}
             <Image 
@@ -78,15 +78,14 @@ export function EnquirySection() {
             />
             
             {/* Deep Navy Overlays */}
-            <div className="absolute inset-0 bg-primary/60 mix-blend-multiply" />
-            <div className="absolute inset-0 bg-primary/75" />
+            <div className="absolute inset-0 bg-gradient-to-t from-navy/95 via-navy/50 to-navy/10" />
 
-            <motion.div variants={fadeUp} className="relative z-10 flex-1">
-              <h2 className="text-4xl font-bold leading-[1.05] tracking-tight text-white md:text-5xl">
-                Plan Your Journey
+            <motion.div variants={fadeUp} className="relative z-10 flex-1 flex flex-col justify-end lg:justify-start">
+              <h2 className="text-3xl font-bold leading-[1.1] tracking-tight text-white md:text-4xl">
+                Need visa assistance?
               </h2>
-              <p className="mt-6 text-base leading-relaxed text-white/80">
-                Share your travel details and our team will help you understand the next steps.
+              <p className="mt-4 text-[15px] leading-relaxed text-white/90 max-w-md">
+                Reach TRAVECO for visa documentation, application assistance and travel support.
               </p>
             </motion.div>
 
@@ -97,7 +96,7 @@ export function EnquirySection() {
                 </div>
                 <div className="flex flex-col">
                   <span className="text-xs font-semibold uppercase tracking-wider text-white/50">Official Email</span>
-                  <a href="mailto:info@traveco.in" className="mt-0.5 text-sm font-medium text-white transition-colors hover:text-gold-cta md:text-base">info@traveco.in</a>
+                  <a href="mailto:info@traveco.in" className="mt-0.5 text-sm font-medium text-white transition-colors hover:text-accent md:text-base">info@traveco.in</a>
                 </div>
               </div>
               
@@ -107,7 +106,7 @@ export function EnquirySection() {
                 </div>
                 <div className="flex flex-col">
                   <span className="text-xs font-semibold uppercase tracking-wider text-white/50">Enquiries</span>
-                  <a href={`mailto:${contactEmail}`} className="mt-0.5 text-sm font-medium text-white transition-colors hover:text-gold-cta md:text-base">{contactEmail}</a>
+                  <a href={`mailto:${contactEmail}`} className="mt-0.5 text-sm font-medium text-white transition-colors hover:text-accent md:text-base">{contactEmail}</a>
                 </div>
               </div>
 
@@ -128,7 +127,7 @@ export function EnquirySection() {
                   </div>
                   <div className="flex flex-col">
                     <span className="text-xs font-semibold uppercase tracking-wider text-white/50">Phone</span>
-                    <a href={`tel:+91${phoneDisplayNumber}`} className="mt-0.5 text-sm font-medium text-white transition-colors hover:text-gold-cta md:text-base">{phoneDisplayNumber}</a>
+                    <a href={`tel:+91${phoneDisplayNumber}`} className="mt-0.5 text-sm font-medium text-white transition-colors hover:text-accent md:text-base">{phoneDisplayNumber}</a>
                   </div>
                 </div>
               )}
@@ -155,7 +154,7 @@ export function EnquirySection() {
               <div className="grid gap-6 sm:grid-cols-2">
                 <div>
                   <label htmlFor="name" className={labelClasses}>
-                    Full Name <span className="text-gold-cta ml-0.5">*</span>
+                    Full Name <span className="text-accent ml-0.5">*</span>
                   </label>
                   <input
                     id="name"
@@ -167,7 +166,7 @@ export function EnquirySection() {
                 </div>
                 <div>
                   <label htmlFor="phone" className={labelClasses}>
-                    Mobile Number <span className="text-gold-cta ml-0.5">*</span>
+                    Mobile Number <span className="text-accent ml-0.5">*</span>
                   </label>
                   <input
                     id="phone"
@@ -184,7 +183,7 @@ export function EnquirySection() {
               <div className="grid gap-6 sm:grid-cols-2">
                 <div>
                   <label htmlFor="email" className={labelClasses}>
-                    Email Address <span className="text-gold-cta ml-0.5">*</span>
+                    Email Address <span className="text-accent ml-0.5">*</span>
                   </label>
                   <input
                     id="email"
@@ -200,15 +199,15 @@ export function EnquirySection() {
                     Destination
                   </label>
                   <Select name="destination">
-                    <SelectTrigger id="destination" className={cn(fieldClasses, "shadow-none data-[state=open]:border-gold-cta data-[state=open]:ring-1 data-[state=open]:ring-gold-cta/50")}>
+                    <SelectTrigger id="destination" className={cn(fieldClasses, "shadow-none data-[state=open]:border-accent data-[state=open]:ring-1 data-[state=open]:ring-accent/50")}>
                       <SelectValue placeholder="Select a destination" />
                     </SelectTrigger>
                     <SelectContent className="rounded-control border-primary/10 bg-white font-medium text-primary shadow-lg max-h-[300px]">
                       {serviceDestinations.map(dest => (
-                        <SelectItem key={dest.slug} value={dest.name} className="cursor-pointer rounded-sm py-2.5 text-primary hover:bg-[#FBF7EE] hover:text-primary focus:bg-[#FBF7EE] focus:text-primary data-[highlighted]:bg-[#FBF7EE] data-[highlighted]:text-primary">
+                        <SelectItem key={dest.slug} value={dest.name} className="cursor-pointer rounded-sm py-2.5 text-primary hover:bg-muted hover:text-primary focus:bg-muted focus:text-primary data-[highlighted]:bg-muted data-[highlighted]:text-primary">
                           <div className="flex items-center gap-3">
                             {dest.kind === 'group' ? (
-                              <div className="flex size-6 items-center justify-center rounded-full bg-traveco-navy/5 text-traveco-navy/40">
+                              <div className="flex size-6 items-center justify-center rounded-full bg-navy/5 text-navy/40">
                                 <span className="text-[10px] font-bold">EU</span>
                               </div>
                             ) : (
@@ -218,7 +217,7 @@ export function EnquirySection() {
                           </div>
                         </SelectItem>
                       ))}
-                      <SelectItem value="Other" className="cursor-pointer rounded-sm py-2.5 text-primary hover:bg-[#FBF7EE] hover:text-primary focus:bg-[#FBF7EE] focus:text-primary data-[highlighted]:bg-[#FBF7EE] data-[highlighted]:text-primary">
+                      <SelectItem value="Other" className="cursor-pointer rounded-sm py-2.5 text-primary hover:bg-muted hover:text-primary focus:bg-muted focus:text-primary data-[highlighted]:bg-muted data-[highlighted]:text-primary">
                           <div className="flex items-center gap-3">
                             <div className="w-[24px] h-[16px] bg-slate-100 border border-black/5 rounded-[2px]" />
                             <span>Other</span>
@@ -236,17 +235,17 @@ export function EnquirySection() {
                     Visa Type
                   </label>
                   <Select name="visaType">
-                    <SelectTrigger id="visaType" className={cn(fieldClasses, "shadow-none data-[state=open]:border-gold-cta data-[state=open]:ring-1 data-[state=open]:ring-gold-cta/50")}>
+                    <SelectTrigger id="visaType" className={cn(fieldClasses, "shadow-none data-[state=open]:border-accent data-[state=open]:ring-1 data-[state=open]:ring-accent/50")}>
                       <SelectValue placeholder="Select a category" />
                     </SelectTrigger>
                     <SelectContent className="rounded-control border-primary/10 bg-white font-medium text-primary shadow-lg">
-                      <SelectItem value="Tourist / Visitor" className="cursor-pointer rounded-sm py-2.5 hover:bg-[#FBF7EE] hover:text-primary focus:bg-[#FBF7EE] focus:text-primary">Tourist / Visitor</SelectItem>
-                      <SelectItem value="Business" className="cursor-pointer rounded-sm py-2.5 hover:bg-[#FBF7EE] hover:text-primary focus:bg-[#FBF7EE] focus:text-primary">Business</SelectItem>
-                      <SelectItem value="Student" className="cursor-pointer rounded-sm py-2.5 hover:bg-[#FBF7EE] hover:text-primary focus:bg-[#FBF7EE] focus:text-primary">Student</SelectItem>
-                      <SelectItem value="Work / Employment" className="cursor-pointer rounded-sm py-2.5 hover:bg-[#FBF7EE] hover:text-primary focus:bg-[#FBF7EE] focus:text-primary">Work / Employment</SelectItem>
-                      <SelectItem value="Transit" className="cursor-pointer rounded-sm py-2.5 hover:bg-[#FBF7EE] hover:text-primary focus:bg-[#FBF7EE] focus:text-primary">Transit</SelectItem>
-                      <SelectItem value="Dependent / Family" className="cursor-pointer rounded-sm py-2.5 hover:bg-[#FBF7EE] hover:text-primary focus:bg-[#FBF7EE] focus:text-primary">Dependent / Family</SelectItem>
-                      <SelectItem value="Other" className="cursor-pointer rounded-sm py-2.5 hover:bg-[#FBF7EE] hover:text-primary focus:bg-[#FBF7EE] focus:text-primary">Other</SelectItem>
+                      <SelectItem value="Tourist / Visitor" className="cursor-pointer rounded-sm py-2.5 hover:bg-muted hover:text-primary focus:bg-muted focus:text-primary">Tourist / Visitor</SelectItem>
+                      <SelectItem value="Business" className="cursor-pointer rounded-sm py-2.5 hover:bg-muted hover:text-primary focus:bg-muted focus:text-primary">Business</SelectItem>
+                      <SelectItem value="Student" className="cursor-pointer rounded-sm py-2.5 hover:bg-muted hover:text-primary focus:bg-muted focus:text-primary">Student</SelectItem>
+                      <SelectItem value="Work / Employment" className="cursor-pointer rounded-sm py-2.5 hover:bg-muted hover:text-primary focus:bg-muted focus:text-primary">Work / Employment</SelectItem>
+                      <SelectItem value="Transit" className="cursor-pointer rounded-sm py-2.5 hover:bg-muted hover:text-primary focus:bg-muted focus:text-primary">Transit</SelectItem>
+                      <SelectItem value="Dependent / Family" className="cursor-pointer rounded-sm py-2.5 hover:bg-muted hover:text-primary focus:bg-muted focus:text-primary">Dependent / Family</SelectItem>
+                      <SelectItem value="Other" className="cursor-pointer rounded-sm py-2.5 hover:bg-muted hover:text-primary focus:bg-muted focus:text-primary">Other</SelectItem>
                     </SelectContent>
                   </Select>
                 </div>
@@ -291,9 +290,6 @@ export function EnquirySection() {
                   <span className="relative z-10">{isSubmitting ? "Sending..." : "Submit Enquiry"}</span>
                   {!isSubmitting && <ArrowRight className="size-4 text-white transition-transform group-hover:translate-x-1" />}
                 </button>
-                <p className="text-xs font-medium text-primary/30">
-                  Form is in demo mode.
-                </p>
               </div>
             </motion.form>
           </div>

@@ -34,7 +34,7 @@ export function DocumentAssistanceSection() {
           <div className="order-1 lg:order-0 lg:col-span-5 lg:col-start-1 lg:row-start-1 lg:self-end lg:pb-8 lg:w-[105%] relative z-10">
             <motion.p
               variants={fadeUp}
-              className="text-gold-cta text-xs font-bold uppercase tracking-widest"
+              className="text-accent text-xs font-bold uppercase tracking-widest"
             >
               Document Assistance
             </motion.p>
@@ -77,8 +77,8 @@ export function DocumentAssistanceSection() {
                     key={index}
                     className="group flex flex-row items-center gap-3 border-b border-border/80 py-4 transition-colors hover:border-accent/40"
                   >
-                    <Check className="size-3.5 shrink-0 text-gold-cta transition-transform group-hover:scale-110" strokeWidth={3} />
-                    <span className="text-sm font-semibold text-primary transition-colors group-hover:text-gold-cta md:text-base">
+                    <Check className="size-3.5 shrink-0 text-accent transition-transform group-hover:scale-110" strokeWidth={3} />
+                    <span className="text-sm font-semibold text-primary transition-colors group-hover:text-accent md:text-base">
                       {item}
                     </span>
                   </div>
@@ -88,7 +88,7 @@ export function DocumentAssistanceSection() {
               <div className="mt-8">
                 <Link
                   href="/document-checklist"
-                  className="group inline-flex items-center gap-2 text-sm font-semibold text-primary transition-colors hover:text-gold-cta"
+                  className="group inline-flex items-center gap-2 text-sm font-semibold text-primary transition-colors hover:text-accent"
                 >
                   View Document Checklist
                   <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" />

@@ -44,15 +44,15 @@ export function LegalLayout({
   }, [sections]);
 
   return (
-    <div className="bg-[#F7F5EF] pt-22 min-h-screen">
+    <div className="bg-background pt-22 min-h-screen">
       <div className="mx-auto w-full max-w-340 px-5 sm:px-6 lg:px-8 py-16 md:py-24">
         
         {/* HEADER */}
-        <div className="mb-12 md:mb-16 border-b border-(--traveco-navy)/10 pb-10">
-          <h1 className="text-[36px] md:text-[44px] font-medium text-traveco-navy leading-[1.1] tracking-tight mb-4">
+        <div className="mb-12 md:mb-16 border-b border-(--traveco-primary)/10 pb-10">
+          <h1 className="text-[36px] md:text-[44px] font-medium text-navy leading-[1.1] tracking-tight mb-4">
             {title}
           </h1>
-          <p className="text-(--traveco-navy)/50 text-[14px] font-medium">
+          <p className="text-sm font-medium text-muted-foreground">
             Last Updated: {lastUpdated}
           </p>
         </div>
@@ -62,7 +62,7 @@ export function LegalLayout({
           {/* SIDEBAR NAVIGATION */}
           <aside className="lg:w-70 shrink-0">
             <div className="lg:sticky lg:top-32">
-              <p className="text-[11px] font-bold tracking-widest text-(--traveco-navy)/50 uppercase mb-5">
+              <p className="text-xs font-semibold tracking-widest text-muted-foreground uppercase mb-5">
                 On This Page
               </p>
               <nav className="flex flex-col gap-1.5">
@@ -82,15 +82,15 @@ export function LegalLayout({
                         setActiveSection(section.id);
                       }}
                       className={cn(
-                        "flex items-center gap-3 py-2 px-3 text-[14px] font-medium rounded-[8px] transition-colors",
+                        "flex items-center gap-3 py-2 px-3 text-sm font-medium rounded-[8px] transition-colors",
                         isActive
-                          ? "bg-white text-traveco-navy shadow-sm border border-(--traveco-navy)/5"
-                          : "hover:bg-white/60 text-(--traveco-navy)/60 hover:text-traveco-navy border border-transparent"
+                          ? "bg-white text-navy shadow-sm border border-(--traveco-primary)/5"
+                          : "hover:bg-white/60 text-muted-foreground hover:text-navy border border-transparent"
                       )}
                     >
                       <span className={cn(
-                        "text-[12px] font-bold w-4 shrink-0 transition-colors",
-                        isActive ? "text-accent" : "text-(--traveco-navy)/30"
+                        "text-xs font-semibold w-4 shrink-0 transition-colors",
+                        isActive ? "text-accent" : "text-muted-foreground/50"
                       )}>
                         {idx + 1}.
                       </span>
@@ -104,13 +104,13 @@ export function LegalLayout({
 
           {/* LEGAL CONTENT */}
           <article className="lg:w-[calc(100%-280px-64px)] w-full max-w-none
-            [&_h2]:text-traveco-navy [&_h2]:font-bold [&_h2]:text-[24px] md:[&_h2]:text-[28px] [&_h2]:mt-16 [&_h2]:mb-6 [&_h2]:pb-4 [&_h2]:border-b [&_h2]:border-traveco-navy/5
-            [&_h3]:text-traveco-navy [&_h3]:font-medium [&_h3]:text-[18px] md:[&_h3]:text-[20px] [&_h3]:mt-8 [&_h3]:mb-4
-            [&_p]:text-traveco-navy/80 [&_p]:text-[15px] md:[&_p]:text-[16px] [&_p]:leading-[1.75] [&_p]:mb-6
-            [&_li]:text-traveco-navy/80 [&_li]:text-[15px] md:[&_li]:text-[16px] [&_li]:leading-[1.75] [&_li]:mb-1.5
+            [&_h2]:text-navy [&_h2]:font-bold [&_h2]:text-[24px] md:[&_h2]:text-[28px] [&_h2]:mt-16 [&_h2]:mb-6 [&_h2]:pb-4 [&_h2]:border-b [&_h2]:border-navy/5
+            [&_h3]:text-navy [&_h3]:font-semibold [&_h3]:text-[18px] md:[&_h3]:text-[20px] [&_h3]:mt-8 [&_h3]:mb-4
+            [&_p]:text-navy/80 [&_p]:text-base [&_p]:font-normal [&_p]:leading-relaxed [&_p]:mb-6
+            [&_li]:text-navy/80 [&_li]:text-base [&_li]:font-normal [&_li]:leading-relaxed [&_li]:mb-1.5
             [&_ul]:my-6 [&_ul]:list-disc [&_ul]:pl-6
             [&_ol]:my-6 [&_ol]:list-decimal [&_ol]:pl-6
-            [&_strong]:text-traveco-navy [&_strong]:font-bold
+            [&_strong]:text-navy [&_strong]:font-bold
             [&_a]:text-accent [&_a]:font-medium [&_a]:underline hover:[&_a]:no-underline
             [&_section]:scroll-mt-32"
           >

@@ -26,7 +26,7 @@ export function HeroSection() {
   return (
     <section
       id="top"
-      className="relative isolate flex min-h-[calc(100svh-88px)] mt-22 items-center overflow-hidden text-white bg-traveco-navy"
+      className="relative isolate flex min-h-[calc(100svh-88px)] mt-22 items-center overflow-hidden text-white bg-navy"
     >
       <AnimatePresence>
         <motion.div
@@ -53,7 +53,7 @@ export function HeroSection() {
       >
         <motion.div
           variants={fadeUp}
-          className="mb-6 inline-flex items-center rounded-full bg-white px-4 py-1.5 text-xs font-bold uppercase tracking-widest text-traveco-navy shadow-sm"
+          className="mb-6 inline-flex items-center rounded-full bg-white px-4 py-1.5 text-xs font-bold uppercase tracking-widest text-navy shadow-sm"
         >
           Global Visa & Travel Support
         </motion.div>
@@ -62,7 +62,7 @@ export function HeroSection() {
           variants={fadeUp}
           className="max-w-4xl text-4xl font-[750] leading-[1.05] tracking-tight text-white md:text-5xl lg:text-6xl"
         >
-          Travel Beyond Borders.<br className="hidden sm:block" /> We Make <span className="text-[#FF6247] drop-shadow-md">Visas Simpler.</span>
+          Travel Beyond Borders.<br className="hidden sm:block" /> We Make Visas Simpler.
         </motion.h1>
 
         <motion.p

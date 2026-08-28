@@ -75,7 +75,7 @@ export function DestinationsSection() {
             <div className="max-w-2xl">
               <motion.p
                 variants={fadeUp}
-                className="text-gold-cta text-xs font-bold uppercase tracking-widest"
+                className="text-accent text-xs font-bold uppercase tracking-widest"
               >
                 Popular Destinations
               </motion.p>
