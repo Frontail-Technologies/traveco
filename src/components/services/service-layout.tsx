@@ -1,58 +1,115 @@
 import * as React from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, CheckCircle2, AlertCircle } from "lucide-react";
+import { ArrowRight, Check, AlertCircle, MessageCircle, Sparkles } from "lucide-react";
+import { Button } from "@/components/ui/button";
 import { PreFooterCTA } from "@/components/pre-footer-cta";
-import { cn } from "@/lib/utils";
 
 export interface ServiceLayoutProps {
   eyebrow: string;
   title: string;
   description: string;
   heroImage: string;
-  whatItsFor: React.ReactNode;
+  bestFor: string[];
   howWeAssist: string[];
   documentCategories: string[];
-  process: { title: string; description: string }[];
-  considerations: string[];
+  considerations?: string[];
+  ctaTitle?: string;
+  ctaDescription?: string;
 }
+
+const processSteps = [
+  {
+    id: "01",
+    title: "Consultation",
+    image: "/images/process/consultation.jpg",
+  },
+  {
+    id: "02",
+    title: "Document Review",
+    image: "/images/process/document-review.jpg",
+  },
+  {
+    id: "03",
+    title: "Application Preparation",
+    image: "/images/process/application-prep.jpg",
+  },
+  {
+    id: "04",
+    title: "Submission Support",
+    image: "/images/process/submission.jpg",
+  },
+  {
+    id: "05",
+    title: "Updates",
+    image: "/images/process/update.jpg",
+  },
+];
+
+const defaultConsiderations = [
+  "Visa decisions are made solely by the respective embassy, consulate or immigration authority.",
+  "Requirements and processing times may vary by destination, visa category and applicant profile.",
+  "Apply early to allow sufficient time for document preparation and consular appointment scheduling.",
+];
 
 export function ServiceLayout({
   eyebrow,
   title,
   description,
   heroImage,
-  whatItsFor,
+  bestFor,
   howWeAssist,
   documentCategories,
-  process,
-  considerations,
+  considerations = defaultConsiderations,
+  ctaTitle,
+  ctaDescription,
 }: ServiceLayoutProps) {
   return (
-    <div className="bg-background pt-22">
+    <div className="bg-white pt-22">
       {/* 1. SERVICE HERO */}
-      <section className="bg-white py-16 md:py-24 lg:py-32">
+      <section className="bg-white py-16 md:py-20 lg:py-24 border-b border-navy/5">
         <div className="mx-auto max-w-340 px-5 sm:px-6 lg:px-8">
-          <div className="flex flex-col lg:flex-row gap-12 lg:gap-20 items-center">
-            <div className="lg:w-[50%]">
-              <p className="text-(--traveco-primary,#0B1F3A)/50 text-[11px] font-bold tracking-widest uppercase mb-4">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+            {/* Left Content */}
+            <div className="lg:col-span-7 flex flex-col items-start text-left">
+              <p className="text-accent text-sm sm:text-base font-bold tracking-widest uppercase mb-3">
                 {eyebrow}
               </p>
-              <h1 className="text-[40px] md:text-[50px] lg:text-[60px] font-medium text-navy leading-[1.05] tracking-tight mb-6">
+              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-navy leading-[1.08] tracking-tight mb-4">
                 {title}
               </h1>
-              <p className="text-(--traveco-primary)/70 text-[16px] md:text-[18px] leading-[1.7] max-w-xl">
+              <p className="text-muted-foreground text-base sm:text-lg leading-relaxed max-w-xl mb-8">
                 {description}
               </p>
+
+              {/* Action Buttons */}
+              <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 w-full sm:w-auto">
+                <Button asChild variant="secondary" size="lg" className="h-12 px-8 text-sm font-bold shadow-sm">
+                  <Link href="/#contact" className="inline-flex items-center justify-center gap-2">
+                    <span>Get Visa Assistance</span>
+                    <ArrowRight className="size-4" />
+                  </Link>
+                </Button>
+                <a
+                  href="https://wa.me/918850201321"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex h-12 items-center justify-center gap-2 rounded-control border border-navy/15 bg-white px-7 text-sm font-semibold text-navy whitespace-nowrap shrink-0 transition-all hover:border-accent hover:text-accent shadow-2xs"
+                >
+                  <MessageCircle className="size-4 text-accent" />
+                  <span className="whitespace-nowrap">Chat on WhatsApp</span>
+                </a>
+              </div>
             </div>
-            
-            <div className="lg:w-[50%] w-full">
-              <div className="relative aspect-4/3 w-full overflow-hidden rounded-[16px] bg-background">
+
+            {/* Right Image */}
+            <div className="lg:col-span-5 w-full">
+              <div className="relative aspect-4/3 w-full overflow-hidden rounded-[2rem] border border-navy/10 shadow-xs bg-navy/5">
                 <Image
                   src={heroImage}
                   alt={title}
                   fill
-                  sizes="(max-width: 1024px) 100vw, 50vw"
+                  sizes="(max-width: 1024px) 100vw, 42vw"
                   className="object-cover"
                   priority
                 />
@@ -62,123 +119,177 @@ export function ServiceLayout({
         </div>
       </section>
 
-      {/* MAIN CONTENT BLOCK */}
-      <section className="py-20 md:py-28 bg-background">
+      {/* 2 & 3. "BEST FOR" & "HOW TRAVECO CAN ASSIST" GRID */}
+      <section className="py-16 md:py-20 bg-white">
         <div className="mx-auto max-w-340 px-5 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20">
-            
-            <div className="lg:col-span-8 flex flex-col gap-16 md:gap-24">
-              
-              {/* 2. WHAT THIS VISA IS FOR */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-10">
+            {/* Best For Card */}
+            <div className="flex flex-col justify-between rounded-[2rem] border border-navy/10 bg-white p-6 sm:p-8 lg:p-10 shadow-xs">
               <div>
-                <h2 className="text-[28px] md:text-[32px] font-medium text-navy mb-6">
-                  What this visa is for
-                </h2>
-                <div className="text-(--traveco-primary)/80 text-[16px] leading-[1.75] space-y-4">
-                  {whatItsFor}
-                </div>
-              </div>
-
-              {/* 4. COMMON DOCUMENT CATEGORIES */}
-              <div>
-                <h2 className="text-[28px] md:text-[32px] font-medium text-navy mb-6">
-                  Common Document Categories
-                </h2>
-                <p className="text-(--traveco-primary)/80 text-[16px] leading-[1.75] mb-8">
-                  Depending on the destination and the applicant's specific circumstances, commonly requested documents may include:
+                <p className="text-sm sm:text-base font-bold uppercase tracking-widest text-accent mb-2">
+                  SUITABLE FOR
                 </p>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  {documentCategories.map((doc, idx) => (
-                    <div key={idx} className="flex items-start gap-3 bg-white p-4 rounded-[12px] shadow-sm border border-(--traveco-primary)/5">
-                      <div className="w-1.5 h-1.5 rounded-full bg-accent mt-2 shrink-0" />
-                      <span className="text-[15px] text-(--traveco-primary)/80 font-medium">{doc}</span>
-                    </div>
-                  ))}
-                </div>
-                <div className="mt-8">
-                  <Link href="/document-checklist" className="inline-flex items-center text-[15px] font-bold text-navy hover:text-accent transition-colors">
-                    Check requirements by destination <ArrowRight className="ml-1.5 w-4 h-4" />
-                  </Link>
-                </div>
-              </div>
-
-              {/* 5. PROCESS */}
-              <div>
-                <h2 className="text-[28px] md:text-[32px] font-medium text-navy mb-10">
-                  Our Application Process
+                <h2 className="text-2xl font-bold text-navy mb-6 tracking-tight">
+                  Best for
                 </h2>
-                <div className="space-y-8 relative before:absolute before:inset-y-2 before:left-2.75 before:w-0.5 before:bg-(--traveco-primary)/10">
-                  {process.map((step, idx) => (
-                    <div key={idx} className="relative flex gap-6">
-                      <div className="w-6 h-6 rounded-full bg-white border-[3px] border-navy shadow-sm shrink-0 mt-0.5 z-10" />
-                      <div>
-                        <h3 className="text-[18px] font-bold text-navy mb-2">
-                          {step.title}
-                        </h3>
-                        <p className="text-(--traveco-primary)/70 text-[15px] leading-[1.6]">
-                          {step.description}
-                        </p>
-                      </div>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                  {bestFor.map((item, idx) => (
+                    <div
+                      key={idx}
+                      className="flex items-center gap-3 rounded-xl border border-navy/10 bg-muted/30 p-4 transition-colors hover:border-accent/30 hover:bg-white"
+                    >
+                      <Sparkles className="size-4 text-accent shrink-0" />
+                      <span className="text-sm font-semibold text-navy">
+                        {item}
+                      </span>
                     </div>
                   ))}
                 </div>
               </div>
-              
-              {/* 6. IMPORTANT CONSIDERATIONS */}
-              <div className="bg-navy rounded-[16px] p-8 md:p-10 text-white">
-                <div className="flex items-center gap-3 mb-6">
-                  <AlertCircle className="w-6 h-6 text-accent" />
-                  <h3 className="text-[20px] font-bold">Important Considerations</h3>
-                </div>
-                <ul className="space-y-4">
-                  {considerations.map((item, idx) => (
-                    <li key={idx} className="flex items-start gap-3">
-                      <div className="w-1.5 h-1.5 rounded-full bg-white/30 mt-2 shrink-0" />
-                      <span className="text-[15px] text-white/80 leading-[1.6]">{item}</span>
-                    </li>
+            </div>
+
+            {/* How TRAVECO Can Assist Card */}
+            <div className="flex flex-col justify-between rounded-[2rem] border border-navy/10 bg-white p-6 sm:p-8 lg:p-10 shadow-xs">
+              <div>
+                <p className="text-sm sm:text-base font-bold uppercase tracking-widest text-accent mb-2">
+                  OUR EXPERTISE
+                </p>
+                <h2 className="text-2xl font-bold text-navy mb-6 tracking-tight">
+                  How TRAVECO can assist
+                </h2>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                  {howWeAssist.map((item, idx) => (
+                    <div
+                      key={idx}
+                      className="flex items-center gap-3 rounded-xl border border-navy/10 bg-white p-4 transition-colors hover:border-accent/40"
+                    >
+                      <div className="flex size-5 shrink-0 items-center justify-center rounded-full bg-accent/10 text-accent">
+                        <Check className="size-3" strokeWidth={3} />
+                      </div>
+                      <span className="text-sm font-semibold text-navy">
+                        {item}
+                      </span>
+                    </div>
                   ))}
-                </ul>
-              </div>
-
-            </div>
-
-            {/* SIDEBAR */}
-            <div className="lg:col-span-4">
-              <div className="sticky top-32">
-                {/* 3. HOW TRAVECO CAN ASSIST */}
-                <div className="bg-white rounded-[16px] p-8 shadow-sm border border-(--traveco-primary)/5 mb-8">
-                  <h3 className="text-[18px] font-bold text-navy mb-6">
-                    How TRAVECO can assist
-                  </h3>
-                  <ul className="space-y-4">
-                    {howWeAssist.map((item, idx) => (
-                      <li key={idx} className="flex items-start gap-3">
-                        <CheckCircle2 className="w-5 h-5 text-accent shrink-0 mt-0.5" />
-                        <span className="text-[14.5px] text-(--traveco-primary)/80 leading-[1.6]">{item}</span>
-                      </li>
-                    ))}
-                  </ul>
-                  <div className="mt-8 pt-6 border-t border-(--traveco-primary)/10">
-                    <Link href="/contact" className="flex items-center justify-center w-full h-12 bg-navy text-white rounded-[10px] font-bold text-[14px] hover:bg-(--traveco-primary)/90 transition-colors">
-                      Get Assistance
-                    </Link>
-                  </div>
                 </div>
               </div>
             </div>
-
           </div>
         </div>
       </section>
 
-      {/* 8. PRE-FOOTER CTA */}
-      <div className="pb-16 md:pb-24 bg-background">
-        <PreFooterCTA 
-          eyebrow="READY TO START?"
-          title="Begin your visa application today."
-          description="Contact TRAVECO Mobility for professional assistance with your documentation and application preparation."
-        />
-      </div>
+      {/* 4. COMMON DOCUMENT CATEGORIES */}
+      <section className="py-16 md:py-20 bg-muted/30 border-y border-navy/5">
+        <div className="mx-auto max-w-340 px-5 sm:px-6 lg:px-8">
+          <div className="max-w-2xl mb-10">
+            <p className="text-sm sm:text-base font-bold uppercase tracking-widest text-accent mb-2">
+              DOCUMENTATION
+            </p>
+            <h2 className="text-3xl font-bold text-navy tracking-tight">
+              Common Document Categories
+            </h2>
+            <p className="mt-2 text-sm text-muted-foreground">
+              Key documentation typically required before application submission:
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3.5 sm:gap-4">
+            {documentCategories.map((doc, idx) => (
+              <div
+                key={idx}
+                className="flex items-center gap-3.5 rounded-xl border border-navy/10 bg-white p-4 shadow-xs transition-colors hover:border-accent/30"
+              >
+                <div className="size-2 rounded-full bg-accent shrink-0" />
+                <span className="text-sm font-semibold text-navy">{doc}</span>
+              </div>
+            ))}
+          </div>
+
+          <div className="mt-8 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 border-t border-navy/10 pt-6">
+            <p className="text-xs font-medium text-muted-foreground">
+              * Exact requirements vary by destination, visa category and applicant circumstances.
+            </p>
+            <Link
+              href="/document-checklist"
+              className="inline-flex items-center gap-1.5 text-sm font-semibold text-accent hover:text-navy transition-colors shrink-0"
+            >
+              <span>Check requirements by destination</span>
+              <ArrowRight className="size-4" />
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* 5. PROCESS SECTION (Visual 5 Cards) */}
+      <section className="py-16 md:py-20 lg:py-24 bg-white">
+        <div className="mx-auto max-w-340 px-5 sm:px-6 lg:px-8">
+          <div className="max-w-2xl mb-10">
+            <p className="text-sm sm:text-base font-bold uppercase tracking-widest text-accent mb-2">
+              OUR PROCESS
+            </p>
+            <h2 className="text-3xl font-bold text-navy tracking-tight">
+              Simple application support.
+            </h2>
+          </div>
+
+          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-5 lg:gap-4">
+            {processSteps.map((step) => (
+              <div
+                key={step.id}
+                className="group relative flex flex-col overflow-hidden rounded-[2rem] border border-navy/10 bg-white shadow-xs transition-all duration-300 hover:shadow-md"
+              >
+                <div className="relative aspect-4/3 w-full shrink-0 overflow-hidden bg-navy/5">
+                  <Image
+                    src={step.image}
+                    alt={step.title}
+                    fill
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 20vw"
+                    className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                  />
+                  <div className="absolute left-3 top-3 flex size-7 items-center justify-center rounded-full bg-white/95 shadow-xs">
+                    <span className="text-xs font-bold text-navy">{step.id}</span>
+                  </div>
+                </div>
+                <div className="flex flex-1 items-center p-4">
+                  <h3 className="text-sm font-bold text-navy transition-colors duration-300 group-hover:text-accent">
+                    {step.title}
+                  </h3>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 6. IMPORTANT CONSIDERATIONS (Compact Light Note) */}
+      <section className="pb-16 md:pb-20 bg-white">
+        <div className="mx-auto max-w-340 px-5 sm:px-6 lg:px-8">
+          <div className="rounded-[2rem] border border-navy/10 bg-muted/20 p-6 sm:p-8 lg:p-10 shadow-xs">
+            <div className="flex items-center gap-2.5 mb-4">
+              <AlertCircle className="size-5 text-accent shrink-0" />
+              <h3 className="text-lg font-bold text-navy">Important Considerations</h3>
+            </div>
+            <ul className="grid grid-cols-1 md:grid-cols-3 gap-4">
+              {considerations.map((item, idx) => (
+                <li key={idx} className="flex items-start gap-2.5 text-sm text-muted-foreground leading-relaxed">
+                  <div className="size-1.5 rounded-full bg-accent mt-2 shrink-0" />
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      {/* 7. SHARED CTA */}
+      <PreFooterCTA
+        eyebrow="READY TO APPLY?"
+        title={ctaTitle || "Begin your visa application today."}
+        description={
+          ctaDescription ||
+          "Get assistance with documentation and application preparation."
+        }
+      />
     </div>
   );
 }

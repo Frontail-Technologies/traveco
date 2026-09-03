@@ -1,21 +1,21 @@
 import Image from "next/image";
 import Link from "next/link";
-import { Mail, MapPin, Phone } from "lucide-react";
+import { Mail, MapPin, Phone, MessageCircle } from "lucide-react";
 
 export function SiteFooter() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="bg-white text-primary font-sans border-t border-primary/5">
+    <footer className="bg-white text-navy font-sans border-t border-navy/10">
       {/* Main Footer Content */}
       <div className="mx-auto max-w-340 px-5 pt-16 pb-12 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 gap-12 sm:grid-cols-2 xl:grid-cols-[2fr_1fr_1fr_1fr] xl:gap-8">
+        <div className="grid grid-cols-1 gap-12 lg:grid-cols-12 lg:gap-12">
           
-          {/* 1. BRAND */}
-          <div className="flex flex-col">
+          {/* 1. BRAND & DIRECT CONTACT (Left Column ~45%) */}
+          <div className="flex flex-col lg:col-span-6 xl:col-span-5 pr-0 lg:pr-8">
             <Link
               href="/"
-              className="inline-block w-32"
+              className="inline-block w-36 mb-5"
               aria-label="TRAVECO Mobility home"
             >
               <Image
@@ -26,94 +26,119 @@ export function SiteFooter() {
                 className="w-full h-auto"
               />
             </Link>
-            <p className="mt-6 text-sm font-medium leading-[1.7] text-muted-foreground pr-4">
-              TRAVECO Mobility provides visa documentation, application assistance and international travel support for individuals, families, students and business travellers.
+
+            <p className="text-sm font-medium leading-[1.7] text-muted-foreground mb-6 max-w-md">
+              TRAVECO Mobility delivers structured visa advisory, thorough document verification, and personalized application assistance for worldwide travellers, students, and businesses.
             </p>
-            <Link href="/contact" className="mt-6 inline-flex items-center text-sm font-semibold text-accent hover:text-primary transition-colors group">
-              Get Visa Assistance 
-              <span className="ml-1.5 transition-transform group-hover:translate-x-1">→</span>
-            </Link>
-          </div>
 
-          {/* 2. VISA SERVICES */}
-          <div className="flex flex-col">
-            <h3 className="text-[12px] font-bold uppercase tracking-widest text-accent mb-6">
-              Visa Services
-            </h3>
-            <ul className="space-y-4">
-              {[
-                { label: "Tourist & Visitor Visa", href: "/visa-services/tourist-visitor" },
-                { label: "Business Visa", href: "/visa-services/business" },
-                { label: "Student Visa", href: "/visa-services/student" },
-                { label: "Work & Employment Visa", href: "/visa-services/work-employment" },
-                { label: "Transit Visa", href: "/visa-services/transit" },
-                { label: "Schengen Visa", href: "/visa-services/schengen" },
-              ].map((link) => (
-                <li key={link.label}>
-                  <Link
-                    href={link.href}
-                    className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors inline-block"
-                  >
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* 3. EXPLORE */}
-          <div className="flex flex-col">
-            <h3 className="text-[12px] font-bold uppercase tracking-widest text-accent mb-6">
-              Explore
-            </h3>
-            <ul className="space-y-4">
-              {[
-                { label: "Document Checklist", href: "/document-checklist" },
-                { label: "About TRAVECO", href: "/about" },
-                { label: "FAQ", href: "/#faq" },
-                { label: "Contact", href: "/contact" },
-              ].map((link) => (
-                <li key={link.label}>
-                  <Link
-                    href={link.href}
-                    className="text-sm font-medium text-muted-foreground hover:text-accent transition-colors inline-block"
-                  >
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* 4. CONTACT */}
-          <div className="flex flex-col">
-            <h3 className="text-[12px] font-bold uppercase tracking-widest text-accent mb-6">
-              Contact
-            </h3>
-            <ul className="space-y-4">
-              <li>
-                <a href="tel:+918850201321" className="group flex items-start gap-3 text-sm font-medium text-muted-foreground hover:text-primary transition-colors">
-                  <Phone className="w-4 h-4 mt-0.5 text-muted-foreground group-hover:text-accent transition-colors shrink-0" />
+            {/* Direct Contact Info */}
+            <div className="space-y-3 text-sm font-medium text-navy/80 mb-6">
+              <div className="flex items-center gap-3">
+                <Phone className="size-4 text-accent shrink-0" />
+                <a
+                  href="tel:+918850201321"
+                  className="hover:text-accent transition-colors"
+                >
                   +91 88502 01321
                 </a>
-              </li>
-              <li>
-                <a href="mailto:info@traveco.in" className="group flex items-start gap-3 text-sm font-medium text-muted-foreground hover:text-primary transition-colors">
-                  <Mail className="w-4 h-4 mt-0.5 text-muted-foreground group-hover:text-accent transition-colors shrink-0" />
+              </div>
+
+              <div className="flex items-center gap-3">
+                <Mail className="size-4 text-accent shrink-0" />
+                <a
+                  href="mailto:info@traveco.in"
+                  className="hover:text-accent transition-colors"
+                >
                   info@traveco.in
                 </a>
+              </div>
+
+              <div className="flex items-start gap-3">
+                <MapPin className="size-4 text-accent shrink-0 mt-0.5" />
+                <span>
+                  Mumbai, Maharashtra, India
+                </span>
+              </div>
+            </div>
+
+            {/* Green WhatsApp Action Pill Button */}
+            <div>
+              <a
+                href="https://wa.me/918850201321"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex h-10 items-center justify-center gap-2 rounded-full bg-[#25D366] px-5 text-xs font-bold text-white shadow-xs transition-all hover:bg-[#20bd5a] hover:scale-105"
+              >
+                <MessageCircle className="size-4 shrink-0 fill-white text-white" />
+                <span>Connect on WhatsApp</span>
+              </a>
+            </div>
+          </div>
+
+          {/* 2. COMPANY (Middle Column) */}
+          <div className="flex flex-col lg:col-span-3 xl:col-span-3 lg:pl-6">
+            <h3 className="text-sm font-bold text-navy mb-5">
+              Company
+            </h3>
+            <ul className="space-y-3.5 text-sm font-medium text-muted-foreground">
+              <li>
+                <Link href="/visa-services" className="hover:text-navy transition-colors">
+                  Visa Services
+                </Link>
               </li>
               <li>
-                <div className="group flex items-start gap-3 text-sm font-medium text-muted-foreground">
-                  <MapPin className="w-4 h-4 mt-0.5 text-muted-foreground shrink-0" />
-                  Mumbai, Maharashtra, India
-                </div>
+                <Link href="/#process" className="hover:text-navy transition-colors">
+                  How It Works
+                </Link>
               </li>
-              <li className="pt-2">
-                <a href="https://wa.me/918850201321" target="_blank" rel="noopener noreferrer" className="inline-flex items-center text-sm font-semibold text-accent hover:text-primary transition-colors group">
-                  Chat on WhatsApp
-                  <span className="ml-1.5 transition-transform group-hover:translate-x-1">→</span>
-                </a>
+              <li>
+                <Link href="/document-checklist" className="hover:text-navy transition-colors">
+                  Document Checklist
+                </Link>
+              </li>
+              <li>
+                <Link href="/about" className="hover:text-navy transition-colors">
+                  About Us
+                </Link>
+              </li>
+              <li>
+                <Link href="/#faq" className="hover:text-navy transition-colors">
+                  FAQ
+                </Link>
+              </li>
+              <li>
+                <Link href="/#contact" className="hover:text-navy transition-colors">
+                  Contact
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+          {/* 3. LEGAL (Right Column) */}
+          <div className="flex flex-col lg:col-span-3 xl:col-span-4">
+            <h3 className="text-sm font-bold text-navy mb-5">
+              Legal
+            </h3>
+            <ul className="space-y-3.5 text-sm font-medium text-muted-foreground">
+              <li>
+                <Link href="/terms-and-conditions" className="hover:text-navy transition-colors">
+                  Terms & Conditions
+                </Link>
+              </li>
+              <li>
+                <Link href="/privacy-policy" className="hover:text-navy transition-colors">
+                  Privacy Policy
+                </Link>
+              </li>
+              <li>
+                <Link href="/disclaimer" className="hover:text-navy transition-colors">
+                  Disclaimer
+                </Link>
+              </li>
+              <li>
+                <Link href="/refund-and-cancellation" className="hover:text-navy transition-colors">
+                  Refund & Cancellation Policy
+                </Link>
               </li>
             </ul>
           </div>
@@ -121,36 +146,21 @@ export function SiteFooter() {
         </div>
       </div>
 
-      {/* Legal & Bottom Bar */}
-      <div className="border-t border-primary/5">
-        <div className="mx-auto max-w-340 px-5 py-6.5 sm:px-6 lg:px-8">
-          <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6 lg:gap-12">
+      {/* Sub-Footer Bottom Bar */}
+      <div className="border-t border-navy/5 bg-muted/20">
+        <div className="mx-auto max-w-340 px-5 py-6 sm:px-6 lg:px-8">
+          <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
             
-            {/* Disclaimer */}
-            <div className="max-w-3xl text-left order-2 lg:order-1">
-              <p className="text-xs font-medium leading-[1.6] text-muted-foreground">
-                TRAVECO Mobility provides independent visa documentation and application assistance. Visa decisions are made solely by the relevant embassy, consulate or immigration authority. Visa requirements, fees and processing times may change.
-              </p>
-            </div>
+            {/* Copyright Left */}
+            <p className="text-xs font-medium text-muted-foreground order-2 lg:order-1">
+              © {year} TRAVECO Mobility. All rights reserved.
+            </p>
 
-            {/* Legal Links */}
-            <div className="flex flex-wrap items-center gap-x-5 gap-y-3 order-1 lg:order-2 shrink-0">
-              {[
-                { label: "Privacy Policy", href: "/privacy-policy" },
-                { label: "Terms & Conditions", href: "/terms-and-conditions" },
-                { label: "Disclaimer", href: "/disclaimer" },
-                { label: "Refund & Cancellation Policy", href: "/refund-and-cancellation" }
-              ].map((link) => (
-                <Link key={link.label} href={link.href} className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors">
-                  {link.label}
-                </Link>
-              ))}
-            </div>
+            {/* Regulatory Disclaimer Right */}
+            <p className="text-[11px] font-medium leading-relaxed text-muted-foreground max-w-2xl order-1 lg:order-2 lg:text-right">
+              TRAVECO Mobility operates as an independent visa facilitation and documentation consultancy. We do not issue visas or represent official embassy, consulate, or government immigration authorities.
+            </p>
 
-          </div>
-
-          <div className="mt-8 pt-6 border-t border-primary/5 text-xs font-medium text-muted-foreground tracking-wide">
-            © {year} TRAVECO Mobility. All rights reserved.
           </div>
         </div>
       </div>

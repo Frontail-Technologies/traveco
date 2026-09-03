@@ -1,12 +1,13 @@
 import type { Metadata } from "next";
-import { Manrope, Source_Serif_4, Geist_Mono } from "next/font/google";
+import { Inter_Tight, Source_Serif_4, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { FloatingWhatsApp } from "@/components/floating-whatsapp";
 import { OrganizationJsonLd } from "@/components/json-ld";
 
-const fontSans = Manrope({
+const fontSans = Inter_Tight({
   variable: "--font-heading",
   subsets: ["latin"],
+  display: "swap",
 });
 
 const fontSerif = Source_Serif_4({

@@ -2,14 +2,12 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import { Mail, Phone, MapPin, ArrowRight } from "lucide-react";
+import { ArrowRight, Phone, Mail, MapPin, MessageCircle } from "lucide-react";
 import { motion } from "framer-motion";
 
 import { SuccessDialog } from "@/components/success-dialog";
 import { fadeUp, staggerContainer } from "@/lib/motion-variants";
 import { cn } from "@/lib/utils";
-const contactEmail = "travecomobility@gmail.com";
-const phoneDisplayNumber = "88502 01321";
 import {
   Select,
   SelectContent,
@@ -21,12 +19,12 @@ import { serviceDestinations } from "@/data/traveco-service-countries";
 import { CountryFlag } from "@/components/destinations/country-flag";
 
 const fieldClasses =
-  "h-12 w-full rounded-control border border-primary/10 bg-white px-4 font-medium text-base text-primary outline-none transition-all placeholder:text-primary/35 focus-visible:border-transparent focus-visible:ring-2 focus-visible:ring-[var(--traveco-accent)] focus-visible:ring-offset-2 [&::-webkit-calendar-picker-indicator]:opacity-40 [&::-webkit-calendar-picker-indicator]:hover:opacity-80 [&::-webkit-calendar-picker-indicator]:cursor-pointer";
+  "h-12 w-full rounded-control border border-navy/15 bg-white px-4 font-medium text-base text-navy outline-none transition-all placeholder:text-muted-foreground/60 focus-visible:border-accent focus-visible:ring-2 focus-visible:ring-accent/20 focus-visible:ring-offset-0 [&::-webkit-calendar-picker-indicator]:opacity-40 [&::-webkit-calendar-picker-indicator]:hover:opacity-80 [&::-webkit-calendar-picker-indicator]:cursor-pointer";
 
 const textareaClasses =
-  "min-h-[120px] w-full resize-none rounded-control border border-primary/10 bg-white px-4 py-3.5 font-medium text-base text-primary outline-none transition-all placeholder:text-primary/35 focus-visible:border-transparent focus-visible:ring-2 focus-visible:ring-[var(--traveco-accent)] focus-visible:ring-offset-2";
+  "min-h-[100px] w-full resize-none rounded-control border border-navy/15 bg-white px-4 py-3.5 font-medium text-base text-navy outline-none transition-all placeholder:text-muted-foreground/60 focus-visible:border-accent focus-visible:ring-2 focus-visible:ring-accent/20 focus-visible:ring-offset-0";
 
-const labelClasses = "mb-1.5 block text-sm font-bold text-primary";
+const labelClasses = "mb-1.5 block text-sm font-semibold text-navy";
 
 export function EnquirySection() {
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -41,7 +39,7 @@ export function EnquirySection() {
     try {
       // NOTE: Simulated submission for demonstration purposes.
       await new Promise((resolve) => setTimeout(resolve, 1500));
-      
+
       console.info("TRAVECO Form Status: Submission simulated. Real backend configuration is pending.");
       setShowSuccess(true);
       event.currentTarget.reset();
@@ -53,105 +51,140 @@ export function EnquirySection() {
   }
 
   return (
-    <section id="contact" className="relative bg-white py-20 md:py-24 lg:py-28 z-0">
-      <div className="mx-auto w-full max-w-7xl px-5 md:px-6 lg:px-8">
-        
+    <section id="contact" className="relative bg-muted/40 border-t border-navy/5 py-16 md:py-20 lg:py-24 z-0">
+      <div className="mx-auto w-full max-w-340 px-5 sm:px-6 lg:px-8">
         <motion.div
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-5%" }}
           variants={staggerContainer}
-          className="flex flex-col-reverse lg:flex-row overflow-hidden rounded-panel bg-white shadow-sm ring-1 ring-primary/5"
+          className="grid grid-cols-1 gap-8 lg:grid-cols-12 lg:items-start lg:gap-10"
         >
-          {/* Left Panel (Deep Navy with Image Background - 42%) */}
-          <div className="relative flex w-full flex-col overflow-hidden p-8 sm:p-12 lg:w-[42%] lg:p-14 min-h-[500px] lg:min-h-0">
-            
-            {/* Premium Atmospheric Image Background */}
-            <Image 
-              src="/images/faq-consultation.jpg" 
-              alt="Visa Consultation" 
-              fill 
-              sizes="(max-width: 1024px) 100vw, 42vw" 
-              className="object-cover object-[center_30%]"
-              data-scroll
-              data-scroll-speed="0.05"
-            />
-            
-            {/* Deep Navy Overlays */}
-            <div className="absolute inset-0 bg-gradient-to-t from-navy/95 via-navy/50 to-navy/10" />
-
-            <motion.div variants={fadeUp} className="relative z-10 flex-1 flex flex-col justify-end lg:justify-start">
-              <h2 className="text-3xl font-bold leading-[1.1] tracking-tight text-white md:text-4xl">
-                Need visa assistance?
-              </h2>
-              <p className="mt-4 text-[15px] leading-relaxed text-white/90 max-w-md">
-                Reach TRAVECO for visa documentation, application assistance and travel support.
-              </p>
+          {/* Left Column — Small Image & Contact Details */}
+          <div className="flex flex-col gap-6 lg:col-span-4 xl:col-span-4">
+            {/* Small Consultation Image */}
+            <motion.div
+              variants={fadeUp}
+              className="relative aspect-16/10 w-full overflow-hidden rounded-[2rem] bg-navy/5 shadow-xs border border-navy/10 sm:aspect-16/9 lg:aspect-4/3"
+            >
+              <Image
+                src="/images/faq-consultation.jpg"
+                alt="TRAVECO visa and travel consultation"
+                fill
+                sizes="(max-width: 1024px) 100vw, 33vw"
+                className="object-cover object-[center_25%]"
+              />
             </motion.div>
 
-            <motion.div variants={fadeUp} className="relative z-10 mt-12 flex flex-col gap-5 lg:mt-16">
-              <div className="flex items-center gap-4">
-                <div className="flex size-9 shrink-0 items-center justify-center rounded-full bg-white/10 text-white backdrop-blur-sm">
-                  <Mail className="size-4 opacity-90" strokeWidth={2} />
-                </div>
-                <div className="flex flex-col">
-                  <span className="text-xs font-semibold uppercase tracking-wider text-white/50">Official Email</span>
-                  <a href="mailto:info@traveco.in" className="mt-0.5 text-sm font-medium text-white transition-colors hover:text-accent md:text-base">info@traveco.in</a>
-                </div>
-              </div>
-              
-              <div className="flex items-center gap-4">
-                <div className="flex size-9 shrink-0 items-center justify-center rounded-full bg-white/10 text-white backdrop-blur-sm">
-                  <Mail className="size-4 opacity-90" strokeWidth={2} />
-                </div>
-                <div className="flex flex-col">
-                  <span className="text-xs font-semibold uppercase tracking-wider text-white/50">Enquiries</span>
-                  <a href={`mailto:${contactEmail}`} className="mt-0.5 text-sm font-medium text-white transition-colors hover:text-accent md:text-base">{contactEmail}</a>
-                </div>
+            {/* Contact Details Card with Accent Background */}
+            <motion.div
+              variants={fadeUp}
+              className="flex flex-col gap-5 rounded-[2rem] bg-accent p-6 sm:p-8 text-white shadow-sm"
+            >
+              <div>
+                <p className="text-sm sm:text-base font-bold uppercase tracking-widest text-white/90">
+                  Contact Information
+                </p>
+                <h3 className="text-xl font-bold text-white mt-1">
+                  Need direct assistance?
+                </h3>
               </div>
 
-              <div className="flex items-center gap-4">
-                <div className="flex size-9 shrink-0 items-center justify-center rounded-full bg-white/10 text-white backdrop-blur-sm">
-                  <MapPin className="size-4 opacity-90" strokeWidth={2} />
+              <div className="flex flex-col gap-4 text-sm font-medium border-t border-white/20 pt-4">
+                {/* Phone / WhatsApp */}
+                <div className="flex items-start gap-3.5">
+                  <div className="flex size-8 shrink-0 items-center justify-center rounded-lg bg-white/20 text-white mt-0.5">
+                    <Phone className="size-4" />
+                  </div>
+                  <div>
+                    <span className="block text-xs font-semibold uppercase tracking-wider text-white/80">
+                      Phone / WhatsApp
+                    </span>
+                    <a
+                      href="tel:+918850201321"
+                      className="text-sm font-semibold text-white hover:text-white/90 transition-colors"
+                    >
+                      +91 88502 01321
+                    </a>
+                  </div>
                 </div>
-                <div className="flex flex-col">
-                  <span className="text-xs font-semibold uppercase tracking-wider text-white/50">Location</span>
-                  <span className="mt-0.5 text-sm font-medium text-white md:text-base">Mumbai, Maharashtra, India</span>
+
+                {/* Official Email */}
+                <div className="flex items-start gap-3.5">
+                  <div className="flex size-8 shrink-0 items-center justify-center rounded-lg bg-white/20 text-white mt-0.5">
+                    <Mail className="size-4" />
+                  </div>
+                  <div>
+                    <span className="block text-xs font-semibold uppercase tracking-wider text-white/80">
+                      Official Email
+                    </span>
+                    <a
+                      href="mailto:info@traveco.in"
+                      className="text-sm font-semibold text-white hover:text-white/90 transition-colors"
+                    >
+                      info@traveco.in
+                    </a>
+                  </div>
+                </div>
+
+                {/* Enquiries Email */}
+                <div className="flex items-start gap-3.5">
+                  <div className="flex size-8 shrink-0 items-center justify-center rounded-lg bg-white/20 text-white mt-0.5">
+                    <Mail className="size-4" />
+                  </div>
+                  <div>
+                    <span className="block text-xs font-semibold uppercase tracking-wider text-white/80">
+                      Enquiries
+                    </span>
+                    <a
+                      href="mailto:travecomobility@gmail.com"
+                      className="text-sm font-semibold text-white hover:text-white/90 transition-colors break-all"
+                    >
+                      travecomobility@gmail.com
+                    </a>
+                  </div>
+                </div>
+
+                {/* Location */}
+                <div className="flex items-start gap-3.5">
+                  <div className="flex size-8 shrink-0 items-center justify-center rounded-lg bg-white/20 text-white mt-0.5">
+                    <MapPin className="size-4" />
+                  </div>
+                  <div>
+                    <span className="block text-xs font-semibold uppercase tracking-wider text-white/80">
+                      Location
+                    </span>
+                    <span className="text-sm font-semibold text-white">
+                      Mumbai, Maharashtra, India
+                    </span>
+                  </div>
                 </div>
               </div>
-
-              {phoneDisplayNumber && (
-                <div className="flex items-center gap-4">
-                  <div className="flex size-9 shrink-0 items-center justify-center rounded-full bg-white/10 text-white backdrop-blur-sm">
-                    <Phone className="size-4 opacity-90" strokeWidth={2} />
-                  </div>
-                  <div className="flex flex-col">
-                    <span className="text-xs font-semibold uppercase tracking-wider text-white/50">Phone</span>
-                    <a href={`tel:+91${phoneDisplayNumber}`} className="mt-0.5 text-sm font-medium text-white transition-colors hover:text-accent md:text-base">{phoneDisplayNumber}</a>
-                  </div>
-                </div>
-              )}
             </motion.div>
           </div>
 
-          {/* Right Panel (White/Off-white - 58%) */}
-          <div className="flex w-full flex-col p-8 sm:p-12 lg:w-[58%] lg:p-14">
-            <motion.div variants={fadeUp}>
-              <h3 className="text-3xl font-bold tracking-tight text-primary md:text-4xl">
+          {/* Right Column — Enquiry Form Card */}
+          <motion.div
+            variants={fadeUp}
+            className="rounded-[2rem] border border-navy/10 bg-white p-6 sm:p-8 lg:col-span-8 lg:p-10 shadow-xs"
+          >
+            {/* Form Header */}
+            <div>
+              <h2 className="text-3xl font-bold tracking-tight text-navy sm:text-4xl">
                 Plan Your Journey
-              </h3>
-              <p className="mt-3 text-base leading-relaxed text-primary/80">
-                Share a few details and we'll get back to you regarding your visa assistance requirements.
+              </h2>
+              <p className="mt-2 text-base leading-relaxed text-muted-foreground">
+                Share your travel details and our team will help you understand the next steps.
               </p>
-            </motion.div>
+            </div>
 
-            <motion.form 
-              variants={fadeUp} 
-              onSubmit={handleSubmit} 
+            {/* Form */}
+            <form
+              onSubmit={handleSubmit}
               className="mt-8 flex flex-col gap-6"
             >
-              {/* Row 1 */}
-              <div className="grid gap-6 sm:grid-cols-2">
+              {/* Row 1: Name & Phone */}
+              <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
                 <div>
                   <label htmlFor="name" className={labelClasses}>
                     Full Name <span className="text-accent ml-0.5">*</span>
@@ -179,8 +212,8 @@ export function EnquirySection() {
                 </div>
               </div>
 
-              {/* Row 2 */}
-              <div className="grid gap-6 sm:grid-cols-2">
+              {/* Row 2: Email & Destination */}
+              <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
                 <div>
                   <label htmlFor="email" className={labelClasses}>
                     Email Address <span className="text-accent ml-0.5">*</span>
@@ -199,15 +232,22 @@ export function EnquirySection() {
                     Destination
                   </label>
                   <Select name="destination">
-                    <SelectTrigger id="destination" className={cn(fieldClasses, "shadow-none data-[state=open]:border-accent data-[state=open]:ring-1 data-[state=open]:ring-accent/50")}>
+                    <SelectTrigger
+                      id="destination"
+                      className={cn(fieldClasses, "shadow-none data-[state=open]:border-accent data-[state=open]:ring-2 data-[state=open]:ring-accent/20")}
+                    >
                       <SelectValue placeholder="Select a destination" />
                     </SelectTrigger>
-                    <SelectContent className="rounded-control border-primary/10 bg-white font-medium text-primary shadow-lg max-h-[300px]">
-                      {serviceDestinations.map(dest => (
-                        <SelectItem key={dest.slug} value={dest.name} className="cursor-pointer rounded-sm py-2.5 text-primary hover:bg-muted hover:text-primary focus:bg-muted focus:text-primary data-[highlighted]:bg-muted data-[highlighted]:text-primary">
+                    <SelectContent className="rounded-control border-navy/10 bg-white font-medium text-navy shadow-lg max-h-[300px]">
+                      {serviceDestinations.map((dest) => (
+                        <SelectItem
+                          key={dest.slug}
+                          value={dest.name}
+                          className="cursor-pointer rounded-sm py-2.5 text-navy hover:bg-muted hover:text-navy focus:bg-muted focus:text-navy data-[highlighted]:bg-muted data-[highlighted]:text-navy"
+                        >
                           <div className="flex items-center gap-3">
-                            {dest.kind === 'group' ? (
-                              <div className="flex size-6 items-center justify-center rounded-full bg-navy/5 text-navy/40">
+                            {dest.kind === "group" ? (
+                              <div className="flex size-6 items-center justify-center rounded-full bg-navy/5 text-navy/60">
                                 <span className="text-[10px] font-bold">EU</span>
                               </div>
                             ) : (
@@ -217,35 +257,41 @@ export function EnquirySection() {
                           </div>
                         </SelectItem>
                       ))}
-                      <SelectItem value="Other" className="cursor-pointer rounded-sm py-2.5 text-primary hover:bg-muted hover:text-primary focus:bg-muted focus:text-primary data-[highlighted]:bg-muted data-[highlighted]:text-primary">
-                          <div className="flex items-center gap-3">
-                            <div className="w-[24px] h-[16px] bg-slate-100 border border-black/5 rounded-[2px]" />
-                            <span>Other</span>
-                          </div>
+                      <SelectItem
+                        value="Other"
+                        className="cursor-pointer rounded-sm py-2.5 text-navy hover:bg-muted hover:text-navy focus:bg-muted focus:text-navy data-[highlighted]:bg-muted data-[highlighted]:text-navy"
+                      >
+                        <div className="flex items-center gap-3">
+                          <div className="w-[24px] h-[16px] bg-slate-100 border border-black/5 rounded-[2px]" />
+                          <span>Other</span>
+                        </div>
                       </SelectItem>
                     </SelectContent>
                   </Select>
                 </div>
               </div>
 
-              {/* Row 3 */}
-              <div className="grid gap-6 sm:grid-cols-2">
+              {/* Row 3: Visa Type & Travel Date */}
+              <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
                 <div>
                   <label htmlFor="visaType" className={labelClasses}>
                     Visa Type
                   </label>
                   <Select name="visaType">
-                    <SelectTrigger id="visaType" className={cn(fieldClasses, "shadow-none data-[state=open]:border-accent data-[state=open]:ring-1 data-[state=open]:ring-accent/50")}>
+                    <SelectTrigger
+                      id="visaType"
+                      className={cn(fieldClasses, "shadow-none data-[state=open]:border-accent data-[state=open]:ring-2 data-[state=open]:ring-accent/20")}
+                    >
                       <SelectValue placeholder="Select a category" />
                     </SelectTrigger>
-                    <SelectContent className="rounded-control border-primary/10 bg-white font-medium text-primary shadow-lg">
-                      <SelectItem value="Tourist / Visitor" className="cursor-pointer rounded-sm py-2.5 hover:bg-muted hover:text-primary focus:bg-muted focus:text-primary">Tourist / Visitor</SelectItem>
-                      <SelectItem value="Business" className="cursor-pointer rounded-sm py-2.5 hover:bg-muted hover:text-primary focus:bg-muted focus:text-primary">Business</SelectItem>
-                      <SelectItem value="Student" className="cursor-pointer rounded-sm py-2.5 hover:bg-muted hover:text-primary focus:bg-muted focus:text-primary">Student</SelectItem>
-                      <SelectItem value="Work / Employment" className="cursor-pointer rounded-sm py-2.5 hover:bg-muted hover:text-primary focus:bg-muted focus:text-primary">Work / Employment</SelectItem>
-                      <SelectItem value="Transit" className="cursor-pointer rounded-sm py-2.5 hover:bg-muted hover:text-primary focus:bg-muted focus:text-primary">Transit</SelectItem>
-                      <SelectItem value="Dependent / Family" className="cursor-pointer rounded-sm py-2.5 hover:bg-muted hover:text-primary focus:bg-muted focus:text-primary">Dependent / Family</SelectItem>
-                      <SelectItem value="Other" className="cursor-pointer rounded-sm py-2.5 hover:bg-muted hover:text-primary focus:bg-muted focus:text-primary">Other</SelectItem>
+                    <SelectContent className="rounded-control border-navy/10 bg-white font-medium text-navy shadow-lg">
+                      <SelectItem value="Tourist / Visitor" className="cursor-pointer rounded-sm py-2.5 hover:bg-muted hover:text-navy focus:bg-muted focus:text-navy">Tourist / Visitor</SelectItem>
+                      <SelectItem value="Business" className="cursor-pointer rounded-sm py-2.5 hover:bg-muted hover:text-navy focus:bg-muted focus:text-navy">Business</SelectItem>
+                      <SelectItem value="Student" className="cursor-pointer rounded-sm py-2.5 hover:bg-muted hover:text-navy focus:bg-muted focus:text-navy">Student</SelectItem>
+                      <SelectItem value="Work / Employment" className="cursor-pointer rounded-sm py-2.5 hover:bg-muted hover:text-navy focus:bg-muted focus:text-navy">Work / Employment</SelectItem>
+                      <SelectItem value="Transit" className="cursor-pointer rounded-sm py-2.5 hover:bg-muted hover:text-navy focus:bg-muted focus:text-navy">Transit</SelectItem>
+                      <SelectItem value="Dependent / Family" className="cursor-pointer rounded-sm py-2.5 hover:bg-muted hover:text-navy focus:bg-muted focus:text-navy">Dependent / Family</SelectItem>
+                      <SelectItem value="Other" className="cursor-pointer rounded-sm py-2.5 hover:bg-muted hover:text-navy focus:bg-muted focus:text-navy">Other</SelectItem>
                     </SelectContent>
                   </Select>
                 </div>
@@ -262,7 +308,7 @@ export function EnquirySection() {
                 </div>
               </div>
 
-              {/* Row 4 */}
+              {/* Row 4: Message */}
               <div>
                 <label htmlFor="message" className={labelClasses}>
                   Message
@@ -281,18 +327,29 @@ export function EnquirySection() {
                 </p>
               )}
 
-              <div className="mt-2 flex flex-col items-start gap-4 sm:flex-row sm:items-center sm:justify-between">
+              {/* Action Buttons: Submit Enquiry & Chat on WhatsApp */}
+              <div className="mt-2 flex flex-col gap-4 sm:flex-row sm:items-center">
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="group relative flex h-14 w-full items-center justify-center gap-2 overflow-hidden rounded-control bg-accent px-8 font-bold text-white transition-all duration-300 hover:shadow-lg hover:bg-accent/90 disabled:opacity-70 sm:w-auto"
+                  className="group inline-flex h-12 w-full items-center justify-center gap-2 rounded-control bg-accent px-8 font-bold text-white transition-all duration-300 hover:bg-accent/90 disabled:opacity-70 sm:w-auto"
                 >
-                  <span className="relative z-10">{isSubmitting ? "Sending..." : "Submit Enquiry"}</span>
+                  <span>{isSubmitting ? "Sending..." : "Submit Enquiry"}</span>
                   {!isSubmitting && <ArrowRight className="size-4 text-white transition-transform group-hover:translate-x-1" />}
                 </button>
+
+                <a
+                  href="https://wa.me/918850201321"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group inline-flex h-12 w-full items-center justify-center gap-2 rounded-control border border-navy/15 bg-white px-7 font-semibold text-navy whitespace-nowrap shrink-0 transition-all duration-300 hover:border-accent hover:text-accent sm:w-auto shadow-2xs"
+                >
+                  <MessageCircle className="size-4 text-accent" />
+                  <span className="whitespace-nowrap">Chat on WhatsApp</span>
+                </a>
               </div>
-            </motion.form>
-          </div>
+            </form>
+          </motion.div>
         </motion.div>
       </div>
 

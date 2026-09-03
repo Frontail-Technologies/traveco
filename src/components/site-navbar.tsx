@@ -29,7 +29,7 @@ const navbarNavigationItems = [
   { label: "How it Works", href: "/#process" },
   { label: "About Us", href: "/about" },
   { label: "FAQs", href: "/#faq" },
-  { label: "Contact", href: "/contact" },
+  { label: "Contact", href: "/#contact" },
 ];
 
 export function SiteNavbar() {
@@ -63,7 +63,7 @@ export function SiteNavbar() {
         initial="hidden"
         animate="visible"
         variants={staggerContainer}
-        className="mx-auto flex h-22 max-w-340 items-center justify-between gap-4 px-4 sm:px-6 lg:px-8"
+        className="mx-auto flex h-22 max-w-340 items-center justify-between gap-4 px-5 sm:px-6 lg:px-8"
       >
         <motion.div variants={fadeUp}>
           <Link
@@ -154,8 +154,8 @@ export function SiteNavbar() {
         </motion.div>
 
         <motion.div variants={fadeUp} className="hidden lg:flex">
-          <Button asChild variant="default" className="h-10 rounded-control px-5 text-[14.5px]">
-            <Link href="/contact">
+          <Button asChild variant="secondary" className="h-10 rounded-control px-5 text-[14.5px]">
+            <Link href="/#contact">
               Get Visa Assistance
             </Link>
           </Button>
@@ -242,11 +242,11 @@ export function SiteNavbar() {
           })}
           <Button
             asChild
-            variant="default"
+            variant="secondary"
             onClick={() => setOpen(false)}
             className="mt-6 h-11 w-full rounded-control text-[15px]"
           >
-            <Link href="/contact">
+            <Link href="/#contact">
               Get Visa Assistance
             </Link>
           </Button>

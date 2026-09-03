@@ -2,10 +2,10 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
+import Link from "next/link";
+import { ArrowRight } from "lucide-react";
 
 import { fadeUp, staggerContainer } from "@/lib/motion-variants";
-import { cn } from "@/lib/utils";
-import Link from "next/link";
 
 const steps = [
   {
@@ -47,8 +47,8 @@ const steps = [
 
 export function ProcessSection() {
   return (
-    <section id="process" className="relative overflow-hidden bg-muted py-20 md:py-24 lg:py-28">
-      <div className="relative z-10 mx-auto w-full max-w-7xl px-5 md:px-6 lg:px-8">
+    <section id="process" className="relative overflow-hidden bg-white py-20 md:py-24 lg:py-28">
+      <div className="relative z-10 mx-auto w-full max-w-340 px-5 sm:px-6 lg:px-8">
         <motion.div
           initial="hidden"
           whileInView="visible"
@@ -61,7 +61,7 @@ export function ProcessSection() {
             <div className="max-w-2xl">
               <motion.p
                 variants={fadeUp}
-                className="text-accent text-xs font-bold uppercase tracking-widest"
+                className="text-accent text-sm sm:text-base font-bold uppercase tracking-widest"
               >
                 How It Works
               </motion.p>
@@ -75,13 +75,13 @@ export function ProcessSection() {
 
             <motion.p
               variants={fadeUp}
-              className="max-w-xs text-sm leading-relaxed text-navy/70 md:text-right"
+              className="max-w-xs text-sm leading-relaxed text-muted-foreground md:text-right"
             >
               A clear, milestone-based path from first contact to your final visa decision.
             </motion.p>
           </div>
 
-          {/* Cards Grid */}
+          {/* 6-Card (3x2 Grid) */}
           <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3 lg:gap-8">
             {steps.map((step, index) => {
               return (
@@ -110,33 +110,56 @@ export function ProcessSection() {
                   </div>
 
                   {/* Content Container */}
-                  <div className="flex flex-1 flex-col p-6 sm:p-8 lg:p-10">
-                    <h3 className="mb-3 text-xl font-bold leading-tight text-navy md:text-2xl">
-                      {step.title}
-                    </h3>
-                    <p className="text-base leading-relaxed text-navy/70">
-                      {step.description}
-                    </p>
+                  <div className="flex flex-1 flex-col justify-between p-6 sm:p-8 lg:p-10">
+                    <div>
+                      <h3 className="mb-3 text-xl font-bold leading-tight text-navy md:text-2xl">
+                        {step.title}
+                      </h3>
+                      <p className="text-base leading-relaxed text-muted-foreground">
+                        {step.description}
+                      </p>
+                    </div>
+
+                    {step.id === "02" && (
+                      <div className="mt-4 pt-3 border-t border-navy/5">
+                        <Link
+                          href="/document-checklist"
+                          className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-semibold text-accent hover:text-navy transition-colors group/link"
+                        >
+                          <span>View Document Checklist</span>
+                          <ArrowRight className="size-3.5 transition-transform duration-200 group-hover/link:translate-x-1" />
+                        </Link>
+                      </div>
+                    )}
                   </div>
                 </motion.div>
               );
             })}
 
-            {/* 6th Card: CTA */}
+            {/* 6th Card: CTA with Accent Background & Subtle Image */}
             <motion.div
               variants={fadeUp}
-              className="group relative flex flex-col items-center justify-center overflow-hidden rounded-[2rem] bg-navy p-8 text-center shadow-[0_2px_10px_-4px_rgba(0,0,0,0.05)] transition-shadow duration-300 hover:shadow-lg lg:p-10"
+              className="group relative flex flex-col items-center justify-center overflow-hidden rounded-[2rem] bg-accent p-8 text-center text-white shadow-md transition-all duration-300 hover:shadow-xl lg:p-10"
             >
-              <div className="flex flex-1 flex-col items-center justify-center">
-                <h3 className="mb-4 text-3xl font-bold leading-[1.1] text-white">
+              {/* Very Light Travel Background Image */}
+              <Image
+                src="/images/hero/hero_airport_terminal.jpg"
+                alt=""
+                fill
+                sizes="(max-width: 768px) 100vw, 33vw"
+                className="object-cover object-center opacity-15 mix-blend-overlay pointer-events-none"
+              />
+
+              <div className="relative z-10 flex flex-1 flex-col items-center justify-center">
+                <h3 className="mb-4 text-3xl sm:text-4xl font-bold leading-[1.1] text-white tracking-tight">
                   Ready to start your journey?
                 </h3>
-                <p className="mb-8 text-base leading-relaxed text-white/80">
+                <p className="mb-8 text-base leading-relaxed text-white/90">
                   Connect with our experts today and ensure your visa application is perfectly prepared.
                 </p>
                 <Link
-                  href="/contact"
-                  className="inline-flex h-12 items-center justify-center rounded-full bg-accent px-8 text-sm font-bold uppercase tracking-wide text-white transition-all hover:scale-105 hover:bg-white hover:text-navy"
+                  href="/#contact"
+                  className="inline-flex h-12 items-center justify-center rounded-full bg-white px-8 text-sm font-bold uppercase tracking-wider text-navy shadow-sm transition-all hover:scale-105 hover:bg-white/95"
                 >
                   Contact Us
                 </Link>

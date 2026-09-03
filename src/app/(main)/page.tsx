@@ -30,12 +30,11 @@ export default function Home() {
       />
       <main className="bg-background text-foreground">
         <HeroSection />
-        {/* <PricingStatementSection /> */}
-        <VisaServicesSection />
-        <DestinationsSection />
         <ProcessSection />
-        <DocumentAssistanceSection />
         <WhyChooseSection />
+        <VisaServicesSection />
+        <DocumentAssistanceSection />
+        <DestinationsSection />
         <AboutFounderSection />
         <EnquirySection />
         <FaqSection />

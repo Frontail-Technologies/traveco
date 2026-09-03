@@ -1,9 +1,8 @@
 "use client";
 
 import { useState } from "react";
-import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
-import { ArrowRight, Plus, Minus } from "lucide-react";
+import { Plus, Minus } from "lucide-react";
 
 import { fadeUp, staggerContainer } from "@/lib/motion-variants";
 import { cn } from "@/lib/utils";
@@ -11,35 +10,29 @@ import { faqData } from "@/data/faq";
 
 function FAQItem({
   item,
-  index,
   isOpen,
   onClick,
-  isLast,
 }: {
   item: typeof faqData[0];
-  index: number;
   isOpen: boolean;
   onClick: () => void;
-  isLast?: boolean;
 }) {
   return (
-    <div className="group bg-white rounded-2xl px-6 sm:px-8 mb-4 shadow-sm border border-primary/5 transition-colors duration-300 hover:border-accent/30">
+    <div className="group rounded-[1.5rem] border border-navy/10 bg-white px-6 sm:px-8 transition-colors duration-300 hover:border-accent/30 shadow-xs">
       <button
         type="button"
         onClick={onClick}
         aria-expanded={isOpen}
-        className="flex w-full items-end justify-between gap-6 pb-7 pt-8 text-left transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
+        className="flex w-full items-center justify-between gap-6 py-6 text-left transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
       >
-        <div className="flex items-center">
-          <span className="text-lg font-bold leading-tight text-primary lg:text-xl">
-            {item.question}
-          </span>
-        </div>
-        <div className={cn("mb-1 flex shrink-0 items-center justify-center transition-colors duration-300", isOpen ? "text-primary" : "text-primary/80 group-hover:text-primary")}>
+        <span className="text-base font-bold text-navy sm:text-lg">
+          {item.question}
+        </span>
+        <div className={cn("flex size-7 shrink-0 items-center justify-center rounded-full bg-muted/60 transition-colors duration-300", isOpen ? "bg-accent text-white" : "text-navy/70 group-hover:bg-accent group-hover:text-white")}>
           {isOpen ? (
-            <Minus className="size-5" strokeWidth={1.5} />
+            <Minus className="size-4" strokeWidth={2} />
           ) : (
-            <Plus className="size-5" strokeWidth={1.5} />
+            <Plus className="size-4" strokeWidth={2} />
           )}
         </div>
       </button>
@@ -51,7 +44,7 @@ function FAQItem({
             exit={{ height: 0, opacity: 0 }}
             transition={{ duration: 0.25, ease: "easeInOut" }}
           >
-            <div className="pb-8 pr-6 text-base leading-relaxed text-primary/80">
+            <div className="pb-6 pr-6 text-sm leading-relaxed text-muted-foreground sm:text-base">
               {item.answer}
             </div>
           </motion.div>
@@ -65,61 +58,43 @@ export function FaqSection() {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   return (
-    <section id="faq" className="relative overflow-hidden bg-background py-20 md:py-24 lg:py-28 z-0">
-      <div className="mx-auto w-full max-w-7xl px-5 md:px-6 lg:px-8 relative z-10">
+    <section id="faq" className="relative overflow-hidden bg-white py-20 md:py-24 lg:py-28 z-0">
+      <div className="mx-auto w-full max-w-340 px-5 sm:px-6 lg:px-8 relative z-10">
         <motion.div
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-10%" }}
           variants={staggerContainer}
-          className="grid grid-cols-1 gap-12 lg:grid-cols-12 lg:gap-12"
+          className="mx-auto max-w-3xl flex flex-col gap-10 lg:gap-12"
         >
-          {/* Left Content (35-40%) */}
-          <div className="lg:col-span-4 xl:col-span-4 flex flex-col pt-2 relative z-10">
+          {/* Header */}
+          <div className="text-center">
             <motion.p
               variants={fadeUp}
-              className="text-accent text-xs font-bold uppercase tracking-widest"
+              className="text-accent text-sm sm:text-base font-bold uppercase tracking-widest"
             >
               Frequently Asked Questions
             </motion.p>
             <motion.h2
               variants={fadeUp}
-              className="mt-4 text-4xl font-bold leading-[1.05] tracking-tight text-primary md:text-5xl"
+              className="mt-3 text-3xl font-bold leading-[1.08] tracking-tight text-navy sm:text-4xl lg:text-5xl"
             >
-              Questions before your <br className="hidden lg:block" /> next journey?
+              Questions before your next journey?
             </motion.h2>
-
-            <motion.div variants={fadeUp} className="mt-8 lg:mt-12 rounded-2xl bg-navy p-6 lg:p-8">
-              <p className="mb-3 text-base font-bold text-white">
-                Still have a question?
-              </p>
-              <Link
-                href="/contact"
-                className="group inline-flex items-center gap-2 text-sm font-bold text-white transition-colors hover:text-accent"
-              >
-                Contact TRAVECO
-                <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" />
-              </Link>
-            </motion.div>
           </div>
 
-          {/* Right Content - Editorial Accordion (60-65%) */}
-          <div className="lg:col-span-8 flex flex-col lg:pl-10">
-            <div className="flex flex-col">
-              {faqData.map((item, index) => (
-                <motion.div key={index} variants={fadeUp}>
-                  <FAQItem
-                    item={item}
-                    index={index}
-                    isOpen={openIndex === index}
-                    isLast={index === faqData.length - 1}
-                    onClick={() => setOpenIndex(openIndex === index ? null : index)}
-                  />
-                </motion.div>
-              ))}
-            </div>
+          {/* Accordion List Only (No extra cards or chips) */}
+          <div className="flex flex-col gap-4">
+            {faqData.map((item, index) => (
+              <motion.div key={index} variants={fadeUp}>
+                <FAQItem
+                  item={item}
+                  isOpen={openIndex === index}
+                  onClick={() => setOpenIndex(openIndex === index ? null : index)}
+                />
+              </motion.div>
+            ))}
           </div>
-          
         </motion.div>
       </div>
     </section>

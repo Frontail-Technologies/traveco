@@ -3,144 +3,116 @@
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { ArrowRight } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 
 import { fadeUp, staggerContainer } from "@/lib/motion-variants";
 
 const visaServices = [
   {
-    id: "01",
-    title: "Tourist & Visitor Visa",
-    description:
-      "Personalized documentation and application assistance for leisure and family travel.",
+    title: "Tourist Visa",
     href: "/visa-services/tourist-visitor",
+    image: "/images/services/tourist.jpg",
   },
   {
-    id: "02",
     title: "Business Visa",
-    description:
-      "Support for business travellers attending meetings, conferences and commercial activities.",
     href: "/visa-services/business",
+    image: "/images/services/business.jpg",
   },
   {
-    id: "03",
     title: "Student Visa",
-    description:
-      "Documentation guidance for students pursuing education overseas.",
     href: "/visa-services/student",
+    image: "/images/services/student.jpg",
   },
   {
-    id: "04",
-    title: "Work & Employment Visa",
-    description:
-      "Assistance with documentation and visa application requirements for overseas employment.",
+    title: "Work Visa",
     href: "/visa-services/work-employment",
+    image: "/images/services/work.jpg",
   },
   {
-    id: "05",
     title: "Transit Visa",
-    description:
-      "Guidance for travellers transiting through countries that require transit authorization.",
     href: "/visa-services/transit",
+    image: "/images/services/transit.jpg",
   },
   {
-    id: "06",
     title: "Schengen Visa",
-    description:
-      "Application assistance for travel across Schengen countries.",
     href: "/visa-services/schengen",
+    image: "/images/services/schengen.jpg",
   },
 ];
 
 export function VisaServicesSection() {
   return (
-    <section className="bg-background relative overflow-hidden py-20 md:py-24 lg:py-28">
-      <div className="mx-auto w-full max-w-7xl px-5 md:px-6 lg:px-8">
+    <section className="bg-white relative overflow-hidden py-20 md:py-24 lg:py-28">
+      <div className="mx-auto w-full max-w-340 px-5 sm:px-6 lg:px-8">
         <motion.div
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-10%" }}
           variants={staggerContainer}
-          className="flex flex-col gap-8 lg:gap-12"
+          className="flex flex-col gap-10 lg:gap-12"
         >
           {/* Top Header Area */}
-          <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
+          <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
             <div className="max-w-2xl">
               <motion.p
                 variants={fadeUp}
-                className="text-accent text-xs font-bold uppercase tracking-widest"
+                className="text-accent text-sm sm:text-base font-bold uppercase tracking-widest"
               >
                 Our Services
               </motion.p>
               <motion.h2
                 variants={fadeUp}
-                className="mt-4 text-4xl font-bold leading-[1.05] tracking-tight text-navy md:text-5xl"
-                data-scroll="fade-up"
+                className="mt-3 text-3xl font-bold leading-[1.08] tracking-tight text-navy sm:text-4xl lg:text-5xl"
               >
                 Visa support for every kind of journey.
               </motion.h2>
             </div>
-            
-            <motion.div variants={fadeUp} className="shrink-0 lg:pb-2">
+
+            <motion.div variants={fadeUp} className="shrink-0 sm:pb-1">
               <Link
                 href="/visa-services"
-                className="group inline-flex items-center gap-2 text-sm font-semibold text-primary transition-colors hover:text-accent"
+                className="group inline-flex items-center gap-1.5 text-sm font-semibold text-primary transition-colors hover:text-accent"
               >
                 Explore All Visa Services
-                <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" />
+                <ArrowUpRight className="size-4 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 text-accent" />
               </Link>
             </motion.div>
           </div>
 
-          {/* Main Content Area (45/55 Split) */}
-          <div className="flex flex-col gap-12 lg:flex-row lg:gap-16">
-            
-            {/* Left — 45% (Premium Image) */}
-            <motion.div 
-              variants={fadeUp} 
-              className="relative aspect-4/3 w-full shrink-0 overflow-hidden rounded-2xl lg:aspect-3/4 lg:w-[45%]"
-            >
-              <Image
-                src="/images/generated/premium_travel_documents.jpg"
-                alt="Premium passport and travel documents in an international airport lounge"
-                fill
-                sizes="(max-width: 1024px) 100vw, 45vw"
-                className="object-cover object-center"
-              />
-            </motion.div>
+          {/* 6 Visual Service Cards Grid */}
+          <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3 lg:gap-6">
+            {visaServices.map((service) => (
+              <motion.div
+                key={service.title}
+                variants={fadeUp}
+                className="group relative aspect-4/3 w-full overflow-hidden rounded-[2rem] border border-navy/10 bg-navy/5 shadow-2xs transition-all duration-500 hover:shadow-md sm:aspect-16/11 lg:aspect-4/3"
+              >
+                <Link
+                  href={service.href}
+                  className="absolute inset-0 z-30 block focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 rounded-[2rem]"
+                  aria-label={`Explore ${service.title}`}
+                />
 
-            {/* Right — 55% (Editorial List) */}
-            <div className="flex-1">
-              <div className="grid grid-cols-1 gap-x-12 sm:grid-cols-2">
-                {visaServices.map((service) => (
-                  <motion.div
-                    key={service.id}
-                    variants={fadeUp}
-                    className="group flex flex-col border-b border-border/50 pb-8 mb-10 transition-colors hover:border-accent/40"
-                  >
-                    <div className="mb-4 text-xs font-bold text-accent">
-                      {service.id}
-                    </div>
-                    
-                    <h3 className="mb-3 text-lg font-bold leading-tight text-primary transition-colors group-hover:text-accent">
-                      {service.title}
-                    </h3>
-                    
-                    <p className="mb-6 flex-1 text-base leading-relaxed text-primary/75">
-                      {service.description}
-                    </p>
-                    
-                    <Link
-                      href={service.href}
-                      className="mt-auto inline-flex items-center gap-1.5 text-sm font-semibold text-primary/60 transition-colors group-hover:text-primary"
-                    >
-                      Learn more
-                      <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" />
-                    </Link>
-                  </motion.div>
-                ))}
-              </div>
-            </div>
+                {/* Service Background Image */}
+                <Image
+                  src={service.image}
+                  alt={service.title}
+                  fill
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                  className="object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105"
+                />
+
+                {/* Subtle Red Accent Gradient Overlay on Image */}
+                <div className="absolute inset-0 z-10 bg-gradient-to-t from-accent/55 via-accent/15 to-transparent transition-opacity duration-500" />
+
+                {/* Text Only: Service Title */}
+                <div className="absolute inset-x-0 bottom-0 z-20 p-6 sm:p-7">
+                  <h3 className="text-2xl font-bold text-white drop-shadow-sm tracking-tight sm:text-3xl">
+                    {service.title}
+                  </h3>
+                </div>
+              </motion.div>
+            ))}
           </div>
         </motion.div>
       </div>

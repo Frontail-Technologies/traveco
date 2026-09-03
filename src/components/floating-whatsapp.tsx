@@ -8,7 +8,7 @@ export function FloatingWhatsApp() {
       href={buildWhatsAppLink()}
       target="_blank"
       rel="noopener noreferrer"
-      className="group fixed bottom-6 right-2 z-40 flex size-14 items-center justify-center rounded-full bg-[#25D366] text-white shadow-lg transition-transform hover:-translate-y-1 hover:bg-[#1EBE5A] hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-[#25D366] focus:ring-offset-2"
+      className="group fixed bottom-6 right-6 z-40 flex size-14 items-center justify-center rounded-full bg-[#25D366] text-white shadow-lg transition-transform hover:-translate-y-1 hover:bg-[#1EBE5A] hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-[#25D366] focus:ring-offset-2"
       aria-label="Chat with us on WhatsApp"
     >
       <svg

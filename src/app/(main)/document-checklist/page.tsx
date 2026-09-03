@@ -2,195 +2,301 @@
 
 import * as React from "react";
 import Link from "next/link";
-import Image from "next/image";
-import { ArrowRight, ChevronDown } from "lucide-react";
-import { DestinationSearch } from "@/components/destinations/destination-search";
-import { CountryFlag } from "@/components/destinations/country-flag";
-import { serviceDestinations } from "@/data/traveco-service-countries";
+import { Check, ArrowRight, MessageCircle, AlertCircle } from "lucide-react";
+import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
-const QUICK_LINKS = [
+const SECTIONS = [
   {
-    slug: "united-kingdom",
-    name: "United Kingdom",
-    code: "GB",
-    route: "Standard Visitor visa",
+    id: "personal-documents",
+    title: "Personal Documents",
+    items: [
+      "Valid Passport",
+      "Old Passport, if applicable",
+      "Passport-size Photographs",
+      "National ID / Aadhaar, if applicable",
+      "PAN Card, if applicable",
+      "Birth Certificate, if applicable",
+    ],
   },
   {
-    slug: "united-states-of-america",
-    name: "United States",
-    code: "US",
-    route: "B1/B2 Visitor visa",
+    id: "travel-information",
+    title: "Travel Information",
+    items: [
+      "Intended Travel Dates",
+      "Purpose of Travel",
+      "Destination Details",
+      "Flight Itinerary",
+      "Travel Plan",
+      "Trip Sponsor Details, if applicable",
+    ],
   },
-  { slug: "canada", name: "Canada", code: "CA", route: "Visitor visa" },
   {
-    slug: "australia",
-    name: "Australia",
-    code: "AU",
-    route: "Visitor visa (subclass 600)",
+    id: "financial-documents",
+    title: "Financial Documents",
+    items: [
+      "Bank Statements",
+      "Income Tax Returns, if applicable",
+      "Salary Slips, if applicable",
+      "Financial Sponsorship Letter, if applicable",
+      "Proof of Funds",
+      "Business Financials, if applicable",
+    ],
   },
   {
-    slug: "new-zealand",
-    name: "New Zealand",
-    code: "NZ",
-    route: "Visitor Visa",
+    id: "employment-business",
+    title: "Employment / Business Documents",
+    items: [
+      "Employment Letter",
+      "Leave Approval Letter",
+      "Salary Proof",
+      "Company Registration, if applicable",
+      "Business Cover Letter, if applicable",
+      "GST / Business Proof, if applicable",
+    ],
+  },
+  {
+    id: "student-documents",
+    title: "Student Documents",
+    items: [
+      "Admission Letter",
+      "Fee Receipt, if applicable",
+      "Academic Records",
+      "Student ID, if applicable",
+      "Education Loan Documents, if applicable",
+      "Sponsor Financial Documents, if applicable",
+    ],
+  },
+  {
+    id: "sponsor-invitation",
+    title: "Sponsor / Invitation",
+    items: [
+      "Invitation Letter",
+      "Sponsor ID / Residence Proof",
+      "Relationship Proof",
+      "Sponsor Financial Documents",
+      "Accommodation Support Letter",
+      "Event / Conference Invitation, if applicable",
+    ],
+  },
+  {
+    id: "accommodation-itinerary",
+    title: "Accommodation & Itinerary",
+    items: [
+      "Hotel Booking",
+      "Host Accommodation Details",
+      "Day-wise Itinerary",
+      "Return Travel Plan",
+      "Internal Travel Bookings, if applicable",
+    ],
+  },
+  {
+    id: "insurance-health",
+    title: "Insurance & Health",
+    items: [
+      "Travel Insurance, where applicable",
+      "Medical Insurance, where applicable",
+      "Vaccination Certificate, if required",
+      "Medical Reports, if requested",
+      "Health Declaration, if applicable",
+    ],
+  },
+  {
+    id: "travel-history",
+    title: "Previous Travel / Visa History",
+    items: [
+      "Previous Visa Copies",
+      "Entry / Exit Stamps",
+      "Previous Refusal Letter, if applicable",
+      "Travel History Summary",
+      "Old Passport Travel Records",
+    ],
+  },
+  {
+    id: "additional-documents",
+    title: "Additional Supporting Documents",
+    items: [
+      "Cover Letter",
+      "Minor Consent Letter, if applicable",
+      "Marriage Certificate, if applicable",
+      "Name Change Proof, if applicable",
+      "Police Clearance Certificate, if required",
+      "Any destination-specific supporting document",
+    ],
   },
 ];
 
-const REGIONS = [
-  "All",
-  "Europe",
-  "Asia",
-  "Middle East",
-  "Africa",
-  "Americas",
-  "Oceania",
-] as const;
-type Region = (typeof REGIONS)[number];
-
 export default function DocumentChecklistPage() {
-  const [selectedRegion, setSelectedRegion] = React.useState<Region>("All");
+  const [activeSection, setActiveSection] = React.useState(SECTIONS[0].id);
 
   React.useEffect(() => {
-    const params = new URLSearchParams(window.location.search);
-    const region = params.get("region");
-    if (region) {
-      const match = REGIONS.find(r => r.toLowerCase() === region.toLowerCase());
-      if (match) {
-        setSelectedRegion(match);
-        setTimeout(() => {
-          document.getElementById("directory")?.scrollIntoView({ behavior: "smooth", block: "start" });
-        }, 100);
+    const handleScroll = () => {
+      const scrollPosition = window.scrollY + 160;
+
+      for (let i = SECTIONS.length - 1; i >= 0; i--) {
+        const element = document.getElementById(SECTIONS[i].id);
+        if (element && element.offsetTop <= scrollPosition) {
+          setActiveSection(SECTIONS[i].id);
+          break;
+        }
       }
-    }
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const filteredDestinations = React.useMemo(
-    () =>
-      serviceDestinations
-        .filter((d) => selectedRegion === "All" || d.region === selectedRegion)
-        .sort((a, b) => a.name.localeCompare(b.name)),
-    [selectedRegion],
-  );
-
   return (
-    <div className="bg-background pt-22">
-      {/* ── HERO ─────────────────────────────────────────────────── */}
-      <div
-        className="relative flex flex-col items-center justify-center w-full py-20 md:py-28 lg:py-32"
-        style={{
-          backgroundImage:
-            'url("https://images.unsplash.com/photo-1436491865332-7a61a109cc05?q=80&w=2074&auto=format&fit=crop")',
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-        }}
-      >
-        <div className="absolute inset-0 bg-navy/85 z-10" />
-
-        {/* CENTER CONTENT */}
-        <div className="relative z-20 mx-auto w-full max-w-340 px-5 sm:px-6 lg:px-8 flex flex-col items-center text-center">
-          <h1 className="text-[36px] md:text-[52px] lg:text-[64px] text-white tracking-tight font-medium mb-4 leading-tight max-w-4xl" data-scroll="fade-up">
-            Find the visa checklist
-            <br className="hidden md:block" /> for your destination.
-          </h1>
-          <p className="text-[16px] sm:text-[18px] text-white/80 max-w-2xl mx-auto mb-10 leading-relaxed">
-            Search supported visa routes, documents, fees and processing guidance.
-          </p>
-
-          {/* Search */}
-          <div className="relative z-30 w-full max-w-3xl text-left shadow-lg">
-            <DestinationSearch />
+    <div className="bg-white pt-22 min-h-screen">
+      {/* ── HEADER / INTRO ────────────────────────────────────────── */}
+      <section className="bg-white py-12 md:py-16 border-b border-navy/5">
+        <div className="mx-auto max-w-340 px-5 sm:px-6 lg:px-8">
+          <div className="max-w-3xl">
+            <p className="text-accent text-sm sm:text-base font-bold uppercase tracking-widest mb-3">
+              RESOURCES
+            </p>
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-navy leading-[1.08] tracking-tight mb-4">
+              Visa Document Checklist
+            </h1>
+            <p className="text-muted-foreground text-base sm:text-lg leading-relaxed mb-4">
+              A simple checklist of commonly requested documents for visa applications. Use this as a starting point before speaking with TRAVECO.
+            </p>
+            <p className="text-xs font-medium text-muted-foreground">
+              Last updated: 2026
+            </p>
           </div>
         </div>
-      </div>
+      </section>
 
-      <div
-        id="directory"
-        className="mx-auto w-full max-w-340 px-5 sm:px-6 lg:px-8 pt-20 pb-20 bg-background"
-      >
-        {/* ── BROWSE ALL DESTINATIONS ──────────────────────────────── */}
-        <div className="mb-10 flex flex-col md:flex-row md:items-center justify-between gap-4">
-          <div className="flex items-center gap-4">
-            <h2 className="text-[24px] md:text-[28px] font-bold text-navy tracking-tight">
-              Supported destinations and visa routes
-            </h2>
-            <span className="inline-flex items-center rounded-full bg-muted px-3 py-1 text-[13px] font-bold text-navy">
-              {filteredDestinations.length} routes
-            </span>
-          </div>
-        </div>
-            <div className="mt-2">
-              {/* Region tabs */}
-              <div
-                className="flex flex-nowrap items-center border-b border-(--traveco-primary)/10 mb-8 overflow-x-auto"
-                style={{ scrollbarWidth: "none" }}
-              >
-                {REGIONS.map((region) => {
-                  const isActive = selectedRegion === region;
+      {/* ── MAIN CONTENT (2-COLUMN EDITORIAL LAYOUT) ─────────────── */}
+      <div className="mx-auto max-w-340 px-5 sm:px-6 lg:px-8 py-12 md:py-16">
+        <div className="flex flex-col lg:flex-row gap-12 lg:gap-16 items-start">
+          {/* LEFT STICKY "ON THIS PAGE" */}
+          <aside className="lg:w-64 xl:w-72 shrink-0 hidden lg:block lg:sticky lg:top-28">
+            <div className="rounded-[2rem] border border-navy/10 bg-muted/20 p-5">
+              <p className="text-xs font-bold uppercase tracking-widest text-muted-foreground mb-4">
+                ON THIS PAGE
+              </p>
+              <nav className="flex flex-col gap-1">
+                {SECTIONS.map((section, idx) => {
+                  const isActive = activeSection === section.id;
                   return (
-                    <button
-                      key={region}
-                      type="button"
-                      onClick={() => setSelectedRegion(region)}
-                      className={`px-4 py-3 text-[14px] transition-all whitespace-nowrap border-b-2 -mb-px shrink-0 ${isActive
-                        ? "text-navy border-navy font-semibold"
-                        : "text-(--traveco-primary)/60 border-transparent hover:text-navy hover:border-(--traveco-primary)/20 font-medium"
-                        }`}
+                    <a
+                      key={section.id}
+                      href={`#${section.id}`}
+                      onClick={(e) => {
+                        e.preventDefault();
+                        const element = document.getElementById(section.id);
+                        if (element) {
+                          const yOffset = -120;
+                          const y =
+                            element.getBoundingClientRect().top +
+                            window.pageYOffset +
+                            yOffset;
+                          window.scrollTo({ top: y, behavior: "smooth" });
+                          setActiveSection(section.id);
+                        }
+                      }}
+                      className={cn(
+                        "flex items-center gap-2.5 py-2 px-3 text-xs font-medium rounded-lg transition-colors",
+                        isActive
+                          ? "bg-white text-navy font-bold shadow-2xs border border-navy/10"
+                          : "text-muted-foreground hover:text-navy hover:bg-white/50"
+                      )}
                     >
-                      {region}
-                    </button>
+                      <span
+                        className={cn(
+                          "size-1.5 rounded-full shrink-0 transition-colors",
+                          isActive ? "bg-accent" : "bg-transparent"
+                        )}
+                      />
+                      <span className="truncate">{idx + 1}. {section.title}</span>
+                    </a>
                   );
                 })}
-              </div>
-              {/* Grid — 3 columns on desktop */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                {filteredDestinations.map((dest) => {
-                  const routesDisplay = dest.visaOptions.length > 1 
-                    ? `${dest.visaOptions.length} Visa Options`
-                    : dest.visaOptions[0].mode;
-                    
-                  return (
-                    <Link
-                      key={dest.slug}
-                      href={`/document-checklist/${dest.slug}`}
-                      className="group flex flex-col justify-center min-h-[90px] px-5 py-4 border border-border rounded-surface bg-white hover:border-accent hover:shadow-sm transition-all"
-                    >
-                      <div className="flex items-start justify-between gap-3">
-                        <div className="flex items-center gap-4">
-                          <div className="shrink-0 mt-0.5">
-                          {dest.kind === "group" ? (
-                            <div className="flex size-6 items-center justify-center rounded-full bg-navy/5 text-navy/40">
-                              <span className="text-[10px] font-bold">EU</span>
-                            </div>
-                          ) : (
-                            <CountryFlag
-                              countryCode={dest.countryCode || ""}
-                              country={dest.name}
-                              size="sm"
-                            />
-                          )}
-                        </div>
-                        <div className="flex flex-col min-w-0">
-                          <span className="text-[15px] font-medium text-navy leading-snug wrap-break-word">
-                            {dest.name}
-                          </span>
-                          <span className="text-[12px] text-muted-foreground mt-0.5 leading-snug truncate">
-                            {routesDisplay}
-                          </span>
-                        </div>
-                        </div>
-                        <ArrowRight className="w-4 h-4 text-muted-foreground group-hover:text-accent transform group-hover:translate-x-1 transition-all shrink-0 ml-3 mt-1" />
-                      </div>
-                    </Link>
-                  );
-                })}
-              </div>
-              {filteredDestinations.length === 0 && (
-                <p className="text-muted-foreground text-[15px] py-12 text-center col-span-full">
-                  No destinations found for this region.
-                </p>
-              )}
+              </nav>
             </div>
+          </aside>
+
+          {/* RIGHT CHECKLIST CONTENT */}
+          <main className="flex-1 w-full max-w-none">
+            <div className="flex flex-col gap-12">
+              {SECTIONS.map((section, index) => (
+                <section
+                  key={section.id}
+                  id={section.id}
+                  className="scroll-mt-32"
+                >
+                  <div className="flex items-center gap-3 mb-5 border-b border-navy/10 pb-3">
+                    <span className="flex size-7 items-center justify-center rounded-lg bg-navy/5 text-xs font-bold text-accent">
+                      {String(index + 1).padStart(2, "0")}
+                    </span>
+                    <h2 className="text-xl sm:text-2xl font-bold text-navy tracking-tight">
+                      {section.title}
+                    </h2>
+                  </div>
+
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                    {section.items.map((item, itemIdx) => (
+                      <div
+                        key={itemIdx}
+                        className="flex items-center gap-3 rounded-xl border border-navy/10 bg-white p-4 shadow-2xs transition-colors hover:border-accent/40"
+                      >
+                        <div className="flex size-5 shrink-0 items-center justify-center rounded-full bg-accent/10 text-accent">
+                          <Check className="size-3" strokeWidth={3} />
+                        </div>
+                        <span className="text-sm font-semibold text-navy">
+                          {item}
+                        </span>
+                      </div>
+                    ))}
+                  </div>
+                </section>
+              ))}
+            </div>
+
+            {/* ── RESTRAINED NOTE CARD ────────────────────────────── */}
+            <div className="mt-14 rounded-[2rem] border border-navy/10 bg-muted/20 p-6 sm:p-8">
+              <div className="flex items-center gap-2.5 mb-2.5">
+                <AlertCircle className="size-5 text-accent shrink-0" />
+                <h3 className="text-base font-bold text-navy">Note</h3>
+              </div>
+              <p className="text-sm text-muted-foreground leading-relaxed">
+                This checklist is a general preparation guide. Exact document requirements vary by destination, visa category, embassy/consulate rules and applicant circumstances. TRAVECO Mobility can help review your case and guide you with the applicable requirements.
+              </p>
+            </div>
+
+            {/* ── COMPACT CTA CARD ───────────────────────────────── */}
+            <div className="mt-8 rounded-[2rem] border border-navy/10 bg-white p-6 sm:p-8 lg:p-10 shadow-xs flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
+              <div className="max-w-xl">
+                <h3 className="text-xl sm:text-2xl font-bold text-navy tracking-tight">
+                  Ready to prepare your documents?
+                </h3>
+                <p className="mt-1.5 text-sm text-muted-foreground leading-relaxed">
+                  Share your travel details and TRAVECO will guide you through the next steps.
+                </p>
+              </div>
+
+              <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 w-full sm:w-auto shrink-0">
+                <Button asChild variant="secondary" className="h-11 px-6 text-sm font-bold shadow-sm">
+                  <Link href="/#contact" className="inline-flex items-center justify-center gap-2">
+                    <span>Get Visa Assistance</span>
+                    <ArrowRight className="size-4" />
+                  </Link>
+                </Button>
+                <a
+                  href="https://wa.me/918850201321"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex h-11 items-center justify-center gap-2 rounded-control border border-navy/15 bg-white px-5 text-sm font-semibold text-navy whitespace-nowrap shrink-0 transition-all hover:border-accent hover:text-accent shadow-2xs"
+                >
+                  <MessageCircle className="size-4 text-accent" />
+                  <span className="whitespace-nowrap">Chat on WhatsApp</span>
+                </a>
+              </div>
+            </div>
+          </main>
+        </div>
       </div>
     </div>
   );
