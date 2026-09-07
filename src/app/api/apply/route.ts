@@ -4,7 +4,7 @@ import {
   generateApplicationEmailPlainText,
   ApplicationEmailData,
 } from "@/lib/email-template";
-import { transporter, mailOptions } from "@/lib/nodemailer";
+import { getTransporter, getEmailConfig } from "@/lib/nodemailer";
 
 const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
@@ -81,10 +81,13 @@ export async function POST(req: Request) {
     const textContent = generateApplicationEmailPlainText(applicationData);
 
     // 3. Send email with Nodemailer
+    const transporter = getTransporter();
+    const config = getEmailConfig();
+
     await transporter.sendMail({
-      from: mailOptions.from,
-      to: mailOptions.to,
-      cc: mailOptions.cc,
+      from: config.from,
+      to: config.to,
+      cc: config.cc,
       replyTo: email,
       subject: `New TRAVECO Application Request - ${serviceType}`,
       text: textContent,
