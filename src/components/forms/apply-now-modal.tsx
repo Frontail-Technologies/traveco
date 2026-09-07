@@ -142,10 +142,10 @@ export function ApplyNowModal() {
               TRAVECO MOBILITY
             </p>
             <DialogTitle className="text-2xl sm:text-3xl font-bold tracking-tight text-navy">
-              Application & Enquiry
+              Get Free Consultation
             </DialogTitle>
             <DialogDescription className="text-xs sm:text-sm text-muted-foreground">
-              Provide your travel details and our visa & passport team will guide you through the next steps.
+              Share your travel details and our visa & passport experts will guide you through the process with a free consultation.
             </DialogDescription>
           </DialogHeader>
         </div>
@@ -376,7 +376,7 @@ export function ApplyNowModal() {
                     </>
                   ) : (
                     <>
-                      <span>Submit Application</span>
+                      <span>Get Free Consultation</span>
                       <ArrowRight className="size-4" />
                     </>
                   )}

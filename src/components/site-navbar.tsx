@@ -161,9 +161,9 @@ export function SiteNavbar() {
             type="button"
             onClick={() => openApplyModal()}
             variant="secondary"
-            className="h-9 rounded-control px-4.5 text-[13px] font-bold shadow-xs hover:bg-accent/90 cursor-pointer"
+            className="h-9 rounded-control px-4 text-[13px] font-bold shadow-xs hover:bg-accent/90 cursor-pointer whitespace-nowrap"
           >
-            Apply Now
+            Get Free Consultation
           </Button>
         </motion.div>
 
@@ -255,7 +255,7 @@ export function SiteNavbar() {
             }}
             className="mt-6 h-11 w-full rounded-control text-[15px] font-bold cursor-pointer"
           >
-            Apply Now
+            Get Free Consultation
           </Button>
         </div>
       </div>
