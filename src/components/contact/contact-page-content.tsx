@@ -2,7 +2,7 @@
 
 import * as React from "react";
 import { useState } from "react";
-import { Mail, MapPin, Phone, MessageCircle, ArrowRight } from "lucide-react";
+import { Mail, MapPin, Phone, MessageCircle, ArrowRight, AlertCircle, Loader2 } from "lucide-react";
 import {
   Select,
   SelectContent,
@@ -11,9 +11,8 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { SuccessDialog } from "@/components/success-dialog";
+import { DestinationCombobox } from "@/components/forms/destination-combobox";
 import { cn } from "@/lib/utils";
-import { serviceDestinations } from "@/data/traveco-service-countries";
-import { CountryFlag } from "@/components/destinations/country-flag";
 
 const labelClasses = "block text-xs font-semibold text-navy uppercase tracking-wider mb-1.5";
 const fieldClasses =
@@ -21,19 +20,57 @@ const fieldClasses =
 const textareaClasses =
   "min-h-[100px] w-full resize-none rounded-control border border-navy/15 bg-white px-4 py-3.5 font-medium text-base text-navy outline-none transition-all placeholder:text-muted-foreground/60 focus-visible:border-accent focus-visible:ring-2 focus-visible:ring-accent/20 focus-visible:ring-offset-0";
 
+const SERVICE_OPTIONS = [
+  "Tourist Visa",
+  "Business Visa",
+  "Student Visa",
+  "Transit Visa",
+  "Schengen Visa",
+  "Passport Services",
+  "Other",
+];
+
 export function ContactPageContent() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [showSuccess, setShowSuccess] = useState(false);
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
+  const [destination, setDestination] = useState<string>("");
 
   async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
     setIsSubmitting(true);
+    setErrorMessage(null);
+
+    const formData = new FormData(event.currentTarget);
+    const payload = {
+      fullName: formData.get("name")?.toString().trim() || "",
+      mobile: formData.get("phone")?.toString().trim() || "",
+      email: formData.get("email")?.toString().trim() || "",
+      destinationCountry: destination || formData.get("destination")?.toString().trim() || undefined,
+      serviceType: formData.get("serviceType")?.toString().trim() || "Tourist Visa",
+      expectedTravelDate: formData.get("travelDate")?.toString().trim() || undefined,
+      message: formData.get("message")?.toString().trim() || undefined,
+      _hp: formData.get("_hp")?.toString() || "",
+      pageUrl: typeof window !== "undefined" ? window.location.href : "TRAVECO Contact Page",
+    };
 
     try {
-      // Simulated enquiry submission
-      await new Promise((resolve) => setTimeout(resolve, 1000));
+      const res = await fetch("/api/apply", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
+
+      const data = await res.json();
+      if (!res.ok) {
+        throw new Error(data.error || "Something went wrong. Please try again or contact us on WhatsApp.");
+      }
+
       setShowSuccess(true);
-      event.currentTarget.reset();
+      setDestination("");
+      (event.target as HTMLFormElement).reset();
+    } catch (err: unknown) {
+      setErrorMessage(err instanceof Error ? err.message : "Something went wrong. Please try again or contact us on WhatsApp.");
     } finally {
       setIsSubmitting(false);
     }
@@ -52,7 +89,7 @@ export function ContactPageContent() {
               Let's plan your next journey.
             </h1>
             <p className="text-muted-foreground text-base sm:text-lg leading-relaxed">
-              Have a question or need visa assistance? Share your details and our team will get back to you.
+              Have a question or need visa & passport assistance? Share your details and our team will get back to you.
             </p>
           </div>
         </div>
@@ -72,6 +109,15 @@ export function ContactPageContent() {
             </p>
 
             <form onSubmit={handleSubmit} className="space-y-5">
+              {/* Hidden Honeypot Field */}
+              <input
+                type="text"
+                name="_hp"
+                className="hidden"
+                tabIndex={-1}
+                autoComplete="off"
+              />
+
               {/* Row 1: Name & Phone */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                 <div>
@@ -121,91 +167,42 @@ export function ContactPageContent() {
                   <label htmlFor="destination" className={labelClasses}>
                     Destination
                   </label>
-                  <Select name="destination">
-                    <SelectTrigger
-                      id="destination"
-                      className={cn(
-                        fieldClasses,
-                        "shadow-none data-[state=open]:border-accent data-[state=open]:ring-2 data-[state=open]:ring-accent/20"
-                      )}
-                    >
-                      <SelectValue placeholder="Select a destination" />
-                    </SelectTrigger>
-                    <SelectContent className="rounded-control border-navy/10 bg-white font-medium text-navy shadow-lg max-h-[300px]">
-                      {serviceDestinations.map((dest) => (
-                        <SelectItem
-                          key={dest.slug}
-                          value={dest.name}
-                          className="cursor-pointer rounded-sm py-2.5 text-navy hover:bg-muted hover:text-navy focus:bg-muted focus:text-navy data-[highlighted]:bg-muted data-[highlighted]:text-navy"
-                        >
-                          <div className="flex items-center gap-3">
-                            {dest.kind === "group" ? (
-                              <div className="flex size-6 items-center justify-center rounded-full bg-navy/5 text-navy/60">
-                                <span className="text-[10px] font-bold">EU</span>
-                              </div>
-                            ) : (
-                              <CountryFlag
-                                countryCode={dest.countryCode || ""}
-                                country={dest.name}
-                                size="sm"
-                              />
-                            )}
-                            <span>{dest.name}</span>
-                          </div>
-                        </SelectItem>
-                      ))}
-                      <SelectItem
-                        value="Other"
-                        className="cursor-pointer rounded-sm py-2.5 text-navy hover:bg-muted hover:text-navy focus:bg-muted focus:text-navy data-[highlighted]:bg-muted data-[highlighted]:text-navy"
-                      >
-                        <div className="flex items-center gap-3">
-                          <div className="w-[24px] h-[16px] bg-slate-100 border border-black/5 rounded-[2px]" />
-                          <span>Other</span>
-                        </div>
-                      </SelectItem>
-                    </SelectContent>
-                  </Select>
+                  <DestinationCombobox
+                    id="destination"
+                    name="destination"
+                    value={destination}
+                    onChange={setDestination}
+                    placeholder="Search or select destination"
+                  />
                 </div>
               </div>
 
-              {/* Row 3: Visa Type & Travel Date */}
+              {/* Row 3: Service Type & Travel Date */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                 <div>
-                  <label htmlFor="visaType" className={labelClasses}>
-                    Visa Type
+                  <label htmlFor="serviceType" className={labelClasses}>
+                    Service Type <span className="text-accent">*</span>
                   </label>
-                  <Select name="visaType">
+                  <Select name="serviceType" defaultValue="Tourist Visa">
                     <SelectTrigger
-                      id="visaType"
+                      id="serviceType"
                       className={cn(
                         fieldClasses,
                         "shadow-none data-[state=open]:border-accent data-[state=open]:ring-2 data-[state=open]:ring-accent/20"
                       )}
                     >
-                      <SelectValue placeholder="Select a category" />
+                      <SelectValue placeholder="Select service type" />
                     </SelectTrigger>
                     <SelectContent className="rounded-control border-navy/10 bg-white font-medium text-navy shadow-lg">
-                      <SelectItem value="Tourist / Visitor" className="cursor-pointer rounded-sm py-2.5 hover:bg-muted focus:bg-muted">
-                        Tourist / Visitor
-                      </SelectItem>
-                      <SelectItem value="Business" className="cursor-pointer rounded-sm py-2.5 hover:bg-muted focus:bg-muted">
-                        Business
-                      </SelectItem>
-                      <SelectItem value="Student" className="cursor-pointer rounded-sm py-2.5 hover:bg-muted focus:bg-muted">
-                        Student
-                      </SelectItem>
-                      <SelectItem value="Work / Employment" className="cursor-pointer rounded-sm py-2.5 hover:bg-muted focus:bg-muted">
-                        Work / Employment
-                      </SelectItem>
-                      <SelectItem value="Transit" className="cursor-pointer rounded-sm py-2.5 hover:bg-muted focus:bg-muted">
-                        Transit
-                      </SelectItem>
-                      <SelectItem value="Dependent / Family" className="cursor-pointer rounded-sm py-2.5 hover:bg-muted focus:bg-muted">
-                        Dependent / Family
-                      </SelectItem>
-                      <SelectItem value="Other" className="cursor-pointer rounded-sm py-2.5 hover:bg-muted focus:bg-muted">
-                        Other
-                      </SelectItem>
+                      {SERVICE_OPTIONS.map((opt) => (
+                        <SelectItem
+                          key={opt}
+                          value={opt}
+                          className="cursor-pointer rounded-sm py-2.5 text-navy hover:bg-muted focus:bg-muted"
+                        >
+                          {opt}
+                        </SelectItem>
+                      ))}
                     </SelectContent>
                   </Select>
                 </div>
@@ -236,15 +233,42 @@ export function ContactPageContent() {
                 />
               </div>
 
+              {/* Error Message */}
+              {errorMessage && (
+                <div className="flex items-start gap-2.5 rounded-xl border border-red-200 bg-red-50 p-3.5 text-xs font-semibold text-red-700">
+                  <AlertCircle className="size-4 shrink-0 mt-0.5" />
+                  <div className="flex-1">
+                    <p>{errorMessage}</p>
+                    <a
+                      href="https://wa.me/918850201321"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="mt-1 inline-block underline hover:text-red-900"
+                    >
+                      Click here to contact us on WhatsApp
+                    </a>
+                  </div>
+                </div>
+              )}
+
               {/* Actions */}
               <div className="flex flex-col sm:flex-row gap-4 items-stretch sm:items-center pt-2">
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="inline-flex h-12 items-center justify-center gap-2 rounded-control bg-accent px-8 font-bold text-white shadow-sm transition-all hover:bg-accent/90 disabled:opacity-60"
+                  className="inline-flex h-12 items-center justify-center gap-2 rounded-control bg-accent px-8 font-bold text-white shadow-sm transition-all hover:bg-accent/90 disabled:opacity-60 cursor-pointer"
                 >
-                  <span>{isSubmitting ? "Submitting..." : "Submit Enquiry"}</span>
-                  <ArrowRight className="size-4" />
+                  {isSubmitting ? (
+                    <>
+                      <Loader2 className="size-4 animate-spin" />
+                      <span>Submitting...</span>
+                    </>
+                  ) : (
+                    <>
+                      <span>Submit Enquiry</span>
+                      <ArrowRight className="size-4" />
+                    </>
+                  )}
                 </button>
                 <a
                   href="https://wa.me/918850201321"
@@ -362,8 +386,8 @@ export function ContactPageContent() {
       <SuccessDialog
         open={showSuccess}
         onOpenChange={setShowSuccess}
-        title="Enquiry Received"
-        description="Thank you for reaching out to TRAVECO Mobility. Our visa consultant will review your details and contact you shortly."
+        title="Thank you."
+        description="Your request has been received. TRAVECO will contact you shortly."
       />
     </div>
   );

@@ -9,6 +9,7 @@ import { motion, useMotionValueEvent, useScroll, AnimatePresence } from "framer-
 
 import { Button } from "@/components/ui/button";
 import { fadeUp, staggerContainer } from "@/lib/motion-variants";
+import { useApplyModal } from "@/context/apply-modal-context";
 import { cn } from "@/lib/utils";
 
 const navbarNavigationItems = [
@@ -38,6 +39,7 @@ export function SiteNavbar() {
   const [scrolled, setScrolled] = useState(false);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const pathname = usePathname();
+  const { openApplyModal } = useApplyModal();
 
   useEffect(() => {
     document.body.style.overflow = open ? "hidden" : "";
@@ -155,10 +157,13 @@ export function SiteNavbar() {
         </motion.div>
 
         <motion.div variants={fadeUp} className="hidden lg:flex">
-          <Button asChild variant="secondary" className="h-9 rounded-control px-4 text-[13px] font-semibold">
-            <Link href="/#contact">
-              Get Visa Assistance
-            </Link>
+          <Button
+            type="button"
+            onClick={() => openApplyModal()}
+            variant="secondary"
+            className="h-9 rounded-control px-4.5 text-[13px] font-bold shadow-xs hover:bg-accent/90 cursor-pointer"
+          >
+            Apply Now
           </Button>
         </motion.div>
 
@@ -242,14 +247,15 @@ export function SiteNavbar() {
             );
           })}
           <Button
-            asChild
+            type="button"
             variant="secondary"
-            onClick={() => setOpen(false)}
-            className="mt-6 h-11 w-full rounded-control text-[15px]"
+            onClick={() => {
+              setOpen(false);
+              openApplyModal();
+            }}
+            className="mt-6 h-11 w-full rounded-control text-[15px] font-bold cursor-pointer"
           >
-            <Link href="/#contact">
-              Get Visa Assistance
-            </Link>
+            Apply Now
           </Button>
         </div>
       </div>

@@ -44,7 +44,7 @@ export default function AboutPage() {
                 </div>
                 <div className="w-1 h-1 rounded-full bg-navy/20 shrink-0 hidden md:block" />
                 <div className="flex items-center gap-2">
-                  <span className="text-accent font-bold">2,000+</span>
+                  <span className="text-accent font-bold">10,000+</span>
                   <span className="text-muted-foreground font-medium">Applications Supported</span>
                 </div>
               </div>
@@ -142,7 +142,7 @@ export default function AboutPage() {
                   Sandeep Kamlesh Jaiswar
                 </h3>
                 <p className="text-sm font-semibold text-muted-foreground uppercase tracking-wider mt-0.5">
-                  Founder & Global Visa Consultant
+                  Founder
                 </p>
               </div>
 
@@ -166,7 +166,7 @@ export default function AboutPage() {
                   <span className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">Countries</span>
                 </div>
                 <div className="rounded-[1.25rem] bg-muted/40 p-4 sm:p-5 border border-navy/5 shadow-2xs">
-                  <span className="text-2xl sm:text-3xl font-bold text-navy leading-none block mb-1.5">2,000+</span>
+                  <span className="text-2xl sm:text-3xl font-bold text-navy leading-none block mb-1.5">10,000+</span>
                   <span className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">Applications</span>
                 </div>
               </div>

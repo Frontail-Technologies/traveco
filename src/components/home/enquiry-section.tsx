@@ -15,8 +15,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { serviceDestinations } from "@/data/traveco-service-countries";
-import { CountryFlag } from "@/components/destinations/country-flag";
+import { DestinationCombobox } from "@/components/forms/destination-combobox";
 
 const fieldClasses =
   "h-12 w-full rounded-control border border-navy/15 bg-white px-4 font-medium text-base text-navy outline-none transition-all placeholder:text-muted-foreground/60 focus-visible:border-accent focus-visible:ring-2 focus-visible:ring-accent/20 focus-visible:ring-offset-0 [&::-webkit-calendar-picker-indicator]:opacity-40 [&::-webkit-calendar-picker-indicator]:hover:opacity-80 [&::-webkit-calendar-picker-indicator]:cursor-pointer";
@@ -30,21 +29,45 @@ export function EnquirySection() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [showSuccess, setShowSuccess] = useState(false);
   const [hasError, setHasError] = useState(false);
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
+  const [destination, setDestination] = useState<string>("");
 
   async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
     setIsSubmitting(true);
     setHasError(false);
+    setErrorMessage(null);
+
+    const formData = new FormData(event.currentTarget);
+    const payload = {
+      fullName: formData.get("name")?.toString().trim() || "",
+      mobile: formData.get("phone")?.toString().trim() || "",
+      email: formData.get("email")?.toString().trim() || "",
+      destinationCountry: destination || formData.get("destination")?.toString().trim() || undefined,
+      serviceType: formData.get("serviceType")?.toString().trim() || "Tourist Visa",
+      expectedTravelDate: formData.get("travelDate")?.toString().trim() || undefined,
+      message: formData.get("message")?.toString().trim() || undefined,
+      _hp: formData.get("_hp")?.toString() || "",
+      pageUrl: typeof window !== "undefined" ? window.location.href : "TRAVECO Homepage",
+    };
 
     try {
-      // NOTE: Simulated submission for demonstration purposes.
-      await new Promise((resolve) => setTimeout(resolve, 1500));
+      const res = await fetch("/api/apply", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
 
-      console.info("TRAVECO Form Status: Submission simulated. Real backend configuration is pending.");
+      const data = await res.json();
+      if (!res.ok) {
+        throw new Error(data.error || "Something went wrong. Please try again or contact us on WhatsApp.");
+      }
+
       setShowSuccess(true);
-      event.currentTarget.reset();
-    } catch {
+      (event.target as HTMLFormElement).reset();
+    } catch (err: unknown) {
       setHasError(true);
+      setErrorMessage(err instanceof Error ? err.message : "Something went wrong. Please try again or contact us on WhatsApp.");
     } finally {
       setIsSubmitting(false);
     }
@@ -183,6 +206,15 @@ export function EnquirySection() {
               onSubmit={handleSubmit}
               className="mt-8 flex flex-col gap-6"
             >
+              {/* Hidden Honeypot Field */}
+              <input
+                type="text"
+                name="_hp"
+                className="hidden"
+                tabIndex={-1}
+                autoComplete="off"
+              />
+
               {/* Row 1: Name & Phone */}
               <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
                 <div>
@@ -231,43 +263,13 @@ export function EnquirySection() {
                   <label htmlFor="destination" className={labelClasses}>
                     Destination
                   </label>
-                  <Select name="destination">
-                    <SelectTrigger
-                      id="destination"
-                      className={cn(fieldClasses, "shadow-none data-[state=open]:border-accent data-[state=open]:ring-2 data-[state=open]:ring-accent/20")}
-                    >
-                      <SelectValue placeholder="Select a destination" />
-                    </SelectTrigger>
-                    <SelectContent className="rounded-control border-navy/10 bg-white font-medium text-navy shadow-lg max-h-[300px]">
-                      {serviceDestinations.map((dest) => (
-                        <SelectItem
-                          key={dest.slug}
-                          value={dest.name}
-                          className="cursor-pointer rounded-sm py-2.5 text-navy hover:bg-muted hover:text-navy focus:bg-muted focus:text-navy data-[highlighted]:bg-muted data-[highlighted]:text-navy"
-                        >
-                          <div className="flex items-center gap-3">
-                            {dest.kind === "group" ? (
-                              <div className="flex size-6 items-center justify-center rounded-full bg-navy/5 text-navy/60">
-                                <span className="text-[10px] font-bold">EU</span>
-                              </div>
-                            ) : (
-                              <CountryFlag countryCode={dest.countryCode || ""} country={dest.name} size="sm" />
-                            )}
-                            <span>{dest.name}</span>
-                          </div>
-                        </SelectItem>
-                      ))}
-                      <SelectItem
-                        value="Other"
-                        className="cursor-pointer rounded-sm py-2.5 text-navy hover:bg-muted hover:text-navy focus:bg-muted focus:text-navy data-[highlighted]:bg-muted data-[highlighted]:text-navy"
-                      >
-                        <div className="flex items-center gap-3">
-                          <div className="w-[24px] h-[16px] bg-slate-100 border border-black/5 rounded-[2px]" />
-                          <span>Other</span>
-                        </div>
-                      </SelectItem>
-                    </SelectContent>
-                  </Select>
+                  <DestinationCombobox
+                    id="destination"
+                    name="destination"
+                    value={destination}
+                    onChange={setDestination}
+                    placeholder="Search or select destination"
+                  />
                 </div>
               </div>
 

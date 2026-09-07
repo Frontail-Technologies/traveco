@@ -3,6 +3,8 @@ import { Inter_Tight, Source_Serif_4, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { FloatingWhatsApp } from "@/components/floating-whatsapp";
 import { OrganizationJsonLd } from "@/components/json-ld";
+import { ApplyModalProvider } from "@/context/apply-modal-context";
+import { ApplyNowModal } from "@/components/forms/apply-now-modal";
 
 const fontSans = Inter_Tight({
   variable: "--font-heading",
@@ -67,9 +69,12 @@ export default function RootLayout({
         className="flex min-h-full max-w-[100vw] flex-col overflow-x-clip"
         suppressHydrationWarning
       >
-        <OrganizationJsonLd />
-        {children}
-        <FloatingWhatsApp />
+        <ApplyModalProvider>
+          <OrganizationJsonLd />
+          {children}
+          <FloatingWhatsApp />
+          <ApplyNowModal />
+        </ApplyModalProvider>
       </body>
     </html>
   );

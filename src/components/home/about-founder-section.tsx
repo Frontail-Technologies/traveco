@@ -25,7 +25,7 @@ export function AboutFounderSection() {
           >
             <Image
               src="/images/about/founder_cleaned.jpg"
-              alt="Sandeep Kamlesh Jaiswar - Founder & Global Visa Consultant"
+              alt="Sandeep Kamlesh Jaiswar - Founder"
               fill
               sizes="(max-width: 1024px) 100vw, 40vw"
               className="object-cover object-[center_top]"
@@ -53,7 +53,7 @@ export function AboutFounderSection() {
                 Sandeep Kamlesh Jaiswar
               </h3>
               <p className="text-xs font-semibold uppercase tracking-widest text-accent mt-0.5">
-                Founder & Global Visa Consultant
+                Founder
               </p>
             </motion.div>
 
@@ -78,7 +78,7 @@ export function AboutFounderSection() {
                 <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">Countries</p>
               </div>
               <div className="rounded-[1.25rem] bg-muted/40 p-4 sm:p-5 border border-navy/5 shadow-2xs">
-                <span className="text-2xl font-bold text-navy sm:text-3xl block leading-none mb-1.5">2,000+</span>
+                <span className="text-2xl font-bold text-navy sm:text-3xl block leading-none mb-1.5">10,000+</span>
                 <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">Applications</p>
               </div>
             </motion.div>
