@@ -21,11 +21,11 @@ import { DestinationCombobox } from "@/components/forms/destination-combobox";
 import { ArrowRight, CheckCircle2, AlertCircle, MessageCircle, Loader2 } from "lucide-react";
 import { cn } from "@/lib/utils";
 
-const labelClasses = "block text-xs font-semibold text-navy uppercase tracking-wider mb-1.5";
+const labelClasses = "block text-xs font-semibold text-navy uppercase tracking-wider mb-1";
 const fieldClasses =
-  "h-11 w-full rounded-control border border-navy/15 bg-white px-3.5 text-sm font-medium text-navy outline-none transition-all placeholder:text-muted-foreground/60 focus-visible:border-accent focus-visible:ring-2 focus-visible:ring-accent/20 focus-visible:ring-offset-0";
+  "h-10 sm:h-10.5 w-full rounded-control border border-navy/15 bg-white px-3.5 text-xs sm:text-sm font-medium text-navy outline-none transition-all placeholder:text-muted-foreground/60 focus-visible:border-accent focus-visible:ring-2 focus-visible:ring-accent/20 focus-visible:ring-offset-0";
 const textareaClasses =
-  "min-h-[85px] w-full resize-none rounded-control border border-navy/15 bg-white px-3.5 py-2.5 text-sm font-medium text-navy outline-none transition-all placeholder:text-muted-foreground/60 focus-visible:border-accent focus-visible:ring-2 focus-visible:ring-accent/20 focus-visible:ring-offset-0";
+  "h-20 sm:h-24 min-h-[75px] max-h-[120px] w-full resize-none rounded-control border border-navy/15 bg-white px-3.5 py-2.5 text-xs sm:text-sm font-medium text-navy outline-none transition-all placeholder:text-muted-foreground/60 focus-visible:border-accent focus-visible:ring-2 focus-visible:ring-accent/20 focus-visible:ring-offset-0";
 
 const SERVICE_OPTIONS = [
   "Tourist Visa",
@@ -134,54 +134,58 @@ export function ApplyNowModal() {
 
   return (
     <Dialog open={isOpen} onOpenChange={handleOpenChange}>
-      <DialogContent className="max-w-xl p-0 overflow-hidden rounded-[2rem] border border-navy/10 bg-white shadow-2xl max-h-[90vh] flex flex-col">
-        {/* Modal Header */}
-        <div className="bg-muted/30 border-b border-navy/5 px-6 pt-6 pb-5 sm:px-8">
-          <DialogHeader className="space-y-1 text-left">
-            <p className="text-xs font-bold uppercase tracking-widest text-accent">
+      <DialogContent className="max-w-lg lg:max-w-xl w-[94vw] sm:w-full p-0 overflow-hidden rounded-[1.75rem] sm:rounded-[2rem] border border-navy/10 bg-white shadow-2xl max-h-[85vh] flex flex-col">
+        {/* Compact Modal Header */}
+        <div className="bg-muted/25 border-b border-navy/10 px-5 py-3.5 sm:px-6 sm:py-4 shrink-0 pr-12">
+          <DialogHeader className="space-y-0.5 text-left">
+            <p className="text-[10px] sm:text-xs font-bold uppercase tracking-widest text-accent">
               TRAVECO MOBILITY
             </p>
-            <DialogTitle className="text-2xl sm:text-3xl font-bold tracking-tight text-navy">
+            <DialogTitle className="text-xl sm:text-2xl font-bold tracking-tight text-navy">
               Get Free Consultation
             </DialogTitle>
-            <DialogDescription className="text-xs sm:text-sm text-muted-foreground">
-              Share your travel details and our visa & passport experts will guide you through the process with a free consultation.
+            <DialogDescription className="text-xs sm:text-sm text-muted-foreground truncate">
+              Share your details and our team will guide you.
             </DialogDescription>
           </DialogHeader>
         </div>
 
-        {/* Modal Body */}
-        <div className="overflow-y-auto px-6 py-6 sm:px-8 flex-1">
-          {isSuccess ? (
-            <div className="py-8 flex flex-col items-center text-center space-y-4">
-              <div className="flex size-14 items-center justify-center rounded-full bg-accent/15 text-accent">
-                <CheckCircle2 className="size-8" />
-              </div>
-              <h3 className="text-2xl font-bold text-navy">Thank you.</h3>
-              <p className="text-sm sm:text-base text-muted-foreground max-w-md leading-relaxed">
-                Your request has been received. TRAVECO will contact you shortly.
-              </p>
-              <div className="pt-4 flex flex-col sm:flex-row gap-3 w-full sm:w-auto">
-                <button
-                  type="button"
-                  onClick={() => handleOpenChange(false)}
-                  className="inline-flex h-11 items-center justify-center rounded-control bg-accent px-8 text-sm font-bold text-white shadow-sm hover:bg-accent/90 transition-all"
-                >
-                  Done
-                </button>
-                <a
-                  href="https://wa.me/918850201321"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex h-11 items-center justify-center gap-2 rounded-control border border-navy/15 bg-white px-6 text-sm font-semibold text-navy hover:border-accent hover:text-accent shadow-2xs transition-all"
-                >
-                  <MessageCircle className="size-4 text-accent" />
-                  <span>Chat on WhatsApp</span>
-                </a>
-              </div>
+        {/* Modal Content / Form */}
+        {isSuccess ? (
+          <div className="px-6 py-10 sm:py-12 flex flex-col items-center text-center space-y-4 my-auto">
+            <div className="flex size-14 items-center justify-center rounded-full bg-accent/15 text-accent">
+              <CheckCircle2 className="size-8" />
             </div>
-          ) : (
-            <form onSubmit={handleSubmit} className="space-y-4.5">
+            <h3 className="text-2xl font-bold text-navy">Thank you.</h3>
+            <p className="text-sm sm:text-base text-muted-foreground max-w-sm leading-relaxed">
+              Your request has been received. TRAVECO will contact you shortly.
+            </p>
+            <div className="pt-3 flex flex-col sm:flex-row gap-3 w-full sm:w-auto">
+              <button
+                type="button"
+                onClick={() => handleOpenChange(false)}
+                className="inline-flex h-11 items-center justify-center rounded-control bg-accent px-8 text-sm font-bold text-white shadow-sm hover:bg-accent/90 transition-all cursor-pointer"
+              >
+                Done
+              </button>
+              <a
+                href="https://wa.me/918850201321"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex h-11 items-center justify-center gap-2 rounded-control border border-navy/15 bg-white px-6 text-sm font-semibold text-navy hover:border-accent hover:text-accent shadow-2xs transition-all"
+              >
+                <MessageCircle className="size-4 text-accent" />
+                <span>Chat on WhatsApp</span>
+              </a>
+            </div>
+          </div>
+        ) : (
+          <form onSubmit={handleSubmit} className="flex flex-col flex-1 min-h-0 overflow-hidden">
+            {/* Scrollable Form Body */}
+            <div
+              className="overflow-y-auto px-5 py-4 sm:px-6 sm:py-5 flex-1 space-y-3.5 sm:space-y-4"
+              style={{ scrollbarWidth: "thin" }}
+            >
               {/* Hidden Honeypot Field */}
               <input
                 type="text"
@@ -194,7 +198,7 @@ export function ApplyNowModal() {
               />
 
               {/* Row 1: Full Name & Mobile */}
-              <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+              <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 sm:gap-4">
                 <div>
                   <label htmlFor="modal-name" className={labelClasses}>
                     Full Name <span className="text-accent">*</span>
@@ -226,7 +230,7 @@ export function ApplyNowModal() {
               </div>
 
               {/* Row 2: Email & Service Type */}
-              <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+              <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 sm:gap-4">
                 <div>
                   <label htmlFor="modal-email" className={labelClasses}>
                     Email Address <span className="text-accent">*</span>
@@ -256,12 +260,12 @@ export function ApplyNowModal() {
                     >
                       <SelectValue placeholder="Select service type" />
                     </SelectTrigger>
-                    <SelectContent className="rounded-control border-navy/10 bg-white font-medium text-navy shadow-lg z-60">
+                    <SelectContent className="rounded-control border-navy/10 bg-white font-medium text-navy shadow-lg z-70">
                       {SERVICE_OPTIONS.map((opt) => (
                         <SelectItem
                           key={opt}
                           value={opt}
-                          className="cursor-pointer rounded-sm py-2.5 text-navy hover:bg-muted focus:bg-muted"
+                          className="cursor-pointer rounded-sm py-2 text-navy hover:bg-muted focus:bg-muted text-xs sm:text-sm"
                         >
                           {opt}
                         </SelectItem>
@@ -272,7 +276,7 @@ export function ApplyNowModal() {
               </div>
 
               {/* Row 3: Destination Country & Expected Travel Date */}
-              <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+              <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 sm:gap-4">
                 <div>
                   <label htmlFor="modal-dest" className={labelClasses}>
                     Destination Country
@@ -283,7 +287,7 @@ export function ApplyNowModal() {
                     value={destinationCountry}
                     onChange={setDestinationCountry}
                     placeholder="Search or select country"
-                    className="h-11 text-sm"
+                    className="h-10 sm:h-10.5 text-xs sm:text-sm"
                   />
                 </div>
                 <div>
@@ -301,7 +305,7 @@ export function ApplyNowModal() {
               </div>
 
               {/* Row 4: Nationality & Current Location */}
-              <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+              <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 sm:gap-4">
                 <div>
                   <label htmlFor="modal-nationality" className={labelClasses}>
                     Nationality
@@ -339,7 +343,7 @@ export function ApplyNowModal() {
                   id="modal-message"
                   value={message}
                   onChange={(e) => setMessage(e.target.value)}
-                  placeholder="Brief details regarding your visa or passport assistance requirements..."
+                  placeholder="Brief details regarding your visa or passport requirements..."
                   className={textareaClasses}
                 />
               </div>
@@ -361,40 +365,40 @@ export function ApplyNowModal() {
                   </div>
                 </div>
               )}
+            </div>
 
-              {/* Submit Button & WhatsApp Link */}
-              <div className="pt-2 flex flex-col sm:flex-row gap-3 items-stretch sm:items-center">
-                <button
-                  type="submit"
-                  disabled={isSubmitting}
-                  className="inline-flex h-11 items-center justify-center gap-2 rounded-control bg-accent px-7 text-sm font-bold text-white shadow-sm transition-all hover:bg-accent/90 disabled:opacity-60 flex-1 sm:flex-initial"
-                >
-                  {isSubmitting ? (
-                    <>
-                      <Loader2 className="size-4 animate-spin" />
-                      <span>Submitting...</span>
-                    </>
-                  ) : (
-                    <>
-                      <span>Get Free Consultation</span>
-                      <ArrowRight className="size-4" />
-                    </>
-                  )}
-                </button>
+            {/* Sticky Footer Action Bar */}
+            <div className="sticky bottom-0 bg-white border-t border-navy/10 px-5 py-3.5 sm:px-6 sm:py-4 z-20 shrink-0 flex flex-col sm:flex-row gap-2.5 sm:gap-3 items-stretch sm:items-center justify-between shadow-[0_-4px_12px_rgba(0,0,0,0.03)]">
+              <button
+                type="submit"
+                disabled={isSubmitting}
+                className="inline-flex h-11 items-center justify-center gap-2 rounded-control bg-accent px-7 text-sm font-bold text-white shadow-sm transition-all hover:bg-accent/90 disabled:opacity-60 flex-1 sm:flex-initial cursor-pointer"
+              >
+                {isSubmitting ? (
+                  <>
+                    <Loader2 className="size-4 animate-spin" />
+                    <span>Submitting...</span>
+                  </>
+                ) : (
+                  <>
+                    <span>Submit Enquiry</span>
+                    <ArrowRight className="size-4" />
+                  </>
+                )}
+              </button>
 
-                <a
-                  href="https://wa.me/918850201321"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex h-11 items-center justify-center gap-2 rounded-control border border-navy/15 bg-white px-5 text-xs sm:text-sm font-semibold text-navy hover:border-accent hover:text-accent shadow-2xs transition-all whitespace-nowrap"
-                >
-                  <MessageCircle className="size-4 text-accent" />
-                  <span>Chat on WhatsApp</span>
-                </a>
-              </div>
-            </form>
-          )}
-        </div>
+              <a
+                href="https://wa.me/918850201321"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex h-11 items-center justify-center gap-2 rounded-control border border-navy/15 bg-white px-5 text-xs sm:text-sm font-semibold text-navy hover:border-accent hover:text-accent shadow-2xs transition-all whitespace-nowrap justify-center"
+              >
+                <MessageCircle className="size-4 text-accent" />
+                <span>Chat on WhatsApp</span>
+              </a>
+            </div>
+          </form>
+        )}
       </DialogContent>
     </Dialog>
   );
