@@ -121,7 +121,7 @@ export function DestinationCombobox({
         disabled={disabled}
         onClick={() => setOpen((prev) => !prev)}
         className={cn(
-          "flex h-12 w-full items-center justify-between rounded-control border border-navy/15 bg-white px-3.5 text-left text-base font-medium text-navy transition-all focus:outline-none focus-visible:border-accent focus-visible:ring-2 focus-visible:ring-accent/20",
+          "flex h-11 sm:h-12 w-full items-center justify-between rounded-control border border-navy/15 bg-white px-3.5 text-left text-sm sm:text-base font-medium text-navy transition-all focus:outline-none focus-visible:border-accent focus-visible:ring-2 focus-visible:ring-accent/20",
           open && "border-accent ring-2 ring-accent/20",
           disabled && "cursor-not-allowed opacity-50",
           className
@@ -150,18 +150,18 @@ export function DestinationCombobox({
               <span className="truncate text-navy font-semibold">{value}</span>
             </>
           ) : (
-            <span className="text-muted-foreground/70 font-normal">{placeholder}</span>
+            <span className="text-slate-500 font-normal truncate">{placeholder}</span>
           )}
         </div>
 
-        <div className="flex items-center gap-1 shrink-0 ml-2">
+        <div className="flex items-center gap-1.5 shrink-0 ml-2">
           {value && (
             <span
               role="button"
               tabIndex={0}
               onClick={handleClear}
               onKeyDown={(e) => e.key === "Enter" && handleClear(e as unknown as React.MouseEvent)}
-              className="rounded-full p-0.5 text-muted-foreground hover:bg-muted hover:text-navy transition-colors"
+              className="rounded-full p-0.5 text-slate-500 hover:bg-slate-100 hover:text-navy transition-colors"
               title="Clear selection"
             >
               <X className="size-3.5" />
@@ -169,7 +169,7 @@ export function DestinationCombobox({
           )}
           <ChevronDown
             className={cn(
-              "size-4 text-navy/50 transition-transform duration-200",
+              "size-4 text-slate-500 opacity-90 transition-transform duration-200",
               open && "rotate-180 text-accent"
             )}
           />
@@ -178,23 +178,23 @@ export function DestinationCombobox({
 
       {/* Searchable Dropdown Popup */}
       {open && (
-        <div className="absolute left-0 right-0 top-[calc(100%+6px)] z-70 rounded-xl border border-navy/15 bg-white shadow-xl overflow-hidden animate-in fade-in-0 zoom-in-95 duration-150">
+        <div className="absolute left-0 right-0 top-[calc(100%+6px)] z-[100] rounded-xl border border-navy/15 bg-white shadow-xl overflow-hidden animate-in fade-in-0 zoom-in-95 duration-150">
           {/* Search Header */}
-          <div className="flex items-center border-b border-navy/10 px-3.5 py-2.5 bg-muted/20">
-            <Search className="size-4 text-muted-foreground shrink-0 mr-2" />
+          <div className="flex items-center border-b border-navy/10 px-3.5 py-2.5 bg-slate-50/70">
+            <Search className="size-4 text-slate-500 shrink-0 mr-2" />
             <input
               ref={searchInputRef}
               type="text"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               placeholder="Search country or territory..."
-              className="w-full bg-transparent text-sm font-medium text-navy placeholder:text-muted-foreground outline-none"
+              className="w-full bg-transparent text-sm font-medium text-navy placeholder:text-slate-500 outline-none"
             />
             {searchQuery && (
               <button
                 type="button"
                 onClick={() => setSearchQuery("")}
-                className="text-xs text-muted-foreground hover:text-navy"
+                className="text-xs text-slate-500 hover:text-navy font-medium"
               >
                 Clear
               </button>
@@ -207,7 +207,7 @@ export function DestinationCombobox({
             style={{ scrollbarWidth: "thin" }}
           >
             {filteredDestinations.length === 0 && searchQuery.trim() !== "" ? (
-              <div className="py-6 text-center text-xs text-muted-foreground">
+              <div className="py-6 text-center text-xs text-slate-500">
                 <p>No destination matching &ldquo;{searchQuery}&rdquo;</p>
                 <button
                   type="button"
@@ -227,7 +227,7 @@ export function DestinationCombobox({
                       type="button"
                       onClick={() => handleSelect(dest.name)}
                       className={cn(
-                        "flex w-full items-center justify-between rounded-lg px-3 py-2 text-left text-xs sm:text-sm font-medium transition-colors hover:bg-muted/80 focus:bg-muted focus:outline-none",
+                        "flex w-full items-center justify-between rounded-lg px-3 py-2.5 text-left text-xs sm:text-sm font-medium transition-colors hover:bg-slate-100 hover:text-navy focus:bg-slate-100 focus:text-navy focus:outline-none",
                         isSelected ? "bg-accent/10 text-accent font-semibold" : "text-navy"
                       )}
                     >
@@ -248,7 +248,7 @@ export function DestinationCombobox({
                         <span className="truncate">{dest.name}</span>
                       </div>
 
-                      {isSelected && <Check className="size-4 text-accent shrink-0 ml-2" />}
+                      {isSelected && <Check className="size-4 text-accent shrink-0 ml-2 stroke-[2.5]" />}
                     </button>
                   );
                 })}
@@ -258,7 +258,7 @@ export function DestinationCombobox({
                   type="button"
                   onClick={() => handleSelect("Other")}
                   className={cn(
-                    "flex w-full items-center justify-between rounded-lg px-3 py-2 text-left text-xs sm:text-sm font-medium transition-colors hover:bg-muted/80 focus:bg-muted focus:outline-none border-t border-navy/5 mt-1",
+                    "flex w-full items-center justify-between rounded-lg px-3 py-2.5 text-left text-xs sm:text-sm font-medium transition-colors hover:bg-slate-100 hover:text-navy focus:bg-slate-100 focus:text-navy focus:outline-none border-t border-navy/5 mt-1",
                     value === "Other" ? "bg-accent/10 text-accent font-semibold" : "text-navy"
                   )}
                 >
@@ -266,7 +266,7 @@ export function DestinationCombobox({
                     <div className="w-[20px] h-[14px] bg-slate-100 border border-black/5 rounded-[2px] shrink-0" />
                     <span>Other Country</span>
                   </div>
-                  {value === "Other" && <Check className="size-4 text-accent shrink-0 ml-2" />}
+                  {value === "Other" && <Check className="size-4 text-accent shrink-0 ml-2 stroke-[2.5]" />}
                 </button>
               </>
             )}

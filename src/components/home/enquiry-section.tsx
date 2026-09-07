@@ -18,12 +18,12 @@ import {
 import { DestinationCombobox } from "@/components/forms/destination-combobox";
 
 const fieldClasses =
-  "h-12 w-full rounded-control border border-navy/15 bg-white px-4 font-medium text-base text-navy outline-none transition-all placeholder:text-muted-foreground/60 focus-visible:border-accent focus-visible:ring-2 focus-visible:ring-accent/20 focus-visible:ring-offset-0 [&::-webkit-calendar-picker-indicator]:opacity-40 [&::-webkit-calendar-picker-indicator]:hover:opacity-80 [&::-webkit-calendar-picker-indicator]:cursor-pointer";
+  "h-12 w-full rounded-control border border-navy/15 bg-white px-4 font-medium text-base text-navy outline-none transition-all placeholder:text-slate-500 focus-visible:border-accent focus-visible:ring-2 focus-visible:ring-accent/20 focus-visible:ring-offset-0 [&::-webkit-calendar-picker-indicator]:opacity-40 [&::-webkit-calendar-picker-indicator]:hover:opacity-80 [&::-webkit-calendar-picker-indicator]:cursor-pointer";
 
 const textareaClasses =
-  "min-h-[100px] w-full resize-none rounded-control border border-navy/15 bg-white px-4 py-3.5 font-medium text-base text-navy outline-none transition-all placeholder:text-muted-foreground/60 focus-visible:border-accent focus-visible:ring-2 focus-visible:ring-accent/20 focus-visible:ring-offset-0";
+  "min-h-[100px] w-full resize-none rounded-control border border-navy/15 bg-white px-4 py-3.5 font-medium text-base text-navy outline-none transition-all placeholder:text-slate-500 focus-visible:border-accent focus-visible:ring-2 focus-visible:ring-accent/20 focus-visible:ring-offset-0";
 
-const labelClasses = "mb-1.5 block text-sm font-semibold text-navy";
+const labelClasses = "mb-1.5 block text-xs sm:text-sm font-semibold text-navy uppercase tracking-wider";
 
 export function EnquirySection() {
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -277,23 +277,23 @@ export function EnquirySection() {
               <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
                 <div>
                   <label htmlFor="serviceType" className={labelClasses}>
-                    Service Type
+                    Service Type <span className="text-accent ml-0.5">*</span>
                   </label>
-                  <Select name="serviceType">
+                  <Select name="serviceType" defaultValue="Tourist Visa">
                     <SelectTrigger
                       id="serviceType"
                       className={cn(fieldClasses, "shadow-none data-[state=open]:border-accent data-[state=open]:ring-2 data-[state=open]:ring-accent/20")}
                     >
-                      <SelectValue placeholder="Select a service" />
+                      <SelectValue placeholder="Select service type" />
                     </SelectTrigger>
-                    <SelectContent className="rounded-control border-navy/10 bg-white font-medium text-navy shadow-lg">
-                      <SelectItem value="Tourist Visa" className="cursor-pointer rounded-sm py-2.5 hover:bg-muted hover:text-navy focus:bg-muted focus:text-navy">Tourist Visa</SelectItem>
-                      <SelectItem value="Business Visa" className="cursor-pointer rounded-sm py-2.5 hover:bg-muted hover:text-navy focus:bg-muted focus:text-navy">Business Visa</SelectItem>
-                      <SelectItem value="Student Visa" className="cursor-pointer rounded-sm py-2.5 hover:bg-muted hover:text-navy focus:bg-muted focus:text-navy">Student Visa</SelectItem>
-                      <SelectItem value="Transit Visa" className="cursor-pointer rounded-sm py-2.5 hover:bg-muted hover:text-navy focus:bg-muted focus:text-navy">Transit Visa</SelectItem>
-                      <SelectItem value="Schengen Visa" className="cursor-pointer rounded-sm py-2.5 hover:bg-muted hover:text-navy focus:bg-muted focus:text-navy">Schengen Visa</SelectItem>
-                      <SelectItem value="Passport Services" className="cursor-pointer rounded-sm py-2.5 hover:bg-muted hover:text-navy focus:bg-muted focus:text-navy">Passport Services</SelectItem>
-                      <SelectItem value="Other" className="cursor-pointer rounded-sm py-2.5 hover:bg-muted hover:text-navy focus:bg-muted focus:text-navy">Other</SelectItem>
+                    <SelectContent>
+                      <SelectItem value="Tourist Visa">Tourist Visa</SelectItem>
+                      <SelectItem value="Business Visa">Business Visa</SelectItem>
+                      <SelectItem value="Student Visa">Student Visa</SelectItem>
+                      <SelectItem value="Transit Visa">Transit Visa</SelectItem>
+                      <SelectItem value="Schengen Visa">Schengen Visa</SelectItem>
+                      <SelectItem value="Passport Services">Passport Services</SelectItem>
+                      <SelectItem value="Other">Other</SelectItem>
                     </SelectContent>
                   </Select>
                 </div>

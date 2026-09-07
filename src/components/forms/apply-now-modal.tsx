@@ -138,15 +138,9 @@ export function ApplyNowModal() {
         {/* Compact Modal Header */}
         <div className="bg-muted/25 border-b border-navy/10 px-5 py-3.5 sm:px-6 sm:py-4 shrink-0 pr-12">
           <DialogHeader className="space-y-0.5 text-left">
-            <p className="text-[10px] sm:text-xs font-bold uppercase tracking-widest text-accent">
-              TRAVECO MOBILITY
-            </p>
             <DialogTitle className="text-xl sm:text-2xl font-bold tracking-tight text-navy">
               Get Free Consultation
             </DialogTitle>
-            <DialogDescription className="text-xs sm:text-sm text-muted-foreground truncate">
-              Share your details and our team will guide you.
-            </DialogDescription>
           </DialogHeader>
         </div>
 
@@ -260,13 +254,9 @@ export function ApplyNowModal() {
                     >
                       <SelectValue placeholder="Select service type" />
                     </SelectTrigger>
-                    <SelectContent className="rounded-control border-navy/10 bg-white font-medium text-navy shadow-lg z-70">
+                    <SelectContent>
                       {SERVICE_OPTIONS.map((opt) => (
-                        <SelectItem
-                          key={opt}
-                          value={opt}
-                          className="cursor-pointer rounded-sm py-2 text-navy hover:bg-muted focus:bg-muted text-xs sm:text-sm"
-                        >
+                        <SelectItem key={opt} value={opt}>
                           {opt}
                         </SelectItem>
                       ))}

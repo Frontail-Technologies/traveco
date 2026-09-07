@@ -16,9 +16,9 @@ import { cn } from "@/lib/utils";
 
 const labelClasses = "block text-xs font-semibold text-navy uppercase tracking-wider mb-1.5";
 const fieldClasses =
-  "h-12 w-full rounded-control border border-navy/15 bg-white px-4 font-medium text-base text-navy outline-none transition-all placeholder:text-muted-foreground/60 focus-visible:border-accent focus-visible:ring-2 focus-visible:ring-accent/20 focus-visible:ring-offset-0 [&::-webkit-calendar-picker-indicator]:opacity-40 [&::-webkit-calendar-picker-indicator]:hover:opacity-80 [&::-webkit-calendar-picker-indicator]:cursor-pointer";
+  "h-12 w-full rounded-control border border-navy/15 bg-white px-4 font-medium text-base text-navy outline-none transition-all placeholder:text-slate-500 focus-visible:border-accent focus-visible:ring-2 focus-visible:ring-accent/20 focus-visible:ring-offset-0 [&::-webkit-calendar-picker-indicator]:opacity-40 [&::-webkit-calendar-picker-indicator]:hover:opacity-80 [&::-webkit-calendar-picker-indicator]:cursor-pointer";
 const textareaClasses =
-  "min-h-[100px] w-full resize-none rounded-control border border-navy/15 bg-white px-4 py-3.5 font-medium text-base text-navy outline-none transition-all placeholder:text-muted-foreground/60 focus-visible:border-accent focus-visible:ring-2 focus-visible:ring-accent/20 focus-visible:ring-offset-0";
+  "min-h-[100px] w-full resize-none rounded-control border border-navy/15 bg-white px-4 py-3.5 font-medium text-base text-navy outline-none transition-all placeholder:text-slate-500 focus-visible:border-accent focus-visible:ring-2 focus-visible:ring-accent/20 focus-visible:ring-offset-0";
 
 const SERVICE_OPTIONS = [
   "Tourist Visa",
@@ -193,12 +193,11 @@ export function ContactPageContent() {
                     >
                       <SelectValue placeholder="Select service type" />
                     </SelectTrigger>
-                    <SelectContent className="rounded-control border-navy/10 bg-white font-medium text-navy shadow-lg">
+                    <SelectContent>
                       {SERVICE_OPTIONS.map((opt) => (
                         <SelectItem
                           key={opt}
                           value={opt}
-                          className="cursor-pointer rounded-sm py-2.5 text-navy hover:bg-muted focus:bg-muted"
                         >
                           {opt}
                         </SelectItem>
