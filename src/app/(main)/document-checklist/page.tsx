@@ -151,7 +151,7 @@ export default function DocumentChecklistPage() {
   return (
     <div className="bg-white pt-22 min-h-screen">
       {/* ── HEADER / INTRO ────────────────────────────────────────── */}
-      <section className="bg-white py-12 md:py-16 border-b border-navy/5">
+      <section className="w-full bg-navy/[0.035] py-12 md:py-16 border-b border-navy/10">
         <div className="mx-auto max-w-340 px-5 sm:px-6 lg:px-8">
           <div className="max-w-3xl">
             <p className="text-accent text-sm sm:text-base font-bold uppercase tracking-widest mb-3">

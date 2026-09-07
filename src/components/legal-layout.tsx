@@ -45,18 +45,19 @@ export function LegalLayout({
 
   return (
     <div className="bg-background pt-22 min-h-screen">
-      <div className="mx-auto w-full max-w-340 px-5 sm:px-6 lg:px-8 py-16 md:py-24">
-        
-        {/* HEADER */}
-        <div className="mb-12 md:mb-16 border-b border-(--traveco-primary)/10 pb-10">
-          <h1 className="text-[36px] md:text-[44px] font-medium text-navy leading-[1.1] tracking-tight mb-4">
+      {/* FULL VIEWPORT LIGHT PRIMARY HEADER */}
+      <div className="w-full bg-navy/[0.035] border-b border-navy/10 py-12 md:py-16">
+        <div className="mx-auto w-full max-w-340 px-5 sm:px-6 lg:px-8">
+          <h1 className="text-[36px] md:text-[44px] font-bold text-navy leading-[1.1] tracking-tight mb-3">
             {title}
           </h1>
           <p className="text-sm font-medium text-muted-foreground">
             Last Updated: {lastUpdated}
           </p>
         </div>
+      </div>
 
+      <div className="mx-auto w-full max-w-340 px-5 sm:px-6 lg:px-8 py-12 md:py-16">
         <div className="flex flex-col lg:flex-row gap-12 lg:gap-16 relative">
           
           {/* SIDEBAR NAVIGATION */}

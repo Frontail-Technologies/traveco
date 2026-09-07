@@ -17,7 +17,7 @@ export default function AboutPage() {
     <div className="bg-white pt-22">
 
       {/* 1. ABOUT PAGE HERO */}
-      <section className="bg-white py-16 md:py-20 lg:py-24">
+      <section className="w-full bg-navy/[0.035] py-16 md:py-20 lg:py-24 border-b border-navy/10">
         <div className="mx-auto max-w-340 px-5 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             {/* TEXT SIDE */}
