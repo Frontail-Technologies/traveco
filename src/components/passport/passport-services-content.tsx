@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, Check, AlertCircle, MessageCircle, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { PreFooterCTA } from "@/components/pre-footer-cta";
 import { useApplyModal } from "@/context/apply-modal-context";
 
 interface PassportServiceCard {
@@ -279,47 +280,8 @@ export function PassportServicesContent() {
         </div>
       </section>
 
-      {/* ── 5. DEDICATED PASSPORT CTA SECTION ──────────────────────── */}
-      <section className="relative overflow-hidden bg-navy py-16 md:py-20 lg:py-24 text-white">
-        <div className="mx-auto max-w-340 px-5 sm:px-6 lg:px-8 relative z-10">
-          <div className="max-w-3xl mx-auto text-center flex flex-col items-center">
-            <p className="text-accent-secondary text-xs sm:text-sm font-bold uppercase tracking-widest mb-3">
-              GET STARTED
-            </p>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white tracking-tight leading-[1.1] mb-4">
-              Need help with passport documentation?
-            </h2>
-            <p className="text-white/80 text-base sm:text-lg leading-relaxed max-w-xl mb-8">
-              Get in touch with TRAVECO Mobility for document review, form guidance, and next-step preparation.
-            </p>
-
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 w-full sm:w-auto">
-              <Button
-                type="button"
-                onClick={handleOpenModal}
-                variant="secondary"
-                size="lg"
-                className="h-12 w-full sm:w-auto px-8 text-sm font-bold shadow-md cursor-pointer"
-              >
-                <span className="inline-flex items-center justify-center gap-2">
-                  <span>Get Passport Assistance</span>
-                  <ArrowRight className="size-4" />
-                </span>
-              </Button>
-
-              <a
-                href="https://wa.me/918850201321"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex h-12 w-full sm:w-auto items-center justify-center gap-2 rounded-control border border-white/20 bg-white/10 backdrop-blur-xs px-7 text-sm font-semibold text-white whitespace-nowrap shrink-0 transition-all hover:bg-white hover:text-navy shadow-sm"
-              >
-                <MessageCircle className="size-4 text-accent-secondary" />
-                <span className="whitespace-nowrap">Chat on WhatsApp</span>
-              </a>
-            </div>
-          </div>
-        </div>
-      </section>
+      {/* ── 5. SHARED PRE-FOOTER CTA (MATCHING HOMEPAGE) ─────────── */}
+      <PreFooterCTA />
     </div>
   );
 }
