@@ -1,9 +1,12 @@
+"use client";
+
 import * as React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, Check, AlertCircle, MessageCircle, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { PreFooterCTA } from "@/components/pre-footer-cta";
+import { useApplyModal } from "@/context/apply-modal-context";
 
 export interface ServiceLayoutProps {
   eyebrow: string;
@@ -66,6 +69,14 @@ export function ServiceLayout({
   ctaTitle,
   ctaDescription,
 }: ServiceLayoutProps) {
+  const { openApplyModal } = useApplyModal();
+
+  const handleOpenModal = () => {
+    openApplyModal({
+      serviceType: eyebrow || undefined,
+    });
+  };
+
   return (
     <div className="bg-white pt-22">
       {/* 1. SERVICE HERO */}
@@ -86,11 +97,17 @@ export function ServiceLayout({
 
               {/* Action Buttons */}
               <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 w-full sm:w-auto">
-                <Button asChild variant="secondary" size="lg" className="h-12 px-8 text-sm font-bold shadow-sm">
-                  <Link href="/#contact" className="inline-flex items-center justify-center gap-2">
+                <Button
+                  type="button"
+                  onClick={handleOpenModal}
+                  variant="secondary"
+                  size="lg"
+                  className="h-12 px-8 text-sm font-bold shadow-sm cursor-pointer"
+                >
+                  <span className="inline-flex items-center justify-center gap-2">
                     <span>{ctaButtonText || "Get Visa Assistance"}</span>
                     <ArrowRight className="size-4" />
-                  </Link>
+                  </span>
                 </Button>
                 <a
                   href="https://wa.me/918850201321"

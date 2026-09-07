@@ -6,6 +6,7 @@ import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 
 import { fadeUp, staggerContainer } from "@/lib/motion-variants";
+import { useApplyModal } from "@/context/apply-modal-context";
 
 const steps = [
   {
@@ -46,57 +47,49 @@ const steps = [
 ];
 
 export function ProcessSection() {
+  const { openApplyModal } = useApplyModal();
+
   return (
-    <section id="process" className="relative overflow-hidden bg-white py-20 md:py-24 lg:py-28">
-      <div className="relative z-10 mx-auto w-full max-w-340 px-5 sm:px-6 lg:px-8">
+    <section className="bg-white py-20 md:py-24 lg:py-28 relative overflow-hidden">
+      <div className="mx-auto w-full max-w-340 px-5 sm:px-6 lg:px-8">
         <motion.div
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-10%" }}
           variants={staggerContainer}
-          className="flex flex-col gap-12 lg:gap-16"
+          className="flex flex-col gap-10 lg:gap-12"
         >
-          {/* Section Header */}
-          <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
-            <div className="max-w-2xl">
-              <motion.p
-                variants={fadeUp}
-                className="text-accent text-sm sm:text-base font-bold uppercase tracking-widest"
-              >
-                How It Works
-              </motion.p>
-              <motion.h2
-                variants={fadeUp}
-                className="mt-4 text-4xl font-bold leading-[1.05] tracking-tight text-navy md:text-5xl"
-              >
-                Your visa journey, <br className="hidden sm:block" /> simplified.
-              </motion.h2>
-            </div>
-
+          {/* Header */}
+          <div className="max-w-2xl">
             <motion.p
               variants={fadeUp}
-              className="max-w-xs text-sm leading-relaxed text-muted-foreground md:text-right"
+              className="text-accent text-sm sm:text-base font-bold uppercase tracking-widest"
             >
-              A clear, milestone-based path from first contact to your final visa decision.
+              How It Works
             </motion.p>
+            <motion.h2
+              variants={fadeUp}
+              className="mt-3 text-3xl font-bold leading-[1.08] tracking-tight text-navy sm:text-4xl lg:text-5xl"
+            >
+              Simple process, clear guidance.
+            </motion.h2>
           </div>
 
-          {/* 6-Card (3x2 Grid) */}
-          <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3 lg:gap-8">
+          {/* Process Grid (3 Columns x 2 Rows) */}
+          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 lg:gap-8">
             {steps.map((step, index) => {
               return (
                 <motion.div
                   key={step.id}
                   variants={fadeUp}
-                  className="group relative flex flex-col overflow-hidden rounded-[2rem] border border-navy/5 bg-white shadow-[0_2px_10px_-4px_rgba(0,0,0,0.05)] transition-shadow duration-300 hover:shadow-lg"
+                  className="group flex flex-col overflow-hidden rounded-[2rem] border border-navy/10 bg-white shadow-xs transition-all duration-300 hover:shadow-md"
                 >
                   {/* Image Container */}
-                  <div className="relative aspect-[4/3] w-full shrink-0 overflow-hidden bg-navy/5">
+                  <div className="relative aspect-16/10 w-full shrink-0 overflow-hidden bg-navy/5 sm:aspect-16/9">
                     <Image
                       src={step.image}
-                      alt={step.alt}
+                      alt={step.title}
                       fill
-                      priority={index < 3}
                       sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                       className="object-cover transition-transform duration-700 group-hover:scale-105"
                     />
@@ -157,12 +150,13 @@ export function ProcessSection() {
                 <p className="mb-8 text-base leading-relaxed text-white/90">
                   Connect with our experts today and ensure your visa application is perfectly prepared.
                 </p>
-                <Link
-                  href="/#contact"
-                  className="inline-flex h-12 items-center justify-center rounded-full bg-white px-8 text-sm font-bold uppercase tracking-wider text-navy shadow-sm transition-all hover:scale-105 hover:bg-white/95"
+                <button
+                  type="button"
+                  onClick={() => openApplyModal()}
+                  className="inline-flex h-12 items-center justify-center rounded-full bg-white px-8 text-sm font-bold uppercase tracking-wider text-navy shadow-sm transition-all hover:scale-105 hover:bg-white/95 cursor-pointer"
                 >
-                  Contact Us
-                </Link>
+                  Get Started
+                </button>
               </div>
             </motion.div>
           </div>

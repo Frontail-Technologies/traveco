@@ -4,6 +4,7 @@ import { Metadata } from "next";
 import { ArrowUpRight } from "lucide-react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
+import { OpenApplyButton } from "@/components/ui/open-apply-button";
 import { PreFooterCTA } from "@/components/pre-footer-cta";
 
 export const metadata: Metadata = {
@@ -51,9 +52,9 @@ export default function AboutPage() {
 
               {/* CTA */}
               <div className="flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto">
-                <Button asChild variant="secondary" size="lg" className="w-full sm:w-auto text-sm font-bold shadow-sm">
-                  <Link href="/#contact">Get Visa Assistance</Link>
-                </Button>
+                <OpenApplyButton variant="secondary" size="lg" className="w-full sm:w-auto text-sm font-bold shadow-sm cursor-pointer">
+                  Get Visa Assistance
+                </OpenApplyButton>
                 <Button asChild variant="outline" size="lg" className="w-full sm:w-auto text-sm font-semibold border-navy/15 text-navy hover:border-accent hover:text-accent">
                   <Link href="/visa-services">View Visa Services</Link>
                 </Button>

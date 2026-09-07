@@ -4,6 +4,7 @@ import * as React from "react";
 import Link from "next/link";
 import { Check, ArrowRight, MessageCircle, AlertCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { useApplyModal } from "@/context/apply-modal-context";
 import { cn } from "@/lib/utils";
 
 const SECTIONS = [
@@ -127,6 +128,7 @@ const SECTIONS = [
 ];
 
 export default function DocumentChecklistPage() {
+  const { openApplyModal } = useApplyModal();
   const [activeSection, setActiveSection] = React.useState(SECTIONS[0].id);
 
   React.useEffect(() => {
@@ -278,11 +280,16 @@ export default function DocumentChecklistPage() {
               </div>
 
               <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 w-full sm:w-auto shrink-0">
-                <Button asChild variant="secondary" className="h-11 px-6 text-sm font-bold shadow-sm">
-                  <Link href="/#contact" className="inline-flex items-center justify-center gap-2">
+                <Button
+                  type="button"
+                  onClick={() => openApplyModal()}
+                  variant="secondary"
+                  className="h-11 px-6 text-sm font-bold shadow-sm cursor-pointer"
+                >
+                  <span className="inline-flex items-center justify-center gap-2">
                     <span>Get Visa Assistance</span>
                     <ArrowRight className="size-4" />
-                  </Link>
+                  </span>
                 </Button>
                 <a
                   href="https://wa.me/918850201321"

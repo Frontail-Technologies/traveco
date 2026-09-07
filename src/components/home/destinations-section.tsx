@@ -6,6 +6,7 @@ import { motion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
 
 import { fadeUp, staggerContainer } from "@/lib/motion-variants";
+import { useApplyModal } from "@/context/apply-modal-context";
 import { cn } from "@/lib/utils";
 
 const destinations = [
@@ -54,6 +55,8 @@ const destinations = [
 ];
 
 export function DestinationsSection() {
+  const { openApplyModal } = useApplyModal();
+
   return (
     <section className="relative overflow-hidden bg-white py-20 md:py-24 lg:py-28">
       <div className="mx-auto w-full max-w-340 px-5 sm:px-6 lg:px-8">
@@ -99,15 +102,24 @@ export function DestinationsSection() {
                 key={dest.id}
                 variants={fadeUp}
                 className={cn(
-                  "group relative block overflow-hidden rounded-[2rem] bg-navy/5 shadow-sm transition-all duration-500 hover:shadow-lg",
+                  "group relative block overflow-hidden rounded-[2rem] bg-navy/5 shadow-sm transition-all duration-500 hover:shadow-lg cursor-pointer",
                   dest.className
                 )}
               >
-                <Link
-                  href={dest.href}
-                  className="absolute inset-0 z-30 block focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 rounded-[2rem]"
-                  aria-label={`Explore ${dest.name}`}
-                />
+                {dest.href.startsWith("/visa-services") ? (
+                  <Link
+                    href={dest.href}
+                    className="absolute inset-0 z-30 block focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 rounded-[2rem]"
+                    aria-label={`Explore ${dest.name}`}
+                  />
+                ) : (
+                  <button
+                    type="button"
+                    onClick={() => openApplyModal({ destination: dest.name })}
+                    className="absolute inset-0 z-30 block w-full h-full text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 rounded-[2rem] cursor-pointer"
+                    aria-label={`Apply for ${dest.name} visa`}
+                  />
+                )}
 
                 <Image
                   src={dest.image}
@@ -118,10 +130,10 @@ export function DestinationsSection() {
                 />
 
                 {/* Subtle Red Accent Gradient Overlay on Image */}
-                <div className="absolute inset-0 z-10 bg-gradient-to-t from-accent/55 via-accent/15 to-transparent transition-opacity duration-500" />
+                <div className="absolute inset-0 z-10 bg-gradient-to-t from-accent/55 via-accent/15 to-transparent transition-opacity duration-500 pointer-events-none" />
 
                 {/* Text Only: Destination Name */}
-                <div className="absolute inset-x-0 bottom-0 z-20 p-6 sm:p-7">
+                <div className="absolute inset-x-0 bottom-0 z-20 p-6 sm:p-7 pointer-events-none">
                   <h3 className="text-2xl font-bold text-white drop-shadow-sm tracking-tight sm:text-3xl">
                     {dest.name}
                   </h3>

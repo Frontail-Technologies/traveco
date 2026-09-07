@@ -7,6 +7,7 @@ import { motion, AnimatePresence } from "framer-motion";
 
 import { fadeUp, staggerContainer } from "@/lib/motion-variants";
 import { Button } from "@/components/ui/button";
+import { useApplyModal } from "@/context/apply-modal-context";
 
 const backgroundImages = [
   "/images/hero/hero_city_skyline.jpg",
@@ -23,6 +24,8 @@ export function HeroSection() {
     }, 5000);
     return () => clearInterval(interval);
   }, []);
+
+  const { openApplyModal } = useApplyModal();
 
   return (
     <section
@@ -88,10 +91,13 @@ export function HeroSection() {
           variants={fadeUp}
           className="mt-10 flex flex-col gap-4 sm:flex-row sm:items-center justify-start"
         >
-          <Button asChild variant="secondary" className="h-12 w-full sm:w-auto rounded-control px-8 text-[15px] font-bold shadow-sm">
-            <Link href="/#contact">
-              Get Visa Assistance
-            </Link>
+          <Button
+            type="button"
+            onClick={() => openApplyModal()}
+            variant="secondary"
+            className="h-12 w-full sm:w-auto rounded-control px-8 text-[15px] font-bold shadow-sm cursor-pointer"
+          >
+            Get Visa Assistance
           </Button>
           <Button
             asChild

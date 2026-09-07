@@ -119,7 +119,7 @@ export function ApplyModal({ children }: ApplyModalProps) {
             />
           </div>
           <Button type="submit" disabled={isSubmitting} className="mt-2 w-full disabled:cursor-not-allowed disabled:opacity-50">
-            {isSubmitting ? "Submitting..." : "Submit Query"}
+            {isSubmitting ? "Submitting..." : "Submit"}
           </Button>
         </form>
       </DialogContent>

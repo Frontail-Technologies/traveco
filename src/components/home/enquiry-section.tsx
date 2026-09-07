@@ -336,7 +336,7 @@ export function EnquirySection() {
                   disabled={isSubmitting}
                   className="group inline-flex h-12 w-full items-center justify-center gap-2 rounded-control bg-accent px-8 font-bold text-white transition-all duration-300 hover:bg-accent/90 disabled:opacity-70 sm:w-auto"
                 >
-                  <span>{isSubmitting ? "Sending..." : "Submit Enquiry"}</span>
+                  <span>{isSubmitting ? "Sending..." : "Submit"}</span>
                   {!isSubmitting && <ArrowRight className="size-4 text-white transition-transform group-hover:translate-x-1" />}
                 </button>
 

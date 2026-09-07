@@ -264,7 +264,7 @@ export function ContactPageContent() {
                     </>
                   ) : (
                     <>
-                      <span>Submit Enquiry</span>
+                      <span>Submit</span>
                       <ArrowRight className="size-4" />
                     </>
                   )}

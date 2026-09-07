@@ -42,6 +42,7 @@ export function ApplyNowModal() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
+  const scrollContainerRef = React.useRef<HTMLDivElement>(null);
 
   // Form State
   const [fullName, setFullName] = useState("");
@@ -68,6 +69,19 @@ export function ApplyNowModal() {
       }
     }
   }, [isOpen, initialData]);
+
+  // Auto-scroll to error message when it appears
+  useEffect(() => {
+    if (errorMessage && scrollContainerRef.current) {
+      const timer = setTimeout(() => {
+        scrollContainerRef.current?.scrollTo({
+          top: scrollContainerRef.current.scrollHeight,
+          behavior: "smooth",
+        });
+      }, 50);
+      return () => clearTimeout(timer);
+    }
+  }, [errorMessage]);
 
   const resetForm = () => {
     setFullName("");
@@ -127,6 +141,12 @@ export function ApplyNowModal() {
     } catch (err: unknown) {
       const msg = err instanceof Error ? err.message : "Something went wrong. Please try again or contact us on WhatsApp.";
       setErrorMessage(msg);
+      setTimeout(() => {
+        scrollContainerRef.current?.scrollTo({
+          top: scrollContainerRef.current.scrollHeight,
+          behavior: "smooth",
+        });
+      }, 80);
     } finally {
       setIsSubmitting(false);
     }
@@ -135,10 +155,10 @@ export function ApplyNowModal() {
   return (
     <Dialog open={isOpen} onOpenChange={handleOpenChange}>
       <DialogContent className="max-w-lg lg:max-w-xl w-[94vw] sm:w-full p-0 overflow-hidden rounded-[1.75rem] sm:rounded-[2rem] border border-navy/10 bg-white shadow-2xl max-h-[85vh] flex flex-col">
-        {/* Compact Modal Header */}
-        <div className="bg-muted/25 border-b border-navy/10 px-5 py-3.5 sm:px-6 sm:py-4 shrink-0 pr-12">
-          <DialogHeader className="space-y-0.5 text-left">
-            <DialogTitle className="text-xl sm:text-2xl font-bold tracking-tight text-navy">
+        {/* Ultra-Compact Modal Header */}
+        <div className="bg-muted/20 border-b border-navy/10 px-5 py-2.5 sm:px-6 sm:py-3 shrink-0 pr-12">
+          <DialogHeader className="space-y-0 text-left">
+            <DialogTitle className="text-lg sm:text-xl font-bold tracking-tight text-navy">
               Get Free Consultation
             </DialogTitle>
           </DialogHeader>
@@ -177,7 +197,8 @@ export function ApplyNowModal() {
           <form onSubmit={handleSubmit} className="flex flex-col flex-1 min-h-0 overflow-hidden">
             {/* Scrollable Form Body */}
             <div
-              className="overflow-y-auto px-5 py-4 sm:px-6 sm:py-5 flex-1 space-y-3.5 sm:space-y-4"
+              ref={scrollContainerRef}
+              className="overflow-y-auto px-5 py-3 sm:px-6 sm:py-3.5 flex-1 space-y-3 sm:space-y-3.5"
               style={{ scrollbarWidth: "thin" }}
             >
               {/* Hidden Honeypot Field */}
@@ -192,7 +213,7 @@ export function ApplyNowModal() {
               />
 
               {/* Row 1: Full Name & Mobile */}
-              <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 sm:gap-4">
+              <div className="grid grid-cols-1 gap-2.5 sm:grid-cols-2 sm:gap-3.5">
                 <div>
                   <label htmlFor="modal-name" className={labelClasses}>
                     Full Name <span className="text-accent">*</span>
@@ -224,7 +245,7 @@ export function ApplyNowModal() {
               </div>
 
               {/* Row 2: Email & Service Type */}
-              <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 sm:gap-4">
+              <div className="grid grid-cols-1 gap-2.5 sm:grid-cols-2 sm:gap-3.5">
                 <div>
                   <label htmlFor="modal-email" className={labelClasses}>
                     Email Address <span className="text-accent">*</span>
@@ -266,7 +287,7 @@ export function ApplyNowModal() {
               </div>
 
               {/* Row 3: Destination Country & Expected Travel Date */}
-              <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 sm:gap-4">
+              <div className="grid grid-cols-1 gap-2.5 sm:grid-cols-2 sm:gap-3.5">
                 <div>
                   <label htmlFor="modal-dest" className={labelClasses}>
                     Destination Country
@@ -295,7 +316,7 @@ export function ApplyNowModal() {
               </div>
 
               {/* Row 4: Nationality & Current Location */}
-              <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 sm:gap-4">
+              <div className="grid grid-cols-1 gap-2.5 sm:grid-cols-2 sm:gap-3.5">
                 <div>
                   <label htmlFor="modal-nationality" className={labelClasses}>
                     Nationality
@@ -334,21 +355,21 @@ export function ApplyNowModal() {
                   value={message}
                   onChange={(e) => setMessage(e.target.value)}
                   placeholder="Brief details regarding your visa or passport requirements..."
-                  className={textareaClasses}
+                  className={cn(textareaClasses, "h-16 sm:h-20 min-h-[60px] max-h-[100px]")}
                 />
               </div>
 
-              {/* Error Message Banner */}
+              {/* Error Message Banner with Auto-Scroll Anchor */}
               {errorMessage && (
-                <div className="flex items-start gap-2.5 rounded-xl border border-red-200 bg-red-50 p-3 text-xs font-semibold text-red-700">
-                  <AlertCircle className="size-4 shrink-0 mt-0.5" />
+                <div className="flex items-start gap-2.5 rounded-xl border border-red-200 bg-red-50 p-3 text-xs font-semibold text-red-700 animate-in fade-in-50 duration-200">
+                  <AlertCircle className="size-4 shrink-0 mt-0.5 text-red-600" />
                   <div className="flex-1">
                     <p>{errorMessage}</p>
                     <a
                       href="https://wa.me/918850201321"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="mt-1 inline-block underline hover:text-red-900"
+                      className="mt-1 inline-block font-bold text-red-700 underline hover:text-red-900"
                     >
                       Click here to contact us on WhatsApp
                     </a>
@@ -358,7 +379,7 @@ export function ApplyNowModal() {
             </div>
 
             {/* Sticky Footer Action Bar */}
-            <div className="sticky bottom-0 bg-white border-t border-navy/10 px-5 py-3.5 sm:px-6 sm:py-4 z-20 shrink-0 flex flex-col sm:flex-row gap-2.5 sm:gap-3 items-stretch sm:items-center justify-between shadow-[0_-4px_12px_rgba(0,0,0,0.03)]">
+            <div className="sticky bottom-0 bg-white border-t border-navy/10 px-5 py-2.5 sm:px-6 sm:py-3 z-20 shrink-0 flex flex-col sm:flex-row gap-2.5 sm:gap-3 items-stretch sm:items-center justify-between shadow-[0_-4px_12px_rgba(0,0,0,0.03)]">
               <button
                 type="submit"
                 disabled={isSubmitting}
@@ -371,7 +392,7 @@ export function ApplyNowModal() {
                   </>
                 ) : (
                   <>
-                    <span>Submit Enquiry</span>
+                    <span>Submit</span>
                     <ArrowRight className="size-4" />
                   </>
                 )}

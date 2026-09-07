@@ -1,6 +1,8 @@
+"use client";
+
 import Image from 'next/image';
-import Link from 'next/link';
-import { MessageCircle } from 'lucide-react';
+import { MessageCircle, ArrowRight } from 'lucide-react';
+import { useApplyModal } from '@/context/apply-modal-context';
 import { cn } from '@/lib/utils';
 
 export interface PreFooterCTAProps {
@@ -17,6 +19,7 @@ export function PreFooterCTA({
   title,
   className,
 }: PreFooterCTAProps) {
+  const { openApplyModal } = useApplyModal();
   const isDynamic = !!countryName;
 
   const headingText =
@@ -24,6 +27,12 @@ export function PreFooterCTA({
     (isDynamic
       ? `Planning Your Journey to ${countryName}? Let's Get Started.`
       : "Planning Your Next Destination? Let's Get Started.");
+
+  const handleOpenModal = () => {
+    openApplyModal({
+      destination: countryName || undefined,
+    });
+  };
 
   return (
     <section
@@ -54,18 +63,20 @@ export function PreFooterCTA({
               href="https://wa.me/918850201321"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex h-12 w-full sm:w-auto items-center justify-center gap-2 rounded-full bg-white px-8 text-sm font-bold text-navy whitespace-nowrap shrink-0 shadow-sm transition-all hover:scale-105 hover:bg-white/95"
+              className="inline-flex h-12 w-full sm:w-auto items-center justify-center gap-2 rounded-full bg-white px-8 text-sm font-bold text-navy whitespace-nowrap shrink-0 shadow-sm transition-all hover:scale-105 hover:bg-white/95 cursor-pointer"
             >
               <MessageCircle className="size-4 text-navy shrink-0" />
               <span>Connect on WhatsApp</span>
             </a>
 
-            <Link
-              href="/#contact"
-              className="inline-flex h-12 w-full sm:w-auto items-center justify-center rounded-full border border-white/40 bg-white/15 px-8 text-sm font-semibold text-white whitespace-nowrap shrink-0 backdrop-blur-xs transition-all hover:bg-white/25 hover:border-white/60"
+            <button
+              type="button"
+              onClick={handleOpenModal}
+              className="inline-flex h-12 w-full sm:w-auto items-center justify-center gap-2 rounded-full border border-white/40 bg-white/15 px-8 text-sm font-semibold text-white whitespace-nowrap shrink-0 backdrop-blur-xs transition-all hover:bg-white/25 hover:border-white/60 cursor-pointer"
             >
               <span>Request Guidance</span>
-            </Link>
+              <ArrowRight className="size-4" />
+            </button>
           </div>
         </div>
       </div>
