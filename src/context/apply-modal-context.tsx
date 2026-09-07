@@ -2,9 +2,11 @@
 
 import React, { createContext, useContext, useState, useCallback } from "react";
 
-interface ApplyModalInitialData {
+export interface ApplyModalInitialData {
   serviceType?: string;
   destination?: string;
+  travelDate?: string;
+  message?: string;
 }
 
 interface ApplyModalContextType {

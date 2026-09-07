@@ -83,7 +83,7 @@ export function SiteFooter() {
             <ul className="space-y-3.5 text-sm font-medium text-muted-foreground">
               <li>
                 <Link href="/visa-services/tourist-visitor" className="hover:text-navy transition-colors">
-                  Tourist Visa
+                  Tourist & Visitor Visa
                 </Link>
               </li>
               <li>
@@ -106,6 +106,11 @@ export function SiteFooter() {
                   Schengen Visa
                 </Link>
               </li>
+              <li>
+                <Link href="/visa-services" className="hover:text-navy transition-colors">
+                  All Visa Categories
+                </Link>
+              </li>
             </ul>
           </div>
 
@@ -121,8 +126,18 @@ export function SiteFooter() {
                 </Link>
               </li>
               <li>
+                <Link href="/#visa-finder" className="hover:text-navy transition-colors">
+                  Visa Finder
+                </Link>
+              </li>
+              <li>
                 <Link href="/document-checklist" className="hover:text-navy transition-colors">
                   Document Checklist
+                </Link>
+              </li>
+              <li>
+                <Link href="/b2b-services" className="hover:text-navy transition-colors">
+                  B2B Services
                 </Link>
               </li>
               <li>

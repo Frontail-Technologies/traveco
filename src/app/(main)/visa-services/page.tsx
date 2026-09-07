@@ -52,6 +52,46 @@ const SERVICES = [
       "Unified application preparation for the Schengen Area, covering tourist, business, and visiting family/friends categories across European countries.",
     image: "/images/services/schengen.jpg",
   },
+  {
+    id: "medical",
+    title: "Medical Visa",
+    slug: "tourist-visitor",
+    description:
+      "Documentation guidance for overseas medical treatment, patient attendants, hospital invitation letters, and medical clearance.",
+    image: "/images/destinations/singapore.jpg",
+  },
+  {
+    id: "family",
+    title: "Family / Dependent Visa",
+    slug: "tourist-visitor",
+    description:
+      "Support for spouse, child, or parent visit and dependent applications, including sponsorship proofs and relationship certificates.",
+    image: "/images/about/hero_consultation.jpg",
+  },
+  {
+    id: "conference",
+    title: "Conference / Event Visa",
+    slug: "business",
+    description:
+      "Visa documentation for delegates attending international summits, exhibitions, academic conferences, and cultural events.",
+    image: "/images/about/airport_terminal.jpg",
+  },
+  {
+    id: "evisa",
+    title: "eVisa / ETA",
+    slug: "tourist-visitor",
+    description:
+      "Rapid electronic visa and Electronic Travel Authorization processing for eligible destinations with digital submission assistance.",
+    image: "/images/hero/hero_travel_documents.jpg",
+  },
+  {
+    id: "voa",
+    title: "Visa-on-Arrival Guidance",
+    slug: "tourist-visitor",
+    description:
+      "Pre-departure documentation checks, required fees, and eligibility verification for international destinations offering visa-on-arrival.",
+    image: "/images/hero/hero_city_skyline.jpg",
+  },
 ];
 
 export default function VisaServicesHub() {

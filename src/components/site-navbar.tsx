@@ -19,18 +19,20 @@ const navbarNavigationItems = [
     href: "/visa-services", 
     hasDropdown: true,
     subItems: [
-      { label: "Tourist Visa", href: "/visa-services/tourist-visitor" },
+      { label: "Tourist / Visitor Visa", href: "/visa-services/tourist-visitor" },
       { label: "Business Visa", href: "/visa-services/business" },
       { label: "Student Visa", href: "/visa-services/student" },
       { label: "Transit Visa", href: "/visa-services/transit" },
       { label: "Schengen Visa", href: "/visa-services/schengen" },
+      { label: "All Visa Categories", href: "/visa-services" },
     ]
   },
   { label: "Passport Services", href: "/passport-services" },
+  { label: "Visa Finder", href: "/#visa-finder" },
   { label: "Document Checklist", href: "/document-checklist" },
-  { label: "How It Works", href: "/#process" },
+  { label: "B2B Services", href: "/b2b-services" },
   { label: "About Us", href: "/about" },
-  { label: "FAQs", href: "/#faq" },
+  { label: "FAQ", href: "/#faq" },
   { label: "Contact", href: "/#contact" },
 ];
 
@@ -163,7 +165,7 @@ export function SiteNavbar() {
             variant="secondary"
             className="h-9 rounded-control px-4 text-[13px] font-bold shadow-xs hover:bg-accent/90 cursor-pointer whitespace-nowrap"
           >
-            Get Free Consultation
+            Get Visa Assistance
           </Button>
         </motion.div>
 
@@ -255,7 +257,7 @@ export function SiteNavbar() {
             }}
             className="mt-6 h-11 w-full rounded-control text-[15px] font-bold cursor-pointer"
           >
-            Get Free Consultation
+            Get Visa Assistance
           </Button>
         </div>
       </div>
