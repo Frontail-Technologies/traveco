@@ -95,14 +95,15 @@ export function ApplyModal({ children }: ApplyModalProps) {
             <Input id="phone" name="phone" type="tel" required placeholder="+91 98765 43210" />
           </div>
           <div className="grid gap-2">
-            <Label htmlFor="visa-type">Visa Type</Label>
-            <Select name="visa-type" required defaultValue="b1-b2">
-              <SelectTrigger id="visa-type">
-                <SelectValue placeholder="Select Visa Type" />
+            <Label htmlFor="service-type">Service Type</Label>
+            <Select name="serviceType" required defaultValue="b1-b2">
+              <SelectTrigger id="service-type">
+                <SelectValue placeholder="Select Service Type" />
               </SelectTrigger>
               <SelectContent>
-                <SelectItem value="b1-b2">USA B1/B2 Tourist & Business Visa</SelectItem>
-                <SelectItem value="other">Other</SelectItem>
+                <SelectItem value="USA Tourist & Business Visa">USA Tourist & Business Visa</SelectItem>
+                <SelectItem value="Passport Services">Passport Services</SelectItem>
+                <SelectItem value="Other">Other</SelectItem>
               </SelectContent>
             </Select>
           </div>
