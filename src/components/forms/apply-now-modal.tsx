@@ -50,8 +50,6 @@ export function ApplyNowModal() {
   const [email, setEmail] = useState("");
   const [serviceType, setServiceType] = useState<string>("");
   const [destinationCountry, setDestinationCountry] = useState<string>("");
-  const [nationality, setNationality] = useState("");
-  const [currentCountry, setCurrentCountry] = useState("");
   const [expectedTravelDate, setExpectedTravelDate] = useState("");
   const [message, setMessage] = useState("");
   const [honeypot, setHoneypot] = useState("");
@@ -89,8 +87,6 @@ export function ApplyNowModal() {
     setEmail("");
     setServiceType("");
     setDestinationCountry("");
-    setNationality("");
-    setCurrentCountry("");
     setExpectedTravelDate("");
     setMessage("");
     setHoneypot("");
@@ -117,8 +113,6 @@ export function ApplyNowModal() {
         email,
         serviceType: serviceType || "Tourist Visa",
         destinationCountry: destinationCountry || undefined,
-        nationality: nationality || undefined,
-        currentCountry: currentCountry || undefined,
         expectedTravelDate: expectedTravelDate || undefined,
         message: message || undefined,
         _hp: honeypot,
@@ -178,7 +172,7 @@ export function ApplyNowModal() {
               <button
                 type="button"
                 onClick={() => handleOpenChange(false)}
-                className="inline-flex h-11 items-center justify-center rounded-control bg-accent px-8 text-sm font-bold text-white shadow-sm hover:bg-accent/90 transition-all cursor-pointer"
+                className="inline-flex h-12.5 sm:h-13 min-h-[48px] sm:min-h-[52px] items-center justify-center rounded-full bg-accent px-8 text-sm sm:text-base font-bold text-white shadow-sm hover:bg-accent/90 transition-all cursor-pointer"
               >
                 Done
               </button>
@@ -186,7 +180,7 @@ export function ApplyNowModal() {
                 href="https://wa.me/918850201321"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex h-11 items-center justify-center gap-2 rounded-control border border-navy/15 bg-white px-6 text-sm font-semibold text-navy hover:border-accent hover:text-accent shadow-2xs transition-all"
+                className="inline-flex h-12.5 sm:h-13 min-h-[48px] sm:min-h-[52px] items-center justify-center gap-2 rounded-full border border-navy/15 bg-white px-6 text-sm font-semibold text-navy hover:border-accent hover:text-accent shadow-2xs transition-all"
               >
                 <MessageCircle className="size-4 text-accent" />
                 <span>Chat on WhatsApp</span>
@@ -315,37 +309,7 @@ export function ApplyNowModal() {
                 </div>
               </div>
 
-              {/* Row 4: Nationality & Current Location */}
-              <div className="grid grid-cols-1 gap-2.5 sm:grid-cols-2 sm:gap-3.5">
-                <div>
-                  <label htmlFor="modal-nationality" className={labelClasses}>
-                    Nationality
-                  </label>
-                  <input
-                    id="modal-nationality"
-                    type="text"
-                    value={nationality}
-                    onChange={(e) => setNationality(e.target.value)}
-                    placeholder="e.g. Indian"
-                    className={fieldClasses}
-                  />
-                </div>
-                <div>
-                  <label htmlFor="modal-current" className={labelClasses}>
-                    Current Country / City
-                  </label>
-                  <input
-                    id="modal-current"
-                    type="text"
-                    value={currentCountry}
-                    onChange={(e) => setCurrentCountry(e.target.value)}
-                    placeholder="e.g. Mumbai, India"
-                    className={fieldClasses}
-                  />
-                </div>
-              </div>
-
-              {/* Row 5: Message / Requirement */}
+              {/* Row 4: Message / Requirement */}
               <div>
                 <label htmlFor="modal-message" className={labelClasses}>
                   Message / Requirement
@@ -379,21 +343,21 @@ export function ApplyNowModal() {
             </div>
 
             {/* Sticky Footer Action Bar */}
-            <div className="sticky bottom-0 bg-white border-t border-navy/10 px-5 py-2.5 sm:px-6 sm:py-3 z-20 shrink-0 flex flex-col sm:flex-row gap-2.5 sm:gap-3 items-stretch sm:items-center justify-between shadow-[0_-4px_12px_rgba(0,0,0,0.03)]">
+            <div className="sticky bottom-0 bg-white border-t border-navy/10 px-5 py-3 sm:px-6 sm:py-3.5 z-20 shrink-0 flex flex-col sm:flex-row gap-2.5 sm:gap-3 items-stretch sm:items-center justify-between shadow-[0_-4px_12px_rgba(0,0,0,0.03)]">
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="inline-flex h-11 items-center justify-center gap-2 rounded-control bg-accent px-7 text-sm font-bold text-white shadow-sm transition-all hover:bg-accent/90 disabled:opacity-60 flex-1 sm:flex-initial cursor-pointer"
+                className="inline-flex h-12.5 sm:h-13 min-h-[50px] sm:min-h-[52px] items-center justify-center gap-2.5 rounded-full bg-accent px-8 text-sm sm:text-base font-bold text-white shadow-md transition-all hover:bg-accent/90 hover:shadow-lg disabled:opacity-60 flex-1 sm:flex-initial cursor-pointer"
               >
                 {isSubmitting ? (
                   <>
-                    <Loader2 className="size-4 animate-spin" />
+                    <Loader2 className="size-4.5 animate-spin" />
                     <span>Submitting...</span>
                   </>
                 ) : (
                   <>
                     <span>Submit</span>
-                    <ArrowRight className="size-4" />
+                    <ArrowRight className="size-4.5" />
                   </>
                 )}
               </button>
@@ -402,7 +366,7 @@ export function ApplyNowModal() {
                 href="https://wa.me/918850201321"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex h-11 items-center justify-center gap-2 rounded-control border border-navy/15 bg-white px-5 text-xs sm:text-sm font-semibold text-navy hover:border-accent hover:text-accent shadow-2xs transition-all whitespace-nowrap justify-center"
+                className="inline-flex h-12.5 sm:h-13 min-h-[50px] sm:min-h-[52px] items-center justify-center gap-2 rounded-full border border-navy/15 bg-white px-6 text-sm font-semibold text-navy hover:border-accent hover:text-accent shadow-2xs transition-all whitespace-nowrap justify-center"
               >
                 <MessageCircle className="size-4 text-accent" />
                 <span>Chat on WhatsApp</span>
