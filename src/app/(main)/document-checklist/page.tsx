@@ -262,7 +262,7 @@ export default function DocumentChecklistPage() {
                 <h3 className="text-base font-bold text-navy">Note</h3>
               </div>
               <p className="text-sm text-muted-foreground leading-relaxed">
-                This checklist is a general preparation guide. Exact document requirements vary by destination, visa category, embassy/consulate rules and applicant circumstances. TRAVECO Mobility can help review your case and guide you with the applicable requirements.
+                This checklist is a general preparation guide for visa applications. Exact document requirements vary by destination, visa category, embassy/consulate rules and applicant circumstances. For passport-related documentation, contact TRAVECO for guidance based on your specific application type.
               </p>
             </div>
 

@@ -1,12 +1,14 @@
 import { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, ArrowRight, Sparkles } from "lucide-react";
+import { Button } from "@/components/ui/button";
 import { PreFooterCTA } from "@/components/pre-footer-cta";
 
 export const metadata: Metadata = {
   title: "Visa Services | TRAVECO Mobility",
-  description: "Professional visa documentation and application assistance across common tourist, business, student, work, transit, and Schengen visa requirements.",
+  description:
+    "Professional visa documentation and application assistance across common tourist, business, student, transit, and Schengen visa requirements.",
 };
 
 const SERVICES = [
@@ -14,42 +16,40 @@ const SERVICES = [
     id: "tourist-visitor",
     title: "Tourist & Visitor Visa",
     slug: "tourist-visitor",
-    description: "Documentation and application support for individuals and families traveling for tourism, visiting relatives, or short-term medical treatment.",
+    description:
+      "Documentation and application support for individuals and families traveling for tourism, visiting relatives, or short-term leisure.",
     image: "/images/services/tourist.jpg",
   },
   {
     id: "business",
     title: "Business Visa",
     slug: "business",
-    description: "Structured assistance for professionals attending conferences, meetings, trade fairs, or engaging in short-term commercial activities abroad.",
+    description:
+      "Structured assistance for professionals attending conferences, meetings, trade fairs, or engaging in short-term commercial activities abroad.",
     image: "/images/services/business.jpg",
   },
   {
     id: "student",
     title: "Student Visa",
     slug: "student",
-    description: "Comprehensive visa application support for students pursuing academic degrees, language courses, or exchange programs internationally.",
+    description:
+      "Comprehensive visa application support for students pursuing academic degrees, language courses, or exchange programs internationally.",
     image: "/images/services/student.jpg",
-  },
-  {
-    id: "work-employment",
-    title: "Work & Employment Visa",
-    slug: "work-employment",
-    description: "Guidance on documentation requirements for skilled workers, intracompany transferees, and professionals with secured overseas employment.",
-    image: "/images/services/work.jpg",
   },
   {
     id: "transit",
     title: "Transit Visa",
     slug: "transit",
-    description: "Assistance with short-duration transit visas required for passing through foreign airports en route to your final destination.",
+    description:
+      "Assistance with short-duration transit visas required for passing through foreign airports en route to your final destination.",
     image: "/images/services/transit.jpg",
   },
   {
     id: "schengen",
     title: "Schengen Visa",
     slug: "schengen",
-    description: "Unified application preparation for the Schengen Area, covering tourist, business, and visiting family/friends categories across European countries.",
+    description:
+      "Unified application preparation for the Schengen Area, covering tourist, business, and visiting family/friends categories across European countries.",
     image: "/images/services/schengen.jpg",
   },
 ];
@@ -69,7 +69,7 @@ export default function VisaServicesHub() {
                 Visa assistance for every kind of journey.
               </h1>
               <p className="text-muted-foreground text-base sm:text-lg leading-relaxed max-w-xl">
-                TRAVECO provides documentation and application assistance across common tourist, business, student, work, transit and Schengen visa requirements.
+                TRAVECO provides documentation and application assistance across common tourist, business, student, transit and Schengen visa requirements.
               </p>
             </div>
 
@@ -89,8 +89,8 @@ export default function VisaServicesHub() {
         </div>
       </section>
 
-      {/* SERVICES GRID */}
-      <section className="py-16 md:py-20 lg:py-24 bg-white">
+      {/* VISA SERVICES GRID */}
+      <section className="py-16 md:py-20 bg-white">
         <div className="mx-auto max-w-340 px-5 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
             {SERVICES.map((service) => (
@@ -129,6 +129,37 @@ export default function VisaServicesHub() {
                 </div>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* SEPARATE PASSPORT SERVICES SECTION / CARD */}
+      <section className="pb-16 md:pb-20 lg:pb-24 bg-white">
+        <div className="mx-auto max-w-340 px-5 sm:px-6 lg:px-8">
+          <div className="relative overflow-hidden rounded-[2rem] border border-navy/10 bg-muted/20 p-8 sm:p-10 lg:p-12 shadow-xs">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+              <div className="lg:col-span-8">
+                <div className="inline-flex items-center gap-2 rounded-full bg-accent/10 px-3.5 py-1 text-xs font-bold uppercase tracking-wider text-accent mb-3">
+                  <Sparkles className="size-3.5" />
+                  <span>Separate Service Category</span>
+                </div>
+                <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-navy tracking-tight mb-3">
+                  Passport Services
+                </h2>
+                <p className="text-muted-foreground text-base sm:text-lg leading-relaxed max-w-2xl">
+                  For new passport, renewal, re-issue and supporting document guidance.
+                </p>
+              </div>
+
+              <div className="lg:col-span-4 flex justify-start lg:justify-end">
+                <Button asChild variant="secondary" className="h-12 px-8 text-sm font-bold shadow-sm w-full sm:w-auto">
+                  <Link href="/passport-services" className="inline-flex items-center justify-center gap-2">
+                    <span>Explore Passport Services</span>
+                    <ArrowRight className="size-4" />
+                  </Link>
+                </Button>
+              </div>
+            </div>
           </div>
         </div>
       </section>

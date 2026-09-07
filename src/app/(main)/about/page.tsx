@@ -148,7 +148,7 @@ export default function AboutPage() {
 
               <div className="text-muted-foreground text-base leading-relaxed flex flex-col gap-4 mb-8">
                 <p>
-                  With 7+ years of hands-on visa operations experience, Sandeep has worked across visa processing for 100+ countries, covering tourist, business, student, work and transit applications. His experience spans UAE & GCC, Schengen, UK, USA, Canada, Australia, Asia-Pacific and African destinations.
+                  With 7+ years of hands-on visa operations experience, Sandeep has worked across visa processing for 100+ countries, covering tourist, business, student, transit and worldwide travel applications, as well as passport assistance. His experience spans UAE & GCC, Schengen, UK, USA, Canada, Australia, Asia-Pacific and African destinations.
                 </p>
                 <p>
                   Before building TRAVECO Mobility, he worked with Musafir.com and Explorer Travels, handling documentation review, online application filing, appointment coordination, visa-centre processes and client communication.

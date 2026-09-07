@@ -14,6 +14,7 @@ export interface ServiceLayoutProps {
   howWeAssist: string[];
   documentCategories: string[];
   considerations?: string[];
+  ctaButtonText?: string;
   ctaTitle?: string;
   ctaDescription?: string;
 }
@@ -61,6 +62,7 @@ export function ServiceLayout({
   howWeAssist,
   documentCategories,
   considerations = defaultConsiderations,
+  ctaButtonText,
   ctaTitle,
   ctaDescription,
 }: ServiceLayoutProps) {
@@ -86,7 +88,7 @@ export function ServiceLayout({
               <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 w-full sm:w-auto">
                 <Button asChild variant="secondary" size="lg" className="h-12 px-8 text-sm font-bold shadow-sm">
                   <Link href="/#contact" className="inline-flex items-center justify-center gap-2">
-                    <span>Get Visa Assistance</span>
+                    <span>{ctaButtonText || "Get Visa Assistance"}</span>
                     <ArrowRight className="size-4" />
                   </Link>
                 </Button>

@@ -271,26 +271,26 @@ export function EnquirySection() {
                 </div>
               </div>
 
-              {/* Row 3: Visa Type & Travel Date */}
+              {/* Row 3: Service Type & Travel Date */}
               <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
                 <div>
-                  <label htmlFor="visaType" className={labelClasses}>
-                    Visa Type
+                  <label htmlFor="serviceType" className={labelClasses}>
+                    Service Type
                   </label>
-                  <Select name="visaType">
+                  <Select name="serviceType">
                     <SelectTrigger
-                      id="visaType"
+                      id="serviceType"
                       className={cn(fieldClasses, "shadow-none data-[state=open]:border-accent data-[state=open]:ring-2 data-[state=open]:ring-accent/20")}
                     >
-                      <SelectValue placeholder="Select a category" />
+                      <SelectValue placeholder="Select a service" />
                     </SelectTrigger>
                     <SelectContent className="rounded-control border-navy/10 bg-white font-medium text-navy shadow-lg">
-                      <SelectItem value="Tourist / Visitor" className="cursor-pointer rounded-sm py-2.5 hover:bg-muted hover:text-navy focus:bg-muted focus:text-navy">Tourist / Visitor</SelectItem>
-                      <SelectItem value="Business" className="cursor-pointer rounded-sm py-2.5 hover:bg-muted hover:text-navy focus:bg-muted focus:text-navy">Business</SelectItem>
-                      <SelectItem value="Student" className="cursor-pointer rounded-sm py-2.5 hover:bg-muted hover:text-navy focus:bg-muted focus:text-navy">Student</SelectItem>
-                      <SelectItem value="Work / Employment" className="cursor-pointer rounded-sm py-2.5 hover:bg-muted hover:text-navy focus:bg-muted focus:text-navy">Work / Employment</SelectItem>
-                      <SelectItem value="Transit" className="cursor-pointer rounded-sm py-2.5 hover:bg-muted hover:text-navy focus:bg-muted focus:text-navy">Transit</SelectItem>
-                      <SelectItem value="Dependent / Family" className="cursor-pointer rounded-sm py-2.5 hover:bg-muted hover:text-navy focus:bg-muted focus:text-navy">Dependent / Family</SelectItem>
+                      <SelectItem value="Tourist Visa" className="cursor-pointer rounded-sm py-2.5 hover:bg-muted hover:text-navy focus:bg-muted focus:text-navy">Tourist Visa</SelectItem>
+                      <SelectItem value="Business Visa" className="cursor-pointer rounded-sm py-2.5 hover:bg-muted hover:text-navy focus:bg-muted focus:text-navy">Business Visa</SelectItem>
+                      <SelectItem value="Student Visa" className="cursor-pointer rounded-sm py-2.5 hover:bg-muted hover:text-navy focus:bg-muted focus:text-navy">Student Visa</SelectItem>
+                      <SelectItem value="Transit Visa" className="cursor-pointer rounded-sm py-2.5 hover:bg-muted hover:text-navy focus:bg-muted focus:text-navy">Transit Visa</SelectItem>
+                      <SelectItem value="Schengen Visa" className="cursor-pointer rounded-sm py-2.5 hover:bg-muted hover:text-navy focus:bg-muted focus:text-navy">Schengen Visa</SelectItem>
+                      <SelectItem value="Passport Services" className="cursor-pointer rounded-sm py-2.5 hover:bg-muted hover:text-navy focus:bg-muted focus:text-navy">Passport Services</SelectItem>
                       <SelectItem value="Other" className="cursor-pointer rounded-sm py-2.5 hover:bg-muted hover:text-navy focus:bg-muted focus:text-navy">Other</SelectItem>
                     </SelectContent>
                   </Select>

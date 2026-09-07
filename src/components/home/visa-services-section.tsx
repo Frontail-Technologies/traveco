@@ -24,11 +24,6 @@ const visaServices = [
     image: "/images/services/student.jpg",
   },
   {
-    title: "Work Visa",
-    href: "/visa-services/work-employment",
-    image: "/images/services/work.jpg",
-  },
-  {
     title: "Transit Visa",
     href: "/visa-services/transit",
     image: "/images/services/transit.jpg",
@@ -37,6 +32,11 @@ const visaServices = [
     title: "Schengen Visa",
     href: "/visa-services/schengen",
     image: "/images/services/schengen.jpg",
+  },
+  {
+    title: "Passport Services",
+    href: "/passport-services",
+    image: "/images/services/passport.jpg",
   },
 ];
 
@@ -64,7 +64,7 @@ export function VisaServicesSection() {
                 variants={fadeUp}
                 className="mt-3 text-3xl font-bold leading-[1.08] tracking-tight text-navy sm:text-4xl lg:text-5xl"
               >
-                Visa support for every kind of journey.
+                Visa and passport support for every journey.
               </motion.h2>
             </div>
 
@@ -73,7 +73,7 @@ export function VisaServicesSection() {
                 href="/visa-services"
                 className="group inline-flex items-center gap-1.5 text-sm font-semibold text-primary transition-colors hover:text-accent"
               >
-                Explore All Visa Services
+                Explore All Services
                 <ArrowUpRight className="size-4 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 text-accent" />
               </Link>
             </motion.div>

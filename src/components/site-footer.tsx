@@ -9,10 +9,10 @@ export function SiteFooter() {
     <footer className="bg-white text-navy font-sans border-t border-navy/10">
       {/* Main Footer Content */}
       <div className="mx-auto max-w-340 px-5 pt-16 pb-12 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 gap-12 lg:grid-cols-12 lg:gap-12">
+        <div className="grid grid-cols-1 gap-12 sm:grid-cols-2 lg:grid-cols-12 lg:gap-8">
           
-          {/* 1. BRAND & DIRECT CONTACT (Left Column ~45%) */}
-          <div className="flex flex-col lg:col-span-6 xl:col-span-5 pr-0 lg:pr-8">
+          {/* 1. BRAND & DIRECT CONTACT (Left Column) */}
+          <div className="flex flex-col sm:col-span-2 lg:col-span-4 xl:col-span-4 pr-0 lg:pr-6">
             <Link
               href="/"
               className="inline-block w-36 mb-5"
@@ -28,7 +28,7 @@ export function SiteFooter() {
             </Link>
 
             <p className="text-sm font-medium leading-[1.7] text-muted-foreground mb-6 max-w-md">
-              TRAVECO Mobility delivers structured visa advisory, thorough document verification, and personalized application assistance for worldwide travellers, students, and businesses.
+              TRAVECO Mobility delivers structured visa advisory, passport documentation assistance, thorough verification, and personalized application guidance for global travellers, students, and businesses.
             </p>
 
             {/* Direct Contact Info */}
@@ -75,20 +75,49 @@ export function SiteFooter() {
             </div>
           </div>
 
-          {/* 2. COMPANY (Middle Column) */}
-          <div className="flex flex-col lg:col-span-3 xl:col-span-3 lg:pl-6">
+          {/* 2. VISA SERVICES (Column 2) */}
+          <div className="flex flex-col lg:col-span-3 xl:col-span-3">
             <h3 className="text-sm font-bold text-navy mb-5">
-              Company
+              Visa Services
             </h3>
             <ul className="space-y-3.5 text-sm font-medium text-muted-foreground">
               <li>
-                <Link href="/visa-services" className="hover:text-navy transition-colors">
-                  Visa Services
+                <Link href="/visa-services/tourist-visitor" className="hover:text-navy transition-colors">
+                  Tourist Visa
                 </Link>
               </li>
               <li>
-                <Link href="/#process" className="hover:text-navy transition-colors">
-                  How It Works
+                <Link href="/visa-services/business" className="hover:text-navy transition-colors">
+                  Business Visa
+                </Link>
+              </li>
+              <li>
+                <Link href="/visa-services/student" className="hover:text-navy transition-colors">
+                  Student Visa
+                </Link>
+              </li>
+              <li>
+                <Link href="/visa-services/transit" className="hover:text-navy transition-colors">
+                  Transit Visa
+                </Link>
+              </li>
+              <li>
+                <Link href="/visa-services/schengen" className="hover:text-navy transition-colors">
+                  Schengen Visa
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+          {/* 3. EXPLORE / OTHER (Column 3) */}
+          <div className="flex flex-col lg:col-span-2 xl:col-span-2">
+            <h3 className="text-sm font-bold text-navy mb-5">
+              Explore
+            </h3>
+            <ul className="space-y-3.5 text-sm font-medium text-muted-foreground">
+              <li>
+                <Link href="/passport-services" className="hover:text-navy transition-colors">
+                  Passport Services
                 </Link>
               </li>
               <li>
@@ -98,7 +127,7 @@ export function SiteFooter() {
               </li>
               <li>
                 <Link href="/about" className="hover:text-navy transition-colors">
-                  About Us
+                  About TRAVECO
                 </Link>
               </li>
               <li>
@@ -114,8 +143,8 @@ export function SiteFooter() {
             </ul>
           </div>
 
-          {/* 3. LEGAL (Right Column) */}
-          <div className="flex flex-col lg:col-span-3 xl:col-span-4">
+          {/* 4. LEGAL (Column 4) */}
+          <div className="flex flex-col lg:col-span-3 xl:col-span-3">
             <h3 className="text-sm font-bold text-navy mb-5">
               Legal
             </h3>
@@ -158,7 +187,7 @@ export function SiteFooter() {
 
             {/* Regulatory Disclaimer Right */}
             <p className="text-[11px] font-medium leading-relaxed text-muted-foreground max-w-2xl order-1 lg:order-2 lg:text-right">
-              TRAVECO Mobility operates as an independent visa facilitation and documentation consultancy. We do not issue visas or represent official embassy, consulate, or government immigration authorities.
+              TRAVECO Mobility operates as an independent visa and passport documentation consultancy. We do not issue visas or passports, nor do we represent official embassy, consulate, or government passport authorities.
             </p>
 
           </div>
