@@ -17,33 +17,53 @@ interface PassportServiceCard {
 const PASSPORT_SERVICES: PassportServiceCard[] = [
   {
     id: "01",
-    title: "New Passport",
+    title: "New Passport Application",
     image: "/images/passport/new.jpg",
   },
   {
     id: "02",
-    title: "Passport Renewal",
+    title: "Passport Renewal / Re-issue",
     image: "/images/passport/renewal.jpg",
   },
   {
     id: "03",
-    title: "Passport Re-issue",
+    title: "Tatkal Passport Assistance",
     image: "/images/passport/reissue.jpg",
   },
   {
     id: "04",
-    title: "Address / Detail Update",
-    image: "/images/passport/update.jpg",
+    title: "Minor Passport Assistance",
+    image: "/images/about/hero_consultation.jpg",
   },
   {
     id: "05",
-    title: "Lost or Damaged Passport",
+    title: "Lost / Damaged Passport Guidance",
     image: "/images/passport/lost.jpg",
   },
   {
     id: "06",
-    title: "Supporting Document Assistance",
+    title: "Name / Address / Personal Details Change",
+    image: "/images/passport/update.jpg",
+  },
+  {
+    id: "07",
+    title: "Passport Appointment Assistance",
+    image: "/images/process/consultation.jpg",
+  },
+  {
+    id: "08",
+    title: "Document Verification",
     image: "/images/passport/docs.jpg",
+  },
+  {
+    id: "09",
+    title: "Police Verification Guidance",
+    image: "/images/process/document-review.jpg",
+  },
+  {
+    id: "10",
+    title: "Passport Application Tracking",
+    image: "/images/process/update.jpg",
   },
 ];
 
@@ -149,8 +169,8 @@ export function PassportServicesContent() {
             </p>
           </div>
 
-          {/* 6 Image-Led Cards Grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+          {/* 10 Image-Led Cards Grid */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
             {PASSPORT_SERVICES.map((service) => (
               <div
                 key={service.id}

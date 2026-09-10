@@ -83,7 +83,7 @@ export function SiteFooter() {
             <ul className="space-y-3.5 text-sm font-medium text-muted-foreground">
               <li>
                 <Link href="/visa-services/tourist-visitor" className="hover:text-navy transition-colors">
-                  Tourist Visa
+                  Tourist / Visitor Visa
                 </Link>
               </li>
               <li>
@@ -104,6 +104,16 @@ export function SiteFooter() {
               <li>
                 <Link href="/visa-services/schengen" className="hover:text-navy transition-colors">
                   Schengen Visa
+                </Link>
+              </li>
+              <li>
+                <Link href="/visa-services" className="hover:text-navy transition-colors">
+                  Medical & Family Visas
+                </Link>
+              </li>
+              <li>
+                <Link href="/visa-services" className="hover:text-navy transition-colors">
+                  eVisa & ETA Guidance
                 </Link>
               </li>
             </ul>

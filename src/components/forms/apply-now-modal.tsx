@@ -28,12 +28,21 @@ const textareaClasses =
   "h-20 sm:h-24 min-h-[75px] max-h-[120px] w-full resize-none rounded-control border border-navy/15 bg-white px-3.5 py-2.5 text-xs sm:text-sm font-medium text-navy outline-none transition-all placeholder:text-muted-foreground/60 focus-visible:border-accent focus-visible:ring-2 focus-visible:ring-accent/20 focus-visible:ring-offset-0";
 
 const SERVICE_OPTIONS = [
-  "Tourist Visa",
+  "Tourist / Visitor Visa",
   "Business Visa",
   "Student Visa",
   "Transit Visa",
+  "Medical Visa",
+  "Family / Dependent Visa",
+  "Conference / Event Visa",
   "Schengen Visa",
+  "eVisa / ETA",
+  "Visa-on-Arrival Guidance",
   "Passport Services",
+  "Documentation Services",
+  "Visa Refusal / Re-application",
+  "B2B Travel Agent Support",
+  "Travel Support",
   "Other",
 ];
 
@@ -64,6 +73,12 @@ export function ApplyNowModal() {
       }
       if (initialData?.destination) {
         setDestinationCountry(initialData.destination);
+      }
+      if (initialData?.travelDate) {
+        setExpectedTravelDate(initialData.travelDate);
+      }
+      if (initialData?.message) {
+        setMessage(initialData.message);
       }
     }
   }, [isOpen, initialData]);

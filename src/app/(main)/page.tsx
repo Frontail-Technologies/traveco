@@ -1,8 +1,12 @@
 import { HeroSection } from "@/components/home/hero-section";
+import { TrustStrip } from "@/components/home/trust-strip";
 import { VisaServicesSection } from "@/components/home/visa-services-section";
+import { DocumentationServicesSection } from "@/components/home/documentation-services-section";
+import { VisaRefusalSection } from "@/components/home/visa-refusal-section";
+import { B2BSupportSection } from "@/components/home/b2b-support-section";
+import { TravelSupportSection } from "@/components/home/travel-support-section";
 import { DestinationsSection } from "@/components/home/destinations-section";
 import { ProcessSection } from "@/components/home/process-section";
-import { DocumentAssistanceSection } from "@/components/home/document-assistance-section";
 import { WhyChooseSection } from "@/components/home/why-choose-section";
 import { AboutFounderSection } from "@/components/home/about-founder-section";
 import { FaqSection } from "@/components/home/faq-section";
@@ -30,11 +34,15 @@ export default function Home() {
       />
       <main className="bg-background text-foreground">
         <HeroSection />
+        <TrustStrip />
+        <VisaServicesSection />
+        <DocumentationServicesSection />
+        <VisaRefusalSection />
+        <B2BSupportSection />
+        <TravelSupportSection />
+        <DestinationsSection />
         <ProcessSection />
         <WhyChooseSection />
-        <VisaServicesSection />
-        <DocumentAssistanceSection />
-        <DestinationsSection />
         <AboutFounderSection />
         <EnquirySection />
         <FaqSection />
