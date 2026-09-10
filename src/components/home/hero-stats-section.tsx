@@ -37,7 +37,7 @@ const STATS = [
 
 export function HeroStatsSection() {
   return (
-    <section className="relative z-20 w-full bg-white py-8 sm:py-10 border-b border-navy/10 shadow-xs">
+    <section className="relative z-20 w-full bg-white pt-8 sm:pt-10 pb-4 sm:pb-6">
       <div className="mx-auto max-w-340 px-5 sm:px-6 lg:px-8">
         <motion.div
           initial="hidden"
