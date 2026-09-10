@@ -1,4 +1,5 @@
 import { HeroSection } from "@/components/home/hero-section";
+import { HeroStatsSection } from "@/components/home/hero-stats-section";
 import { VisaServicesSection } from "@/components/home/visa-services-section";
 import { DestinationsSection } from "@/components/home/destinations-section";
 import { ProcessSection } from "@/components/home/process-section";
@@ -31,7 +32,10 @@ export default function Home() {
         {/* 1. Hero with simple finder */}
         <HeroSection />
 
-        {/* 2. Visa & Passport Services (Max 6 curated cards) */}
+        {/* 2. Stats Section (3 Animated Stat Boxes) */}
+        <HeroStatsSection />
+
+        {/* 3. Visa & Passport Services (Max 6 curated cards) */}
         <VisaServicesSection />
 
         {/* 3. Popular Destinations */}

@@ -93,7 +93,7 @@ export function HeroSection() {
               variants={fadeUp}
               className="text-3xl sm:text-5xl lg:text-6xl font-[800] leading-[1.06] tracking-tight text-white drop-shadow-sm"
             >
-              Professional visa and passport assistance for 100+ countries.
+              Passport assistance and Global visa for 100+ countries.
             </motion.h1>
 
             <motion.p
