@@ -12,6 +12,7 @@ interface PassportServiceCard {
   id: string;
   title: string;
   image: string;
+  href?: string;
 }
 
 const PASSPORT_SERVICES: PassportServiceCard[] = [
@@ -19,31 +20,37 @@ const PASSPORT_SERVICES: PassportServiceCard[] = [
     id: "01",
     title: "New Passport Application",
     image: "/images/passport/new.jpg",
+    href: "/passport-services/new-passport",
   },
   {
     id: "02",
     title: "Passport Renewal / Re-issue",
     image: "/images/passport/renewal.jpg",
+    href: "/passport-services/renewal-reissue",
   },
   {
     id: "03",
     title: "Tatkal Passport Assistance",
-    image: "/images/passport/reissue.jpg",
+    image: "/images/passport/tatkal.jpg",
+    href: "/passport-services/tatkal",
   },
   {
     id: "04",
     title: "Minor Passport Assistance",
-    image: "/images/services/family.jpg",
+    image: "/images/passport/minor.jpg",
+    href: "/passport-services/minor",
   },
   {
     id: "05",
     title: "Lost / Damaged Passport Guidance",
     image: "/images/passport/lost.jpg",
+    href: "/passport-services/lost-damaged",
   },
   {
     id: "06",
     title: "Name / Address / Personal Details Change",
     image: "/images/passport/update.jpg",
+    href: "/passport-services/details-change",
   },
   {
     id: "07",
@@ -171,40 +178,60 @@ export function PassportServicesContent() {
 
           {/* 10 Image-Led Cards Grid */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-            {PASSPORT_SERVICES.map((service) => (
-              <div
-                key={service.id}
-                onClick={handleOpenModal}
-                role="button"
-                tabIndex={0}
-                onKeyDown={(e) => e.key === "Enter" && handleOpenModal()}
-                className="group relative flex flex-col overflow-hidden rounded-[2rem] border border-navy/10 bg-white shadow-xs transition-all duration-300 hover:shadow-lg hover:border-accent/30 cursor-pointer text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-accent"
-              >
-                {/* Card Image */}
-                <div className="relative aspect-4/3 w-full shrink-0 overflow-hidden bg-navy/5">
-                  <Image
-                    src={service.image}
-                    alt={service.title}
-                    fill
-                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                    className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
-                  />
-                  <div className="absolute left-4 top-4 flex size-8 items-center justify-center rounded-full bg-white/95 shadow-xs">
-                    <span className="text-xs font-bold text-navy">{service.id}</span>
+            {PASSPORT_SERVICES.map((service) => {
+              const CardContent = (
+                <>
+                  {/* Card Image */}
+                  <div className="relative aspect-4/3 w-full shrink-0 overflow-hidden bg-navy/5">
+                    <Image
+                      src={service.image}
+                      alt={service.title}
+                      fill
+                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                      className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                    />
+                    <div className="absolute left-4 top-4 flex size-8 items-center justify-center rounded-full bg-white/95 shadow-xs">
+                      <span className="text-xs font-bold text-navy">{service.id}</span>
+                    </div>
                   </div>
-                </div>
 
-                {/* Card Body — Title Only (No long paragraph) */}
-                <div className="flex items-center justify-between p-6">
-                  <h3 className="text-lg sm:text-xl font-bold text-navy transition-colors duration-300 group-hover:text-accent">
-                    {service.title}
-                  </h3>
-                  <div className="flex size-9 shrink-0 items-center justify-center rounded-full bg-accent/10 text-accent transition-all duration-300 group-hover:bg-accent group-hover:text-white">
-                    <ArrowRight className="size-4 transition-transform group-hover:translate-x-0.5" />
+                  {/* Card Body */}
+                  <div className="flex items-center justify-between p-6">
+                    <h3 className="text-lg sm:text-xl font-bold text-navy transition-colors duration-300 group-hover:text-accent">
+                      {service.title}
+                    </h3>
+                    <div className="flex size-9 shrink-0 items-center justify-center rounded-full bg-accent/10 text-accent transition-all duration-300 group-hover:bg-accent group-hover:text-white">
+                      <ArrowRight className="size-4 transition-transform group-hover:translate-x-0.5" />
+                    </div>
                   </div>
+                </>
+              );
+
+              if (service.href) {
+                return (
+                  <Link
+                    key={service.id}
+                    href={service.href}
+                    className="group relative flex flex-col overflow-hidden rounded-[2rem] border border-navy/10 bg-white shadow-xs transition-all duration-300 hover:shadow-lg hover:border-accent/30 cursor-pointer text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-accent"
+                  >
+                    {CardContent}
+                  </Link>
+                );
+              }
+
+              return (
+                <div
+                  key={service.id}
+                  onClick={() => openApplyModal({ serviceType: "Passport Services" })}
+                  role="button"
+                  tabIndex={0}
+                  onKeyDown={(e) => e.key === "Enter" && openApplyModal({ serviceType: "Passport Services" })}
+                  className="group relative flex flex-col overflow-hidden rounded-[2rem] border border-navy/10 bg-white shadow-xs transition-all duration-300 hover:shadow-lg hover:border-accent/30 cursor-pointer text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-accent"
+                >
+                  {CardContent}
                 </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </section>

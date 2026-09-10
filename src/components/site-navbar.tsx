@@ -32,12 +32,12 @@ const navbarNavigationItems = [
     href: "/passport-services", 
     hasDropdown: true,
     subItems: [
-      { label: "New Passport Application", href: "/passport-services" },
-      { label: "Passport Renewal / Re-issue", href: "/passport-services" },
-      { label: "Tatkal Passport Assistance", href: "/passport-services" },
-      { label: "Minor Passport Assistance", href: "/passport-services" },
-      { label: "Lost / Damaged Passport", href: "/passport-services" },
-      { label: "Name & Details Change", href: "/passport-services" },
+      { label: "New Passport Application", href: "/passport-services/new-passport" },
+      { label: "Passport Renewal / Re-issue", href: "/passport-services/renewal-reissue" },
+      { label: "Tatkal Passport Assistance", href: "/passport-services/tatkal" },
+      { label: "Minor Passport Assistance", href: "/passport-services/minor" },
+      { label: "Lost / Damaged Passport", href: "/passport-services/lost-damaged" },
+      { label: "Name & Details Change", href: "/passport-services/details-change" },
       { label: "All Passport Services", href: "/passport-services" },
     ]
   },
