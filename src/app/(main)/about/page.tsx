@@ -35,7 +35,7 @@ export default function AboutPage() {
               {/* CREDIBILITY STRIP */}
               <div className="flex flex-wrap items-center gap-y-3 gap-x-4 sm:gap-6 text-sm text-navy font-semibold mb-10 pb-8 border-b border-navy/10 w-full max-w-xl">
                 <div className="flex items-center gap-2">
-                  <span className="text-accent font-bold">7+ Years</span>
+                  <span className="text-accent font-bold">8+ Years</span>
                   <span className="text-muted-foreground font-medium">Visa Operations</span>
                 </div>
                 <div className="w-1 h-1 rounded-full bg-navy/20 shrink-0 hidden sm:block" />
@@ -149,7 +149,7 @@ export default function AboutPage() {
 
               <div className="text-muted-foreground text-base leading-relaxed flex flex-col gap-4 mb-8">
                 <p>
-                  With 7+ years of hands-on visa operations experience, Sandeep has worked across visa processing for 100+ countries, covering tourist, business, student, transit and worldwide travel applications, as well as passport assistance. His experience spans UAE & GCC, Schengen, UK, USA, Canada, Australia, Asia-Pacific and African destinations.
+                  With 8+ years of hands-on visa operations experience, Sandeep has worked across visa processing for 100+ countries, covering tourist, business, student, transit and worldwide travel applications, as well as passport assistance. His experience spans UAE & GCC, Schengen, UK, USA, Canada, Australia, Asia-Pacific and African destinations.
                 </p>
                 <p>
                   Before building TRAVECO Mobility, he worked with Musafir.com and Explorer Travels, handling documentation review, online application filing, appointment coordination, visa-centre processes and client communication.
@@ -159,7 +159,7 @@ export default function AboutPage() {
               {/* CREDIBILITY STATS */}
               <div className="grid grid-cols-3 gap-3 sm:gap-4 my-8">
                 <div className="rounded-[1.25rem] bg-muted/40 p-4 sm:p-5 border border-navy/5 shadow-2xs">
-                  <span className="text-2xl sm:text-3xl font-bold text-navy leading-none block mb-1.5">7+</span>
+                  <span className="text-2xl sm:text-3xl font-bold text-navy leading-none block mb-1.5">8+</span>
                   <span className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">Years Exp.</span>
                 </div>
                 <div className="rounded-[1.25rem] bg-muted/40 p-4 sm:p-5 border border-navy/5 shadow-2xs">

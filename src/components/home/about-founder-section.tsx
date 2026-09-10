@@ -61,7 +61,7 @@ export function AboutFounderSection() {
               variants={fadeUp}
               className="mt-3.5 sm:mt-4 text-sm sm:text-base leading-relaxed text-muted-foreground"
             >
-              With 7+ years of hands-on visa operations experience across 100+ countries, Sandeep founded TRAVECO Mobility to provide transparent, personalized documentation and application guidance for global travellers.
+              With 8+ years of hands-on visa operations experience across 100+ countries, Sandeep founded TRAVECO Mobility to provide transparent, personalized documentation and application guidance for global travellers.
             </motion.p>
 
             {/* Rounded Credibility Stats */}
@@ -70,7 +70,7 @@ export function AboutFounderSection() {
               className="mt-6 sm:mt-8 grid grid-cols-3 gap-3 sm:gap-4"
             >
               <div className="rounded-[1.25rem] bg-muted/40 p-3.5 sm:p-5 border border-navy/10 shadow-2xs">
-                <span className="text-xl sm:text-2xl lg:text-3xl font-bold text-navy block leading-none mb-1">7+</span>
+                <span className="text-xl sm:text-2xl lg:text-3xl font-bold text-navy block leading-none mb-1">8+</span>
                 <p className="text-[11px] sm:text-xs font-semibold uppercase tracking-wider text-muted-foreground">Years Exp.</p>
               </div>
               <div className="rounded-[1.25rem] bg-muted/40 p-3.5 sm:p-5 border border-navy/10 shadow-2xs">

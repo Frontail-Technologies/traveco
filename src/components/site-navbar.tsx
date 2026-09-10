@@ -27,7 +27,20 @@ const navbarNavigationItems = [
       { label: "All Visa Services", href: "/visa-services" },
     ]
   },
-  { label: "Passport Services", href: "/passport-services" },
+  { 
+    label: "Passport Services", 
+    href: "/passport-services", 
+    hasDropdown: true,
+    subItems: [
+      { label: "New Passport Application", href: "/passport-services" },
+      { label: "Passport Renewal / Re-issue", href: "/passport-services" },
+      { label: "Tatkal Passport Assistance", href: "/passport-services" },
+      { label: "Minor Passport Assistance", href: "/passport-services" },
+      { label: "Lost / Damaged Passport", href: "/passport-services" },
+      { label: "Name & Details Change", href: "/passport-services" },
+      { label: "All Passport Services", href: "/passport-services" },
+    ]
+  },
   { label: "Document Checklist", href: "/document-checklist" },
   { label: "How It Works", href: "/#process" },
   { label: "About Us", href: "/about" },
@@ -38,7 +51,7 @@ const navbarNavigationItems = [
 export function SiteNavbar() {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const [openDropdown, setOpenDropdown] = useState<string | null>(null);
   const pathname = usePathname();
   const { openApplyModal } = useApplyModal();
 
@@ -92,14 +105,15 @@ export function SiteNavbar() {
         >
           {navbarNavigationItems.map((link) => {
             const isActive = pathname === link.href || (link.href !== "/" && pathname?.startsWith(link.href));
+            const isThisDropdownOpen = openDropdown === link.href;
               
             if (link.hasDropdown && link.subItems) {
               return (
                 <div
                   key={link.href}
                   className="relative group"
-                  onMouseEnter={() => setIsDropdownOpen(true)}
-                  onMouseLeave={() => setIsDropdownOpen(false)}
+                  onMouseEnter={() => setOpenDropdown(link.href)}
+                  onMouseLeave={() => setOpenDropdown(null)}
                 >
                   <Link
                     href={link.href}
@@ -112,19 +126,19 @@ export function SiteNavbar() {
                     <ChevronDown className="w-3 h-3 opacity-70 group-hover:rotate-180 transition-transform duration-200" />
                   </Link>
                   <AnimatePresence>
-                    {isDropdownOpen && (
+                    {isThisDropdownOpen && (
                       <motion.div
                         initial={{ opacity: 0, y: 10 }}
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0, y: 10, transition: { duration: 0.1 } }}
                         transition={{ duration: 0.2 }}
-                        className="absolute top-[80%] left-0 w-60 bg-white rounded-[12px] shadow-[0_10px_40px_-10px_rgba(0,0,0,0.1)] border border-border overflow-hidden py-2 z-50"
+                        className="absolute top-[80%] left-0 w-64 bg-white rounded-[12px] shadow-[0_10px_40px_-10px_rgba(0,0,0,0.1)] border border-border overflow-hidden py-2 z-50"
                       >
                         {link.subItems.map((sub) => {
                           const isSubActive = pathname === sub.href;
                           return (
                             <Link
-                              key={sub.href}
+                              key={sub.label}
                               href={sub.href}
                               className={cn(
                                 "block px-5 py-2.5 text-[13px] transition-colors",
