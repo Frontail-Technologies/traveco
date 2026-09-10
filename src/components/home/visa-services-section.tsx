@@ -76,12 +76,6 @@ export function VisaServicesSection() {
               >
                 Visa and passport support for every journey.
               </motion.h2>
-              <motion.p
-                variants={fadeUp}
-                className="mt-2 text-sm sm:text-base text-muted-foreground"
-              >
-                End-to-end guidance, document preparation, and submission assistance for global travel.
-              </motion.p>
             </div>
 
             <motion.div variants={fadeUp} className="shrink-0 flex items-center gap-3">
