@@ -1,5 +1,4 @@
 import { HeroSection } from "@/components/home/hero-section";
-import { TrustStrip } from "@/components/home/trust-strip";
 import { VisaServicesSection } from "@/components/home/visa-services-section";
 import { DestinationsSection } from "@/components/home/destinations-section";
 import { ProcessSection } from "@/components/home/process-section";
@@ -32,31 +31,28 @@ export default function Home() {
         {/* 1. Hero with simple finder */}
         <HeroSection />
 
-        {/* 2. Trust Strip */}
-        <TrustStrip />
-
-        {/* 3. Visa & Passport Services (Max 6 curated cards) */}
+        {/* 2. Visa & Passport Services (Max 6 curated cards) */}
         <VisaServicesSection />
 
-        {/* 4. Popular Destinations */}
+        {/* 3. Popular Destinations */}
         <DestinationsSection />
 
-        {/* 5. How It Works */}
+        {/* 4. How It Works */}
         <ProcessSection />
 
-        {/* 6. Why TRAVECO */}
+        {/* 5. Why TRAVECO */}
         <WhyChooseSection />
 
-        {/* 7. Founder Profile */}
+        {/* 6. Founder Profile */}
         <AboutFounderSection />
 
-        {/* 8. More Ways We Can Help (Compact 3 cards) */}
+        {/* 7. More Ways We Can Help (Compact 3 cards) */}
         <MoreWaysSection />
 
-        {/* 9. Plan Your Journey Form */}
+        {/* 8. Plan Your Journey Form */}
         <EnquirySection />
 
-        {/* 10. FAQs */}
+        {/* 9. FAQs */}
         <FaqSection />
       </main>
     </>
