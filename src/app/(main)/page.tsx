@@ -38,25 +38,25 @@ export default function Home() {
         {/* 3. Visa & Passport Services (Max 6 curated cards) */}
         <VisaServicesSection />
 
-        {/* 3. Popular Destinations */}
+        {/* 4. Popular Destinations */}
         <DestinationsSection />
 
-        {/* 4. How It Works */}
+        {/* 5. How It Works */}
         <ProcessSection />
 
-        {/* 5. Why TRAVECO */}
+        {/* 6. Why TRAVECO */}
         <WhyChooseSection />
 
-        {/* 6. Founder Profile */}
+        {/* 7. Founder Profile */}
         <AboutFounderSection />
 
-        {/* 7. More Ways We Can Help (Compact 3 cards) */}
+        {/* 8. More Ways We Can Help (Compact 3 cards) */}
         <MoreWaysSection />
 
-        {/* 8. Plan Your Journey Form */}
+        {/* 9. Plan Your Journey Form */}
         <EnquirySection />
 
-        {/* 9. FAQs */}
+        {/* 10. FAQs */}
         <FaqSection />
       </main>
     </>
