@@ -8,7 +8,6 @@ import { AboutFounderSection } from "@/components/home/about-founder-section";
 import { MoreWaysSection } from "@/components/home/more-ways-section";
 import { EnquirySection } from "@/components/home/enquiry-section";
 import { FaqSection } from "@/components/home/faq-section";
-import { PreFooterCTA } from "@/components/pre-footer-cta";
 import { JsonLd } from "@/components/json-ld";
 import { faqData } from "@/data/faq";
 
@@ -59,9 +58,6 @@ export default function Home() {
 
         {/* 10. FAQs */}
         <FaqSection />
-
-        {/* 11. Pre-Footer CTA */}
-        <PreFooterCTA />
       </main>
     </>
   );

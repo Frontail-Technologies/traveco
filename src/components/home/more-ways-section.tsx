@@ -17,14 +17,14 @@ const SUPPORT_CARDS = [
     title: "Visa Refusal Support",
     icon: ShieldAlert,
     desc: "Review your refusal letter and prepare a stronger, compliant re-application.",
-    cta: "Get Guidance",
+    cta: "Get Visa Assistance",
     serviceType: "Visa Refusal / Re-application",
   },
   {
     title: "B2B Agent Support",
     icon: Handshake,
     desc: "Dedicated back-end visa operations, bulk filing, and partner support for agencies.",
-    cta: "Partner With Us",
+    cta: "Get Visa Assistance",
     serviceType: "B2B Travel Agent Support",
   },
 ];
@@ -33,17 +33,17 @@ export function MoreWaysSection() {
   const { openApplyModal } = useApplyModal();
 
   return (
-    <section className="bg-navy/[0.02] py-14 md:py-18 border-t border-navy/10 relative">
+    <section className="bg-navy/[0.02] py-12 sm:py-14 md:py-16 border-t border-navy/10 relative">
       <div className="mx-auto max-w-340 px-5 sm:px-6 lg:px-8">
         <motion.div
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-10%" }}
           variants={staggerContainer}
-          className="flex flex-col gap-8"
+          className="flex flex-col gap-6 sm:gap-8"
         >
           {/* Section Header */}
-          <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
+          <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-3">
             <div>
               <motion.p
                 variants={fadeUp}
@@ -61,7 +61,7 @@ export function MoreWaysSection() {
           </div>
 
           {/* 3 Compact High-Contrast Cards */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-5">
             {SUPPORT_CARDS.map((card, idx) => {
               const Icon = card.icon;
               return (
@@ -73,13 +73,13 @@ export function MoreWaysSection() {
                       serviceType: card.serviceType,
                     })
                   }
-                  className="group flex flex-col justify-between rounded-[1.5rem] border border-navy/15 bg-white p-6 shadow-2xs transition-all duration-300 hover:border-accent/50 hover:shadow-md cursor-pointer"
+                  className="group flex flex-col justify-between rounded-[1.5rem] border border-navy/15 bg-white p-5 sm:p-6 shadow-2xs transition-all duration-300 hover:border-accent/50 hover:shadow-md cursor-pointer"
                 >
                   <div>
-                    <div className="flex size-11 items-center justify-center rounded-2xl bg-accent/10 text-accent mb-4 transition-colors group-hover:bg-accent group-hover:text-white">
+                    <div className="flex size-10 sm:size-11 items-center justify-center rounded-2xl bg-accent/10 text-accent mb-3.5 transition-colors group-hover:bg-accent group-hover:text-white">
                       <Icon className="size-5" />
                     </div>
-                    <h3 className="text-lg font-bold text-navy group-hover:text-accent transition-colors mb-2">
+                    <h3 className="text-base sm:text-lg font-bold text-navy group-hover:text-accent transition-colors mb-1.5">
                       {card.title}
                     </h3>
                     <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">
@@ -87,7 +87,7 @@ export function MoreWaysSection() {
                     </p>
                   </div>
 
-                  <div className="mt-5 pt-3 border-t border-navy/5 flex items-center justify-between text-xs font-bold text-accent">
+                  <div className="mt-4 pt-3 border-t border-navy/5 flex items-center justify-between text-xs font-bold text-accent">
                     <span>{card.cta}</span>
                     <ArrowRight className="size-3.5 transition-transform group-hover:translate-x-1" />
                   </div>

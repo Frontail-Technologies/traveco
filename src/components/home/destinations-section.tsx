@@ -58,27 +58,27 @@ export function DestinationsSection() {
   const { openApplyModal } = useApplyModal();
 
   return (
-    <section className="relative overflow-hidden bg-white py-20 md:py-24 lg:py-28">
+    <section className="relative overflow-hidden bg-white py-14 sm:py-16 md:py-20 lg:py-24">
       <div className="mx-auto w-full max-w-340 px-5 sm:px-6 lg:px-8">
         <motion.div
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-10%" }}
           variants={staggerContainer}
-          className="flex flex-col gap-10 lg:gap-12"
+          className="flex flex-col gap-8 sm:gap-10 lg:gap-12"
         >
           {/* Header Row */}
           <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
             <div className="max-w-2xl">
               <motion.p
                 variants={fadeUp}
-                className="text-accent text-sm sm:text-base font-bold uppercase tracking-widest"
+                className="text-accent text-xs sm:text-sm font-bold uppercase tracking-widest"
               >
-                Popular Destinations
+                POPULAR DESTINATIONS
               </motion.p>
               <motion.h2
                 variants={fadeUp}
-                className="mt-3 text-3xl font-bold leading-[1.08] tracking-tight text-navy sm:text-4xl lg:text-5xl"
+                className="mt-2 text-3xl font-bold leading-[1.08] tracking-tight text-navy sm:text-4xl lg:text-5xl"
               >
                 Where will your journey take you?
               </motion.h2>
@@ -87,9 +87,9 @@ export function DestinationsSection() {
             <motion.div variants={fadeUp} className="shrink-0 sm:pb-1">
               <Link
                 href="/document-checklist"
-                className="group inline-flex items-center gap-1.5 text-sm font-semibold text-primary transition-colors hover:text-accent"
+                className="group inline-flex items-center gap-1.5 text-xs sm:text-sm font-semibold text-primary transition-colors hover:text-accent"
               >
-                View Document Checklist
+                <span>View Document Checklist</span>
                 <ArrowUpRight className="size-4 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 text-accent" />
               </Link>
             </motion.div>
@@ -102,7 +102,7 @@ export function DestinationsSection() {
                 key={dest.id}
                 variants={fadeUp}
                 className={cn(
-                  "group relative block overflow-hidden rounded-[2rem] bg-navy/5 shadow-sm transition-all duration-500 hover:shadow-lg cursor-pointer",
+                  "group relative block overflow-hidden rounded-[2rem] border border-navy/15 bg-navy/5 shadow-2xs transition-all duration-500 hover:shadow-lg hover:border-accent/40 cursor-pointer",
                   dest.className
                 )}
               >
@@ -130,7 +130,7 @@ export function DestinationsSection() {
                 />
 
                 {/* Subtle Red Accent Gradient Overlay on Image */}
-                <div className="absolute inset-0 z-10 bg-gradient-to-t from-accent/55 via-accent/15 to-transparent transition-opacity duration-500 pointer-events-none" />
+                <div className="absolute inset-0 z-10 bg-gradient-to-t from-accent/65 via-accent/20 to-transparent transition-opacity duration-500 pointer-events-none" />
 
                 {/* Text Only: Destination Name */}
                 <div className="absolute inset-x-0 bottom-0 z-20 p-6 sm:p-7 pointer-events-none">

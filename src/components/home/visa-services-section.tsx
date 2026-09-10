@@ -52,14 +52,14 @@ export function VisaServicesSection() {
   const { openApplyModal } = useApplyModal();
 
   return (
-    <section className="bg-white relative overflow-hidden py-16 md:py-20 lg:py-24">
+    <section className="bg-white relative overflow-hidden py-14 sm:py-16 md:py-20 lg:py-24">
       <div className="mx-auto w-full max-w-340 px-5 sm:px-6 lg:px-8">
         <motion.div
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-10%" }}
           variants={staggerContainer}
-          className="flex flex-col gap-10"
+          className="flex flex-col gap-8 sm:gap-10"
         >
           {/* Top Header Area */}
           <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
@@ -95,7 +95,7 @@ export function VisaServicesSection() {
               </Button>
               <Link
                 href="/visa-services"
-                className="group inline-flex items-center gap-1.5 text-sm font-semibold text-primary transition-colors hover:text-accent"
+                className="group inline-flex items-center gap-1.5 text-xs sm:text-sm font-semibold text-primary transition-colors hover:text-accent"
               >
                 <span>Explore All Services</span>
                 <ArrowUpRight className="size-4 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 text-accent" />
@@ -104,7 +104,7 @@ export function VisaServicesSection() {
           </div>
 
           {/* Exactly 6 Curated Visual Service Cards Grid */}
-          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3 sm:gap-6">
             {VISA_SERVICES.map((service) => (
               <motion.div key={service.title} variants={fadeUp}>
                 <Link

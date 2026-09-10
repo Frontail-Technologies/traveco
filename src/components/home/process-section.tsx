@@ -50,39 +50,39 @@ export function ProcessSection() {
   const { openApplyModal } = useApplyModal();
 
   return (
-    <section className="bg-white py-20 md:py-24 lg:py-28 relative overflow-hidden">
+    <section className="bg-white py-14 sm:py-16 md:py-20 lg:py-24 relative overflow-hidden">
       <div className="mx-auto w-full max-w-340 px-5 sm:px-6 lg:px-8">
         <motion.div
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-10%" }}
           variants={staggerContainer}
-          className="flex flex-col gap-10 lg:gap-12"
+          className="flex flex-col gap-8 sm:gap-10 lg:gap-12"
         >
           {/* Header */}
           <div className="max-w-2xl">
             <motion.p
               variants={fadeUp}
-              className="text-accent text-sm sm:text-base font-bold uppercase tracking-widest"
+              className="text-accent text-xs sm:text-sm font-bold uppercase tracking-widest"
             >
-              How It Works
+              HOW IT WORKS
             </motion.p>
             <motion.h2
               variants={fadeUp}
-              className="mt-3 text-3xl font-bold leading-[1.08] tracking-tight text-navy sm:text-4xl lg:text-5xl"
+              className="mt-2 text-3xl font-bold leading-[1.08] tracking-tight text-navy sm:text-4xl lg:text-5xl"
             >
               Simple process, clear guidance.
             </motion.h2>
           </div>
 
           {/* Process Grid (3 Columns x 2 Rows) */}
-          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 lg:gap-8">
-            {steps.map((step, index) => {
+          <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3 sm:gap-6 lg:gap-8">
+            {steps.map((step) => {
               return (
                 <motion.div
                   key={step.id}
                   variants={fadeUp}
-                  className="group flex flex-col overflow-hidden rounded-[2rem] border border-navy/10 bg-white shadow-xs transition-all duration-300 hover:shadow-md"
+                  className="group flex flex-col overflow-hidden rounded-[2rem] border border-navy/15 bg-white shadow-2xs transition-all duration-300 hover:shadow-md hover:border-accent/30"
                 >
                   {/* Image Container */}
                   <div className="relative aspect-16/10 w-full shrink-0 overflow-hidden bg-navy/5 sm:aspect-16/9">
@@ -95,20 +95,20 @@ export function ProcessSection() {
                     />
 
                     {/* Floating Step Number */}
-                    <div className="absolute left-6 top-6 flex size-10 items-center justify-center rounded-full bg-white shadow-md">
-                      <span className="text-sm font-bold text-navy">
+                    <div className="absolute left-5 top-5 sm:left-6 sm:top-6 flex size-9 sm:size-10 items-center justify-center rounded-full bg-white shadow-md">
+                      <span className="text-xs sm:text-sm font-bold text-navy">
                         {step.id}
                       </span>
                     </div>
                   </div>
 
                   {/* Content Container */}
-                  <div className="flex flex-1 flex-col justify-between p-6 sm:p-8 lg:p-10">
+                  <div className="flex flex-1 flex-col justify-between p-5 sm:p-7 lg:p-8">
                     <div>
-                      <h3 className="mb-3 text-xl font-bold leading-tight text-navy md:text-2xl">
+                      <h3 className="mb-2 text-lg sm:text-xl font-bold leading-tight text-navy md:text-2xl">
                         {step.title}
                       </h3>
-                      <p className="text-base leading-relaxed text-muted-foreground">
+                      <p className="text-xs sm:text-sm leading-relaxed text-muted-foreground">
                         {step.description}
                       </p>
                     </div>
@@ -132,7 +132,7 @@ export function ProcessSection() {
             {/* 6th Card: CTA with Accent Background & Subtle Image */}
             <motion.div
               variants={fadeUp}
-              className="group relative flex flex-col items-center justify-center overflow-hidden rounded-[2rem] bg-accent p-8 text-center text-white shadow-md transition-all duration-300 hover:shadow-xl lg:p-10"
+              className="group relative flex flex-col items-center justify-center overflow-hidden rounded-[2rem] bg-accent p-6 sm:p-8 text-center text-white shadow-md transition-all duration-300 hover:shadow-xl lg:p-10"
             >
               {/* Very Light Travel Background Image */}
               <Image
@@ -144,18 +144,18 @@ export function ProcessSection() {
               />
 
               <div className="relative z-10 flex flex-1 flex-col items-center justify-center">
-                <h3 className="mb-4 text-3xl sm:text-4xl font-bold leading-[1.1] text-white tracking-tight">
+                <h3 className="mb-3 text-2xl sm:text-3xl lg:text-4xl font-bold leading-[1.1] text-white tracking-tight">
                   Ready to start your journey?
                 </h3>
-                <p className="mb-8 text-base leading-relaxed text-white/90">
+                <p className="mb-6 text-xs sm:text-sm leading-relaxed text-white/90 max-w-xs">
                   Connect with our experts today and ensure your visa application is perfectly prepared.
                 </p>
                 <button
                   type="button"
                   onClick={() => openApplyModal()}
-                  className="inline-flex h-12 items-center justify-center rounded-full bg-white px-8 text-sm font-bold uppercase tracking-wider text-navy shadow-sm transition-all hover:scale-105 hover:bg-white/95 cursor-pointer"
+                  className="inline-flex h-11 sm:h-12 items-center justify-center rounded-full bg-white px-7 text-xs sm:text-sm font-bold text-navy shadow-sm transition-all hover:scale-105 hover:bg-white/95 cursor-pointer"
                 >
-                  Get Started
+                  Get Visa Assistance
                 </button>
               </div>
             </motion.div>

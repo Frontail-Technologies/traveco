@@ -18,12 +18,12 @@ import {
 import { DestinationCombobox } from "@/components/forms/destination-combobox";
 
 const fieldClasses =
-  "h-12 w-full rounded-control border border-navy/15 bg-white px-4 font-medium text-base text-navy outline-none transition-all placeholder:text-slate-500 focus-visible:border-accent focus-visible:ring-2 focus-visible:ring-accent/20 focus-visible:ring-offset-0 [&::-webkit-calendar-picker-indicator]:opacity-40 [&::-webkit-calendar-picker-indicator]:hover:opacity-80 [&::-webkit-calendar-picker-indicator]:cursor-pointer";
+  "h-12 w-full rounded-control border border-navy/20 bg-white px-4 font-medium text-base text-navy outline-none transition-all placeholder:text-slate-500 focus-visible:border-accent focus-visible:ring-2 focus-visible:ring-accent/20 focus-visible:ring-offset-0 [&::-webkit-calendar-picker-indicator]:opacity-60 [&::-webkit-calendar-picker-indicator]:hover:opacity-100 [&::-webkit-calendar-picker-indicator]:cursor-pointer";
 
 const textareaClasses =
-  "min-h-[100px] w-full resize-none rounded-control border border-navy/15 bg-white px-4 py-3.5 font-medium text-base text-navy outline-none transition-all placeholder:text-slate-500 focus-visible:border-accent focus-visible:ring-2 focus-visible:ring-accent/20 focus-visible:ring-offset-0";
+  "min-h-[100px] w-full resize-none rounded-control border border-navy/20 bg-white px-4 py-3.5 font-medium text-base text-navy outline-none transition-all placeholder:text-slate-500 focus-visible:border-accent focus-visible:ring-2 focus-visible:ring-accent/20 focus-visible:ring-offset-0";
 
-const labelClasses = "mb-1.5 block text-xs sm:text-sm font-semibold text-navy uppercase tracking-wider";
+const labelClasses = "mb-1.5 block text-xs sm:text-sm font-bold text-navy uppercase tracking-wider";
 
 export function EnquirySection() {
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -74,7 +74,7 @@ export function EnquirySection() {
   }
 
   return (
-    <section id="contact" className="relative bg-muted/40 border-t border-navy/5 py-16 md:py-20 lg:py-24 z-0">
+    <section id="contact" className="relative bg-muted/40 border-t border-navy/5 py-14 sm:py-16 md:py-20 lg:py-24 z-0">
       <div className="mx-auto w-full max-w-340 px-5 sm:px-6 lg:px-8">
         <motion.div
           initial="hidden"
@@ -88,7 +88,7 @@ export function EnquirySection() {
             {/* Small Consultation Image */}
             <motion.div
               variants={fadeUp}
-              className="relative aspect-16/10 w-full overflow-hidden rounded-[2rem] bg-navy/5 shadow-xs border border-navy/10 sm:aspect-16/9 lg:aspect-4/3"
+              className="relative aspect-16/10 w-full overflow-hidden rounded-[2rem] bg-navy/5 shadow-2xs border border-navy/15 sm:aspect-16/9 lg:aspect-4/3"
             >
               <Image
                 src="/images/faq-consultation.jpg"
@@ -102,13 +102,13 @@ export function EnquirySection() {
             {/* Contact Details Card with Accent Background */}
             <motion.div
               variants={fadeUp}
-              className="flex flex-col gap-5 rounded-[2rem] bg-accent p-6 sm:p-8 text-white shadow-sm"
+              className="flex flex-col gap-5 rounded-[2rem] bg-accent p-6 sm:p-7 text-white shadow-sm"
             >
               <div>
-                <p className="text-sm sm:text-base font-bold uppercase tracking-widest text-white/90">
-                  Contact Information
+                <p className="text-xs sm:text-sm font-bold uppercase tracking-widest text-white/90">
+                  CONTACT INFORMATION
                 </p>
-                <h3 className="text-xl font-bold text-white mt-1">
+                <h3 className="text-lg sm:text-xl font-bold text-white mt-1">
                   Need direct assistance?
                 </h3>
               </div>
@@ -189,7 +189,7 @@ export function EnquirySection() {
           {/* Right Column — Enquiry Form Card */}
           <motion.div
             variants={fadeUp}
-            className="rounded-[2rem] border border-navy/10 bg-white p-6 sm:p-8 lg:col-span-8 lg:p-10 shadow-xs"
+            className="rounded-[2rem] border border-navy/15 bg-white p-6 sm:p-8 lg:col-span-8 lg:p-10 shadow-2xs"
           >
             {/* Form Header */}
             <div>
