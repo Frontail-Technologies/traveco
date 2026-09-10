@@ -5,6 +5,7 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 
+import { AnimatedCounter } from "@/components/ui/animated-counter";
 import { fadeUp, staggerContainer } from "@/lib/motion-variants";
 
 export function AboutFounderSection() {
@@ -69,17 +70,29 @@ export function AboutFounderSection() {
               variants={fadeUp}
               className="mt-6 sm:mt-8 grid grid-cols-3 gap-3 sm:gap-4"
             >
-              <div className="rounded-[1.25rem] bg-muted/40 p-3.5 sm:p-5 border border-navy/10 shadow-2xs">
-                <span className="text-xl sm:text-2xl lg:text-3xl font-bold text-navy block leading-none mb-1">8+</span>
-                <p className="text-[11px] sm:text-xs font-semibold uppercase tracking-wider text-muted-foreground">Years Exp.</p>
+              <div className="rounded-[1.25rem] sm:rounded-[1.5rem] bg-white p-3.5 sm:p-5 border border-navy/15 shadow-xs transition-all duration-300 hover:border-accent/40 hover:shadow-sm">
+                <span className="text-xl sm:text-2xl lg:text-3xl font-extrabold text-navy block leading-none mb-1">
+                  <AnimatedCounter value={8} suffix="+" duration={1.5} />
+                </span>
+                <p className="text-[11px] sm:text-xs font-bold uppercase tracking-wider text-muted-foreground">
+                  Years Exp.
+                </p>
               </div>
-              <div className="rounded-[1.25rem] bg-muted/40 p-3.5 sm:p-5 border border-navy/10 shadow-2xs">
-                <span className="text-xl sm:text-2xl lg:text-3xl font-bold text-navy block leading-none mb-1">100+</span>
-                <p className="text-[11px] sm:text-xs font-semibold uppercase tracking-wider text-muted-foreground">Countries</p>
+              <div className="rounded-[1.25rem] sm:rounded-[1.5rem] bg-white p-3.5 sm:p-5 border border-navy/15 shadow-xs transition-all duration-300 hover:border-accent/40 hover:shadow-sm">
+                <span className="text-xl sm:text-2xl lg:text-3xl font-extrabold text-navy block leading-none mb-1">
+                  <AnimatedCounter value={100} suffix="+" duration={2} />
+                </span>
+                <p className="text-[11px] sm:text-xs font-bold uppercase tracking-wider text-muted-foreground">
+                  Countries
+                </p>
               </div>
-              <div className="rounded-[1.25rem] bg-muted/40 p-3.5 sm:p-5 border border-navy/10 shadow-2xs">
-                <span className="text-xl sm:text-2xl lg:text-3xl font-bold text-navy block leading-none mb-1">10,000+</span>
-                <p className="text-[11px] sm:text-xs font-semibold uppercase tracking-wider text-muted-foreground">Applications</p>
+              <div className="rounded-[1.25rem] sm:rounded-[1.5rem] bg-white p-3.5 sm:p-5 border border-navy/15 shadow-xs transition-all duration-300 hover:border-accent/40 hover:shadow-sm">
+                <span className="text-xl sm:text-2xl lg:text-3xl font-extrabold text-navy block leading-none mb-1">
+                  <AnimatedCounter value={10000} suffix="+" duration={2.2} formatThousands />
+                </span>
+                <p className="text-[11px] sm:text-xs font-bold uppercase tracking-wider text-muted-foreground">
+                  Applications
+                </p>
               </div>
             </motion.div>
 

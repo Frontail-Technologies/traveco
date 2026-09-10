@@ -5,6 +5,7 @@ import { ArrowUpRight } from "lucide-react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { OpenApplyButton } from "@/components/ui/open-apply-button";
+import { AnimatedCounter } from "@/components/ui/animated-counter";
 import { PreFooterCTA } from "@/components/pre-footer-cta";
 
 export const metadata: Metadata = {
@@ -158,17 +159,23 @@ export default function AboutPage() {
 
               {/* CREDIBILITY STATS */}
               <div className="grid grid-cols-3 gap-3 sm:gap-4 my-8">
-                <div className="rounded-[1.25rem] bg-muted/40 p-4 sm:p-5 border border-navy/5 shadow-2xs">
-                  <span className="text-2xl sm:text-3xl font-bold text-navy leading-none block mb-1.5">8+</span>
-                  <span className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">Years Exp.</span>
+                <div className="rounded-[1.25rem] sm:rounded-[1.5rem] bg-white p-4 sm:p-5 border border-navy/15 shadow-xs transition-all duration-300 hover:border-accent/40 hover:shadow-sm">
+                  <span className="text-2xl sm:text-3xl font-extrabold text-navy leading-none block mb-1.5">
+                    <AnimatedCounter value={8} suffix="+" duration={1.5} />
+                  </span>
+                  <span className="text-xs font-bold uppercase tracking-wider text-muted-foreground">Years Exp.</span>
                 </div>
-                <div className="rounded-[1.25rem] bg-muted/40 p-4 sm:p-5 border border-navy/5 shadow-2xs">
-                  <span className="text-2xl sm:text-3xl font-bold text-navy leading-none block mb-1.5">100+</span>
-                  <span className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">Countries</span>
+                <div className="rounded-[1.25rem] sm:rounded-[1.5rem] bg-white p-4 sm:p-5 border border-navy/15 shadow-xs transition-all duration-300 hover:border-accent/40 hover:shadow-sm">
+                  <span className="text-2xl sm:text-3xl font-extrabold text-navy leading-none block mb-1.5">
+                    <AnimatedCounter value={100} suffix="+" duration={2} />
+                  </span>
+                  <span className="text-xs font-bold uppercase tracking-wider text-muted-foreground">Countries</span>
                 </div>
-                <div className="rounded-[1.25rem] bg-muted/40 p-4 sm:p-5 border border-navy/5 shadow-2xs">
-                  <span className="text-2xl sm:text-3xl font-bold text-navy leading-none block mb-1.5">10,000+</span>
-                  <span className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">Applications</span>
+                <div className="rounded-[1.25rem] sm:rounded-[1.5rem] bg-white p-4 sm:p-5 border border-navy/15 shadow-xs transition-all duration-300 hover:border-accent/40 hover:shadow-sm">
+                  <span className="text-2xl sm:text-3xl font-extrabold text-navy leading-none block mb-1.5">
+                    <AnimatedCounter value={10000} suffix="+" duration={2.2} formatThousands />
+                  </span>
+                  <span className="text-xs font-bold uppercase tracking-wider text-muted-foreground">Applications</span>
                 </div>
               </div>
             </div>
