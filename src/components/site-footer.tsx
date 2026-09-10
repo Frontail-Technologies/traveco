@@ -107,13 +107,8 @@ export function SiteFooter() {
                 </Link>
               </li>
               <li>
-                <Link href="/visa-services" className="hover:text-navy transition-colors">
-                  Medical & Family Visas
-                </Link>
-              </li>
-              <li>
-                <Link href="/visa-services" className="hover:text-navy transition-colors">
-                  eVisa & ETA Guidance
+                <Link href="/visa-services" className="hover:text-navy transition-colors font-semibold text-accent">
+                  Explore All Visa Categories →
                 </Link>
               </li>
             </ul>
@@ -137,7 +132,7 @@ export function SiteFooter() {
               </li>
               <li>
                 <Link href="/about" className="hover:text-navy transition-colors">
-                  About TRAVECO
+                  About Us
                 </Link>
               </li>
               <li>
@@ -156,7 +151,7 @@ export function SiteFooter() {
           {/* 4. LEGAL (Column 4) */}
           <div className="flex flex-col lg:col-span-3 xl:col-span-3">
             <h3 className="text-sm font-bold text-navy mb-5">
-              Legal
+              Legal & Support
             </h3>
             <ul className="space-y-3.5 text-sm font-medium text-muted-foreground">
               <li>
@@ -176,7 +171,7 @@ export function SiteFooter() {
               </li>
               <li>
                 <Link href="/refund-and-cancellation" className="hover:text-navy transition-colors">
-                  Refund & Cancellation Policy
+                  Refund Policy
                 </Link>
               </li>
             </ul>
