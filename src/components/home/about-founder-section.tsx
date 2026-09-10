@@ -68,29 +68,29 @@ export function AboutFounderSection() {
             {/* Rounded Credibility Stats */}
             <motion.div
               variants={fadeUp}
-              className="mt-6 sm:mt-8 grid grid-cols-3 gap-3 sm:gap-4"
+              className="mt-6 sm:mt-8 grid grid-cols-3 gap-2 sm:gap-4"
             >
-              <div className="rounded-[1.25rem] sm:rounded-[1.5rem] bg-white p-3.5 sm:p-5 border border-navy/15 shadow-xs transition-all duration-300 hover:border-accent/40 hover:shadow-sm">
+              <div className="rounded-2xl sm:rounded-[1.5rem] bg-white p-2.5 sm:p-4 md:p-5 border border-navy/15 text-center md:text-left shadow-xs transition-all duration-300 hover:border-accent/40 hover:shadow-sm">
                 <span className="text-xl sm:text-2xl lg:text-3xl font-extrabold text-navy block leading-none mb-1">
                   <AnimatedCounter value={8} suffix="+" duration={1.5} />
                 </span>
-                <p className="text-[11px] sm:text-xs font-bold uppercase tracking-wider text-muted-foreground">
+                <p className="text-[10px] sm:text-xs font-bold uppercase tracking-wider text-muted-foreground">
                   Years Exp.
                 </p>
               </div>
-              <div className="rounded-[1.25rem] sm:rounded-[1.5rem] bg-white p-3.5 sm:p-5 border border-navy/15 shadow-xs transition-all duration-300 hover:border-accent/40 hover:shadow-sm">
+              <div className="rounded-2xl sm:rounded-[1.5rem] bg-white p-2.5 sm:p-4 md:p-5 border border-navy/15 text-center md:text-left shadow-xs transition-all duration-300 hover:border-accent/40 hover:shadow-sm">
                 <span className="text-xl sm:text-2xl lg:text-3xl font-extrabold text-navy block leading-none mb-1">
                   <AnimatedCounter value={100} suffix="+" duration={2} />
                 </span>
-                <p className="text-[11px] sm:text-xs font-bold uppercase tracking-wider text-muted-foreground">
+                <p className="text-[10px] sm:text-xs font-bold uppercase tracking-wider text-muted-foreground">
                   Countries
                 </p>
               </div>
-              <div className="rounded-[1.25rem] sm:rounded-[1.5rem] bg-white p-3.5 sm:p-5 border border-navy/15 shadow-xs transition-all duration-300 hover:border-accent/40 hover:shadow-sm">
+              <div className="rounded-2xl sm:rounded-[1.5rem] bg-white p-2.5 sm:p-4 md:p-5 border border-navy/15 text-center md:text-left shadow-xs transition-all duration-300 hover:border-accent/40 hover:shadow-sm">
                 <span className="text-xl sm:text-2xl lg:text-3xl font-extrabold text-navy block leading-none mb-1">
                   <AnimatedCounter value={10000} suffix="+" duration={2.2} formatThousands />
                 </span>
-                <p className="text-[11px] sm:text-xs font-bold uppercase tracking-wider text-muted-foreground">
+                <p className="text-[10px] sm:text-xs font-bold uppercase tracking-wider text-muted-foreground">
                   Applications
                 </p>
               </div>
