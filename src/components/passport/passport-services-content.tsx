@@ -33,7 +33,7 @@ const PASSPORT_SERVICES: PassportServiceCard[] = [
   {
     id: "04",
     title: "Minor Passport Assistance",
-    image: "/images/about/hero_consultation.jpg",
+    image: "/images/services/family.jpg",
   },
   {
     id: "05",

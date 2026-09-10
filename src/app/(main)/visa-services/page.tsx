@@ -58,7 +58,7 @@ const SERVICES = [
     slug: "tourist-visitor",
     description:
       "Documentation guidance for overseas medical treatment, patient attendants, hospital invitation letters, and medical clearance.",
-    image: "/images/destinations/singapore.jpg",
+    image: "/images/services/medical.jpg",
   },
   {
     id: "family",
@@ -66,7 +66,7 @@ const SERVICES = [
     slug: "tourist-visitor",
     description:
       "Support for spouse, child, or parent visit and dependent applications, including sponsorship proofs and relationship certificates.",
-    image: "/images/about/hero_consultation.jpg",
+    image: "/images/services/family.jpg",
   },
   {
     id: "conference",
@@ -74,7 +74,7 @@ const SERVICES = [
     slug: "business",
     description:
       "Visa documentation for delegates attending international summits, exhibitions, academic conferences, and cultural events.",
-    image: "/images/about/airport_terminal.jpg",
+    image: "/images/services/conference.jpg",
   },
   {
     id: "evisa",
@@ -82,7 +82,7 @@ const SERVICES = [
     slug: "tourist-visitor",
     description:
       "Rapid electronic visa and Electronic Travel Authorization processing for eligible destinations with digital submission assistance.",
-    image: "/images/hero/hero_travel_documents.jpg",
+    image: "/images/services/evisa.jpg",
   },
   {
     id: "voa",
@@ -90,7 +90,7 @@ const SERVICES = [
     slug: "tourist-visitor",
     description:
       "Pre-departure documentation checks, required fees, and eligibility verification for international destinations offering visa-on-arrival.",
-    image: "/images/hero/hero_city_skyline.jpg",
+    image: "/images/services/voa.jpg",
   },
 ];
 
